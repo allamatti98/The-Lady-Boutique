@@ -52,7 +52,7 @@ def loginpage(request):
             messages.info(request,'Username or Password is Incorrect. Credentials are Case-Sensitive')
             return redirect ('login')
     else:
-        return render(request,'login.html',{})
+        return render(request,'Login.html',{})
 
 def logoutview(request):
     logout(request)
