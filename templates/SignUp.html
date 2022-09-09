@@ -4,13 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "/static/Shujaa.js"></script>
     <title>Sign Up</title>
 </head>
 <body>
     <h1>Sign Up</h1>
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
     <form action="" method="post">
         {% csrf_token %}
-        
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" placeholder="eg alexhunter21" id="username" name="Username" required></td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td>Email Address</td>
+            <td><input type="email" placeholder="eg mralex@gmail.com" name="Email" required></td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td>Contact:</td>
+            <td><input type="text" name="Contact" id="" placeholder="eg 07800123123" maxlength="10" required></td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td>Gender:</td>
+            <td><input type="radio" name="Gender" value="Male" required>Male</td>
+            <td><input type="radio" name="Gender" value="Female" required>Female</td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td> <label for="">Location:</label></td>
+            <td>
+                <select name="Location" id="">
+               
+                    <option value="Kampala">Kampala</option>
+                    <option value="Wakiso">Wakiso</option>
+                    <option value="Mukono">Mukono</option>
+                </select>    
+            </td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" placeholder="eg Joe#1234$" id="password1" name="Password1" required></td>
+        </tr>
+        <br>
+        <br>
+        <br>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" placeholder="eg Joe#1234$" id="password2" name="Password2"required></td>
+        </tr>
+        <br>
+        <br>
+        <button type="submit">Sign Up</button>
     </form>
 </body>
 </html>
