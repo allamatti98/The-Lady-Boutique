@@ -21,8 +21,8 @@
 				<span>Username</span>
 				<input type="text" id="username" name="Username" placeholder="eg alexhunter23" minlength="3" required>
 				<ul class="input-requirements">
-					<li>At least 3 characters long</li>
-					<li>Must only contain letters and numbers (no special characters)</li>
+					<li>Username must conatiain more than 2 characters</li>
+					<li>Username must comprise of only letters and numbers ie no [!@#$%^&*] symbols allowed</li>
 				</ul>
             </label>
             <label for="email">
@@ -67,8 +67,11 @@
 			</label>
 			<br> <br>
 			<button type = "submit">Sign Up</button>
+            <div>
+                <a href="/customers/logout">Log Out</a>
+            </div>
         </form>
     </div>
-    <script src=""></script>
+    <script src="{% static 'js/Shujaa.js' %}"></script>
 </body>
 </html>
