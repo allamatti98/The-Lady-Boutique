@@ -8,14 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <form action="" class="registration" id = "registration">
+        <form action="" method="post" class="registration" id = "registration">
+            {% csrf_token %}
             <h1>Sign Up Form</h1>
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
             <label for="username">
 				<span>Username</span>
-				<input type="text" id="username" minlength="3" required>
+				<input type="text" id="username" name="Username" placeholder="eg alexhunter23" minlength="3" required>
 				<ul class="input-requirements">
 					<li>At least 3 characters long</li>
 					<li>Must only contain letters and numbers (no special characters)</li>
@@ -23,12 +24,30 @@
             </label>
             <label for="email">
                 <span>Email</span>
-                <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <input type="email" id="email" name="Email" placeholder="eg alexhunter@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email address" required>
+            </label> <br> <br> <br>
+            <label for="contact">
+                <span>Contact</span>
+                <input type="tel" id="contact" name="Contact" pattern="[0-9]{10}" title="Contact must be 10 *DIGITS*." required>
+            </label> <br> <br> <br>
+            <label for="gender">
+                <span>Gender</span>
+                <input type="radio" name="Gender" value="Male" required>Male
+                <input type="radio" name="Gender" value="Female" required>Female
+            </label> <br> <br> <br>
+            <label for="location">
+                Location
+                <select name="Location" id="location">
+                    <option value="NULL">-------</option>
+                    <option value="Kampala">Kampala</option>
+                    <option value="Wakiso">Wakiso</option>
+                    <option value="Mukono">Mukono</option>
+                </select> <br> <br> <br>
             </label>
             <label for="password">
 				<span>Password</span>
 
-				<input type="password" id="password" maxlength="100" minlength="8" required>
+				<input type="password" name="Password1"id="password" maxlength="100" minlength="8" required>
 
 				<ul class="input-requirements">
 					<li>At least 8 characters long (and less than 100 characters)</li>
@@ -41,10 +60,10 @@
 
 			<label for="password_repeat">
 				<span>Confirm Password</span>
-				<input type="password" id="password_repeat" maxlength="100" minlength="8" required>
+				<input type="password" name="Password2" id="password_repeat" maxlength="100" minlength="8" required>
 			</label>
-			<br>
-			<button type = "submit"></button>
+			<br> <br>
+			<button type = "submit">Sign Up</button>
         </form>
     </div>
 </body>

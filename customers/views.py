@@ -25,13 +25,14 @@ def signuppage(request):
                 messages.info(request,'This username is nolonger available')
                 return redirect('signup')
             else:
-                user = User.objects.create_user(username = username, email = email, password = password1)
-                user.save()
+                # user = User.objects.create_user(username = username, email = email, password = password1)
+                # user.save()
 
-                user_model = User.objects.get(username = username)
-                new_profile = Customer.objects.create(user = user_model, id_user = user_model.id, contact = contact, gender = gender, location = location)
-                new_profile.save()
-                return redirect('login')
+                # user_model = User.objects.get(username = username)
+                # new_profile = Customer.objects.create(user = user_model, id_user = user_model.id, contact = contact, gender = gender, location = location)
+                # new_profile.save()
+                # return redirect('login')
+                pass
         else:
             messages.info(request,'Passwords do not match')
             return redirect ('signup')
