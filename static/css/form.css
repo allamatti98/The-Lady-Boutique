@@ -31,10 +31,10 @@
   --fh-button-height: 40px;
   --fh-button-width: 100%;
   --fh-button-max-width: 200px;
-  --fh-button-font-color: var(--fh-font-color);
-  --fh-button-bg-color: rgba(255, 219, 58,0.3);
-  --fh-button-hover-bg-color: rgb(255, 219, 58);
-  --fh-button-hover-font-color: var(--fh-font-color);
+  --fh-button-font-color: black;
+  --fh-button-bg-color: whitesmoke;
+  --fh-button-hover-bg-color: royalblue;
+  --fh-button-hover-font-color: white;
 
   /* Layout */
   --fh-layout-display: block;

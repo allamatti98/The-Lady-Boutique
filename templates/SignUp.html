@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit = no">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formstyle.css' %}">
     <title>Sign Up Page</title>
 </head>
 <body>
@@ -26,16 +28,16 @@
             <label for="email">
                 <span>Email</span>
                 <input type="email" id="email" name="Email" placeholder="eg alexhunter@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email address" required>
-            </label> <br> <br> <br>
+            </label>
             <label for="contact">
                 <span>Contact</span>
                 <input type="tel" id="contact" name="Contact" pattern="[0-9]{10}" title="Contact must be 10 *DIGITS*." required>
-            </label> <br> <br> <br>
+            </label> <br>
             <label for="gender">
-                <span>Gender</span>
-                <input type="radio" name="Gender" value="Male" required>Male
-                <input type="radio" name="Gender" value="Female" required>Female
-            </label> <br> <br> <br>
+                <span>Gender: </span>
+                <input type="radio" name="Gender" value="Male" required> Male
+                <input type="radio" name="Gender" value="Female" required> Female
+            </label> <br>
             <label for="location">
                 Location
                 <select name="Location" id="location">
@@ -43,7 +45,7 @@
                     <option value="Kampala">Kampala</option>
                     <option value="Wakiso">Wakiso</option>
                     <option value="Mukono">Mukono</option>
-                </select> <br> <br> <br>
+                </select>
             </label>
             <label for="password">
 				<span>Password</span>
