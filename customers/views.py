@@ -48,7 +48,7 @@ def loginpage(request):
 
         if user is not None:
             login(request, user)
-            return redirect ('signup')
+            return redirect ('/')
         else:
             messages.info(request,'Username or Password is Incorrect. Credentials are Case-Sensitive')
             return redirect ('login')
@@ -57,4 +57,4 @@ def loginpage(request):
 
 def logoutview(request):
     logout(request)
-    return redirect('/customers/login')
+    return redirect('/')
