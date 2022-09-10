@@ -10,6 +10,9 @@
     <div class="container">
         <form action="" class="registration" id = "registration">
             <h1>Sign Up Form</h1>
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
             <label for="username">
 				<span>Username</span>
 				<input type="text" id="username" minlength="3" required>
@@ -17,6 +20,10 @@
 					<li>At least 3 characters long</li>
 					<li>Must only contain letters and numbers (no special characters)</li>
 				</ul>
+            </label>
+            <label for="email">
+                <span>Email</span>
+                <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
             </label>
             <label for="password">
 				<span>Password</span>
@@ -36,10 +43,8 @@
 				<span>Confirm Password</span>
 				<input type="password" id="password_repeat" maxlength="100" minlength="8" required>
 			</label>
-
 			<br>
-
-			<input type="submit">
+			<button type = "submit"></button>
         </form>
     </div>
 </body>
