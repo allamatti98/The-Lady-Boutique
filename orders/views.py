@@ -5,4 +5,4 @@ def item_list(request):
     context ={
         'items': Item.objects.all()
     }
-    return render(request,"ItemList.html", context)
+    return render(request,"HomePage.html", context)
