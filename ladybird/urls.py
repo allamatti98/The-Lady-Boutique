@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('customers/',include("customers.urls")),
     path('products/',include("products.urls")),
-    path('',include("orders.urls", namespace="orders"))
+    path('orders/',include("orders.urls", namespace="orders"))
 ]
 
 url_patterns = urlpatterns + static(settings.MEDIA_URL,
