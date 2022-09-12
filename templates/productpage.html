@@ -113,11 +113,16 @@
               
             </div>
 
-            <p class="lead">
-              <span class="mr-1">
-                <del>$200</del>
-              </span>
-              <span>$100</span>
+            <p class="lead"> 
+                {% if object.discount_price %}
+                <span class="mr-1">
+                  <del>Shs. {{ object.price }}</del>
+                </span>
+                <span>Shs. {{ object.discount_price }}</span>
+                {% else %}
+                <span> Shs. {{ object.price }} </span>
+                {% endif %}
+              
             </p>
 
             <p class="lead font-weight-bold">Description</p>
