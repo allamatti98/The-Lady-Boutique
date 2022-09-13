@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from .models import Item, OrderItem, Order
 from django.utils import timezone
 from django.contrib import messages
@@ -17,6 +17,11 @@ class HomeView(ListView):
     model = Item
     paginate_by = 1
     template_name = "HomePage.html"
+
+class OrderSummary(View):
+    def get(self, *args, **kwargs):
+        return render(self.request,"OrderSummary.html" )
+    
 
 class ItemDetailView(DetailView):
     model = Item
