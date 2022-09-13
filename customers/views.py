@@ -58,3 +58,6 @@ def loginpage(request):
 def logoutview(request):
     logout(request)
     return redirect('/')
+
+def logredirect(request):
+    return redirect('login')

@@ -1,0 +1,28 @@
+{% extends base.html %}
+<body>
+{% block content %}
+<h2>Order Summary</h2>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>    
+            <th>Item Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Item Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order_item in object.items.all %}
+        <tr>
+            <td></td>
+            <td>{{ order_item.item.title }}</td>
+            <td>{{ order_item.item.price }}</td>
+            <td>{{ order_item.quantity }}</td>
+            <td>Shs...</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+</body>
