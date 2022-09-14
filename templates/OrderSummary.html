@@ -18,7 +18,10 @@
             <td scope="row">{{ forloop.counter }}</td>
             <td>{{ order_item.item.title }}</td>
             <td>{{ order_item.item.price }}</td>
-            <td>{{ order_item.quantity }}</td>
+            <td>
+                <a href="{% url 'orders:remove-single-item-from-cart' order_item.item.slug %}"><i class="fas fa-minus"></i></a>
+                {{ order_item.quantity }}
+                <a href="{% url 'orders:add_to_cart' order_item.item.slug %}"><i class="fas fa-plus"></i></td></a>
             <td>
                 {% if order_item.item.discount_price %}
                     Shs.{{ order_item.get_total_discount_item_price}}
@@ -26,9 +29,30 @@
                 {% else %}
                     Shs.{{ order_item.get_total_item_price}}
                 {% endif %}
+                <a href="{% url 'orders:remove_from_cart' order_item.item.slug %}">
+                    <i class="fas fa-trash float-right"></i>
+                </a>
             </td>
         </tr>
-        {% endfor %}    
+        {% empty %}
+        <tr>
+            <td colspan="5">Your Cart is empty</td>
+        </tr>
+        <tr>
+            <td><a href=""><a class="btn btn-blue float-right" href="/orders/">Continue Shopping</a></a></td>
+        </tr>
+
+        {% endfor %}
+        {% if object.get_total %}
+        <tr>
+            <td colspan="4">Total Amount</td>
+            <td>Shs. {{ object.get_total }}</td>
+        </tr>
+        <tr>
+            <td colspan="5"><a class="btn btn-blue float-right" href="/orders/">Continue Shopping</a></td>
+            <td colspan="5"><a class="btn btn-amber float-right" href="/orders/checkout/">Proceed to Checkout</a></td>
+        </tr>
+        {% endif %}
     </tbody>
 </table>
 {% endblock %}

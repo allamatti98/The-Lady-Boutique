@@ -61,6 +61,12 @@ class OrderItem(models.Model):
     
     def get_amount_saved(self):
         return self.get_total_item_price() - self.get_total_discount_item_price()
+    
+    def get_final_price(self):
+        if self.item.discount_price:
+            return self.get_total_discount_item_price()
+        else:
+            return self.get_total_item_price()
 
 
 class Order(models.Model): #Shopping Cart
@@ -72,3 +78,9 @@ class Order(models.Model): #Shopping Cart
 
     def __str__(self):
         return self.user.username
+    
+    def get_total(self):
+        total = 0
+        for order_item in self.items.all():
+            total += order_item.get_final_price()
+        return total
