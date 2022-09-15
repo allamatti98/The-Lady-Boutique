@@ -28,32 +28,42 @@ class CheckoutView(View):
     
     def post(self, *args, **kwargs):
         form = CheckOutForm(self.request.POST or None)
-        #print(self.request.POST)
-        if form.is_valid():
-            #print(form.cleaned_data)
-            #print("The Form is valid")
-            street_address = form.cleaned_data.get('street_address')
-            apartment_address = form.cleaned_data.get('apartment_address')
-            country = form.cleaned_data.get('country')
-            city = form.cleaned_data.get('city')
-            same_billing_address = form.cleaned_data.get('same_billing_address')
-            save_info = form.cleaned_data.get('save_info')
-            payment_option = form.cleaned_data.get('payment_option')
-            
-            
-            billing_address = BillingAddress(
-                user= self.request.user,
-                street_address = street_address,
-                apartment_address = apartment_address,
-                country = country,
-                city = city,
-            )
+        try:
+            order = Order.objects.get(user=self.request.user, ordered= False)
 
-            billing_address.save()
+            #print(self.request.POST)
+            if form.is_valid():
+                #print(form.cleaned_data)
+                #print("The Form is valid")
+                street_address = form.cleaned_data.get('street_address')
+                apartment_address = form.cleaned_data.get('apartment_address')
+                country = form.cleaned_data.get('country')
+                city = form.cleaned_data.get('city')
+                # same_shipping_address = form.cleaned_data.get('same_shipping_address')
+                # save_info = form.cleaned_data.get('save_info')
+                payment_option = form.cleaned_data.get('payment_option')
+                
+                
+                billing_address = BillingAddress(
+                    user= self.request.user,
+                    street_address = street_address,
+                    apartment_address = apartment_address,
+                    country = country,
+                    city = city,
+                    )
 
-            return redirect('orders:checkout')
-        messages.warning(self.request,"Failed Checkout")
-        return redirect('orders:checkout')
+                billing_address.save()
+                order.billing_address = billing_address
+                order.save()
+                return redirect('orders:checkout')
+
+            messages.warning(self.request,"Failed Checkout")
+            return redirect('orders:checkout')    
+        except ObjectDoesNotExist:
+            messages.error(self.request, 'You do not have an active order')
+            return redirect("orders:order-summary") 
+
+        
 
 
 class HomeView(ListView):

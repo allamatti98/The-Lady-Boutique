@@ -150,12 +150,12 @@
               <hr>
 
               <div class="custom-control custom-checkbox">
-                <input {% if form.same_billing_address.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="same_billing_address" id="same-address">
+                <input {% if form.same_shipping_address.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="same_billing_address" id="same-address">
                 
                 <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
               </div>
               <div class="custom-control custom-checkbox">
-              <input {% if form.same_billing_address.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="save_info" id="same-address">
+              <input {% if form.save_info.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="save_info" id="same-address">
               
                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
               </div>

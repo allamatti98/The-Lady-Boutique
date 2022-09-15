@@ -14,6 +14,6 @@ class CheckOutForm(forms.Form):
     city = forms.CharField(max_length=20)
     street_address = forms.CharField(widget = forms.TextInput(attrs={'placeholder': 'eg 24 Gayaza Road'}))
     apartment_address = forms.CharField(required = False, widget = forms.TextInput(attrs={'placeholder': 'eg Apartment B6'}))
-    same_billing_address = forms.BooleanField(required=False)
+    same_shipping_address = forms.BooleanField(required=False)
     save_info = forms.BooleanField(required=False)
     payment_option = forms.ChoiceField(widget = forms.RadioSelect(), choices= PAYMENT_CHOICES)
