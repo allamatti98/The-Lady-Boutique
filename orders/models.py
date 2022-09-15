@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.urls import reverse
+from django_countries import fields
 
 User = get_user_model()
 Category_choices = (
@@ -75,12 +76,28 @@ class Order(models.Model): #Shopping Cart
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default= False)
+    billing_address = models.ForeignKey('BillingAddress', on_delete=models.SET_NULL, blank=True, 
+    null=True)
 
     def __str__(self):
         return self.user.username
-    
+  
     def get_total(self):
         total = 0
         for order_item in self.items.all():
             total += order_item.get_final_price()
         return total
+
+class BillingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    country = fields.CountryField(multiple=False)
+    city = models.CharField(max_length=15)
+    street_address= models.CharField(max_length=50)
+    apartment_address = models.CharField(max_length=50)
+    
+
+    def __str__(self):
+        return self.user.username
+    
+    
+    

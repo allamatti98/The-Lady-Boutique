@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View
-from .models import Item, OrderItem, Order
+from .models import Item, OrderItem, Order, BillingAddress
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -28,9 +28,32 @@ class CheckoutView(View):
     
     def post(self, *args, **kwargs):
         form = CheckOutForm(self.request.POST or None)
+        #print(self.request.POST)
         if form.is_valid():
-            print("The Form is valid")
+            #print(form.cleaned_data)
+            #print("The Form is valid")
+            street_address = form.cleaned_data.get('street_address')
+            apartment_address = form.cleaned_data.get('apartment_address')
+            country = form.cleaned_data.get('country')
+            city = form.cleaned_data.get('city')
+            same_billing_address = form.cleaned_data.get('same_billing_address')
+            save_info = form.cleaned_data.get('save_info')
+            payment_option = form.cleaned_data.get('payment_option')
+            
+            
+            billing_address = BillingAddress(
+                user= self.request.user,
+                street_address = street_address,
+                apartment_address = apartment_address,
+                country = country,
+                city = city,
+            )
+
+            billing_address.save()
+
             return redirect('orders:checkout')
+        messages.warning(self.request,"Failed Checkout")
+        return redirect('orders:checkout')
 
 
 class HomeView(ListView):

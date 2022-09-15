@@ -85,15 +85,15 @@
           <!--Card-->
           <div class="card">
 
-            <form action="">
-              {% csrf_token %}
-            
-              <button class="btn btn-primary" type="submit">Checkout</button>
+            <form action="" method="POST">
+              
+
             </form>
 
             <!--Card content-->
-            <form class="card-body">
-
+            <form class="card-body" method="post">
+{% csrf_token %}
+            
               <!--Grid row-->
               <div class="row">
 
@@ -104,15 +104,15 @@
               <!--address-->
               <div class="md-form mb-5">
                 <br>
-                {{ form.address }}
-                <label for="address" class="">Address</label>
+                {{ form.street_address }}
+                <label for="address" class="">Street Address</label>
               </div>
 
               <!--address-2-->
               <div class="md-form mb-5">
                 <br>
                 {{ form.apartment_address }}
-                <label for="address-2" class="">Address 2 (optional)</label>
+                <label for="address-2" class="">Apartment Address (optional)</label>
               </div>
 
               <!--Grid row-->
@@ -122,7 +122,7 @@
                 <div class="col-lg-4 col-md-12 mb-4">
 
                   <label for="country">Country</label>
-                  {{ forms.country }}
+                  {{ form.country }}
                   <div class="invalid-feedback">
                     Please select a valid country.
                   </div>
@@ -134,7 +134,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
 
                   <label for="state">City</label>
-                  {{ forms.city }}
+                  {{ form.city }}
                   <div class="invalid-feedback">
                     Please provide a valid state.
                   </div>
@@ -165,7 +165,7 @@
               <div class="d-block my-3">
                 {% for value, name in form.fields.payment_option.choices %}
                 <div class="custom-control custom-radio">
-                  <input id="{{ name }}" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" class="custom-control-input" required>
                   <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
                 </div>
 
