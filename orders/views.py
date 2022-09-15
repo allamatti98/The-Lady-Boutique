@@ -7,6 +7,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from .forms import CheckOutForm
 
 
 
@@ -17,8 +18,19 @@ def products(request):
     return render(request,'productpage.html', context)
 
 
-def checkout(request):
-    return render(request,'CheckOut.html',{})
+class CheckoutView(View):
+    def get(self, *args, **kwargs):
+        form = CheckOutForm()
+        context = {
+            'form':form
+        }
+        return render(self.request,'CheckOut.html', context)
+    
+    def post(self, *args, **kwargs):
+        form = CheckOutForm(self.request.POST or None)
+        if form.is_valid():
+            print("The Form is valid")
+            return redirect('orders:checkout')
 
 
 class HomeView(ListView):
