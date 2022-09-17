@@ -49,8 +49,8 @@
             <td>Shs. {{ object.get_total }}</td>
         </tr>
         <tr>
-            <td colspan="5"><a class="btn btn-blue float-right" href="/orders/">Continue Shopping</a></td>
-            <td colspan="5"><a class="btn btn-amber float-right" href="/orders/checkout/">Proceed to Checkout</a></td>
+            <td colspan="5"><a class="btn btn-blue float-right" href="{% url 'orders:home' %}">Continue Shopping</a></td>
+            <td colspan="5"><a class="btn btn-amber float-right" href="{% url 'orders:checkout' %}">Proceed to Checkout</a></td>
         </tr>
         {% endif %}
     </tbody>

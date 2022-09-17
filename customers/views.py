@@ -7,6 +7,7 @@ from customers.models import Customer
 
 def signuppage(request):    
     if request.method == 'POST':
+        full_name = request.POST['Name']
         username = request.POST['Username']
         email = request.POST['Email']
         contact = request.POST['Contact']
@@ -29,15 +30,15 @@ def signuppage(request):
                 user.save()
 
                 user_model = User.objects.get(username = username)
-                new_profile = Customer.objects.create(user = user_model, id_user = user_model.id, contact = contact, gender = gender, location = location)
+                new_profile = Customer.objects.create(user = user_model, id_user = user_model.id, full_name = full_name, contact = contact, gender = gender, location = location)
                 new_profile.save()
                 return redirect('login')
-                pass
         else:
             messages.info(request,'Passwords do not match')
             return redirect ('signup')
     else:
         return render(request,'SignUp.html',{})
+
 
 def loginpage(request):
     if request.method == 'POST':
@@ -48,7 +49,7 @@ def loginpage(request):
 
         if user is not None:
             login(request, user)
-            return redirect ('/')
+            return redirect ('/orders')
         else:
             messages.info(request,'Username or Password is Incorrect. Credentials are Case-Sensitive')
             return redirect ('login')
@@ -57,7 +58,7 @@ def loginpage(request):
 
 def logoutview(request):
     logout(request)
-    return redirect('/')
+    return redirect('login')
 
 def logredirect(request):
     return redirect('login')

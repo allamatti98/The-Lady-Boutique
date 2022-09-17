@@ -1,76 +1,85 @@
 {% extends "base.html" %}
-{% load static %}
-<body class="grey lighten-3">
-  {% block content %}
-  <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container">
+{% load cart_template_tags %}
+{% block content %}
+<!-- Navbar -->
+<br><br><br><br>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar pt-4">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand waves-effect" href="{% url 'orders:home' %}" target="_blank">
+      <strong class="blue-text">LADY BIRD BOUTIQUE</strong>
+    </a>
+    <!-- Collapse -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-effect" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'orders:checkout' %}" target="_blank">Checkout</a>
+        </li>
+      </ul>
 
-      <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-        <strong class="blue-text">LADY BIRD BOUTIQUE</strong>
-      </a>
+      <!-- Right -->
+      <ul class="navbar-nav nav-flex-icons">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'orders:order-summary' %}">
+            <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'logout' %}">
+            <span class="clearfix d-none d-sm-inline-block"> Logout </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'login' %}">
+            <span class="clearfix d-none d-sm-inline-block"> Login </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'signup' %}">
+            <span class="clearfix d-none d-sm-inline-block"> Sign Up </span>
+          </a>
+        </li>
+        {% endif %}
 
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <!-- Left -->
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item ">
-            <a class="nav-link waves-effect" href="/orders">Home
-              
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link waves-effect" href="#" target="_blank">Checkout</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="/orders/productspage" target="_blank">Products</a>
-          </li>
-        </ul>
-
-
-        <!-- Right -->
-        <ul class="navbar-nav nav-flex-icons">
-          <li class="nav-item">
-            <a class="nav-link waves-effect">
-              <span class="badge red z-depth-1 mr-1"> 1 </span>
-              <i class="fas fa-shopping-cart"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-              target="_blank">
-              <i class="fab fa-github mr-2"></i>MDB GitHub
-            </a>
-          </li>
-        </ul>
-
-      </div>
+        <li class="nav-item">
+          <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
+            target="_blank">
+            <i class="fab fa-github mr-2"></i>MDB GitHub
+          </a>
+        </li>
+      </ul>
 
     </div>
-  </nav>
-  <!-- Navbar -->
 
+  </div>
+</nav>
+<!-- Navbar -->
   <!--Main layout-->
-  <main class="mt-5 pt-4">
+  <main>
     <div class="container wow fadeIn">
 
       <!-- Heading -->
@@ -85,34 +94,24 @@
           <!--Card-->
           <div class="card">
 
-            <form action="" method="POST">
-              
-
-            </form>
-
             <!--Card content-->
             <form class="card-body" method="post">
-{% csrf_token %}
-            
-              <!--Grid row-->
-              <div class="row">
+              {%  csrf_token %}
 
-                <!--Grid column-->
-                <div class="col-md-6 mb-2">
-
-                  
               <!--address-->
               <div class="md-form mb-5">
                 <br>
-                {{ form.street_address }}
+                <!-- <input type="text" id="address" class="form-control" placeholder="1234 Main St"> -->
+                {{ form.street_address}}
                 <label for="address" class="">Street Address</label>
               </div>
 
               <!--address-2-->
               <div class="md-form mb-5">
                 <br>
+                <!-- <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite"> -->
                 {{ form.apartment_address }}
-                <label for="address-2" class="">Apartment Address (optional)</label>
+                <label for="address-2" class="">Apartment Address</label>
               </div>
 
               <!--Grid row-->
@@ -122,7 +121,11 @@
                 <div class="col-lg-4 col-md-12 mb-4">
 
                   <label for="country">Country</label>
-                  {{ form.country }}
+                  <!-- <select class="custom-select d-block w-100" id="country" required>
+                    <option value="">Choose...</option>
+                    <option>United States</option>
+                  </select> -->
+                  {{ form.country}}
                   <div class="invalid-feedback">
                     Please select a valid country.
                   </div>
@@ -130,19 +133,19 @@
                 </div>
                 <!--Grid column-->
 
+                
+
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4">
 
-                  <label for="state">City</label>
+                  <label for="zip">City</label>
+                  <!-- <input type="text" class="form-control" id="zip" placeholder="" required> -->
+                  <!-- <div class="invalid-feedback">
+                    Zip code required.
+                  </div> -->
                   {{ form.city }}
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
-
                 </div>
                 <!--Grid column-->
-
-                
 
               </div>
               <!--Grid row-->
@@ -150,13 +153,13 @@
               <hr>
 
               <div class="custom-control custom-checkbox">
-                <input {% if form.same_shipping_address.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="same_billing_address" id="same-address">
+                <input {% if form.same_shipping_address.value %} checked {% endif %} type="checkbox" class="custom-control-input" id="same-address" name="same_billing_address">
                 
                 <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
               </div>
               <div class="custom-control custom-checkbox">
-              <input {% if form.save_info.value %} checked {% endif %} type="checkbox" class="custon-control-input" name="save_info" id="same-address">
-              
+                <input {% if form.save_info.value %} checked {% endif %} type="checkbox" class="custom-control-input" id="save-info" name="save_info">
+               
                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
               </div>
 
@@ -166,13 +169,20 @@
                 {% for value, name in form.fields.payment_option.choices %}
                 <div class="custom-control custom-radio">
                   <input id="{{ name }}" name="payment_option" value="{{ value }}" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                  <label class="custom-control-label" for="{{ name }}"> {{ name }}</label>
                 </div>
-
                 {% endfor %}
+                <!-- <div class="custom-control custom-radio">
+                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="debit">Adyen</label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                  <label class="custom-control-label" for="paypal">Paypal</label>
+                </div> -->
               </div>
               
-           
+              
               <hr class="mb-4">
               <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
 
@@ -248,10 +258,8 @@
       <!--Grid row-->
 
     </div>
-    {% endblock content %}
-
   </main>
   <!--Main layout-->
-
+  {% endblock %}
 </body>
 </html>

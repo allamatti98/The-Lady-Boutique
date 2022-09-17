@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, DetailView, View
-from .models import Item, OrderItem, Order, BillingAddress
+from django.views.generic import ListView, DetailView, View, TemplateView
+from .models import Item, OrderItem, Order, BillingAddress, Stripe_Price
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -8,7 +8,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .forms import CheckOutForm
-
+import stripe
+from django.conf import settings
+from django.http import JsonResponse
+from django.views import View as SView
 
 
 def products(request):
@@ -33,8 +36,8 @@ class CheckoutView(View):
 
             #print(self.request.POST)
             if form.is_valid():
-                #print(form.cleaned_data)
-                #print("The Form is valid")
+             #   print(form.cleaned_data)
+              #  print("The Form is valid")
                 street_address = form.cleaned_data.get('street_address')
                 apartment_address = form.cleaned_data.get('apartment_address')
                 country = form.cleaned_data.get('country')
@@ -165,3 +168,31 @@ def remove_single_item_from_cart(request,slug):
     else:
         messages.info(request, "You do not have an active order")
         return redirect("orders:productpage", slug = slug)
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+class CreateCheckoutSessionView(View):
+    def post(self, request, *args, **kwargs):
+        price = Stripe_Price.objects.get(id=self.kwargs["pk"])
+        YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=[
+                {
+                    'price': price.stripe_price_id,
+                    'quantity': 1,
+                },
+            ],
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/success/',
+            cancel_url=YOUR_DOMAIN + '/cancel/',
+        )
+        return redirect(checkout_session.url)
+
+
+class SuccessView(TemplateView):
+    template_name = "success.html"
+
+
+class CancelView(TemplateView):
+    template_name = "cancel.html"

@@ -19,6 +19,7 @@ label_choices = (
 
 class Item(models.Model):
     title = models.CharField(max_length= 100)
+    stripe_product_id = models.CharField(max_length=100, blank=True, null=True)
     price = models.IntegerField()
     discount_price = models.FloatField(blank= True, null= True)
     category = models.CharField(choices= Category_choices, max_length=2)
@@ -44,6 +45,9 @@ class Item(models.Model):
             'slug': self.slug
         })
 
+
+
+
 class OrderItem(models.Model):
     user = models.ForeignKey(User, on_delete= models.CASCADE)
     ordered = models.BooleanField(default= False)
@@ -68,6 +72,9 @@ class OrderItem(models.Model):
             return self.get_total_discount_item_price()
         else:
             return self.get_total_item_price()
+
+
+
 
 
 class Order(models.Model): #Shopping Cart
@@ -101,3 +108,10 @@ class BillingAddress(models.Model):
     
     
     
+class Stripe_Price(models.Model):
+    product = models.ForeignKey(Item, on_delete=models.CASCADE)
+    stripe_price_id = models.CharField(max_length=100)
+    price = models.IntegerField(default=0)  # cents
+	
+    def get_display_price(self):
+        return "{0:.2f}".format(self.price / 100)

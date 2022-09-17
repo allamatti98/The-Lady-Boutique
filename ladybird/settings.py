@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Kampala'
 
 USE_I18N = True
 
@@ -131,3 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STRIPE_PUBLIC_KEY = "pk_test_51LiV4RJ7OZP0oyoLY4hg3o6Wg9JTckzBR7YQBWjPqMw4zuiRbm1iuf2wFieYB1D7GRry6DjnPQk5fxRROAwJyf6y004a5ZRmZW"
+STRIPE_SECRET_KEY = "sk_test_51LiV4RJ7OZP0oyoLdvS7UUOOKZ72q2nq5cWhulwkL6zJ8JS4LjquxhhERffjWmyyawuqhkoK9rzS2qz9Pwh6se9t00nntX9L4f"

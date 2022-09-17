@@ -17,27 +17,34 @@
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
+            <label for="">
+                <span>Full Name</span>
+                <input type="text" id="name" name="Name" placeholder="eg Alex Hunter" required>
+            </label>
+            <label for="email">
+                <span>Email Address</span>
+                <input type="email" id="email" name="Email" placeholder="eg alexhunter@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email address" required>
+            </label>
             <label for="username">
 				<span>Username</span>
-				<input type="text" id="username" name="Username" placeholder="eg alexhunter23" minlength="3" required>
+				<input type="text" id="username" name="Username" placeholder="eg alexhunter23" title="No spaces or Symbols allowed" minlength="3" required>
 				<ul class="input-requirements">
 					<li>Username must conatiain more than 2 characters</li>
 					<li>Username must comprise of only letters and numbers ie no [!@#$%^&*] symbols allowed</li>
 				</ul>
-            </label>
-            <label for="email">
-                <span>Email</span>
-                <input type="email" id="email" name="Email" placeholder="eg alexhunter@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid email address" required>
             </label>
             <label for="contact">
                 <span>Contact</span>
                 <input type="tel" id="contact" name="Contact" pattern="[0-9]{10}" title="Contact must be 10 *DIGITS*." required>
             </label> <br>
             <label for="gender">
-                <span>Gender: </span>
-                <input type="radio" name="Gender" value="Male" required> Male
-                <input type="radio" name="Gender" value="Female" required> Female
-            </label> <br>
+                Gender
+                <select name="Gender" id="gender">
+                    <option value="NULL">-------</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </label>
             <label for="location">
                 Location
                 <select name="Location" id="location">
