@@ -65,9 +65,9 @@ class CheckoutView(View):
                 if payment_option == 'S':
                     return redirect('orders:stripelanding')
                 elif payment_option == 'A':
-                    return redirect('orders:paymentmethod', payment_option = 'Adyen')
+                    return redirect('orders:adyenlanding')
                 elif payment_option == 'P':
-                    return redirect( 'orders:paymentmethod', payment_option ='PayPal')
+                    return redirect( 'orders:paypallanding')
                 else:
                     messages.warning(self.request, 'Invalid Payment option')
                     return redirect( 'orders:checkout')
