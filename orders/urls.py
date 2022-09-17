@@ -12,8 +12,10 @@ urlpatterns = [
     path('remove_from_cart/<slug>/', views.remove_from_cart, name = 'remove_from_cart'),
     path('order-summary/',views.OrderSummary.as_view(), name = 'order-summary'),
     path('remove_item_from_cart/<slug>/',views.remove_single_item_from_cart, name="remove-single-item-from-cart"),
+    # path('payment/<payment_option>/', views.PaymentView, name = 'paymentmethod'),
     path('admin/', admin.site.urls),
     path('cancel/', views.CancelView.as_view(), name='cancel'),
     path('success/', views.SuccessView.as_view(), name='success'),
-    path('create-checkout-session/<pk>/', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session')
+    path('create-checkout-session/<pk>/', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
+    path('orders/checkout/Stripe', views.StripeLanding, name = 'stripelanding')
 ]

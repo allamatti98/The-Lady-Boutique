@@ -1,10 +1,17 @@
 from django.contrib import admin
-from . models import Item, OrderItem, Order
+from . models import Item, OrderItem, Order, StripePrice
+
+
+class PriceInlineAdmin(admin.TabularInline):
+    model = StripePrice
+    extra = 0
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display= ('title','price','category','label')
+    inlines = [PriceInlineAdmin]
 
 
 admin.site.register(Item,ItemAdmin)
+
 admin.site.register(OrderItem)
+
 admin.site.register(Order)

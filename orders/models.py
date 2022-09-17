@@ -46,6 +46,14 @@ class Item(models.Model):
         })
 
 
+class StripePrice(models.Model):
+    product = models.ForeignKey(Item, on_delete=models.CASCADE)
+    stripe_price_id = models.CharField(max_length=100)
+    price = models.IntegerField(default=0)  # cents
+	
+    def get_display_price(self):
+        return "{0:.2f}".format(self.price / 100)
+
 
 
 class OrderItem(models.Model):
@@ -106,12 +114,3 @@ class BillingAddress(models.Model):
     def __str__(self):
         return self.user.username
     
-    
-    
-class Stripe_Price(models.Model):
-    product = models.ForeignKey(Item, on_delete=models.CASCADE)
-    stripe_price_id = models.CharField(max_length=100)
-    price = models.IntegerField(default=0)  # cents
-	
-    def get_display_price(self):
-        return "{0:.2f}".format(self.price / 100)

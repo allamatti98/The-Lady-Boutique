@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, Stripe_Price
+from .models import Item, OrderItem, Order, BillingAddress, StripePrice
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -13,6 +13,7 @@ from django.conf import settings
 from django.http import JsonResponse
 from django.views import View as SView
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def products(request):
     context = {
@@ -58,7 +59,18 @@ class CheckoutView(View):
                 billing_address.save()
                 order.billing_address = billing_address
                 order.save()
-                return redirect('orders:checkout')
+
+                
+
+                if payment_option == 'S':
+                    return redirect('orders:stripelanding')
+                elif payment_option == 'A':
+                    return redirect('orders:paymentmethod', payment_option = 'Adyen')
+                elif payment_option == 'P':
+                    return redirect( 'orders:paymentmethod', payment_option ='PayPal')
+                else:
+                    messages.warning(self.request, 'Invalid Payment option')
+                    return redirect( 'orders:checkout')
 
             messages.warning(self.request,"Failed Checkout")
             return redirect('orders:checkout')    
@@ -66,13 +78,23 @@ class CheckoutView(View):
             messages.error(self.request, 'You do not have an active order')
             return redirect("orders:order-summary") 
 
+
+def StripeLanding(request):
+    return render(request, "Stripe.html", {})
+
+def AdyenLanding(request):
+    return render(request, "Adyen.html", {})
+
+def PayPal(request):
+    return render(request, "PayPal.html",{})
+
+
         
-
-
 class HomeView(ListView):
     model = Item
     paginate_by = 1
     template_name = "HomePage.html"
+
 
 
 class OrderSummary(LoginRequiredMixin, View):
@@ -171,9 +193,11 @@ def remove_single_item_from_cart(request,slug):
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
+
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
-        price = Stripe_Price.objects.get(id=self.kwargs["pk"])
+        price = StripePrice.objects.get(id=self.kwargs["pk"])
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
