@@ -79,13 +79,26 @@ class CheckoutView(View):
             return redirect("orders:order-summary") 
 
 
-def StripeLanding(request):
-    return render(request, "Stripe.html", {})
+class StripeLanding(TemplateView):
+    template_name = "Stripe.html"
+
+    def get_context_data(self, **kwargs):
+           
+            product = Item.objects.get(title= "Polo Shirt")  #Testing
+           # prices = StripePrice.objects.filter(product = products)
+            context = super(StripeLanding,self).get_context_data(**kwargs)
+            context.update({
+                "product": product,
+                "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+               # "prices": prices
+            })
+            return context
+
 
 def AdyenLanding(request):
     return render(request, "Adyen.html", {})
 
-def PayPal(request):
+def PayPalLanding(request):
     return render(request, "PayPal.html",{})
 
 
@@ -164,6 +177,7 @@ def remove_from_cart(request,slug):
         messages.info(request, "You do not have an active order")
         return redirect("orders:productpage", slug = slug)
 
+
 @login_required
 def remove_single_item_from_cart(request,slug):
     item = get_object_or_404(Item, slug=slug)
@@ -191,32 +205,38 @@ def remove_single_item_from_cart(request,slug):
         messages.info(request, "You do not have an active order")
         return redirect("orders:productpage", slug = slug)
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
+#stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
-        price = StripePrice.objects.get(id=self.kwargs["pk"])
+        product_id = self.kwargs["pk"]
+        product = Item.objects.get( id = product_id)
+        print(product)
+        price_id = StripePrice.objects.filter(product = product)
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
                 {
-                    'price': price.stripe_price_id,
+                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+                    'price': 'price_1Lj1L5J7OZP0oyoLNiN9StTy',
                     'quantity': 1,
                 },
             ],
             mode='payment',
-            success_url=YOUR_DOMAIN + '/success/',
-            cancel_url=YOUR_DOMAIN + '/cancel/',
+            success_url=YOUR_DOMAIN + '/orders/success/',
+            cancel_url=YOUR_DOMAIN + '/orders/cancel/',
         )
-        return redirect(checkout_session.url)
+        return JsonResponse({
+            'id': checkout_session.id
+        })
 
 
 class SuccessView(TemplateView):
-    template_name = "success.html"
+    template_name = "Success.html"
 
 
 class CancelView(TemplateView):
-    template_name = "cancel.html"
+    template_name = "Cancel.html"

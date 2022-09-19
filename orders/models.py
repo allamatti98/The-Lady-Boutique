@@ -20,7 +20,7 @@ label_choices = (
 class Item(models.Model):
     title = models.CharField(max_length= 100)
     stripe_product_id = models.CharField(max_length=100, blank=True, null=True)
-    price = models.IntegerField()
+    price = models.IntegerField(default = 0)
     discount_price = models.FloatField(blank= True, null= True)
     category = models.CharField(choices= Category_choices, max_length=2)
     label = models.CharField(choices= label_choices, max_length=1)
@@ -44,6 +44,9 @@ class Item(models.Model):
         return reverse("orders:remove_from_cart", kwargs={
             'slug': self.slug
         })
+
+    def get_display_price(self):
+        return "{0:.2f}".format (self.price / 100)
 
 
 class StripePrice(models.Model):
