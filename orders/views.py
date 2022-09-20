@@ -88,6 +88,7 @@ class StripeLanding(TemplateView):
            # prices = StripePrice.objects.filter(product = products)
             order = Order.objects.get(user = self.request.user, ordered = False)
             context = super(StripeLanding,self).get_context_data(**kwargs)
+
             context.update({
                 "product": product,
                 "order": order,
@@ -223,9 +224,22 @@ class CreateCheckoutSessionView(View):
             line_items=[
                 {
                     # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': 'price_1Lj1L5J7OZP0oyoLNiN9StTy',
+                    'price': 'price_1Lk2oFJ7OZP0oyoLEMymsNvC',
+                    'quantity': 3,
+                },
+                {
+                    'price': 'price_1Lk2iiJ7OZP0oyoLzEAvoTYk',
+                    'quantity': 2,
+                },
+                {
+                    'price': 'price_1Lk2m6J7OZP0oyoLLmJJhrTy',
                     'quantity': 1,
                 },
+                {
+                    'price': 'price_1Lk2kKJ7OZP0oyoLCNPBtmWR',
+                    'quantity': 2,
+                },
+                
             ],
             mode='payment',
             success_url=YOUR_DOMAIN + '/orders/success/',
