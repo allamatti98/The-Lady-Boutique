@@ -17,7 +17,7 @@ urlpatterns = [
     path('cancel/', views.CancelView.as_view(), name='cancel'),
     path('success/', views.SuccessView.as_view(), name='success'),
     path('create-checkout-session/<pk>/', views.CreateCheckoutSessionView.as_view(), name='create-checkout-session'),
-    path('checkout/Stripe', views.StripeLanding.as_view(), name = 'stripelanding'),
-    path('checkout/Adyen', views.AdyenLanding, name = 'adyenlanding'),
-    path('checkout/PayPal', views.PayPalLanding, name = 'paypallanding')
+    path('checkout/Stripe/', views.StripeLanding.as_view(), name = 'stripelanding'),
+    path('checkout/Adyen/', views.AdyenLanding, name = 'adyenlanding'),
+    path('checkout/PayPal/', views.PayPalLanding, name = 'paypallanding')
 ]

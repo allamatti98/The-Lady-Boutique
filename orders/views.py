@@ -86,9 +86,11 @@ class StripeLanding(TemplateView):
            
             product = Item.objects.get(title= "Polo Shirt")  #Testing
            # prices = StripePrice.objects.filter(product = products)
+            order = Order.objects.get(user = self.request.user, ordered = False)
             context = super(StripeLanding,self).get_context_data(**kwargs)
             context.update({
                 "product": product,
+                "order": order,
                 "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
                # "prices": prices
             })
