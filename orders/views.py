@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, StripePrice
+from .models import Item, OrderItem, Order, BillingAddress, StripePrice, Payment
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -213,15 +213,15 @@ class CreateCheckoutSessionView(View):
 
         zee = []
         order = Order.objects.get(user = self.request.user, ordered = False)
-
         for item in order.items.all():
             lineitem = {
                     'price': item.item.stripe_price_id,
                     'quantity': item.quantity,
                 }
             zee.append(lineitem)
-        
 
+
+        
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items = zee,
@@ -229,9 +229,24 @@ class CreateCheckoutSessionView(View):
             success_url=YOUR_DOMAIN + '/orders/success/',
             cancel_url=YOUR_DOMAIN + '/orders/cancel/',
         )
+        
+        payment = Payment()
+        payment.checkout_session_id = checkout_session.id
+        payment.user = self.request.user
+        payment.timestamp = timezone.now()
+        payment.save()
+
+        order.ordered = True
+        order.payment = payment
+        order.save()
+
+        
         return JsonResponse({
             'id': checkout_session.id
         })
+        
+
+        
 
 
 class SuccessView(TemplateView):

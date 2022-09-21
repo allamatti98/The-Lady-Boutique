@@ -49,11 +49,20 @@ class Item(models.Model):
         return "{0:.2f}".format (self.price / 100)
 
 
+class Payment(models.Model):
+    user = models.ForeignKey(User, on_delete= models.SET_NULL, blank= True, null= True)
+    checkout_session_id = models.CharField(max_length = 100, blank= True, null= True)
+    timestamp = models.DateTimeField(auto_now_add= True, blank= True, null = True)
+
+    def __str__(self):
+        return self.user.username
+
+
 class StripePrice(models.Model):
     product = models.ForeignKey(Item, on_delete=models.CASCADE)
+    stripe_product_id = models.CharField(max_length=100, null= True, blank = True)
     stripe_price_id = models.CharField(max_length=100)
-    stripe_price_id = models.CharField(max_length=100)
-    price = models.IntegerField(default=0)  # cents
+
 	
     def __str__(self):
         return self.product.title
@@ -100,6 +109,7 @@ class Order(models.Model): #Shopping Cart
     ordered = models.BooleanField(default= False)
     billing_address = models.ForeignKey('BillingAddress', on_delete=models.SET_NULL, blank=True, 
     null=True)
+    payment = models.ForeignKey('Payment', on_delete= models.SET_NULL, blank= True, null= True)
 
     def __str__(self):
         return self.user.username
