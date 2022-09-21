@@ -41,7 +41,7 @@
     var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
     var checkoutButton = document.getElementById("checkout-button");
     checkoutButton.addEventListener("click", function () {
-        fetch("{% url 'orders:create-checkout-session'  product.id  %}", {
+        fetch("{% url 'orders:create-checkout-session'  %}", {
             method: "POST",
             headers: {
                 'X-CSRFToken': csrftoken

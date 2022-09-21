@@ -83,17 +83,12 @@ class StripeLanding(TemplateView):
     template_name = "Stripe.html"
 
     def get_context_data(self, **kwargs):
-           
-            product = Item.objects.get(title= "Polo Shirt")  #Testing
-           # prices = StripePrice.objects.filter(product = products)
             order = Order.objects.get(user = self.request.user, ordered = False)
             context = super(StripeLanding,self).get_context_data(**kwargs)
 
             context.update({
-                "product": product,
                 "order": order,
                 "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
-               # "prices": prices
             })
             return context
 
@@ -214,32 +209,21 @@ def remove_single_item_from_cart(request,slug):
 
 class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
-        product_id = self.kwargs["pk"]
-        product = Item.objects.get( id = product_id)
-        print(product)
-        price_id = StripePrice.objects.filter(product = product)
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
+
+        order = Order.objects.get(user = self.request.user, ordered = False)
+        output = ""
+        for order_item in order.items.all():
+            P = order_item.item.stripe_price_id
+            Q = order_item.quantity
+            output += (f" {{ 'price' : '{P}' , 'quantity' : {Q} }} ") + ", "
+        list_items = output
+        print(list_items)
+
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[
-                {
-                    # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    'price': 'price_1Lk2oFJ7OZP0oyoLEMymsNvC',
-                    'quantity': 3,
-                },
-                {
-                    'price': 'price_1Lk2iiJ7OZP0oyoLzEAvoTYk',
-                    'quantity': 2,
-                },
-                {
-                    'price': 'price_1Lk2m6J7OZP0oyoLLmJJhrTy',
-                    'quantity': 1,
-                },
-                {
-                    'price': 'price_1Lk2kKJ7OZP0oyoLCNPBtmWR',
-                    'quantity': 2,
-                },
-                
+                list_items
             ],
             mode='payment',
             success_url=YOUR_DOMAIN + '/orders/success/',
