@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, StripePrice, Payment
+from .models import Item, OrderItem, Order, BillingAddress, Payment
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -221,32 +221,67 @@ class CreateCheckoutSessionView(View):
             zee.append(lineitem)
 
 
-        
-        checkout_session = stripe.checkout.Session.create(
+
+        try:
+            checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items = zee,
             mode='payment',
             success_url=YOUR_DOMAIN + '/orders/success/',
             cancel_url=YOUR_DOMAIN + '/orders/cancel/',
         )
-        
-        payment = Payment()
-        payment.checkout_session_id = checkout_session.id
-        payment.user = self.request.user
-        payment.timestamp = timezone.now()
-        payment.save()
 
-        order.ordered = True
-        order.payment = payment
-        order.save()
 
-        
-        return JsonResponse({
-            'id': checkout_session.id
-        })
-        
+            payment = Payment()
+            payment.checkout_session_id = checkout_session.id
+            payment.user = self.request.user
+            payment.timestamp = timezone.now()
+            payment.save()
 
-        
+            order.ordered = True
+            order.payment = payment
+            order.save()
+
+            messages.success(self.request, "Your payment was successful!")
+
+
+            return JsonResponse({
+                'id': checkout_session.id
+            })        
+
+            
+        except stripe.error.CardError as e:
+            # Since it's a decline, stripe.error.CardError will be caught
+            print('Status is: %s' % e.http_status)
+            print('Code is: %s' % e.code)
+            # param is '' in this case
+            print('Param is: %s' % e.param)
+            print('Message is: %s' % e.user_message)
+            messages.error(self.request, "Card Declined.")
+
+        except stripe.error.RateLimitError as e:
+            messages.error(self.request, "Too many requests made to the API too quickly.")
+            return redirect("/")
+            
+        except stripe.error.InvalidRequestError as e:
+            messages.error(self.request, "Invalid parameters were supplied to Stripe's API.")
+            return redirect("/")
+
+        except stripe.error.AuthenticationError as e:
+            messages.error(self.request, "Authentication with Stripe's API failed, maybe you changed API keys recently")
+            return redirect("/")
+
+        except stripe.error.APIConnectionError as e:
+            messages.error(self.request, "Network communication with Stripe failed.")
+            return redirect("/")
+
+        except stripe.error.StripeError as e:
+            messages.error(self.request, "General Stripe Error.")
+            return redirect("/")
+
+        except Exception as e:
+            messages.error(self.request, "Error completely unrelated to Stripe.")
+            return redirect("/")
 
 
 class SuccessView(TemplateView):
