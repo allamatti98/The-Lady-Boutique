@@ -211,20 +211,20 @@ class CreateCheckoutSessionView(View):
     def post(self, request, *args, **kwargs):
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
 
+        zee = []
         order = Order.objects.get(user = self.request.user, ordered = False)
-        output = ""
-        for order_item in order.items.all():
-            P = order_item.item.stripe_price_id
-            Q = order_item.quantity
-            output += (f" {{ 'price' : '{P}' , 'quantity' : {Q} }} ") + ", "
-        list_items = output
-        print(list_items)
+
+        for item in order.items.all():
+            lineitem = {
+                    'price': item.item.stripe_price_id,
+                    'quantity': item.quantity,
+                }
+            zee.append(lineitem)
+        
 
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
-            line_items=[
-                list_items
-            ],
+            line_items = zee,
             mode='payment',
             success_url=YOUR_DOMAIN + '/orders/success/',
             cancel_url=YOUR_DOMAIN + '/orders/cancel/',
