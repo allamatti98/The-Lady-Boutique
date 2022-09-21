@@ -19,7 +19,7 @@ label_choices = (
 
 class Item(models.Model):
     title = models.CharField(max_length= 100)
-    stripe_product_id = models.CharField(max_length=100, blank=True, null=True)
+    stripe_price_id = models.CharField(max_length=100, blank=True, null=True)
     price = models.IntegerField(default = 0)
     discount_price = models.FloatField(blank= True, null= True)
     category = models.CharField(choices= Category_choices, max_length=2)
@@ -52,8 +52,12 @@ class Item(models.Model):
 class StripePrice(models.Model):
     product = models.ForeignKey(Item, on_delete=models.CASCADE)
     stripe_price_id = models.CharField(max_length=100)
+    stripe_price_id = models.CharField(max_length=100)
     price = models.IntegerField(default=0)  # cents
 	
+    def __str__(self):
+        return self.product.title
+
     def get_display_price(self):
         return "{0:.2f}".format(self.price / 100)
 
