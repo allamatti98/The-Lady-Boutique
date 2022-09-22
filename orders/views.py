@@ -212,6 +212,7 @@ class CreateCheckoutSessionView(View):
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
 
         zee = []
+        output = 0
         order = Order.objects.get(user = self.request.user, ordered = False)
         for item in order.items.all():
             lineitem = {
@@ -219,6 +220,8 @@ class CreateCheckoutSessionView(View):
                     'quantity': item.quantity,
                 }
             zee.append(lineitem)
+            output += item.get_total_item_price()
+        total = output
 
 
 
@@ -236,6 +239,7 @@ class CreateCheckoutSessionView(View):
             payment.checkout_session_id = checkout_session.id
             payment.user = self.request.user
             payment.timestamp = timezone.now()
+            payment.total =total
             payment.save()
 
             order.ordered = True

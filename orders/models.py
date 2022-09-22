@@ -53,6 +53,7 @@ class Payment(models.Model):
     user = models.ForeignKey(User, on_delete= models.SET_NULL, blank= True, null= True)
     checkout_session_id = models.CharField(max_length = 100, blank= True, null= True)
     timestamp = models.DateTimeField(auto_now_add= True, blank= True, null = True)
+    total = models.FloatField(null = True, blank = True)
 
     def __str__(self):
         return self.user.username

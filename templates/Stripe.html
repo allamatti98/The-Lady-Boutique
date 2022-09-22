@@ -15,10 +15,14 @@
          
           <h1>Product ID: {{ order_item.item.id }}</h1>
           <h3>Product Title: {{ order_item.item.title }}</h3>
-          <h3>Product Title: {{ order_item.item.category }}</h3>
+          <h3>Product Category: {{ order_item.item.category }}</h3>
           <h4>Product Price: $ {{ order_item.item.get_display_price }}</h4>
           <h4>Product Price ID: $ {{ order_item.item.stripe_price_id }}</h4>
           <h4>Product Quantity: {{ order_item.quantity }}</h4>
+          <h4>Item Count: {{ order.items.count }}</h4>
+          <h4>Product total Price: {{ order_item.get_final_price}}</h4>
+          <h4>Product total Price: {{ order_item.get_total }}</h4>
+
           
           
         </div>
