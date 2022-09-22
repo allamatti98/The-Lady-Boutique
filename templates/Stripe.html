@@ -1,16 +1,113 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Buy cool new product</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-  </head>
+{% extends "base.html" %}
+{% block headtags %}
+<link rel="stylesheet" href="style.css">
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<title>Buy cool new product</title>
+{% endblock headtags %}
   <body>
+    {% block content %}
     <section>
-      {% for order_item in order.items.all %}
+      <br>
+      <br>
+      <br>
+      <div>
+                
+        
+      </div>
+      
       <div class="product">
-        <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
+        <!--Grid column-->
+        <div class="col-md-4 mb-9 m-auto">
+
+          <!-- Heading -->
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <span class="badge badge-secondary badge-pill"> {{ order.items.count }}</span>
+          </h4>
+
+          <!-- Cart -->
+          <ul class="list-group mb-3 z-depth-1">
+            {% for order_item in order.items.all %}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">{{ order_item.item.title  }} X {{ order_item.quantity }}</h6>
+                <small class="text-muted">{{ order_item.item.description }}</small>
+              </div>
+              <span class="text-muted">Shs.{{ order_item.get_final_price }}</span>
+            </li>
+            {% endfor %}
+            
+            {% if promocode %}
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small>EXAMPLECODE</small>
+              </div>
+              <span class="text-success">-$5</span>
+            </li>
+            {% endif %}
+           
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>Shs.{{ order.get_total }}</strong>
+            </li>
+          </ul>
+          <!-- Cart -->
+          
+
+        </div>
+        <!--Grid column-->
+      </div>
+      
+      
+      <form action="/create-checkout-session" method="POST">
+        <button type="button" id="checkout-button">Checkout</button>
+      </form>
+    </section>   
+    {% csrf_token %}
+    {% endblock content %}
+
+    {% block javascript %}
+    <script type="text/javascript">
+      const csrftoken = document.querySelector('[name = csrfmiddlewaretoken]').value;
+      //Instance of Stripe Object
+      var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+      var checkoutButton = document.getElementById("checkout-button");
+      checkoutButton.addEventListener("click", function () {
+          fetch("{% url 'orders:create-checkout-session'  %}", {
+              method: "POST",
+              headers: {
+                  'X-CSRFToken': csrftoken
+              }
+          })
+              .then(function (response){
+                  return response.json();
+              })
+              .then(function (session){
+                  return stripe.redirectToCheckout({ sessionId: session.id });
+              })
+  
+              .then(function (result){
+                  //If
+                  //error
+                  //customer
+                  if (result.error){
+                      alert(result.error.message);
+                  }
+              })
+              
+              .catch( function (error) {
+                  console.error("Error:", error);
+              });
+          });
+    </script>
+      {% endblock javascript %}
+  </body>
+</html>
+
+
+<img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
         <div class="description">
          
           <h1>Product ID: {{ order_item.item.id }}</h1>
@@ -26,50 +123,5 @@
           
           
         </div>
-        {% endfor %}
+        
         <h4>Product ID: {{product.id}}</h4>
-      </div>
-      <form action="/create-checkout-session" method="POST">
-        <button type="button" id="checkout-button">Checkout</button>
-      </form>
-    </section>
-    <section>
-      
-    </section>
-   
-    {% csrf_token %}
-  </body>
-  <script type="text/javascript">
-    const csrftoken = document.querySelector('[name = csrfmiddlewaretoken]').value;
-    //Instance of Stripe Object
-    var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
-    var checkoutButton = document.getElementById("checkout-button");
-    checkoutButton.addEventListener("click", function () {
-        fetch("{% url 'orders:create-checkout-session'  %}", {
-            method: "POST",
-            headers: {
-                'X-CSRFToken': csrftoken
-            }
-        })
-            .then(function (response){
-                return response.json();
-            })
-            .then(function (session){
-                return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-
-            .then(function (result){
-                //If
-                //error
-                //customer
-                if (result.error){
-                    alert(result.error.message);
-                }
-            })
-            
-            .catch( function (error) {
-                console.error("Error:", error);
-            });
-        });
-  </script>
-</html>

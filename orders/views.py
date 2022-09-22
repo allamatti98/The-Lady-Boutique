@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, Payment
+from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .forms import CheckOutForm
+from .forms import CheckOutForm, CouponForm
 import stripe
 from django.conf import settings
 from django.http import JsonResponse
@@ -26,7 +26,8 @@ class CheckoutView(View):
     def get(self, *args, **kwargs):
         form = CheckOutForm()
         context = {
-            'form':form
+            'form':form,
+            "couponform" : CouponForm(),
         }
         return render(self.request,'CheckOut.html', context)
     
@@ -212,7 +213,7 @@ class CreateCheckoutSessionView(View):
         YOUR_DOMAIN = "http://127.0.0.1:8000"  # change in production
 
         zee = []
-        output = 0
+        
         order = Order.objects.get(user = self.request.user, ordered = False)
         for item in order.items.all():
             lineitem = {
@@ -220,11 +221,7 @@ class CreateCheckoutSessionView(View):
                     'quantity': item.quantity,
                 }
             zee.append(lineitem)
-            output += item.get_total_item_price()
-        total = output
-
-
-
+        
         try:
             checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -234,12 +231,11 @@ class CreateCheckoutSessionView(View):
             cancel_url=YOUR_DOMAIN + '/orders/cancel/',
         )
 
-
             payment = Payment()
             payment.checkout_session_id = checkout_session.id
             payment.user = self.request.user
             payment.timestamp = timezone.now()
-            payment.total =total
+            payment.total = order.get_total()
             payment.save()
 
             order_items = order.items.all()
@@ -299,3 +295,31 @@ class SuccessView(TemplateView):
 
 class CancelView(TemplateView):
     template_name = "Cancel.html"
+
+def get_coupon(request, code):
+    try:
+        coupon = Coupon.objects.get(code = code)
+        return coupon
+    except ObjectDoesNotExist:
+        messages.info(request, "Invalid Coupon")
+
+
+def add_coupon(request):
+    if request.method == "POST":
+        form = CouponForm(request.POST or None)
+        if form.is_valid():
+            try:
+                code = form.cleaned_data.get('code')
+                print(form.cleaned_data)
+                order = Order.objects.get( user = request.user, ordered = False)
+                order.coupon = get_coupon(request,code)
+                order.save()
+                messages.success(request, "Coupon Successfully Redeemed")
+                return redirect('orders:checkout')
+                
+
+            except ObjectDoesNotExist:
+                messages.info(request, "You do not have an active order.")
+                return redirect("orders:checkout")
+    else:
+        pass
