@@ -9,11 +9,13 @@ class PriceInlineAdmin(admin.TabularInline):
 class ItemAdmin(admin.ModelAdmin):
     inlines = [PriceInlineAdmin]
 
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('user', 'ordered')
 
 admin.site.register(Item,ItemAdmin)
 
 admin.site.register(OrderItem)
 
-admin.site.register(Order)
+admin.site.register(Order, OrderAdmin)
 
 admin.site.register(Payment)

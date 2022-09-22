@@ -103,7 +103,7 @@ def PayPalLanding(request):
         
 class HomeView(ListView):
     model = Item
-    paginate_by = 1
+    paginate_by = 2
     template_name = "HomePage.html"
 
 
@@ -241,6 +241,11 @@ class CreateCheckoutSessionView(View):
             payment.timestamp = timezone.now()
             payment.total =total
             payment.save()
+
+            order_items = order.items.all()
+            order_items.update(ordered = True)
+            for item in order_items:
+                item.save()
 
             order.ordered = True
             order.payment = payment

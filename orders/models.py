@@ -26,6 +26,7 @@ class Item(models.Model):
     label = models.CharField(choices= label_choices, max_length=1)
     slug = models.SlugField()
     description = models.TextField()
+    image = models.ImageField()
 
     def __str__(self):
        return self.title
