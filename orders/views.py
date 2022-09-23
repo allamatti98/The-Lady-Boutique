@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon
+from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from .forms import CheckOutForm, CouponForm
+from .forms import CheckOutForm, CouponForm, RefundForm
 import stripe
 from django.conf import settings
 from django.http import JsonResponse
@@ -338,3 +338,36 @@ class AddCoupon(View):
                 return redirect("orders:checkout")
         else:
             pass
+
+class RequestRefund(View):
+    def get(self, *args, **kwargs):
+        form = RefundForm()
+        context = {
+            "form" : form
+        }
+        return render(self.request,"RefundRequest.html", context)
+
+
+    def post (self, *args, **kwargs):
+        form = RefundForm(self.request.POST)
+        if form.is_valid():
+            ref_code = form.cleaned_data.get('ref_code')
+            message = form.cleaned_data.get('message')
+            email = form.cleaned_data.get('email')
+
+            try:
+                order = Order.objects.get(ref_code = ref_code)
+                order.refund_requests = True
+                order.save()
+
+                refund = Refund()
+                refund.order = order
+                refund.reason = message
+                refund.email = email
+                refund.save()
+                messages.info(self.request, "Your order was received")
+                return redirect ("orders:refund")
+
+            except ObjectDoesNotExist:
+                messages.info(self.request, "This object does not exist")
+                return redirect ("orders:refund")

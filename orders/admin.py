@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Item, OrderItem, Order, StripePrice, Payment, Coupon
+from . models import Item, OrderItem, Order, StripePrice, Payment, Coupon, Refund
 
 
 class PriceInlineAdmin(admin.TabularInline):
