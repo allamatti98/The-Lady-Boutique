@@ -19,5 +19,5 @@ urlpatterns = [
     path('checkout/Stripe/', views.StripeLanding.as_view(), name = 'stripelanding'),
     path('checkout/Adyen/', views.AdyenLanding, name = 'adyenlanding'),
     path('checkout/PayPal/', views.PayPalLanding, name = 'paypallanding'),
-    path('add-coupon/', views.add_coupon, name = 'coupon')
+    path('add-coupon/', views.AddCoupon.as_view(), name = 'coupon')
 ]

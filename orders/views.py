@@ -24,10 +24,12 @@ def products(request):
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):
+        order = Order.objects.get(user = self.request.user, ordered= False)
         form = CheckOutForm()
         context = {
             'form':form,
             "couponform" : CouponForm(),
+            "order": order,
         }
         return render(self.request,'CheckOut.html', context)
     
@@ -76,7 +78,7 @@ class CheckoutView(View):
             messages.warning(self.request,"Failed Checkout")
             return redirect('orders:checkout')    
         except ObjectDoesNotExist:
-            messages.error(self.request, 'You do not have an active order')
+            messages.warning(self.request, 'You do not have an active order')
             return redirect("orders:order-summary") 
 
 
@@ -84,15 +86,21 @@ class StripeLanding(TemplateView):
     template_name = "Stripe.html"
 
     def get_context_data(self, **kwargs):
-            order = Order.objects.get(user = self.request.user, ordered = False)
+        order = Order.objects.get(user = self.request.user, ordered = False)
+        if order.billing_address:
+
             context = super(StripeLanding,self).get_context_data(**kwargs)
+            code = order.coupon.code
 
             context.update({
                 "order": order,
                 "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+                "promocode": code,
             })
             return context
-
+        else:
+            messages.warning(self.request, "No billing address provided")
+            return redirect('orders:checkout')
 
 def AdyenLanding(request):
     return render(request, "Adyen.html", {})
@@ -118,7 +126,7 @@ class OrderSummary(LoginRequiredMixin, View):
                 }
                 return render(self.request,"OrderSummary.html", context)
             except ObjectDoesNotExist:
-                messages.error(self.request, 'You do not have an active order')
+                messages.warning(self.request, 'You do not have an active order')
                 return redirect("/")        
     
 
@@ -262,30 +270,30 @@ class CreateCheckoutSessionView(View):
             # param is '' in this case
             print('Param is: %s' % e.param)
             print('Message is: %s' % e.user_message)
-            messages.error(self.request, "Card Declined.")
+            messages.warning(self.request, "Card Declined.")
 
         except stripe.error.RateLimitError as e:
-            messages.error(self.request, "Too many requests made to the API too quickly.")
+            messages.warning(self.request, "Too many requests made to the API too quickly.")
             return redirect("/")
             
         except stripe.error.InvalidRequestError as e:
-            messages.error(self.request, "Invalid parameters were supplied to Stripe's API.")
+            messages.warning(self.request, "Invalid parameters were supplied to Stripe's API.")
             return redirect("/")
 
         except stripe.error.AuthenticationError as e:
-            messages.error(self.request, "Authentication with Stripe's API failed, maybe you changed API keys recently")
+            messages.warning(self.request, "Authentication with Stripe's API failed, maybe you changed API keys recently")
             return redirect("/")
 
         except stripe.error.APIConnectionError as e:
-            messages.error(self.request, "Network communication with Stripe failed.")
+            messages.warning(self.request, "Network communication with Stripe failed.")
             return redirect("/")
 
         except stripe.error.StripeError as e:
-            messages.error(self.request, "General Stripe Error.")
+            messages.warning(self.request, "General Stripe Error.")
             return redirect("/")
 
         except Exception as e:
-            messages.error(self.request, "Error completely unrelated to Stripe.")
+            messages.warning(self.request, "Error completely unrelated to Stripe.")
             return redirect("/")
 
 
@@ -304,22 +312,22 @@ def get_coupon(request, code):
         messages.info(request, "Invalid Coupon")
 
 
-def add_coupon(request):
-    if request.method == "POST":
-        form = CouponForm(request.POST or None)
+class AddCoupon(View):
+    def post(self, *args, **kwargs):
+        form = CouponForm(self.request.POST or None)
         if form.is_valid():
             try:
                 code = form.cleaned_data.get('code')
                 print(form.cleaned_data)
-                order = Order.objects.get( user = request.user, ordered = False)
-                order.coupon = get_coupon(request,code)
+                order = Order.objects.get( user = self.request.user, ordered = False)
+                order.coupon = get_coupon(self.request,code)
                 order.save()
-                messages.success(request, "Coupon Successfully Redeemed")
+                messages.success(self.request, "Coupon Successfully Redeemed")
                 return redirect('orders:checkout')
                 
 
             except ObjectDoesNotExist:
-                messages.info(request, "You do not have an active order.")
+                messages.info(self.request, "You do not have an active order.")
                 return redirect("orders:checkout")
-    else:
-        pass
+        else:
+            pass
