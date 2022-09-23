@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -15,6 +16,10 @@ label_choices = (
     ('P','primary'),
     ('S','secondary'),
     ('D','danger')
+)
+adress_choices = (
+    ('B','Billing'),
+    ('S','Shipping')
 )
 
 class Item(models.Model):
@@ -110,7 +115,9 @@ class Order(models.Model): #Shopping Cart
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default= False)
-    billing_address = models.ForeignKey('BillingAddress', on_delete=models.SET_NULL, blank=True, 
+    billing_address = models.ForeignKey('Address', related_name= 'billing_address', on_delete=models.SET_NULL, blank=True, 
+    null=True)
+    shipping_address = models.ForeignKey('Address', related_name= 'shipping_address', on_delete=models.SET_NULL, blank=True, 
     null=True)
     payment = models.ForeignKey('Payment', on_delete= models.SET_NULL, blank= True, null= True)
     coupon = models.ForeignKey('Coupon', on_delete= models.SET_NULL, blank= True , null= True)
@@ -131,16 +138,23 @@ class Order(models.Model): #Shopping Cart
             total -= self.coupon.amount
         return total
 
-class BillingAddress(models.Model):
+class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     country = fields.CountryField(multiple=False)
     city = models.CharField(max_length=15)
     street_address= models.CharField(max_length=50)
     apartment_address = models.CharField(max_length=50)
+    address_type = models.CharField(max_length=1, choices = adress_choices)
+    default = models.BooleanField(default= False)
     
 
     def __str__(self):
         return self.user.username
+
+    class Meta:
+        verbose_name_plural = 'Addresses'
+
+
     
 class Coupon(models.Model):
     code = models.CharField(max_length = 20)

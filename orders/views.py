@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, View, TemplateView
-from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund
 from django.utils import timezone
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
@@ -57,12 +57,13 @@ class CheckoutView(View):
                 payment_option = form.cleaned_data.get('payment_option')
                 
                 
-                billing_address = BillingAddress(
+                billing_address = Address(
                     user= self.request.user,
                     street_address = street_address,
                     apartment_address = apartment_address,
                     country = country,
                     city = city,
+                    address_type = 'B'
                     )
 
                 billing_address.save()
