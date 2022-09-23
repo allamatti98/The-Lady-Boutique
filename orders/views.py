@@ -12,8 +12,14 @@ import stripe
 from django.conf import settings
 from django.http import JsonResponse
 from django.views import View as SView
+import random
+import string
+
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def create_ref_code():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k = 15))
 
 def products(request):
     context = {
@@ -253,6 +259,7 @@ class CreateCheckoutSessionView(View):
 
             order.ordered = True
             order.payment = payment
+            order.ref_code = create_ref_code()
             order.save()
 
             messages.success(self.request, "Your payment was successful!")

@@ -10,8 +10,10 @@ class ItemAdmin(admin.ModelAdmin):
     inlines = [PriceInlineAdmin]
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'ordered')
-
+    list_display = ('user', 'ordered','being_delivered','received','refund_requests','refund_granted','user','billing_address', 'payment','coupon')
+    list_display_links = ('user','billing_address', 'payment','coupon')
+    list_filter = ('ordered','being_delivered','received','refund_requests','refund_granted')
+    search_fields = ('user__username','ref_code')
 
 admin.site.register(Item,ItemAdmin)
 
