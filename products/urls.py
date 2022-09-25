@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('login/',views.loginredirect, name = 'index')
+    path('',views.index, name = 'index'),
+    path('login/',views.loginredirect, name = 'lodred')
 ]
