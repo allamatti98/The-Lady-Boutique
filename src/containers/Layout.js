@@ -11,6 +11,7 @@ import {
   Segment,
   Input,
   Icon,
+  Label,
 } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
@@ -101,46 +102,83 @@ class CustomLayout extends React.Component {
         </Menu>
 
 
+
+
+
 {/* Navbar Starts here */}
-        <Menu secondary>
+        <Menu secondary size= 'huge'>
         <Menu.Item header>
         <img alt="logo" src={Logo} />
         </Menu.Item>
         <Menu.Item
           name='home'
+          color = 'pink'
           active={activeItem === 'home'}
           onClick={this.handleItemClick}
         />
+
+<Dropdown text='Pages' pointing className='link item'>
+      <Dropdown.Menu>
+        <Dropdown.Header>Categories</Dropdown.Header>
+        <Dropdown.Item>
+          <Dropdown text='Clothing'>
+            <Dropdown.Menu>
+              <Dropdown.Header>Tops</Dropdown.Header>
+              <Dropdown.Item>Crop Tops</Dropdown.Item>
+              <Dropdown.Item>Blouses</Dropdown.Item>
+              <Dropdown.Item>Jackets</Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Header>Bottoms</Dropdown.Header>
+              <Dropdown.Item>Pants</Dropdown.Item>
+              <Dropdown.Item>Skirts</Dropdown.Item>
+              <Dropdown.Item>Leggings</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Dropdown.Item>
+        <Dropdown.Item>Wishlist</Dropdown.Item>
+        <Dropdown.Item>Contact Us</Dropdown.Item>
+        <Dropdown.Item>Blog</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
         <Menu.Item
           name='messages'
+          color = 'pink'
           active={activeItem === 'messages'}
           onClick={this.handleItemClick}
         />
         <Menu.Item
           name='friends'
+          color = 'pink'
           active={activeItem === 'friends'}
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <Input icon='search' placeholder='Search...'/>
           </Menu.Item>
+
           <Menu.Item
             name='logout'
+            color = 'pink'
             active={activeItem === 'logout'}
             onClick={this.handleItemClick}
           />
         </Menu.Menu>
         <Menu.Item
           name='basket'
+          color = 'pink'
           active={activeItem === 'basket'}
           onClick={this.handleItemClick}
         >
           <Icon name='shopping basket' />
+          <Label color='pink' size="small" centered>23</Label>
+        
         </Menu.Item>
 
         <Menu.Item
           name='wishlist'
+          color = 'pink'
           active={activeItem === 'wishlist'}
           onClick={this.handleItemClick}
         >
@@ -149,6 +187,7 @@ class CustomLayout extends React.Component {
 
         <Menu.Item
           name='user'
+          color = 'pink'
           active={activeItem === 'user'}
           onClick={this.handleItemClick}
         >
