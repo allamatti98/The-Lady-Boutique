@@ -8,20 +8,29 @@ import {
   Image,
   List,
   Menu,
-  Segment
+  Segment,
+  Input,
+  Icon,
 } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
+import Logo from '../static/Logo.png';
 
 class CustomLayout extends React.Component {
   componentDidMount() {
     this.props.fetchCart();
   }
 
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+
   render() {
     const { authenticated, cart, loading } = this.props;
+    const { activeItem } = this.state;
     return (
       <div>
         <Menu inverted>
@@ -90,6 +99,66 @@ class CustomLayout extends React.Component {
             )}
           </Container>
         </Menu>
+
+
+{/* Navbar Starts here */}
+        <Menu secondary>
+        <Menu.Item header>
+        <img alt="logo" src={Logo} />
+        </Menu.Item>
+        <Menu.Item
+          name='home'
+          active={activeItem === 'home'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='messages'
+          active={activeItem === 'messages'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='friends'
+          active={activeItem === 'friends'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          <Menu.Item
+            name='logout'
+            active={activeItem === 'logout'}
+            onClick={this.handleItemClick}
+          />
+        </Menu.Menu>
+        <Menu.Item
+          name='basket'
+          active={activeItem === 'basket'}
+          onClick={this.handleItemClick}
+        >
+          <Icon name='shopping basket' />
+        </Menu.Item>
+
+        <Menu.Item
+          name='wishlist'
+          active={activeItem === 'wishlist'}
+          onClick={this.handleItemClick}
+        >
+          <Icon name='heart outline' />
+        </Menu.Item>
+
+        <Menu.Item
+          name='user'
+          active={activeItem === 'user'}
+          onClick={this.handleItemClick}
+        >
+          <Icon name='user outline' />
+        </Menu.Item>
+
+      </Menu>
+
+
+
 
         {this.props.children}
 
