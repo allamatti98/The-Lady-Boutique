@@ -247,14 +247,32 @@ class CustomLayout extends React.Component {
         >
           <Container textAlign="center">
             <Grid>
-              <Grid.Column>
-                
+            <Grid.Column width={5}>
+                <Header inverted as="h4" content="Group 1" />
+                <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
               </Grid.Column>
-              <Grid.Column>
-
+              <Grid.Column width={5}>
+                <Header inverted as="h4" content="Group 2" />
+                <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
               </Grid.Column>
-              <Grid.Column>
-
+              <Grid.Column width={5}>
+                <Header inverted as="h4" content="Group 3" />
+                <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
               </Grid.Column>
             </Grid>
             <Divider inverted section/>
