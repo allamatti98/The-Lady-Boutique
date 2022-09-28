@@ -249,14 +249,14 @@ class CustomLayout extends React.Component {
         >
           <Container textAlign="center">
             <Grid>
-            <Grid.Column width={5}>
+            <Grid.Column width={3}>
               <Header color='pink' as="h4" content="Lets Link Up:" />
                 <CompactIcons color = 'pink'/>
             </Grid.Column>
               <Image centered src={Logo} style={{ width: '250px', height: '100px'}}/>
 
 
-              <Grid.Column width={5}>
+              <Grid.Column width={3}>
                 <Header color='pink' as="h4" content="Card Swipes Supported:" />
                 <Menu compact>
                   <Image src= {Visa}/><Image src={Mastercard}/><Image src={PayPal}/>
@@ -264,52 +264,59 @@ class CustomLayout extends React.Component {
               </Grid.Column>
             </Grid>
             <Divider inverted section/>
-            
-            <Grid divided inverted stackable>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 1" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 2" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={3}>
-                <Header inverted as="h4" content="Group 3" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={7}>
-                <Header inverted as="h4" content="Footer Header" />
-                <p>
-                  Extra space for a call to action inside the footer that could
-                  help re-engage users.
-                </p>
-              </Grid.Column>
-            </Grid>
 
+            <Grid>
+            <Grid.Column width={4}>
+              <Header color='pink' as="h2" content="Stock" />
+              <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
+            </Grid.Column>
+
+
+              <Grid.Column width={4}>
+                <Header color='pink' as="h2" content="Site Map" />
+                <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
+              </Grid.Column>
+
+              <Grid.Column width={4}>
+                <Header color='pink' as="h2" content="Lady Bird" />
+                <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
+              </Grid.Column>
+
+              <Grid.Column width={4}>
+              <Header color='pink' as="h2" content="Contacts" />
+              <List link inverted>
+                  <List.Item as="a">Link One</List.Item>
+                  <List.Item as="a">Link Two</List.Item>
+                  <List.Item as="a">Link Three</List.Item>
+                  <List.Item as="a">Link Four</List.Item>
+                </List>
+            </Grid.Column>
+
+            </Grid>
+            <Divider inverted section/>
             <Divider inverted section />
-            <Image centered size="mini" src="/logo.png" />
+
             <List horizontal inverted divided link size="small">
               <List.Item as="a" href="#">
-                Site Map
+                FAQ
               </List.Item>
               <List.Item as="a" href="#">
-                Contact Us
+                About Us
               </List.Item>
               <List.Item as="a" href="#">
                 Terms and Conditions
