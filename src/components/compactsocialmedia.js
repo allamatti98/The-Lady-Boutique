@@ -28,6 +28,7 @@ class CompactIcons extends Component {
           name='facebook'
           active={activeItem === 'facebook'}
           onClick={this.handleItemClick}
+          color = 'pink'
         >
           <Icon name='facebook' />
           Facebook

@@ -17,10 +17,13 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
-import Logo from '../static/Logo.png';
+import Logo from '../static/img/Logo.png';
+import Visa from '../static/img/payment1.png';
+import Mastercard from '../static/img/payment2.png';
+import PayPal from '../static/img/payment3.png';
 import IconDropDown from "../components/icondropdown";
-import CompactIcons from "../components/compacticons";
-
+import CompactIcons from "../components/compactsocialmedia";
+import CompactCards from "../components/compactpaymentcards";
 
 
 class CustomLayout extends React.Component {
@@ -105,9 +108,6 @@ class CustomLayout extends React.Component {
             )}
           </Container>
         </Menu>
-
-
-
 
 
         {/* Navbar Starts here */}
@@ -250,26 +250,17 @@ class CustomLayout extends React.Component {
           <Container textAlign="center">
             <Grid>
             <Grid.Column width={5}>
-              <Header inverted as="h4" content="Lets Link Up:" />
-                <CompactIcons/>
+              <Header color='pink' as="h4" content="Lets Link Up:" />
+                <CompactIcons color = 'pink'/>
             </Grid.Column>
+              <Image centered src={Logo} style={{ width: '250px', height: '100px'}}/>
+
+
               <Grid.Column width={5}>
-                <Header inverted as="h4" content="Group 2" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
-              <Grid.Column width={5}>
-                <Header inverted as="h4" content="Group 3" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
+                <Header color='pink' as="h4" content="Card Swipes Supported:" />
+                <Menu compact>
+                  <Image src= {Visa}/><Image src={Mastercard}/><Image src={PayPal}/>
+                </Menu>
               </Grid.Column>
             </Grid>
             <Divider inverted section/>
