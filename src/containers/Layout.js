@@ -18,8 +18,10 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/Logo.png';
-import LoggedInUseIcon from "../components/loggedinusericon";
 import IconDropDown from "../components/icondropdown";
+import CompactIcons from "../components/compacticons";
+
+
 
 class CustomLayout extends React.Component {
   componentDidMount() {
@@ -248,14 +250,9 @@ class CustomLayout extends React.Component {
           <Container textAlign="center">
             <Grid>
             <Grid.Column width={5}>
-                <Header inverted as="h4" content="Group 1" />
-                <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
-                </List>
-              </Grid.Column>
+              <Header inverted as="h4" content="Lets Link Up:" />
+                <CompactIcons/>
+            </Grid.Column>
               <Grid.Column width={5}>
                 <Header inverted as="h4" content="Group 2" />
                 <List link inverted>
