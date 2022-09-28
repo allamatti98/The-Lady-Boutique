@@ -15,7 +15,7 @@ const LoggedInUseIcon = () => (
           <Dropdown.Item>Wishlist</Dropdown.Item>
         </Link>
         
-          <Dropdown.Item header onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
+          <Dropdown.Item onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
           
         </Dropdown.Menu>
       </Dropdown>

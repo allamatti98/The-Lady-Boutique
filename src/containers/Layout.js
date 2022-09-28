@@ -116,7 +116,6 @@ class CustomLayout extends React.Component {
           <Menu.Item header>
             <img alt="logo" src={Logo} style={{ width: "130px" }} />
           </Menu.Item>
-
           <Link to="/">
             <Menu.Item
               name='home'
@@ -125,7 +124,6 @@ class CustomLayout extends React.Component {
               onClick={this.handleItemClick}
             />
           </Link>
-
           <Link to="/products">
             <Menu.Item
               name='shop'
@@ -133,7 +131,6 @@ class CustomLayout extends React.Component {
               active={activeItem === 'shop'}
               onClick={this.handleItemClick}
             /></Link>
-
           <Link to="/">
             <Menu.Item
               name='Gallery'
@@ -141,7 +138,6 @@ class CustomLayout extends React.Component {
               active={activeItem === 'Gallery'}
               onClick={this.handleItemClick}
             /></Link>
-
           <Link to="/">
             <Menu.Item
               name='Blog'
@@ -149,7 +145,6 @@ class CustomLayout extends React.Component {
               active={activeItem === 'Blog'}
               onClick={this.handleItemClick}
             /></Link>
-
           <Link to="/">
             <Menu.Item
               name='Contact Us'
@@ -160,15 +155,13 @@ class CustomLayout extends React.Component {
 
           {authenticated ? (
             <React.Fragment>
-              <Menu.Menu position="right">
-
-                
-                
+              <Menu.Menu position="right">                
                 <Link to ="/">
                   <Menu.Item>
                     <Input icon='search' placeholder='Search...' />
                 </Menu.Item>
                 </Link>
+
 
                 <Link to="/">
                   <Menu.Item
@@ -178,7 +171,7 @@ class CustomLayout extends React.Component {
                     onClick={this.handleItemClick}
                   >
                     <Icon name='shopping basket' />
-                    <Label color='pink' size="small" centered>23</Label>
+                    <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
                   </Menu.Item></Link>
 
@@ -192,8 +185,25 @@ class CustomLayout extends React.Component {
                     <Icon name='heart outline' />
                   </Menu.Item></Link>
 
-                <LoggedInUseIcon />
-
+                {/* User Icon */}
+                <div>
+    <Menu attached='top'>
+        
+      <Dropdown item icon='user outline' simple>
+        <Dropdown.Menu>
+        <Link to= "/profile">
+          <Dropdown.Item>Profile</Dropdown.Item>
+        </Link>
+        <Link to= "/login">
+          <Dropdown.Item>Wishlist</Dropdown.Item>
+        </Link>
+        
+          <Dropdown.Item onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
+          
+        </Dropdown.Menu>
+      </Dropdown>
+    </Menu>
+  </div>
               </Menu.Menu>
             </React.Fragment>
           ) : (
@@ -224,9 +234,6 @@ class CustomLayout extends React.Component {
        
                 {/* User Icon */}
               <IconDropDown/>
-       
-       
-       
             </Menu.Menu>
           )}
         </Menu>
@@ -239,6 +246,19 @@ class CustomLayout extends React.Component {
           style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
         >
           <Container textAlign="center">
+            <Grid>
+              <Grid.Column>
+                
+              </Grid.Column>
+              <Grid.Column>
+
+              </Grid.Column>
+              <Grid.Column>
+
+              </Grid.Column>
+            </Grid>
+            <Divider inverted section/>
+            
             <Grid divided inverted stackable>
               <Grid.Column width={3}>
                 <Header inverted as="h4" content="Group 1" />
