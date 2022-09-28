@@ -18,6 +18,9 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/Logo.png';
+import IconDropDown from "../components/icondropdown";
+import Usericon from "../components/usericon";
+import LoggedInUseIcon from "../components/loggedinusericon";
 
 class CustomLayout extends React.Component {
   componentDidMount() {
@@ -32,6 +35,7 @@ class CustomLayout extends React.Component {
   render() {
     const { authenticated, cart, loading } = this.props;
     const { activeItem } = this.state;
+
     return (
       <div>
         <Menu inverted>
@@ -105,96 +109,131 @@ class CustomLayout extends React.Component {
 
 
 
-{/* Navbar Starts here */}
-        <Menu secondary size= 'huge'>
-        <Menu.Item header>
-        <img alt="logo" src={Logo} />
-        </Menu.Item>
-        <Menu.Item
-          name='home'
-          color = 'pink'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        />
+        {/* Navbar Starts here */}
+        <Menu secondary size='huge'
+          style={{ margin: "1em 2em", padding: "1em 0em" }}
+        >
 
-<Dropdown text='Pages' pointing className='link item'>
-      <Dropdown.Menu>
-        <Dropdown.Header>Categories</Dropdown.Header>
-        <Dropdown.Item>
-          <Dropdown text='Clothing'>
-            <Dropdown.Menu>
-              <Dropdown.Header>Tops</Dropdown.Header>
-              <Dropdown.Item>Crop Tops</Dropdown.Item>
-              <Dropdown.Item>Blouses</Dropdown.Item>
-              <Dropdown.Item>Jackets</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Header>Bottoms</Dropdown.Header>
-              <Dropdown.Item>Pants</Dropdown.Item>
-              <Dropdown.Item>Skirts</Dropdown.Item>
-              <Dropdown.Item>Leggings</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Dropdown.Item>
-        <Dropdown.Item>Wishlist</Dropdown.Item>
-        <Dropdown.Item>Contact Us</Dropdown.Item>
-        <Dropdown.Item>Blog</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-
-        <Menu.Item
-          name='messages'
-          color = 'pink'
-          active={activeItem === 'messages'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='friends'
-          color = 'pink'
-          active={activeItem === 'friends'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search...'/>
+          <Menu.Item header>
+            <img alt="logo" src={Logo} style={{ width: "130px" }} />
           </Menu.Item>
 
-          <Menu.Item
-            name='logout'
-            color = 'pink'
-            active={activeItem === 'logout'}
-            onClick={this.handleItemClick}
-          />
-        </Menu.Menu>
-        <Menu.Item
-          name='basket'
-          color = 'pink'
-          active={activeItem === 'basket'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name='shopping basket' />
-          <Label color='pink' size="small" centered>23</Label>
-        
-        </Menu.Item>
+          <Link to="/">
+            <Menu.Item
+              name='home'
+              color='pink'
+              active={activeItem === 'home'}
+              onClick={this.handleItemClick}
+            />
+          </Link>
 
-        <Menu.Item
-          name='wishlist'
-          color = 'pink'
-          active={activeItem === 'wishlist'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name='heart outline' />
-        </Menu.Item>
+          <Link to="/products">
+            <Menu.Item
+              name='shop'
+              color='pink'
+              active={activeItem === 'shop'}
+              onClick={this.handleItemClick}
+            /></Link>
 
-        <Menu.Item
-          name='user'
-          color = 'pink'
-          active={activeItem === 'user'}
-          onClick={this.handleItemClick}
-        >
-          <Icon name='user outline' />
-        </Menu.Item>
+          <Link to="/">
+            <Menu.Item
+              name='Gallery'
+              color='pink'
+              active={activeItem === 'Gallery'}
+              onClick={this.handleItemClick}
+            /></Link>
 
-      </Menu>
+          <Link to="/">
+            <Menu.Item
+              name='Blog'
+              color='pink'
+              active={activeItem === 'Blog'}
+              onClick={this.handleItemClick}
+            /></Link>
+
+          <Link to="/">
+            <Menu.Item
+              name='Contact Us'
+              color='pink'
+              active={activeItem === 'Contact Us'}
+              onClick={this.handleItemClick}
+            /></Link>
+
+          {authenticated ? (
+            <React.Fragment>
+              <Menu.Menu position="right">
+
+                
+                
+                <Link to ="/">
+                  <Menu.Item>
+                    <Input icon='search' placeholder='Search...' />
+                </Menu.Item>
+                </Link>
+
+                <Link to="/">
+                  <Menu.Item
+                    name='basket'
+                    color='pink'
+                    active={activeItem === 'basket'}
+                    onClick={this.handleItemClick}
+                  >
+                    <Icon name='shopping basket' />
+                    <Label color='pink' size="small" centered>23</Label>
+
+                  </Menu.Item></Link>
+
+                <Link to="/">
+                  <Menu.Item
+                    name='wishlist'
+                    color='pink'
+                    active={activeItem === 'wishlist'}
+                    onClick={this.handleItemClick}
+                  >
+                    <Icon name='heart outline' />
+                  </Menu.Item></Link>
+
+                <LoggedInUseIcon />
+
+              </Menu.Menu>
+            </React.Fragment>
+          ) : (
+            <Menu.Menu position="right">
+              <Link>
+                <Menu.Item>
+                  <Input icon='search' placeholder='Search...' />
+                </Menu.Item>
+              </Link>
+
+              <Link>
+                <Menu.Item>
+                  <Icon name= "whatsapp"/>
+                </Menu.Item>
+              </Link>
+
+              <Link>
+                <Menu.Item>
+                  <Icon name= "instagram"/>
+                </Menu.Item>
+              </Link>
+
+              <Link>
+                <Menu.Item>
+                  <Icon name= "mail outline"/>
+                </Menu.Item>
+              </Link>
+
+
+              
+
+              <IconDropDown />
+
+
+            </Menu.Menu>
+
+          )}
+
+        </Menu>
 
 
 
