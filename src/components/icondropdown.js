@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Icon, Menu, Segment } from 'semantic-ui-react'
+import { Dropdown, Menu } from 'semantic-ui-react'
 import { Link} from "react-router-dom";
 
 // TODO: Update <Search> usage after its will be implemented

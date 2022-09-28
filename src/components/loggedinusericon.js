@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Icon, Menu, Segment } from 'semantic-ui-react'
+import { Dropdown, Menu } from 'semantic-ui-react'
 import { Link} from "react-router-dom";
 
 const LoggedInUseIcon = () => (
@@ -15,7 +15,7 @@ const LoggedInUseIcon = () => (
           <Dropdown.Item>Wishlist</Dropdown.Item>
         </Link>
         
-          <Dropdown.Item >Log Out</Dropdown.Item>
+          <Dropdown.Item header onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
           
         </Dropdown.Menu>
       </Dropdown>

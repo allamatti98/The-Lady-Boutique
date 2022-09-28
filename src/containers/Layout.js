@@ -18,9 +18,8 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/Logo.png';
-import IconDropDown from "../components/icondropdown";
-import Usericon from "../components/usericon";
 import LoggedInUseIcon from "../components/loggedinusericon";
+import IconDropDown from "../components/icondropdown";
 
 class CustomLayout extends React.Component {
   componentDidMount() {
@@ -222,21 +221,15 @@ class CustomLayout extends React.Component {
                   <Icon name= "mail outline"/>
                 </Menu.Item>
               </Link>
-
-
-              
-
-              <IconDropDown />
-
-
+       
+                {/* User Icon */}
+              <IconDropDown/>
+       
+       
+       
             </Menu.Menu>
-
           )}
-
         </Menu>
-
-
-
 
         {this.props.children}
 
