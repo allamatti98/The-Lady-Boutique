@@ -5,7 +5,7 @@ import pinkie from '../static/img/Boutiquelogo1.jpg'
 import blackie from '../static/img/Boutiquelogo3.jpg'
 
 
-const GroupedImages = () => (
+const Partners = () => (
   <div>
     <Image.Group size='small' style={{height: "100px"}}>
       <Image src={kamba1} />
@@ -16,7 +16,8 @@ const GroupedImages = () => (
       <Image src={pinkie} />
       <Image src={blackie} />   
     </Image.Group>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
   </div>
 )
 
-export default GroupedImages
+export default Partners

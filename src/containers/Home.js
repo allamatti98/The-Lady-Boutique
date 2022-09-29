@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {Button,Container,Divider,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
-import GroupedImages from "../components/groupedimages";
+import {Button,Container,Divider,Grid,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
+import Partners from '../components/partners';
 import CardExampleCard from "../components/card";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
@@ -95,7 +95,6 @@ const HomepageLayout = () => (
           style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
           <i color='pink'>Quick Browse</i>
-          <a href="#case-studies" >Quick Browse</a>
         </Divider>
         
         {/* <TabMenuButtons/> */}
@@ -103,11 +102,14 @@ const HomepageLayout = () => (
         <br/><br/><br/><br/>        
       </Container>
       <Container style={{margin:"0px", padding:"0px"}}>
-        <GroupedImages/>
+        <Partners/>
         </Container>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      
       
       <Row2/>
+
+
+
       <Row6/>
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
