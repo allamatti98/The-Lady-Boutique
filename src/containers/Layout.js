@@ -23,7 +23,6 @@ import Mastercard from '../static/img/payment2.png';
 import PayPal from '../static/img/payment3.png';
 import IconDropDown from "../components/icondropdown";
 import CompactIcons from "../components/compactsocialmedia";
-import CompactCards from "../components/compactpaymentcards";
 
 
 class CustomLayout extends React.Component {
@@ -37,12 +36,12 @@ class CustomLayout extends React.Component {
 
 
   render() {
-    const { authenticated, cart, loading } = this.props;
+    const { authenticated, cart } = this.props;
     const { activeItem } = this.state;
 
     return (
       <div>
-        <Menu inverted>
+        {/* <Menu inverted>
           <Container>
             <Link to="/">
               <Menu.Item header>Home</Menu.Item>
@@ -107,7 +106,7 @@ class CustomLayout extends React.Component {
               </Menu.Menu>
             )}
           </Container>
-        </Menu>
+        </Menu> */}
 
 
         {/* Navbar Starts here */}

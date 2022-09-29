@@ -12,6 +12,9 @@ import {
   Sidebar,
   Visibility
 } from "semantic-ui-react";
+import reddress from '../static/img/Model1.webp'
+
+
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -83,7 +86,41 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: "8em 0em" }} vertical>
+        <Segment style={{ padding: "8em 0em" }} vertical>
+      <Container text>
+        <Header style = {{ fontSize: "2em",textAlign: "center"}}>
+        Lady Bird
+        </Header>
+        <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
+          Our Trending Stock
+        </Header>
+        <p style={{ fontSize: "1.33em", textAlign: "center" }}>
+        Refresh your wardrobe with our cutting edge stylish outfits and stand out from the crowd.
+        </p>
+        
+        <Divider
+          as="h4"
+          className="header"
+          horizontal
+          style={{ margin: "3em 0em", textTransform: "uppercase",  }}
+        >
+          <a href="#case-studies" >Quick Browse</a>
+        </Divider>
+        <Header as="h3" style={{ fontSize: "2em" }}>
+          Did We Tell You About Our Bananas?
+        </Header>
+        <p style={{ fontSize: "1.33em" }}>
+          Yes I know you probably disregarded the earlier boasts as non-sequitur
+          filler content, but it's really true. It took years of gene splicing
+          and combinatory DNA research, but our bananas can really dance.
+        </p>
+        <Button as="a" size="large">
+          I'm Still Quite Interested
+        </Button>
+      </Container>
+    </Segment>
+
+    <Segment style={{ padding: "8em 0em"}} vertical>
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
