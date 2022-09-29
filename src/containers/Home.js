@@ -7,6 +7,7 @@ import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
+import Row4 from "../components/row4";
 
 
 const getWidth = () => {
@@ -111,6 +112,7 @@ const HomepageLayout = () => (
       <Row2/>
       <QualityControl/>
       <Row3/>
+      <Row4/>
       <Row6/>
 
 
