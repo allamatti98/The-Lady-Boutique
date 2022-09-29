@@ -307,8 +307,6 @@ class CustomLayout extends React.Component {
 
             </Grid>
             <Divider inverted section/>
-            <Divider inverted section />
-
             <List horizontal inverted divided link size="small">
               <List.Item as="a" href="#">
                 FAQ
@@ -322,6 +320,10 @@ class CustomLayout extends React.Component {
               <List.Item as="a" href="#">
                 Privacy Policy
               </List.Item>
+            </List>
+            <List inverted link size="small">
+              <List.Item><Icon name='copyright outline'/>Lady Bird Boutique 2022. All Rights Reserved</List.Item>
+              <List.Item>Designed by <b>Dayan Allamatti</b></List.Item>
             </List>
           </Container>
         </Segment>
