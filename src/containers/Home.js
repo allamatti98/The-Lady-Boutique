@@ -1,14 +1,11 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {Button,Container,Divider,Grid,GridColumn,GridRow,Header,Image,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
-import reddress from '../static/img/Model1.webp'
+import {Button,Container,Divider,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import GroupedImages from "../components/groupedimages";
-import TabMenuButtons from "../components/tabmenubuttons";
 import CardExampleCard from "../components/card";
-import pic2 from '../static/img/Boutique1.jpg'
-import HomeImagePair from "../components/homeimagepair";
-import event8 from '../static/img/Event8.jpg'
-import event7 from '../static/img/Event7.jpg'
+import Row2 from "../components/Row2";
+import Row6 from "../components/Row6";
+
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -103,82 +100,15 @@ const HomepageLayout = () => (
         
         {/* <TabMenuButtons/> */}
         <CardExampleCard/>
+        <br/><br/><br/><br/>        
+      </Container>
+      <Container style={{margin:"0px", padding:"0px"}}>
         <GroupedImages/>
-      </Container>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <Grid container stackable verticalAlign="middle">
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "4em", color:'#d05278' }}>
-              Discount
-            </Header>
-            <Header as="h3" style={{ fontSize: "5em" }}>
-            Get a whooping
-            </Header>
-            <Header as="h3" style={{ fontSize: "5em", color: '#d05278' }}>
-              40% Off
-            </Header>
-            <p style={{ fontSize: "2em" }}>
-              Yes, that's right, you thought it was not real?
-            </p>
-            <p style={{ fontSize: "2em" }}>
-              Well, it is!!!
-            </p>
-          </Grid.Column>
-          <Grid.Column floated="right" width={8}>
-            <Image
-              bordered
-              rounded
-              size="huge"
-              src={pic2}
-            />
-          </Grid.Column>
-        </Grid.Row>      
-        <Grid.Row>
-          <Grid.Column textAlign="center">
-            <Button size="huge" color='pink'>Take a Look</Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <Container text>
-        <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
-        Lady Bird Blog.
-        </Header>
-        <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
-          Latest Feed from the biggest Boutique in the country.
-        </Header>
-        <p style={{ fontSize: "1.33em", textAlign: "center" }}>
-        Steal the show... The Lady Bird Wayyy!!!
-        </p>
-      </Container>
-    <br/><br/><br/>
-      <Grid columns="equal" style={{ padding: "0em 6em", innerHeight:"100px" }} stackable>
-        <Grid.Row textAlign="center">
-          <Grid.Column >
-          <Image src ={event8}/>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              That is what they all say about us
-            </p>
-          </Grid.Column>
-          <Grid.Column >
-          <Image src ={event7}/>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              Chief Fun Officer Acme Toys
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Column textAlign="center">
-            <Button size="huge" color='pink'>Read Our Blog</Button>
-          </Grid.Column>
-      </Grid>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </Container>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      
+      <Row2/>
+      <Row6/>
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
           Breaking The Grid, Grabs Your Attention
