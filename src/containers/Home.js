@@ -1,19 +1,8 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Image,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility
-} from "semantic-ui-react";
+import {Button,Container,Divider,Grid,Header,Image,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import reddress from '../static/img/Model1.webp'
-
+import GroupedImages from "../components/groupedimages";
 
 
 const getWidth = () => {
@@ -106,17 +95,12 @@ const HomepageLayout = () => (
         >
           <a href="#case-studies" >Quick Browse</a>
         </Divider>
-        <Header as="h3" style={{ fontSize: "2em" }}>
-          Did We Tell You About Our Bananas?
-        </Header>
-        <p style={{ fontSize: "1.33em" }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur
-          filler content, but it's really true. It took years of gene splicing
-          and combinatory DNA research, but our bananas can really dance.
-        </p>
-        <Button as="a" size="large">
-          I'm Still Quite Interested
-        </Button>
+        
+        <GroupedImages/>
+
+        
+
+
       </Container>
     </Segment>
 
