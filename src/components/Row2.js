@@ -35,8 +35,7 @@ const Row2 = () => (
             
             <Grid.Row>
                 <Grid.Column textAlign="center">
-                <br/><br/><br/>
-                    <Button size="huge" color='pink'>Take a Look</Button>
+                    <Button size="huge" color='pink' >Take a Look</Button>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

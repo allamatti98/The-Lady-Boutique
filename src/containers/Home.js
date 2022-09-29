@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {Button,Container,Divider,Grid,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
-import Partners from '../components/Partners';
+import Partners from '../components/partners';
 import CardExampleCard from "../components/card";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
