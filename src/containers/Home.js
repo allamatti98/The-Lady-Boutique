@@ -5,7 +5,7 @@ import reddress from '../static/img/Model1.webp'
 import GroupedImages from "../components/groupedimages";
 import TabMenuButtons from "../components/tabmenubuttons";
 import CardExampleCard from "../components/card";
-
+import pic2 from '../static/img/Boutique1.jpg'
 
 
 const getWidth = () => {
@@ -80,7 +80,7 @@ const HomepageLayout = () => (
   <ResponsiveContainer>
         <Segment style={{ padding: "8em 0em" }} vertical>
       <Container text>
-        <Header style = {{ fontSize: "2em",textAlign: "center"}}>
+        <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
         Lady Bird
         </Header>
         <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
@@ -94,10 +94,12 @@ const HomepageLayout = () => (
           as="h4"
           className="header"
           horizontal
-          style={{ margin: "3em 0em", textTransform: "uppercase",  }}
+          style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
+          <i color='pink'>Quick Browse</i>
           <a href="#case-studies" >Quick Browse</a>
         </Divider>
+        
         {/* <TabMenuButtons/> */}
         <CardExampleCard/>
         <GroupedImages/>
@@ -112,34 +114,34 @@ const HomepageLayout = () => (
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Companions
+            <Header as="h3" style={{ fontSize: "4em", color:'#d05278' }}>
+              Discount
             </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              We can give your company superpowers to do things that they never
-              thought possible. Let us delight your customers and empower your
-              needs... through pure data analytics.
+            <Header as="h3" style={{ fontSize: "5em" }}>
+            Get a whooping
+            </Header>
+            <Header as="h3" style={{ fontSize: "5em", color: '#d05278' }}>
+              40% Off
+            </Header>
+            <p style={{ fontSize: "2em" }}>
+              Yes, that's right, you thought it was not real?
             </p>
-            <Header as="h3" style={{ fontSize: "2em" }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: "1.33em" }}>
-              Yes that's right, you thought it was the stuff of dreams, but even
-              bananas can be bioengineered.
+            <p style={{ fontSize: "2em" }}>
+              Well, it is!!!
             </p>
           </Grid.Column>
-          <Grid.Column floated="right" width={6}>
+          <Grid.Column floated="right" width={8}>
             <Image
               bordered
               rounded
-              size="large"
-              src="/images/wireframe/white-image.png"
+              size="huge"
+              src={pic2}
             />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge">Check Them Out</Button>
+            <Button size="huge" color='pink'>Take a Look</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
