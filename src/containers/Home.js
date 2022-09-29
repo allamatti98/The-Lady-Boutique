@@ -105,9 +105,7 @@ const HomepageLayout = () => (
         <CardExampleCard/>
         <GroupedImages/>
       </Container>
-    </Segment>
-
-    <Segment style={{ padding: "8em 0em"}} vertical>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
@@ -142,9 +140,7 @@ const HomepageLayout = () => (
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Segment>
-
-    <Segment style={{ padding: "8em 0em" }} vertical>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <Container text>
         <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
         Lady Bird Blog.
@@ -155,17 +151,12 @@ const HomepageLayout = () => (
         <p style={{ fontSize: "1.33em", textAlign: "center" }}>
         Steal the show... The Lady Bird Wayyy!!!
         </p>
-        <HomeImagePair/>
       </Container>
-    
-    </Segment>
-    
-    
-    <Segment style={{ padding: "0em" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
+    <br/><br/><br/>
+      <Grid columns="equal" style={{ padding: "0em 6em", innerHeight:"100px" }} stackable>
         <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            
+          <Grid.Column >
+          <Image src ={event8}/>
             <Header as="h3" style={{ fontSize: "2em" }}>
               "What a Company"
             </Header>
@@ -173,19 +164,21 @@ const HomepageLayout = () => (
               That is what they all say about us
             </p>
           </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+          <Grid.Column >
+          <Image src ={event7}/>
             <Header as="h3" style={{ fontSize: "2em" }}>
               "I shouldn't have gone with their competitor."
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image avatar src="/images/avatar/large/nan.jpg" />
-              <b>Nan</b> Chief Fun Officer Acme Toys
+              Chief Fun Officer Acme Toys
             </p>
           </Grid.Column>
         </Grid.Row>
+        <Grid.Column textAlign="center">
+            <Button size="huge" color='pink'>Read Our Blog</Button>
+          </Grid.Column>
       </Grid>
-    </Segment>
-    <Segment style={{ padding: "8em 0em" }} vertical>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
           Breaking The Grid, Grabs Your Attention
