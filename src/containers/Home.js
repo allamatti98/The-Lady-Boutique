@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {Button,Container,Divider,Grid,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
-import Partners from '../components/partners';
+import Partners from '../components/Partners';
 import CardExampleCard from "../components/card";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
+import QualityControl from "../components/QualityControl";
+
 
 
 const getWidth = () => {
@@ -107,10 +109,10 @@ const HomepageLayout = () => (
       
       
       <Row2/>
-
-
-
+      <QualityControl/>
       <Row6/>
+
+
       <Container text>
         <Header as="h3" style={{ fontSize: "2em" }}>
           Breaking The Grid, Grabs Your Attention
