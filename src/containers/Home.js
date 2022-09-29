@@ -6,7 +6,7 @@ import CardExampleCard from "../components/card";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
-
+import Row3 from "../components/row3";
 
 
 const getWidth = () => {
@@ -110,6 +110,7 @@ const HomepageLayout = () => (
       
       <Row2/>
       <QualityControl/>
+      <Row3/>
       <Row6/>
 
 
