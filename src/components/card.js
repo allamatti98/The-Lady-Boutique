@@ -1,20 +1,21 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import lady from '../static/img/Person13.jpg'
 
 const CardExampleCard = () => (
   <Card>
     <Image
-      src='https://react.semantic-ui.com/images/avatar/large/matthew.png'
+      src={lady}
       wrapped
       ui={false}
     />
-    <Card.Content>
-      <Card.Header>Matthew</Card.Header>
+    <Card.Content centered>
+    <span className='date'>Party</span>
+      <Card.Header>Black Dress</Card.Header>
       <Card.Meta>
-        <span className='date'>Joined in 2015</span>
       </Card.Meta>
       <Card.Description>
-        Matthew is a musician living in Nashville.
+      Shs. 200,000
       </Card.Description>
     </Card.Content>
   </Card>

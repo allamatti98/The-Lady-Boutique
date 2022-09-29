@@ -23,6 +23,7 @@ import Mastercard from '../static/img/payment2.png';
 import PayPal from '../static/img/payment3.png';
 import IconDropDown from "../components/icondropdown";
 import CompactIcons from "../components/compactsocialmedia";
+import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 
 
 class CustomLayout extends React.Component {
@@ -257,9 +258,7 @@ class CustomLayout extends React.Component {
 
               <Grid.Column width={3}>
                 <Header color='pink' as="h4" content="Card Swipes Supported:" />
-                <Menu compact>
-                  <Image src= {Visa}/><Image src={Mastercard}/><Image src={PayPal}/>
-                </Menu>
+                <PaymentMethodsFooter/>
               </Grid.Column>
             </Grid>
             <Divider inverted section/>

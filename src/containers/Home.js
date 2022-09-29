@@ -3,6 +3,9 @@ import React, { Component } from "react";
 import {Button,Container,Divider,Grid,Header,Image,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import reddress from '../static/img/Model1.webp'
 import GroupedImages from "../components/groupedimages";
+import TabMenuButtons from "../components/tabmenubuttons";
+import CardExampleCard from "../components/card";
+
 
 
 const getWidth = () => {
@@ -95,7 +98,8 @@ const HomepageLayout = () => (
         >
           <a href="#case-studies" >Quick Browse</a>
         </Divider>
-        
+        {/* <TabMenuButtons/> */}
+        <CardExampleCard/>
         <GroupedImages/>
 
         
