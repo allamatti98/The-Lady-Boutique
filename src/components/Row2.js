@@ -32,9 +32,9 @@ const Row2 = () => (
                     />
                 </Grid.Column>
             </Grid.Row>
-            
             <Grid.Row>
                 <Grid.Column textAlign="center">
+                <br/><br/>
                     <Button size="huge" color='pink' >Take a Look</Button>
                 </Grid.Column>
             </Grid.Row>
