@@ -267,10 +267,10 @@ class CustomLayout extends React.Component {
             <Grid.Column width={4}>
               <Header color='pink' as="h2" content="Stock" />
               <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">Dresses</List.Item>
+                  <List.Item as="a">Skirts</List.Item>
+                  <List.Item as="a">Blouses</List.Item>
+                  <List.Item as="a">Pants</List.Item>
                 </List>
             </Grid.Column>
 
@@ -278,30 +278,30 @@ class CustomLayout extends React.Component {
               <Grid.Column width={4}>
                 <Header color='pink' as="h2" content="Site Map" />
                 <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">My Profile</List.Item>
+                  <List.Item as="a">Shop</List.Item>
+                  <List.Item as="a">Checkout</List.Item>
+                  <List.Item as="a">My Cart</List.Item>
                 </List>
               </Grid.Column>
 
               <Grid.Column width={4}>
                 <Header color='pink' as="h2" content="Lady Bird" />
                 <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a">Careers</List.Item>
+                  <List.Item as="a">Support</List.Item>
+                  <List.Item as="a">Shipping Details</List.Item>
+                  <List.Item as="a">Quality Control</List.Item>
                 </List>
               </Grid.Column>
 
               <Grid.Column width={4}>
               <Header color='pink' as="h2" content="Contacts" />
               <List link inverted>
-                  <List.Item as="a">Link One</List.Item>
-                  <List.Item as="a">Link Two</List.Item>
-                  <List.Item as="a">Link Three</List.Item>
-                  <List.Item as="a">Link Four</List.Item>
+                  <List.Item as="a"><Icon name='location arrow'/>3 Bombo Rd. Kampala, Uganda</List.Item>
+                  <List.Item as="a"><Icon name= 'phone'/>+256 775 123 123</List.Item>
+                  <List.Item as="a"><Icon name= 'whatsapp'/>+256 784 123 123</List.Item>
+                  <List.Item as="a"><Icon name='mail'/>Email</List.Item>
                 </List>
             </Grid.Column>
 
