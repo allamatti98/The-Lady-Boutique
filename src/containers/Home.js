@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {Button,Container,Divider,Grid,Header,Image,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
+import {Button,Container,Divider,Grid,GridColumn,GridRow,Header,Image,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import reddress from '../static/img/Model1.webp'
 import GroupedImages from "../components/groupedimages";
 import TabMenuButtons from "../components/tabmenubuttons";
 import CardExampleCard from "../components/card";
 import pic2 from '../static/img/Boutique1.jpg'
-
+import HomeImagePair from "../components/homeimagepair";
+import event8 from '../static/img/Event8.jpg'
+import event7 from '../static/img/Event7.jpg'
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -78,7 +80,7 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-        <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment style={{ padding: "8em 0em" }} vertical>
       <Container text>
         <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
         Lady Bird
@@ -89,7 +91,6 @@ const HomepageLayout = () => (
         <p style={{ fontSize: "1.33em", textAlign: "center" }}>
         Refresh your wardrobe with our cutting edge stylish outfits and stand out from the crowd.
         </p>
-        
         <Divider
           as="h4"
           className="header"
@@ -103,10 +104,6 @@ const HomepageLayout = () => (
         {/* <TabMenuButtons/> */}
         <CardExampleCard/>
         <GroupedImages/>
-
-        
-
-
       </Container>
     </Segment>
 
@@ -138,7 +135,7 @@ const HomepageLayout = () => (
               src={pic2}
             />
           </Grid.Column>
-        </Grid.Row>
+        </Grid.Row>      
         <Grid.Row>
           <Grid.Column textAlign="center">
             <Button size="huge" color='pink'>Take a Look</Button>
@@ -146,10 +143,29 @@ const HomepageLayout = () => (
         </Grid.Row>
       </Grid>
     </Segment>
+
+    <Segment style={{ padding: "8em 0em" }} vertical>
+      <Container text>
+        <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
+        Lady Bird Blog.
+        </Header>
+        <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
+          Latest Feed from the biggest Boutique in the country.
+        </Header>
+        <p style={{ fontSize: "1.33em", textAlign: "center" }}>
+        Steal the show... The Lady Bird Wayyy!!!
+        </p>
+        <HomeImagePair/>
+      </Container>
+    
+    </Segment>
+    
+    
     <Segment style={{ padding: "0em" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
         <Grid.Row textAlign="center">
           <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+            
             <Header as="h3" style={{ fontSize: "2em" }}>
               "What a Company"
             </Header>
