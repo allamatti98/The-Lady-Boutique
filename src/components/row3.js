@@ -29,6 +29,6 @@ const Row3 = () => (
         </Grid.Row>
     </Grid>
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    </div><div/>
+    </div>
 )
 export default Row3
