@@ -1,10 +1,11 @@
 import React from "react";
-import { Grid, Image, Header, Button } from "semantic-ui-react";
+import { Grid, Image, Header} from "semantic-ui-react";
 import cartoon from '../static/img/Person14.jpg'
 import model1 from '../static/img/Vogue1.jpg'
 
 const Row4 = () => (
-    <Grid>
+    <div>
+        <Grid stackable>
         <Grid.Row columns = 'equal' style={{margin:"0px"}}>
             <Grid.Column style = {{padding: "0px 0px"}}>
                 <Image src={model1} style={{width: "690px", objectFit: "cover"}}/>
@@ -26,5 +27,7 @@ const Row4 = () => (
             </Grid.Column>
         </Grid.Row>
     </Grid>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
 )
 export default Row4

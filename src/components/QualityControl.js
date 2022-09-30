@@ -6,10 +6,10 @@ import { Grid, Image, Header } from "semantic-ui-react";
 
 const QualityControl = () => (
     <div>
-    <Grid columns = 'equal' textAlign = 'center' style={{padding:"0px 140px"}}>
+    <Grid columns = 'equal' textAlign = 'center' style={{padding:"0px 140px"}} stackable>
         <Grid.Row>
             <Grid.Column>
-                <Image src={pinky} style={{height: "200px"}} centered/>
+                <Image src={pinky} style={{height: "200px", alignItems: "center"}} centered/>
                 <Header>Majesty</Header>
                 <i>At Lady Bird Boutique, we believe that women are very special and must be treated with care as they are majestic.</i>
             </Grid.Column>

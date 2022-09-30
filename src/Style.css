@@ -1,0 +1,8 @@
+body{
+    margin:0px;
+    padding: 0PX;
+}
+.Landing{
+    background-image: url('./static/img/Boutique3.jpg');
+    height:650px;
+}

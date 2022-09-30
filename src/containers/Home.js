@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import {Button,Container,Divider,Grid,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
+import {Button,Container,Divider,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import Partners from '../components/partners';
-import CardExampleCard from "../components/card";
+import Greeting from "../components/LandingGreeting";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
 import Row4 from "../components/row4";
+import ShoppingCards from "../components/shoppingcards";
 
 
 const getWidth = () => {
@@ -81,29 +82,7 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
-      <Container text>
-        <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
-        Lady Bird
-        </Header>
-        <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
-          Our Trending Stock
-        </Header>
-        <p style={{ fontSize: "1.33em", textAlign: "center" }}>
-        Refresh your wardrobe with our cutting edge stylish outfits and stand out from the crowd.
-        </p>
-        <Divider
-          as="h4"
-          className="header"
-          horizontal
-          style={{ margin: "3em 0em", textTransform: "uppercase" }}
-        >
-          <i color='pink'>Quick Browse</i>
-        </Divider>
-        
-        {/* <TabMenuButtons/> */}
-        <CardExampleCard/>
-        <br/><br/><br/><br/>        
-      </Container>
+      <ShoppingCards/>
       <Container style={{margin:"0px", padding:"0px"}}>
         <Partners/>
         </Container>

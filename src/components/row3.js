@@ -7,7 +7,7 @@ import {Image} from "semantic-ui-react";
 
 const Row3 = () => (
     <div>
-        <Grid>
+        <Grid stackable>
         <Grid.Row>
             <Grid.Column textAlign = "center">
             <Header style = {{fontSize: "3em"}} color='pink'>Popular at our Stores</Header>

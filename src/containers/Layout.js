@@ -21,6 +21,7 @@ import Logo from '../static/img/Logo.png';
 import IconDropDown from "../components/icondropdown";
 import CompactIcons from "../components/compactsocialmedia";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
+import Greeting from "../components/LandingGreeting";
 
 
 class CustomLayout extends React.Component {
@@ -106,7 +107,7 @@ class CustomLayout extends React.Component {
           </Container>
         </Menu> */}
 
-
+        <div className="Landing">
         {/* Navbar Starts here */}
         <Menu secondary size='huge'
           style={{ margin: "1em 2em", padding: "1em 0em" }}
@@ -183,8 +184,6 @@ class CustomLayout extends React.Component {
                   >
                     <Icon name='heart outline' />
                   </Menu.Item></Link>
-
-                {/* User Icon */}
                 <div>
     <Menu attached='top'>
         
@@ -236,7 +235,8 @@ class CustomLayout extends React.Component {
             </Menu.Menu>
           )}
         </Menu>
-
+        <Greeting/>
+        </div>
         {this.props.children}
 
         <Segment
@@ -319,7 +319,7 @@ class CustomLayout extends React.Component {
               </List.Item>
             </List>
             <List inverted link size="small">
-              <List.Item><Icon name='copyright outline'/>Lady Bird Boutique 2022. All Rights Reserved</List.Item>
+              <List.Item><Icon name='copyright outline'/>Lady Bird Boutique 2022. All Rights Reserved.</List.Item>
               <List.Item>Designed by <b>Dayan Allamatti</b></List.Item>
             </List>
           </Container>
