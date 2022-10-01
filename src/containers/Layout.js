@@ -110,11 +110,11 @@ class CustomLayout extends React.Component {
         <div className="Landing">
         {/* Navbar Starts here */}
         <Menu secondary size='huge' className="NavBar"
-          style={{ margin: "0em 2em", padding: "1em 0em", }}
+          style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", }}
         >
 
           <Menu.Item header>
-            <img alt="logo" src={Logo} style={{ width: "130px" }} />
+            <img alt="logo" src={Logo} style={{ width: "90px", maxHeight: "30px", }} />
           </Menu.Item>
           <Link to="/">
             <Menu.Item
