@@ -229,10 +229,25 @@ class CustomLayout extends React.Component {
                         icon ='bars'
                         >
                         <Dropdown.Menu>
-                            <Dropdown.Item text='Mobile/Tablet Item 1'/>
-                            <Dropdown.Item text='Mobile/Tablet Item 2'/>
-                            <Dropdown.Item text='Mobile/Tablet Item 3'/>
-                            <Dropdown.Item text='Sign Out'/>
+                        <Dropdown.Item text='Home'/>
+                        <Dropdown.Item text='Shop'/>
+                        <Dropdown.Item text='Gallery'/>
+                        <Dropdown.Item text='Blog'/>
+                        <Dropdown.Item text='Contact Us'/>
+                            { authenticated ?
+                                (
+                                <>
+                                  <Dropdown.Item text='Mobile/Tablet Item 1'/>
+                                  <Dropdown.Item text='Mobile/Tablet Item 2'/>
+                                </>
+
+                                ):(
+                                  <>
+                                    <Dropdown.Item text="Login"/>
+                                    <Dropdown.Item text='Sign Up'/>
+                                  </>
+                                )
+                          }
                         </Dropdown.Menu>
                     </Dropdown>
                 </Responsive>
