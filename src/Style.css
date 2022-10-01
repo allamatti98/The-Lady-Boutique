@@ -3,6 +3,9 @@ body{
     padding: 0PX;
 }
 .Landing{
-    background-image: url('./static/img/Boutique3.jpg');
+    background-image: url('./static/img/greybg.jpg');
     height:650px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

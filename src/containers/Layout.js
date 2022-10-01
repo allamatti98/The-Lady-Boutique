@@ -109,8 +109,8 @@ class CustomLayout extends React.Component {
 
         <div className="Landing">
         {/* Navbar Starts here */}
-        <Menu secondary size='huge'
-          style={{ margin: "1em 2em", padding: "1em 0em" }}
+        <Menu secondary size='huge' className="NavBar"
+          style={{ margin: "0em 2em", padding: "1em 0em", }}
         >
 
           <Menu.Item header>
@@ -120,6 +120,7 @@ class CustomLayout extends React.Component {
             <Menu.Item
               name='home'
               color='pink'
+              className="NavItem"
               active={activeItem === 'home'}
               onClick={this.handleItemClick}
             />

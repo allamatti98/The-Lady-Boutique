@@ -6,7 +6,7 @@ import event7 from '../static/img/Event7.jpg'
 const Row6 = () => (
     <div>
               <Container text>
-        <Header style = {{ fontSize: "2em",textAlign: "center", color: '#d05278'}}>
+        <Header style = {{ fontSize: "3em",textAlign: "center", color: '#d05278'}}>
         Lady Bird Blog.
         </Header>
         <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
