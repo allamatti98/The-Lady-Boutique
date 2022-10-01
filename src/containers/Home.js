@@ -81,7 +81,7 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
-      <ShoppingCards/>
+      <ShoppingCards style={{ padding:"20px"}}/>
       <Container style={{margin:"0px", padding:"0px"}}>
         <Partners/>
         </Container>

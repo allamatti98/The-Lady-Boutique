@@ -27,7 +27,7 @@ Refresh your wardrobe with our cutting edge stylish outfits and stand out from t
 </Divider>
 
 {/* <TabMenuButtons/> */}
-<div display="flex">
+<div style={{display:"flex", backgroundColor:"greenyellow"}}>
 <ItemCards
 img={lady}
 label="New"
@@ -35,6 +35,13 @@ itemname = "Skirt"
 price="Shs.300,000"
 discountedprice="Shs200,000"
 /><ItemCards
+img={lady}
+label="New"
+itemname = "Skirt"
+price="Shs.300,000"
+discountedprice="Shs200,000"
+/>
+<ItemCards
 img={lady}
 label="New"
 itemname = "Skirt"
