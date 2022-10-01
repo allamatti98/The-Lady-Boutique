@@ -96,8 +96,8 @@ class CustomLayout extends React.Component {
 
         <div className="Landing">
         {/* Navbar Starts here */}
-        <Menu secondary size='huge' className="NavBar" collapse
-          style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", }}
+        <Menu secondary size='huge' className="NavBar" collapse 
+          style={{ margin: "0em 2em 0em 0em", padding: "1em 0em",display:"flex" }}
         >
           <Menu.Item header>
             <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
@@ -144,7 +144,7 @@ class CustomLayout extends React.Component {
             <React.Fragment>
               <Menu.Menu position="right">                
                 <Link to ="/">
-                <Responsive as={Menu.Item} minWidth={790}>
+                <Responsive as={Menu.Item} minWidth={1234}>
                     <Input icon='search' placeholder='Search...' />
                 </Responsive>
                 </Link>
@@ -194,31 +194,33 @@ class CustomLayout extends React.Component {
           ) : (
             <Menu.Menu position="right">
               <Link>
-              <Responsive as={Menu.Item} minWidth={790}>
+              <Responsive as={Menu.Item} minWidth={1234}>
                   <Input icon='search' placeholder='Search...' />
               </Responsive>
               </Link>
 
               <Link>
-              <Responsive as={Menu.Item} minWidth={790}>
+              <Responsive as={Menu.Item} minWidth={1000}>
                   <Icon name= "whatsapp"/>
                   </Responsive>
               </Link>
 
               <Link>
-              <Responsive as={Menu.Item} minWidth={790}>
+              <Responsive as={Menu.Item} minWidth={1000}>
                   <Icon name= "instagram"/>
               </Responsive>
               </Link>
 
               <Link>
-              <Responsive as={Menu.Item} minWidth={790}>
+              <Responsive as={Menu.Item} minWidth={1000}>
                   <Icon name= "mail outline"/>
                 </Responsive>
               </Link>
        
                 {/* User Icon */}
+                <Responsive as={Menu.Item} minWidth={790}>
               <IconDropDown/>
+              </Responsive>
             </Menu.Menu>
           )}
           <Responsive as ={Menu.Menu} maxWidth={789}  position='right'>
