@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Divider,
-  Dropdown,
-  Grid,
-  Header,
-  Image,
-  List,
-  Menu,
-  Segment,
-  Input,
-  Icon,
-  Label,
-} from "semantic-ui-react";
+import {Container,Divider,Dropdown,Grid,Header,Image,List,Menu,Segment,Input,Icon,Label,Responsive} from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
@@ -112,12 +99,11 @@ class CustomLayout extends React.Component {
         <Menu secondary size='huge' className="NavBar" collapse
           style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", }}
         >
-
           <Menu.Item header>
             <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
           </Menu.Item>
           <Link to="/">
-            <Menu.Item
+            <Responsive as={Menu.Item} minWidth={790}
               name='home'
               color='pink'
               className="NavItem"
@@ -126,28 +112,28 @@ class CustomLayout extends React.Component {
             />
           </Link>
           <Link to="/products">
-            <Menu.Item
+          <Responsive as={Menu.Item} minWidth={790}
               name='shop'
               color='pink'
               active={activeItem === 'shop'}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/">
-            <Menu.Item
+          <Responsive as={Menu.Item} minWidth={790}
               name='Gallery'
               color='pink'
               active={activeItem === 'Gallery'}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/">
-            <Menu.Item
+          <Responsive as={Menu.Item} minWidth={790}
               name='Blog'
               color='pink'
               active={activeItem === 'Blog'}
               onClick={this.handleItemClick}
             /></Link>
           <Link to="/">
-            <Menu.Item
+          <Responsive as={Menu.Item} minWidth={790}
               name='Contact Us'
               color='pink'
               active={activeItem === 'Contact Us'}
@@ -158,9 +144,9 @@ class CustomLayout extends React.Component {
             <React.Fragment>
               <Menu.Menu position="right">                
                 <Link to ="/">
-                  <Menu.Item>
+                <Responsive as={Menu.Item} minWidth={790}>
                     <Input icon='search' placeholder='Search...' />
-                </Menu.Item>
+                </Responsive>
                 </Link>
 
 
@@ -208,35 +194,92 @@ class CustomLayout extends React.Component {
           ) : (
             <Menu.Menu position="right">
               <Link>
-                <Menu.Item>
+              <Responsive as={Menu.Item} minWidth={790}>
                   <Input icon='search' placeholder='Search...' />
-                </Menu.Item>
+              </Responsive>
               </Link>
 
               <Link>
-                <Menu.Item>
+              <Responsive as={Menu.Item} minWidth={790}>
                   <Icon name= "whatsapp"/>
-                </Menu.Item>
+                  </Responsive>
               </Link>
 
               <Link>
-                <Menu.Item>
+              <Responsive as={Menu.Item} minWidth={790}>
                   <Icon name= "instagram"/>
-                </Menu.Item>
+              </Responsive>
               </Link>
 
               <Link>
-                <Menu.Item>
+              <Responsive as={Menu.Item} minWidth={790}>
                   <Icon name= "mail outline"/>
-                </Menu.Item>
+                </Responsive>
               </Link>
        
                 {/* User Icon */}
               <IconDropDown/>
             </Menu.Menu>
           )}
+          <Responsive as ={Menu.Menu} maxWidth={789}  position='right'>
+                    <Dropdown
+                        item
+                        icon ='bars'
+                        >
+                        <Dropdown.Menu>
+                            <Dropdown.Item text='Mobile/Tablet Item 1'/>
+                            <Dropdown.Item text='Mobile/Tablet Item 2'/>
+                            <Dropdown.Item text='Mobile/Tablet Item 3'/>
+                            <Dropdown.Item text='Sign Out'/>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Responsive>
         </Menu>
         <Greeting/>
+
+
+
+        {/* Responsive Menu */}
+        <div>
+            <Menu pointing secondary>
+                <Responsive as={Menu.Item} minWidth={790}
+                    name='Laptop Item'
+                    active={activeItem === 'Laptop Item'}
+                    // onClick={() => setActiveItem('Test Item')}
+                />
+                <Responsive as={Menu.Item} minWidth={790}
+                    name='Laptop Item 2'
+                    active={activeItem === 'Laptop Item 2'}
+                    // onClick={() => setActiveItem('Test Item 2')}
+                />
+                <Responsive as={Menu.Item} minWidth={790}
+                    name='Laptop Item 3'
+                    active={activeItem === 'Laptop Item 3'}
+                    // onClick={() => setActiveItem('Test Item 3')}
+                />
+                <Menu.Menu position = 'right'>
+                    <Responsive as ={Menu.Item} minWidth={790}
+                        name = "Sign Out"
+                        // onClick={() => setShowModal(true)}
+                    />
+                </Menu.Menu>
+                <Responsive as ={Menu.Menu} maxWidth={789}  position='right'>
+                    <Dropdown
+                        item
+                        icon ='bars'
+                        >
+                        <Dropdown.Menu>
+                            <Dropdown.Item text='Mobile/Tablet Item 1'/>
+                            <Dropdown.Item text='Mobile/Tablet Item 2'/>
+                            <Dropdown.Item text='Mobile/Tablet Item 3'/>
+                            <Dropdown.Item text='Sign Out'/>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Responsive>
+            </Menu>
+        </div>
+
+
         </div>
         {this.props.children}
 
