@@ -10,7 +10,6 @@ import CompactIcons from "../components/compactsocialmedia";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import Greeting from "../components/LandingGreeting";
 
-
 class CustomLayout extends React.Component {
   componentDidMount() {
     this.props.fetchCart();
