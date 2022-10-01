@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, Header, Image } from 'semantic-ui-react'
+import { Button, Grid, Header } from 'semantic-ui-react'
 
 const Greeting = () => (
     <div>

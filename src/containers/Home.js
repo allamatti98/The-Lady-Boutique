@@ -2,13 +2,12 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {Button,Container,Divider,Header,Responsive,Segment,Sidebar,Visibility} from "semantic-ui-react";
 import Partners from '../components/partners';
-import Greeting from "../components/LandingGreeting";
+import ShoppingCards from "../components/row1";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
 import Row4 from "../components/row4";
-import ShoppingCards from "../components/shoppingcards";
 
 
 const getWidth = () => {

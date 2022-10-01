@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import visa from '../static/img/payment1.png'
 import mastercard from '../static/img/payment2.png'
 import paypal from '../static/img/payment3.png'
@@ -15,5 +15,4 @@ const PaymentMethodsFooter = () => (
     </Image.Group>
   </div>
 )
-
 export default PaymentMethodsFooter
