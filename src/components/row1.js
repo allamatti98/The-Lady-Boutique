@@ -1,7 +1,8 @@
 import React from "react";
 import {Container,Divider,Header,} from "semantic-ui-react";
-import ItemCards from "./card";
+import ItemCards from "./itemcard";
 import lady from '../static/img/Person13.jpg'
+import AdsList from "./Card.js";
 
 
 function ShoppingCards() {
@@ -28,34 +29,9 @@ Refresh your wardrobe with our cutting edge stylish outfits and stand out from t
 
 {/* <TabMenuButtons/> */}
 <div style={{display:"flex", backgroundColor:"greenyellow"}}>
-<ItemCards
-img={lady}
-label="New"
-itemname = "Skirt"
-price="Shs.300,000"
-discountedprice="Shs200,000"
-/><ItemCards
-img={lady}
-label="New"
-itemname = "Skirt"
-price="Shs.300,000"
-discountedprice="Shs200,000"
-/>
-<ItemCards
-img={lady}
-label="New"
-itemname = "Skirt"
-price="Shs.300,000"
-discountedprice="Shs200,000"
-/>
-<ItemCards
-img={lady}
-label="New"
-itemname = "Skirt"
-price="Shs.300,000"
-discountedprice="Shs200,000"
-/>
+<ItemCards/>
 </div>
+<AdsList/>
 <br/><br/><br/><br/>        
 </Container>
         </div>
