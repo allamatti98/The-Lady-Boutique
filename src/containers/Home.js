@@ -9,7 +9,7 @@ import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
 import Row4 from "../components/row4";
 import Trending from "../components/Card";
-import NewsLetter from "../components/newsLetter";
+import NewsLetter from "../components/NewsLetter";
 
 
 const getWidth = () => {
@@ -96,9 +96,9 @@ const HomepageLayout = () => (
       <Row4 />
       <ShoppingCards />
       <Row6 />
-      
 
-      <NewsLetter/>
+
+      <NewsLetter />
     </Segment>
   </ResponsiveContainer>
 );
