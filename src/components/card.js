@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Card, Image, Label } from "semantic-ui-react";
+import { Container, Card, Label } from "semantic-ui-react";
 
 
 const testdata = [
@@ -54,13 +54,14 @@ export default class Trending extends Component {
         return (
             <Card.Group itemsPerRow={4} stackable={true} doubling={true}>
                 {this.state.stockitems.map(card => (
-                    <Card key={card._id} className="fluid" heights="equal">
-                        <Image
-                            style={{ height: "80%", objectFit: "contain" }}
+                    <Card key={card._id} className="fluid" height="200px">
+                        <img
+                            style={{ height: "75%", objectFit: "cover" }}
                             size="huge"
                             src={card.image}
                             wrapped
                             ui={false}
+                            alt="Item Image"
                         />
                         <Label as='a' color='red' ribbon>
                             Trending
