@@ -9,6 +9,7 @@ import IconDropDown from "../components/icondropdown";
 import CompactIcons from "../components/compactsocialmedia";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import Greeting from "../components/LandingGreeting";
+import FooterSocials from "../components/footersocials";
 
 
 class CustomLayout extends React.Component {
@@ -263,7 +264,7 @@ class CustomLayout extends React.Component {
             <Grid>
               <Grid.Column width={3}>
                 <Header color='pink' as="h4" content="Lets Link Up:" />
-                <CompactIcons color='pink' />
+                <FooterSocials color='pink' />
               </Grid.Column>
 
               <Image centered src={Logo} style={{ width: '250px', height: '50px' }} />

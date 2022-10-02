@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Card, Image, Label, Icon } from "semantic-ui-react";
+import { Container, Card, Image, Label } from "semantic-ui-react";
 
 
 const testdata = [
@@ -56,11 +56,11 @@ export default class Trending extends Component {
                 {this.state.stockitems.map(card => (
                     <Card key={card._id} className="fluid" heights="equal">
                         <Image
+                            style={{ height: "80%", objectFit: "contain" }}
                             size="huge"
                             src={card.image}
                             wrapped
                             ui={false}
-                            style={{ maxHeignt: "50px", objectFit: "contain" }}
                         />
                         <Label as='a' color='red' ribbon>
                             Trending
