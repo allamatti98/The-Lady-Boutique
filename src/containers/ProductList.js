@@ -1,16 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import {
-  Container,
-  Dimmer,
-  Image,
-  Item,
-  Label,
-  Loader,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment } from "semantic-ui-react";
 import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
@@ -102,8 +93,8 @@ class ProductList extends React.Component {
                           item.label === "primary"
                             ? "blue"
                             : item.label === "secondary"
-                            ? "green"
-                            : "olive"
+                              ? "green"
+                              : "olive"
                         }
                       >
                         {item.label}
