@@ -9,6 +9,7 @@ import IconDropDown from "../components/icondropdown";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import Greeting from "../components/LandingGreeting";
 import FooterSocials from "../components/footersocials";
+import InstaPics from "../components/igpics";
 
 
 class CustomLayout extends React.Component {
@@ -256,7 +257,7 @@ class CustomLayout extends React.Component {
         <Segment
           inverted
           vertical
-          style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
+          style={{ margin: "0em 0em", padding: "5em 0em" }}
           stackable
         >
           <Container textAlign="center" stackable>
