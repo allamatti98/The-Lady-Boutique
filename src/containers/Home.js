@@ -2,14 +2,14 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Button, Container, Divider, Header, Responsive, Segment, Sidebar, Visibility } from "semantic-ui-react";
 import Partners from '../components/partners';
-import ShoppingCards from "../components/row1";
+import Row1 from "../components/row1";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
 import Row4 from "../components/row4";
 import Trending from "../components/Card";
-import NewsLetter from "../components/NewsLetter";
+import Row7 from "../components/Row7";
 
 
 const getWidth = () => {
@@ -83,22 +83,20 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
-      <ShoppingCards />
+      <Row1 />
       <Container style={{ margin: "0px", padding: "0px" }}>
         <Partners />
       </Container>
 
-
       <Row2 />
-
       <QualityControl />
       <Row3 />
       <Row4 />
-      <ShoppingCards />
+      <Row1 />
       <Row6 />
 
 
-      <NewsLetter />
+      <Row7 />
     </Segment>
   </ResponsiveContainer>
 );

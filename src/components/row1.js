@@ -3,7 +3,7 @@ import { Container, Divider, Header, } from "semantic-ui-react";
 import Trending from "./Card.js";
 
 
-function ShoppingCards() {
+function Row1() {
   return (
     <div>
       <Container text>
@@ -32,4 +32,4 @@ function ShoppingCards() {
     </div>
   )
 }
-export default ShoppingCards
+export default Row1
