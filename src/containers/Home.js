@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Button, Container, Divider, Header, Responsive, Segment, Sidebar, Visibility } from "semantic-ui-react";
+import { Container, Responsive, Segment, Sidebar, Visibility } from "semantic-ui-react";
 import Partners from '../components/partners';
 import Row1 from "../components/row1";
 import Row2 from "../components/Row2";
@@ -8,7 +8,6 @@ import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/row3";
 import Row4 from "../components/row4";
-import Trending from "../components/Card";
 import Row7 from "../components/Row7";
 
 
@@ -79,7 +78,6 @@ const ResponsiveContainer = ({ children }) => (
 ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
-
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: "8em 0em" }} vertical>
@@ -87,15 +85,12 @@ const HomepageLayout = () => (
       <Container style={{ margin: "0px", padding: "0px" }}>
         <Partners />
       </Container>
-
       <Row2 />
       <QualityControl />
       <Row3 />
       <Row4 />
       <Row1 />
       <Row6 />
-
-
       <Row7 />
     </Segment>
   </ResponsiveContainer>

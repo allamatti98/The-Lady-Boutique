@@ -5,6 +5,7 @@ import BaseRouter from "./routes";
 import * as actions from "./store/actions/auth";
 import "semantic-ui-css/semantic.min.css";
 import CustomLayout from "./containers/Layout";
+// eslint-disable-next-line
 import style from "./Style.css"
 
 class App extends Component {
