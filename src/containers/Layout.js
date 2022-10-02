@@ -6,7 +6,6 @@ import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/img/Logo.png';
 import IconDropDown from "../components/icondropdown";
-import CompactIcons from "../components/compactsocialmedia";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import Greeting from "../components/LandingGreeting";
 import FooterSocials from "../components/footersocials";
@@ -253,7 +252,7 @@ class CustomLayout extends React.Component {
         </div>
 
         {this.props.children}
-
+        <InstaPics />
         <Segment
           inverted
           vertical
@@ -312,7 +311,6 @@ class CustomLayout extends React.Component {
                   <List.Item as="a"><Icon name='mail' />Email</List.Item>
                 </List>
               </Grid.Column>
-
             </Grid>
             <Divider inverted section />
             <List horizontal inverted divided link size="small">
