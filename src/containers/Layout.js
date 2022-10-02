@@ -7,7 +7,6 @@ import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/img/Logo.png';
 import IconDropDown from "../components/icondropdown";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
-import Greeting from "../components/LandingGreeting";
 import FooterSocials from "../components/footersocials";
 import InstaPics from "../components/igpics";
 
@@ -91,9 +90,9 @@ class CustomLayout extends React.Component {
           </Container>
         </Menu> */}
 
-        <div className="Landing">
+        <div className="NavBar" >
           {/* Navbar Starts here */}
-          <Menu secondary size='huge' className="NavBar" collapse
+          <Menu secondary size='huge'
             style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex" }}
           >
             <Menu.Item header>
@@ -249,9 +248,7 @@ class CustomLayout extends React.Component {
               </Dropdown>
             </Responsive>
           </Menu>
-          <Greeting />
         </div>
-
         {this.props.children}
         <InstaPics />
         <Segment
@@ -334,7 +331,7 @@ class CustomLayout extends React.Component {
             </List>
           </Container>
         </Segment>
-      </div>
+      </div >
     );
   }
 }

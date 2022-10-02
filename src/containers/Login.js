@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Message, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import { authLogin } from "../store/actions/auth";
@@ -38,6 +31,7 @@ class LoginForm extends React.Component {
         textAlign="center"
         style={{ height: "100vh" }}
         verticalAlign="middle"
+        className="Login"
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">

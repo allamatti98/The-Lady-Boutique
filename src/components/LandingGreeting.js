@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Grid, Header } from 'semantic-ui-react'
 
 const Greeting = () => (
-    <div>
+    <div className="Landing">
         <Grid container stackable verticalAlign="middle">
             <Grid.Row>
                 <Grid.Column width={8}>
@@ -22,7 +22,7 @@ const Greeting = () => (
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column textAlign="center">
-                <br/><br/>
+                    <br /><br />
                     <Button size="huge" color='pink' >Take a Look</Button>
                 </Grid.Column>
             </Grid.Row>
