@@ -265,7 +265,8 @@ class CustomLayout extends React.Component {
                 <Header color='pink' as="h4" content="Lets Link Up:" />
                 <CompactIcons color='pink' />
               </Grid.Column>
-              <Image centered src={Logo} style={{ width: '250px', height: 'auto' }} />
+
+              <Image centered src={Logo} style={{ width: '250px', height: '50px' }} />
               <Grid.Column width={3}>
                 <Header color='pink' as="h4" content="Card Swipes Supported:" />
                 <PaymentMethodsFooter />
