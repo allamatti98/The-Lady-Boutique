@@ -1,1 +1,1 @@
-A Website built with Pyhton and Javascript
+A Website built with Python and Javascript
