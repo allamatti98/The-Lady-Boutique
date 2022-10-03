@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="pink" textAlign="center">
-            Log into your Lady Bird Account
+            Your Lady Bird Account
           </Header>
           {error && <h3 style={{ color: "red" }}>{this.props.error.message}</h3>}
 
