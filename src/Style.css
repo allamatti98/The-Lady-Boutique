@@ -24,7 +24,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: center;
-    width: 100%;
+    background-size: 100% 95%;
     background-color: pink;
 }
 
