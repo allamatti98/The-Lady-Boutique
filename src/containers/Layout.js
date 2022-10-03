@@ -213,10 +213,9 @@ class CustomLayout extends React.Component {
                   </Responsive>
                 </Link>
 
+
                 {/* User Icon */}
-                <Responsive as={Menu.Item} minWidth={790}>
-                  <IconDropDown />
-                </Responsive>
+                <IconDropDown />
               </Menu.Menu>
             )}
             <Responsive as={Menu.Menu} maxWidth={789} position='right'>
