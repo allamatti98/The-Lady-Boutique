@@ -34,10 +34,10 @@ class LoginForm extends React.Component {
         className="Login"
       >
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" color="teal" textAlign="center">
-            Log-in to your account
+          <Header as="h2" color="pink" textAlign="center">
+            Log into your Lady Bird Account
           </Header>
-          {error && <p>{this.props.error.message}</p>}
+          {error && <h3 style={{ color: "red" }}>{this.props.error.message}</h3>}
 
           <React.Fragment>
             <Form size="large" onSubmit={this.handleSubmit}>
@@ -63,7 +63,7 @@ class LoginForm extends React.Component {
                 />
 
                 <Button
-                  color="teal"
+                  color="pink"
                   fluid
                   size="large"
                   loading={loading}
@@ -74,7 +74,7 @@ class LoginForm extends React.Component {
               </Segment>
             </Form>
             <Message>
-              New to us? <NavLink to="/signup">Sign Up</NavLink>
+              New to the community? <NavLink to="/signup">Sign Up</NavLink>
             </Message>
           </React.Fragment>
         </Grid.Column>

@@ -20,9 +20,12 @@ body {
 }
 
 .Login {
-    background-image: url('./static/img/Boutique2.jpg');
+    background-image: url('./static/img/Boutique3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-x: center;
+    width: 100%;
+    background-color: pink;
 }
 
 .FooterPics {

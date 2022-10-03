@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Header, Reveal } from "semantic-ui-react";
+import { Grid, Header } from "semantic-ui-react";
 import blouse from '../static/img/ProfilePic3.jpg'
 import dress from '../static/img/Person7.webp'
 import blackdress from '../static/img/Person13.jpg'
@@ -18,40 +18,13 @@ const Row3 = () => (
             </Grid.Row>
             <Grid.Row columns='equal'>
                 <Grid.Column>
-                    <a href="/">
-                        <Reveal animated='small fade'>
-                            <Reveal.Content visible>
-                                <img src={blouse} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                            <Reveal.Content hidden>
-                                <img src={dress} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                        </Reveal>
-                    </a>
+                    <a href="/"><Image src={blouse} style={{ height: "600px" }} centered /></a>
                 </Grid.Column>
                 <Grid.Column>
-                    <a href="/">
-                        <Reveal animated='small fade'>
-                            <Reveal.Content visible>
-                                <img src={dress} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                            <Reveal.Content hidden>
-                                <img src={blouse} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                        </Reveal>
-                    </a>
+                    <a href="/"><Image src={dress} style={{ height: "600px" }} centered /></a>
                 </Grid.Column>
                 <Grid.Column>
-                    <a href="/">
-                        <Reveal animated='small fade'>
-                            <Reveal.Content visible>
-                                <img src={blackdress} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                            <Reveal.Content hidden>
-                                <img src={dress} style={{ height: "600px" }} centered />
-                            </Reveal.Content>
-                        </Reveal>
-                    </a>
+                    <a href="/"><Image src={blackdress} style={{ height: "600px" }} centered /></a>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
