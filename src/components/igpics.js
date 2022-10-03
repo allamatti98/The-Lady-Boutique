@@ -9,14 +9,14 @@ import jacket from '../static/img/ProfilePic5.jpg'
 
 function InstaPics() {
     return (
-        <Image.Group centered>
-            <a href="/"><Image src={red} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-            <a href="/"><Image src={doll} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-            <a href="/"><Image src={black} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-            <a href="/"><Image src={blackdress} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-            <a href="/"><Image src={green} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-            <a href="/"><Image src={jacket} style={{ height: "300px", width: "218px", objectFit: "cover" }} /></a>
-        </Image.Group>
+        <div className="FooterPics">
+            <a href="/"><Image src={red} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+            <a href="/"><Image src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+            <a href="/"><Image src={black} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+            <a href="/"><Image src={blackdress} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+            <a href="/"><Image src={green} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+            <a href="/"><Image src={jacket} style={{ height: "300px", width: "225px", objectFit: "cover" }} /></a>
+        </div>
     )
 }
 export default InstaPics

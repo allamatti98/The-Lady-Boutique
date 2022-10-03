@@ -24,3 +24,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.FooterPics {
+    display: flex;
+}

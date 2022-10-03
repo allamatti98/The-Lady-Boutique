@@ -9,6 +9,7 @@ import IconDropDown from "../components/icondropdown";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import FooterSocials from "../components/footersocials";
 import InstaPics from "../components/igpics";
+import LoggedInUserDropdown from "../components/loggedindropwown";
 
 
 class CustomLayout extends React.Component {
@@ -167,24 +168,7 @@ class CustomLayout extends React.Component {
                     >
                       <Icon name='heart outline' />
                     </Menu.Item></Link>
-                  <div>
-                    <Menu attached='top'>
-
-                      <Dropdown item icon='user outline' simple>
-                        <Dropdown.Menu>
-                          <Link to="/profile">
-                            <Dropdown.Item>Profile</Dropdown.Item>
-                          </Link>
-                          <Link to="/login">
-                            <Dropdown.Item>Wishlist</Dropdown.Item>
-                          </Link>
-
-                          <Dropdown.Item onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
-
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </Menu>
-                  </div>
+                  <LoggedInUserDropdown />
                 </Menu.Menu>
               </React.Fragment>
             ) : (
