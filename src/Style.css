@@ -29,7 +29,7 @@ body {
     display: flex;
 }
 
-.FooterPics-hover::before {
+.FooterPics-hover:hover {
     display: flex;
     background-color: grey;
 }

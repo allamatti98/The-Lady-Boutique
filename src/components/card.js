@@ -61,7 +61,6 @@ export default class Trending extends Component {
                             src={card.image}
                             wrapped
                             ui={false}
-                            alt="Item Image"
                         />
                         <Label as='a' color='red' ribbon>
                             Trending
