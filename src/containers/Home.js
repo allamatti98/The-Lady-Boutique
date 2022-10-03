@@ -10,7 +10,7 @@ import Row3 from "../components/row3";
 import Row4 from "../components/row4";
 import Row7 from "../components/Row7";
 import Greeting from "../components/LandingGreeting";
-import Categories from "../components/Categories";
+
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -89,13 +89,13 @@ const HomepageLayout = () => (
       </Container>
       <Row2 />
       <QualityControl />
-      <Categories />
       <Row3 />
       <Row4 />
       <Row1 />
       <Row6 />
       <Row7 />
     </Segment>
+
   </ResponsiveContainer>
 );
 export default HomepageLayout;
