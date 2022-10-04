@@ -1,1 +1,1 @@
-This Web Application was built with Javascript (React JS) and Python (Django)
+This Web Application was built with Javascript (React JS) and Python (Django) by me, Dayan Allamatti aka Allamatti98 aka Grandmaster
