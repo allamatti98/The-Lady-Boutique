@@ -19,17 +19,22 @@ function Navie() {
                 {
                     name: "Linkedin",
                     url: "https://www.linkedin.com/in/nazeh-taha/",
-                    icon: ["fab", "linkedin-in"],
+                    icon: ["fab", "snapchat"],
+                },
+                {
+                    name: "Linkedin",
+                    url: "https://www.linkedin.com/in/nazeh-taha/",
+                    icon: ["fab", "whatsapp"],
                 },
                 {
                     name: "Facebook",
                     url: "https://www.facebook.com/nazeh200/",
-                    icon: ["fab", "facebook-f"],
+                    icon: ["fab", "instagram"],
                 },
                 {
                     name: "Instagram",
                     url: "https://www.instagram.com/nazeh_taha/",
-                    icon: ["fab", "instagram"],
+                    icon: ["fab", "facebook-f"],
                 },
                 {
                     name: "Twitter",
