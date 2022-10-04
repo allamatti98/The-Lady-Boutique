@@ -7,15 +7,16 @@ from django_countries.fields import CountryField
 
 
 CATEGORY_CHOICES = (
-    ('S', 'Shirt'),
-    ('SW', 'Sport wear'),
-    ('OW', 'Outwear')
+    ('Co', 'Corporate'),
+    ('Ch', 'Chill'),
+    ('Wt', 'Weather'),
+    ('P','Party')
 )
 
 LABEL_CHOICES = (
-    ('P', 'primary'),
-    ('S', 'secondary'),
-    ('D', 'danger')
+    ('T', 'Trending'),
+    ('N', 'New'),
+    ('L', 'Limited')
 )
 
 ADDRESS_CHOICES = (
@@ -36,10 +37,11 @@ class UserProfile(models.Model):
 
 class Item(models.Model):
     title = models.CharField(max_length=100)
+    stripe_price_id = models.CharField(max_length=100)
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    label = models.CharField(choices=LABEL_CHOICES, max_length=1)
+    label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True, null = True)
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()

@@ -238,7 +238,8 @@ class CustomLayout extends React.Component {
         </div>
 
         {this.props.children}
-        <InstaPics />
+
+        {/* <InstaPics /> */}
         <Segment
           inverted
           vertical
