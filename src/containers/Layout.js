@@ -25,7 +25,7 @@ class CustomLayout extends React.Component {
 
     return (
       <div>
-        <Menu inverted>
+        {/* <Menu inverted>
           <Container>
             <Link to="/">
               <Menu.Item header>Home</Menu.Item>
@@ -90,7 +90,7 @@ class CustomLayout extends React.Component {
               </Menu.Menu>
             )}
           </Container>
-        </Menu>
+        </Menu> */}
 
 
 
