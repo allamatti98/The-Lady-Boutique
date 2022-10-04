@@ -16,7 +16,7 @@ body {
 }
 
 .NavBar {
-    background-color: whitesmoke;
+    color: whitesmoke;
 }
 
 .Login {
@@ -46,4 +46,12 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 95%;
     background-color: pink;
+}
+
+.NavBar1 {
+    background-color: grey;
+}
+
+.NavBar2 {
+    background-color: cyan;
 }
