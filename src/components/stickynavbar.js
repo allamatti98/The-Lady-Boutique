@@ -8,7 +8,6 @@ function Navie() {
         <ReactNavbar.ReactNavbar
             className="NavigationBar"
             color="#e03997"
-
             logo={logo}
             menu={[
                 { name: "HOME", to: "/" },
