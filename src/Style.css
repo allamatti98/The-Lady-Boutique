@@ -4,8 +4,8 @@ body {
 }
 
 .Landing {
-    background-image: url('./static/img/Model1.webp');
-    height: 660px;
+    background-image: url('./static/img/greybg.jpg');
+    height: 580px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -48,9 +48,9 @@ body {
     background-color: pink;
 }
 
-.NavBar1 {
+/* .NavBar1 {
     background-color: grey;
-}
+} */
 
 .NavBar2 {
     background-color: cyan;
