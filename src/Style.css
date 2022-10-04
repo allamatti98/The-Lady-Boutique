@@ -55,3 +55,7 @@ body {
 .NavBar2 {
     background-color: cyan;
 }
+
+.NavigationBar {
+    color: rgb(223, 16, 195);
+}

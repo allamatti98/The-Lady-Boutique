@@ -5,7 +5,9 @@ function Navie() {
     console.log(ReactNavbar.ReactNavbar)
     return (
         <ReactNavbar.ReactNavbar
-            color="rgb(25, 25, 25)"
+            className="NavigationBar"
+            color="#e03997"
+
             logo="https://svgshare.com/i/KHh.svg"
             menu={[
                 { name: "HOME", to: "/" },

@@ -5,10 +5,8 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/img/Logo.png';
-import IconDropDown from "../components/icondropdown";
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import FooterSocials from "../components/footersocials";
-import LoggedInUserDropdown from "../components/loggedindropwown";
 import InstaPics from "../components/igpics";
 import Navie from "../components/stickynavbar";
 
