@@ -11,6 +11,8 @@ import InstaPics from "../components/igpics";
 import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
 
+
+
 class CustomLayout extends React.Component {
   componentDidMount() {
     this.props.fetchCart();
@@ -18,12 +20,12 @@ class CustomLayout extends React.Component {
   state = { activeItem: 'home' }
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   render() {
-    const { authenticated, cart } = this.props;
+    const { authenticated, cart, loading } = this.props;
     const { activeItem } = this.state;
 
     return (
       <div>
-        {/* <Menu inverted>
+        <Menu inverted>
           <Container>
             <Link to="/">
               <Menu.Item header>Home</Menu.Item>
@@ -88,7 +90,7 @@ class CustomLayout extends React.Component {
               </Menu.Menu>
             )}
           </Container>
-        </Menu> */}
+        </Menu>
 
 
 
@@ -117,14 +119,14 @@ class CustomLayout extends React.Component {
                 active={activeItem === 'shop'}
                 onClick={this.handleItemClick}
               /></Link>
-            <Link to="/">
+            <Link to="/gallery">
               <Responsive as={Menu.Item} minWidth={790}
                 name='Gallery'
                 color='pink'
                 active={activeItem === 'Gallery'}
                 onClick={this.handleItemClick}
               /></Link>
-            <Link to="/">
+            <Link to="/blog">
               <Responsive as={Menu.Item} minWidth={790}
                 name='Blog'
                 color='pink'
@@ -149,7 +151,7 @@ class CustomLayout extends React.Component {
                   </Link>
 
 
-                  <Link to="/">
+                  <Link to="/order-summary">
                     <Menu.Item
                       name='basket'
                       color='pink'
@@ -161,7 +163,7 @@ class CustomLayout extends React.Component {
 
                     </Menu.Item></Link>
 
-                  <Link to="/">
+                  <Link to="/wishlist">
                     <Menu.Item
                       name='wishlist'
                       color='pink'

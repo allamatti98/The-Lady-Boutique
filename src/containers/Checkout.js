@@ -5,21 +5,7 @@ import {
   Elements,
   StripeProvider
 } from "react-stripe-elements";
-import {
-  Button,
-  Container,
-  Dimmer,
-  Divider,
-  Form,
-  Header,
-  Image,
-  Item,
-  Label,
-  Loader,
-  Message,
-  Segment,
-  Select
-} from "semantic-ui-react";
+import { Button, Container, Dimmer, Divider, Form, Header, Image, Item, Label, Loader, Message, Segment, Select } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { authAxios } from "../utils";
 import {

@@ -10,7 +10,6 @@ import Row3 from "../components/row3";
 import Row4 from "../components/row4";
 import Row7 from "../components/Row7";
 import Greeting from "../components/LandingGreeting";
-import StickyExampleAboveContent from "../components/stickynavbar";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
