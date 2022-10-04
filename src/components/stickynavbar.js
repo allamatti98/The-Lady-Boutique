@@ -1,5 +1,6 @@
 import React from "react";
 import * as ReactNavbar from "react-responsive-animate-navbar";
+import logo from '../static/img/Logo.png'
 
 function Navie() {
     console.log(ReactNavbar.ReactNavbar)
@@ -8,7 +9,7 @@ function Navie() {
             className="NavigationBar"
             color="#e03997"
 
-            logo="https://svgshare.com/i/KHh.svg"
+            logo={logo}
             menu={[
                 { name: "HOME", to: "/" },
                 { name: "ARTICLES", to: "/articles" },
