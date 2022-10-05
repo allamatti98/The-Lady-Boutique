@@ -1,9 +1,11 @@
 import React from "react";
+import Gallery2 from "../components/PhotoGrid1";
+
 
 class Gallery extends React.Component {
     render() {
         return (
-            <h1>Gallery Here!!!</h1>
+            <Gallery2 />
         )
     }
 }
