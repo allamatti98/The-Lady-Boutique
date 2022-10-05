@@ -37,7 +37,7 @@ const testdata = [
     }
 ];
 
-export default class Trending extends Component {
+class Trending extends Component {
     constructor(props) {
         super(props);
         this.state = { stockitems: [] };
@@ -82,3 +82,4 @@ export default class Trending extends Component {
         return <Container>{this.renderItems()}</Container>;
     }
 }
+export default Trending
