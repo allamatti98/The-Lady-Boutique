@@ -48,9 +48,9 @@ body {
     background-color: pink;
 }
 
-/* .NavBar1 {
-    background-color: grey;
-} */
+.NavBar1 {
+    background-color: rgba(252, 237, 234, .9);
+}
 
 .NavBar2 {
     background-color: cyan;
