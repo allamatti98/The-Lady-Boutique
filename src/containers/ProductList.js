@@ -154,71 +154,73 @@ class Trending extends React.Component {
   render() {
     const { data, error, loading } = this.state;
     return (
-      <Container>
+      <div>
         <NavBar />
-        {error && (
-          <Message
-            error
-            header="There was some errors with your submission"
-            content={JSON.stringify(error)}
-          />
-        )}
-        {loading && (
-          <Segment>
-            <Dimmer active inverted>
-              <Loader inverted>Loading</Loader>
-            </Dimmer>
+        <Container>
+          {error && (
+            <Message
+              error
+              header="There was some errors with your submission"
+              content={JSON.stringify(error)}
+            />
+          )}
+          {loading && (
+            <Segment>
+              <Dimmer active inverted>
+                <Loader inverted>Loading</Loader>
+              </Dimmer>
 
-            <Image src="/images/wireframe/short-paragraph.png" />
-          </Segment>
-        )}
+              <Image src="/images/wireframe/short-paragraph.png" />
+            </Segment>
+          )}
 
-        <Card.Group itemsPerRow={4} stackable={true} doubling={true}>
-          {data.map(item => {
-            return (
-              <Card key={item._id} className="fluid" height="200px">
-                <img
-                  style={{ height: "75%", objectFit: "cover" }}
-                  size="huge"
-                  src={item.image}
-                  wrapped
-                  ui={false}
-                  as='a'
-                  alt="product"
-                  onClick={() => this.props.history.push(`/products/${item.id}`)}
-                />
-                {item.discount_price && (
-                  <Label color={
-                    item.label === "Trending"
-                      ? "blue"
-                      : item.label === "New"
-                        ? "green"
-                        : "olive"
-                  }
-                    ribbon>
-                    {item.label}
-                  </Label>
-                )}
-                <Card.Content textAlign="center">
-                  <span className='stockCategory'>{item.category}</span>
-                  <Card.Header>{item.title}</Card.Header>
-                  <Card.Description>
-                    {item.discount_price ? (
-                      <>
-                        <del>Shs.{item.price}</del>
-                        <p><b>Shs.{item.discount_price}</b></p>
-                      </>
-                    ) : (
-                      <p><b>Shs.{item.price}</b></p>
-                    )}
-                  </Card.Description>
-                </Card.Content>
-              </Card>
-            );
-          })}
+          <Card.Group itemsPerRow={4} stackable={true} doubling={true}>
+            {data.map(item => {
+              return (
+                <Card key={item._id} className="fluid" height="200px">
+                  <img
+                    style={{ height: "75%", objectFit: "cover" }}
+                    size="huge"
+                    src={item.image}
+                    wrapped
+                    ui={false}
+                    as='a'
+                    alt="product"
+                    onClick={() => this.props.history.push(`/products/${item.id}`)}
+                  />
+                  {item.discount_price && (
+                    <Label color={
+                      item.label === "Trending"
+                        ? "blue"
+                        : item.label === "New"
+                          ? "green"
+                          : "olive"
+                    }
+                      ribbon>
+                      {item.label}
+                    </Label>
+                  )}
+                  <Card.Content textAlign="center">
+                    <span className='stockCategory'>{item.category}</span>
+                    <Card.Header>{item.title}</Card.Header>
+                    <Card.Description>
+                      {item.discount_price ? (
+                        <>
+                          <del>Shs.{item.price}</del>
+                          <p><b>Shs.{item.discount_price}</b></p>
+                        </>
+                      ) : (
+                        <p><b>Shs.{item.price}</b></p>
+                      )}
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+              );
+            })}
 
-        </Card.Group>
-      </Container>
+          </Card.Group>
+        </Container>
+      </div>
     );
   }
 }
