@@ -11,52 +11,101 @@ import event5 from '../static/img/Event5.jpg'
 import event6 from '../static/img/Event6.jpg'
 
 const Gallery1 = () => (
-    <Grid>
-        <Grid.Row columns={3}>
-            <Grid.Column>
-                <Image src={bt1} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={bt2} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={bt3} />
-            </Grid.Column>
-        </Grid.Row>
+    <div>
+        <Grid style={{ padding: "0px 30px" }}>
+            <Grid.Row columns={3}>
+                <Grid.Column>
+                    <Image src={bt1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={bt2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={bt3} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
 
-        <Grid.Row columns={4}>
-            <Grid.Column>
-                <Image src={event1} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event2} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event3} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event4} />
-            </Grid.Column>
-        </Grid.Row>
+            <Grid.Row columns={4}>
+                <Grid.Column>
+                    <Image src={event1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event3} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event4} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
 
-        <Grid.Row columns={5}>
-            <Grid.Column>
-                <Image src={event5} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event6} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event1} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event2} />
-            </Grid.Column>
-            <Grid.Column>
-                <Image src={event3} />
-            </Grid.Column>
-        </Grid.Row>
-    </Grid>
+            <Grid.Row columns={5}>
+                <Grid.Column>
+                    <Image src={event5} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event6} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event3} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+        <Grid style={{ padding: "0px 30px" }}>
+            <Grid.Row columns={3}>
+                <Grid.Column>
+                    <Image src={bt1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={bt2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={bt3} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row columns={4}>
+                <Grid.Column>
+                    <Image src={event1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event3} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event4} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row columns={5}>
+                <Grid.Column>
+                    <Image src={event5} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event6} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event1} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event2} className="galleryPics" />
+                </Grid.Column>
+                <Grid.Column>
+                    <Image src={event3} className="galleryPics" />
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
+        <br /><br /><br />
+    </div>
 )
 
 export default Gallery1

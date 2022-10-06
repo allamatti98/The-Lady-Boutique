@@ -59,3 +59,8 @@ body {
 .NavigationBar {
     color: rgb(223, 16, 195);
 }
+
+.galleryPics {
+    height: 100%;
+    object-fit: cover;
+}
