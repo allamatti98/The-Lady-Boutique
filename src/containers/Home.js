@@ -6,7 +6,7 @@ import Row1 from "../components/Row1";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
-import Row3 from "../components/row3";
+import Row3 from "../components/Row3";
 import Row4 from "../components/row4";
 import Row7 from "../components/Row7";
 import Greeting from "../components/LandingGreeting";
@@ -91,7 +91,6 @@ const HomepageLayout = () => (
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Row1 />
       <Container style={{ margin: "0px", padding: "0px" }}>
-        {/* <Partners /> */}
       </Container>
       <Row2 />
       <QualityControl />

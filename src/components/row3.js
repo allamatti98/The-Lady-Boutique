@@ -18,13 +18,13 @@ const Row3 = () => (
             </Grid.Row>
             <Grid.Row columns='equal'>
                 <Grid.Column>
-                    <a href="/"><Image src={blouse} style={{ height: "600px" }} centered /></a>
+                    <a href="/"><Image src={blouse} style={{ height: "80%" }} centered /></a>
                 </Grid.Column>
                 <Grid.Column>
-                    <a href="/"><Image src={dress} style={{ height: "600px" }} centered /></a>
+                    <a href="/"><Image src={dress} style={{ height: "80%" }} centered /></a>
                 </Grid.Column>
                 <Grid.Column>
-                    <a href="/"><Image src={blackdress} style={{ height: "600px" }} centered /></a>
+                    <a href="/"><Image src={blackdress} style={{ height: "80%" }} centered /></a>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

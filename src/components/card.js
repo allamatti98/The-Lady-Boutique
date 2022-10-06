@@ -52,7 +52,7 @@ class Trending extends Component {
 
     renderItems = () => {
         return (
-            <Card.Group itemsPerRow={4} stackable={true} doubling={true}>
+            <Card.Group itemsPerRow={4} doubling={true}>
                 {this.state.stockitems.map(card => (
                     <Card key={card._id} className="fluid" height="200px">
                         <img
@@ -66,8 +66,8 @@ class Trending extends Component {
                             Trending
                         </Label>
                         <Card.Content textAlign="center">
-                            <span className='stockCategory'>{card.category}</span>
-                            <Card.Header>{card.title}</Card.Header>
+                            {/* <span className='stockCategory'>{card.category}</span> */}
+                            <b>{card.title}</b>
                             <Card.Description>
                                 <del>Shs.{card.oldprice}</del>
                                 <p><b>Shs.{card.price}</b></p>
