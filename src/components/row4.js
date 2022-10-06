@@ -17,7 +17,7 @@ const Row4 = () => (
                 </Grid.Column>
             </Grid.Row>
         </Grid>
-        <Grid>
+        <Grid stackable>
             <Grid.Row columns='equal' style={{ margin: "0px" }}>
                 <Grid.Column style={{ padding: "170px 0px", margin: "0px", backgroundColor: 'pink' }}>
                     <Header style={{ fontSize: "4em" }} textAlign='center' color='pink'>Who Are We?</Header>
