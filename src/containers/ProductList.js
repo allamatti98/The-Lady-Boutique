@@ -5,6 +5,9 @@ import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card }
 import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
+import NavBar from "../components/navbar";
+
+
 
 // class ProductList extends React.Component {
 //   state = {
@@ -118,7 +121,8 @@ class Trending extends React.Component {
   state = {
     loading: false,
     error: null,
-    data: []
+    data: [],
+    activeItem: 'shop'
   };
 
   componentDidMount() {
@@ -151,6 +155,7 @@ class Trending extends React.Component {
     const { data, error, loading } = this.state;
     return (
       <Container>
+        <NavBar />
         {error && (
           <Message
             error

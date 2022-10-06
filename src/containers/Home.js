@@ -11,6 +11,9 @@ import Row4 from "../components/row4";
 import Row7 from "../components/Row7";
 import Greeting from "../components/LandingGreeting";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import NavBar from "../components/navbar";
+
+
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -81,7 +84,10 @@ ResponsiveContainer.propTypes = {
 };
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Greeting />
+    <div className="HomeScreen">
+      <NavBar />
+      <Greeting />
+    </div>
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Row1 />
       <Container style={{ margin: "0px", padding: "0px" }}>

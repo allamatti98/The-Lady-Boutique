@@ -1,16 +1,15 @@
 import React from "react";
-import Gallery2 from "../components/PhotoGrid1";
+import ContactUs from "../components/contactus";
 import NavBar from "../components/navbar";
 
-
-class Gallery extends React.Component {
+class Contacts extends React.Component {
     render() {
         return (
             <>
                 <NavBar />
-                <Gallery2 />
+                <ContactUs />
             </>
         )
     }
 }
-export default Gallery
+export default Contacts

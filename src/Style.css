@@ -3,9 +3,9 @@ body {
     padding: 0PX;
 }
 
-.Landing {
+.HomeScreen {
     background-image: url('./static/img/greybg.jpg');
-    height: 580px;
+    height: 650px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -49,7 +49,7 @@ body {
 }
 
 .NavBar1 {
-    background-color: rgba(252, 237, 234, .9);
+    background: transparent;
 }
 
 .NavBar2 {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Hoc from "./hoc/hoc";
-
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import HomepageLayout from "./containers/Home";
@@ -13,6 +12,7 @@ import Profile from "./containers/Profile";
 import Gallery from "./containers/gallery";
 import Blog from "./containers/Blog";
 import Wishlist from "./containers/Wishlist";
+import Contacts from "./containers/ContactUs";
 
 
 const BaseRouter = () => (
@@ -28,6 +28,7 @@ const BaseRouter = () => (
     <Route path="/blog" component={Blog} />
     <Route path="/wishlist" component={Wishlist} />
     <Route exact path="/" component={HomepageLayout} />
+    <Route path="/contact-us" component={Contacts} />
   </Hoc>
 );
 
