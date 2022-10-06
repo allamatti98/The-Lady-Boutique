@@ -6,7 +6,7 @@ import { Grid, Image, Header } from "semantic-ui-react";
 
 const QualityControl = () => (
     <div>
-        <Grid columns='equal' textAlign='center' style={{ padding: "0px 140px" }} stackable>
+        <Grid columns='equal' textAlign='center' style={{ padding: "0px 20px" }} stackable>
             <Grid.Row>
                 <Grid.Column>
                     <Image src={pinky} style={{ height: "200px", alignItems: "center" }} centered />

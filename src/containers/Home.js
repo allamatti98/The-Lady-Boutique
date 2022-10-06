@@ -91,7 +91,7 @@ const HomepageLayout = () => (
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Row1 />
       <Container style={{ margin: "0px", padding: "0px" }}>
-        <Partners />
+        {/* <Partners /> */}
       </Container>
       <Row2 />
       <QualityControl />
