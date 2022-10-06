@@ -12,7 +12,7 @@ import event6 from '../static/img/Event6.jpg'
 
 const Gallery1 = () => (
     <div>
-        <Grid style={{ padding: "0px 30px" }}>
+        <Grid style={{ padding: "0px 30px" }} stackable>
             <Grid.Row columns={3}>
                 <Grid.Column>
                     <Image src={bt1} className="galleryPics" />
