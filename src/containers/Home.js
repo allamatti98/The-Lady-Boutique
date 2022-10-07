@@ -7,7 +7,7 @@ import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
 import QualityControl from "../components/QualityControl";
 import Row3 from "../components/Row3";
-import Row4 from "../components/row4";
+import Row4 from "../components/Row4";
 import Row7 from "../components/Row7";
 import Greeting from "../components/LandingGreeting";
 import "pure-react-carousel/dist/react-carousel.es.css";
@@ -85,7 +85,6 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <div className="HomeScreen">
-      <NavBar />
       <Greeting />
     </div>
     <Segment style={{ padding: "8em 0em" }} vertical>

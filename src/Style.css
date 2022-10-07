@@ -5,7 +5,7 @@ body {
 
 .HomeScreen {
     background-image: url('./static/img/greybg.jpg');
-    height: 658px;
+    height: 580px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -63,4 +63,64 @@ body {
 .galleryPics {
     height: 100%;
     object-fit: cover;
+}
+
+.Stock-category {
+    position: relative;
+}
+
+.Category-pics {
+    height: 80%;
+    display: block;
+
+}
+
+
+
+.CategoryPics_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.CategoryPics_overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.CategoryPics_overlay:hover {
+    opacity: 1;
+}
+
+.CategoryPics_overlay:hover>* {
+    transform: translateY(0)
+}
+
+.category-pics-overlay-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.category-pics-overlay-text {
+    font-size: 1.25em;
+    margin-top: 2.5em;
+}
+
+.CategoryPics_overlay_blur {
+    backdrop-filter: blur(5px);
+}
+
+.CategoryPics_overlay_solid {
+    background: rgb(223, 16, 195);
 }

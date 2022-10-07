@@ -17,15 +17,28 @@ const Row3 = () => (
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row columns='equal'>
-                <Grid.Column>
-                    <a href="/"><Image src={blouse} style={{ height: "80%" }} centered /></a>
-                </Grid.Column>
-                <Grid.Column>
-                    <a href="/"><Image src={dress} style={{ height: "80%" }} centered /></a>
-                </Grid.Column>
-                <Grid.Column>
-                    <a href="/"><Image src={blackdress} style={{ height: "80%" }} centered /></a>
-                </Grid.Column>
+                <Grid.Column className="Stock-category">
+                    <a href="/"><Image className="Category-pics" src={blouse} centered /></a>
+                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                        <div className="category-pics-overlay-title">Blouses</div>
+                        <p className="category-pics-overlay-text">Browse Products</p>
+                        <i class="icon-arrow-lg"></i>
+                    </div>
+                </Grid.Column >
+                <Grid.Column className="Stock-category">
+                    <a href="/"><Image className="Category-pics" src={dress} centered /></a>
+                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                        <div className="category-pics-overlay-title">Dresses</div>
+                        <p className="category-pics-overlay-text">Browse Products</p>
+                    </div>
+                </Grid.Column >
+                <Grid.Column className="Stock-category">
+                    <a href="/"><Image className="Category-pics" src={blackdress} centered /></a>
+                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                        <div className="category-pics-overlay-title">Skirts</div>
+                        <p className="category-pics-overlay-text">Browse Products</p>
+                    </div>
+                </Grid.Column >
             </Grid.Row>
         </Grid>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
