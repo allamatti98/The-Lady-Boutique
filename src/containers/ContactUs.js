@@ -5,10 +5,7 @@ import NavBar from "../components/navbar";
 class Contacts extends React.Component {
     render() {
         return (
-            <>
-                <NavBar />
-                <ContactUs />
-            </>
+            <ContactUs />
         )
     }
 }

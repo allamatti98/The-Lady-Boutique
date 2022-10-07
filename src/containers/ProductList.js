@@ -187,7 +187,7 @@ class Trending extends React.Component {
                     alt="product"
                     onClick={() => this.props.history.push(`/products/${item.id}`)}
                   />
-                  <a href="/"><div className="Item-cards-overlay">
+                  <a><div className="Item-cards-overlay" onClick={() => this.props.history.push(`/products/${item.id}`)}>
                     <div className="category-pics-overlay-title">Show me</div>
                     <Icon name="long arrow alternate right" />
                     <div className="Item-Card-Items">
@@ -199,11 +199,11 @@ class Trending extends React.Component {
                         </Link>
                       </div>
                       <div className="BasketCardIcon">
-                        <Link to="/shop">
-                          <Button icon className="BasketCardIcon-button">
-                            <Icon name='shopping basket' />
-                          </Button>
-                        </Link>
+
+                        <Button icon className="BasketCardIcon-button" onClick={() => this.props.history.push(`/products/${item.id}`)}>
+                          <Icon name='shopping basket' />
+                        </Button>
+
                       </div>
                     </div>
                   </div></a>
@@ -222,7 +222,7 @@ class Trending extends React.Component {
                     </Label>
                   )}
                   <Card.Content textAlign="center">
-                    <span className='stockCategory'>{item.category}</span>
+                    {/* <span className='stockCategory'>{item.category}</span> */}
                     <Card.Header>{item.title}</Card.Header>
                     <Card.Description>
                       {item.discount_price ? (
