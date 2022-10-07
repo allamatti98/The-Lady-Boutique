@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card } from "semantic-ui-react";
+import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
 import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
-import NavBar from "../components/navbar";
+import { Link } from "react-router-dom";
 
 
 
@@ -155,7 +155,6 @@ class Trending extends React.Component {
     const { data, error, loading } = this.state;
     return (
       <div>
-        <NavBar />
         <Container>
           {error && (
             <Message
@@ -174,7 +173,7 @@ class Trending extends React.Component {
             </Segment>
           )}
 
-          <Card.Group itemsPerRow={4} stackable={true} doubling={true}>
+          <Card.Group itemsPerRow={4} doubling={true}>
             {data.map(item => {
               return (
                 <Card key={item._id} className="fluid" height="200px">
@@ -188,6 +187,28 @@ class Trending extends React.Component {
                     alt="product"
                     onClick={() => this.props.history.push(`/products/${item.id}`)}
                   />
+                  <a href="/"><div className="Item-cards-overlay">
+                    <div className="category-pics-overlay-title">Show me</div>
+                    <Icon name="long arrow alternate right" />
+                    <div className="Item-Card-Items">
+                      <div className="WishlistCardIcon">
+                        <Link to="/wishlist">
+                          <Button icon className="WishlistCardIcon-button" >
+                            <Icon name='heart outline' />
+                          </Button>
+                        </Link>
+                      </div>
+                      <div className="BasketCardIcon">
+                        <Link to="/shop">
+                          <Button icon className="BasketCardIcon-button">
+                            <Icon name='shopping basket' />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div></a>
+
+
                   {item.discount_price && (
                     <Label color={
                       item.label === "Trending"
