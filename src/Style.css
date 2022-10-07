@@ -125,3 +125,52 @@ body {
 .CategoryPics_overlay_solid {
     background: rgb(223, 16, 195);
 }
+
+
+.Item-cards-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.Item-cards-overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.Item-cards-overlay:hover {
+    opacity: 1;
+}
+
+.Item-cards-overlay:hover>* {
+    transform: translateY(0)
+}
+
+.Item-cards-overlay-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Item-cards-overlay-text {
+    font-size: 1.25em;
+    margin-top: 2.5em;
+}
+
+.Item-cards-overlay-blur {
+    backdrop-filter: blur(5px);
+}
+
+.Item-cards-overlay-solid {
+    background: rgb(223, 16, 195);
+}
