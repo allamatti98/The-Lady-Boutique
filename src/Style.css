@@ -174,3 +174,19 @@ body {
 .Item-cards-overlay-solid {
     background: rgb(223, 16, 195);
 }
+
+.Item-Card-Items {
+    padding-top: 17em;
+    display: flex;
+
+}
+
+.WishlistCardIcon {
+    border-radius: 10px;
+    padding-right: 1.5em;
+}
+
+.BasketCardIcon {
+    border-radius: 10px;
+    padding-left: 1.5em;
+}
