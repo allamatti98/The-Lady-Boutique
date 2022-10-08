@@ -1,16 +1,28 @@
 import React from "react";
-import { Grid, Header } from "semantic-ui-react";
+import { Grid, Header, Form, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const ContactUsForm = () => {
-    return(
-        <div>
-            <Grid style={{padding:"2%"}} stackable>
-                <Grid.Row column ="equal">
+    return (
+        <div className="ContactUsMain">
+            <Grid style={{ padding: "2%" }} stackable>
+                <Grid.Row column="equal">
                     <Grid.Column width={8}></Grid.Column>
-                    <Grid.Column width={8} style={{paddingRight:"100px"}}>
-                    <Header style={{ fontSize: "2em" }} textAlign='left' color='pink'>Talk to us...</Header>
-                    <Header style={{ fontSize: "5em" }} textAlign=''>Leave A Message</Header>
-                    <p style={{fontSize: "2em" }}>It all comes down to the fact that we are ahead of the game.</p>
+                    <Grid.Column width={8} style={{ paddingRight: "100px" }}>
+                        <Header style={{ fontSize: "2em" }} textAlign='left' color='pink'>Talk to us...</Header>
+                        <Header style={{ fontSize: "5em" }} textAlign=''>Leave A Message</Header>
+                        <p style={{ fontSize: "2em" }}>It all comes down to the fact that we are ahead of the game.</p>
+                        <Form >
+
+                            <Form.Input placeholder='Enter your email address...' />
+                            <Form.Input placeholder='Enter your contact' />
+                            <Form.TextArea placeholder='Enter your message...' />
+                            <Link to="/products">
+                                <Button size="huge" color='pink' >Submit</Button>
+                            </Link>
+
+
+                        </Form>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

@@ -8,7 +8,7 @@ import facebook from '../static/img/Facebook3.png';
 
 function ContactUsIntro() {
     return (
-        <Grid style={{padding:"8%", background:"pink"}} stackable>
+        <Grid style={{padding:"8%", background:"pink", margin:"0 0 3% 0"}} stackable>
             <Grid.Row>
                 <Grid.Column width={12}>
                 <Header as="h3" style={{ fontSize: "2em" }}>
