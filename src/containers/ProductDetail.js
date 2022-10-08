@@ -137,13 +137,13 @@ class ProductDetail extends React.Component {
                   <React.Fragment>
                     <Button
                       fluid
-                      color="yellow"
+                      color="pink"
                       floated="right"
                       icon
                       labelPosition="right"
                       onClick={() => this.handleAddToCart(item.slug)}
                     >
-                      Add to cart
+                      Add to my cart
                       <Icon name="cart plus" />
                     </Button>
                   </React.Fragment>
