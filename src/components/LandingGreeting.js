@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Grid, Header } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 const Greeting = () => (
     <div className="Landing">
@@ -23,7 +24,9 @@ const Greeting = () => (
             <Grid.Row>
                 <Grid.Column textAlign="center">
                     <br /><br />
-                    <Button size="huge" color='pink' >Take a Look</Button>
+                    <Link to="/products">
+                        <Button size="huge" color='pink' >Take a Look</Button>
+                    </Link>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
