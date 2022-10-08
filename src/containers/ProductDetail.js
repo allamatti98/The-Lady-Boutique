@@ -138,7 +138,7 @@ class ProductDetail extends React.Component {
                       floated="right"
                       icon
                       labelPosition="right"
-                      onClick={this.handleToggleForm}
+                      onClick={() => this.handleAddToCart(item.slug)}
                     >
                       Add to cart
                       <Icon name="cart plus" />
@@ -149,7 +149,7 @@ class ProductDetail extends React.Component {
               {formVisible && (
                 <React.Fragment>
                   <Divider />
-                  <Form onSubmit={() => this.handleAddToCart(item.slug)}>
+                  {/* <Form onSubmit={() => this.handleAddToCart(item.slug)}>
                     {data.variations.map(v => {
                       const name = v.name.toLowerCase();
                       return (
@@ -173,7 +173,7 @@ class ProductDetail extends React.Component {
                       );
                     })}
                     <Form.Button primary>Add</Form.Button>
-                  </Form>
+                  </Form> */}
                 </React.Fragment>
               )}
             </Grid.Column>
@@ -186,9 +186,6 @@ class ProductDetail extends React.Component {
               <br />
             </Grid.Column>
 
-            {/* <Header as="h2" style={{ color: "rgb(223, 16, 195)",marginTop:"15%", fontSize: "5.5em", fontFamily: "font-family: 'Courier New', Courier, monospace" }}>{item.title}</Header>
-              <Header style={{ fontSize: "3em" }}>Category: asdas</Header>
-              <Header style={{ fontSize: "3em" }}>Category:asdasdas</Header> */}
             {/* {data.variations &&
                 data.variations.map(v => {
                   return (
