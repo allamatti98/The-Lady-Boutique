@@ -103,7 +103,8 @@ class ProductDetail extends React.Component {
                   <React.Fragment>
                     <Image src={item.image}>
                     </Image>
-                    <Label as='a'
+                    {item.label &&
+                      <Label as='a'
                       color={
                         item.label === "Limited"
                           ? "red"
@@ -114,6 +115,8 @@ class ProductDetail extends React.Component {
                       ribbon>
                       {item.label}
                     </Label>
+                    }
+                    
                     {/* {item.discount_price && (
                       <Label
                         color={
