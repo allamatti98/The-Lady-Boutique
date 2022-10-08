@@ -189,6 +189,8 @@ body {
     border-radius: 10px;
     padding-left: 1.5em;
 }
-.ContactUsMain{
-    background-image: url(./static/img/PRICESS1CROPPED.jpg);
+.Newsletter-container{
+    background-image: url('./static/img/PinkGradientBG.jfif');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }

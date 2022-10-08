@@ -3,7 +3,8 @@ import { Button, Form, Container, Header } from 'semantic-ui-react'
 
 function NewsLetter() {
     return (
-        <Container text style={{ backgroundColor: "pink", padding: "30px 50px" }}>
+        <div className='Newsletter'>
+        <Container className="Newsletter-container" text style={{ padding: "30px 50px" }}>
             <Header as="h3" style={{ fontSize: "2em" }}>
                 Subscribe to our News Letter to get customized notifications.
             </Header>
@@ -18,6 +19,7 @@ function NewsLetter() {
                 </Form.Group>
             </Form>
         </Container>
+        </div>
     )
 }
 export default NewsLetter
