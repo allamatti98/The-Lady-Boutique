@@ -1,26 +1,9 @@
 import React from "react";
-import {
-  Container,
-  Dimmer,
-  Header,
-  Icon,
-  Image,
-  Label,
-  Loader,
-  Table,
-  Button,
-  Message,
-  Segment
-} from "semantic-ui-react";
+import { Container,Dimmer,Header,Icon,Image,Label,Loader,Table,Button,Message,Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { authAxios } from "../utils";
-import {
-  addToCartURL,
-  orderSummaryURL,
-  orderItemDeleteURL,
-  orderItemUpdateQuantityURL
-} from "../constants";
+import {addToCartURL,orderSummaryURL,orderItemDeleteURL,orderItemUpdateQuantityURL } from "../constants";
 
 class OrderSummary extends React.Component {
   state = {
@@ -112,13 +95,14 @@ class OrderSummary extends React.Component {
     console.log(data);
 
     return (
+      <div >
       <Container>
-        <Header>Order Summary</Header>
+        <Header style={{color:"rgb(223, 16, 195)", textAlign:"center", fontSize:"2em", fontFamily:"'Courier New', Courier, monospace"}}>Order Summary</Header>
         {error && (
           <Message
             error
             header="There was an error"
-            content={JSON.stringify(error)}
+            // content={JSON.stringify(error)}
           />
         )}
         {loading && (
@@ -131,14 +115,15 @@ class OrderSummary extends React.Component {
           </Segment>
         )}
         {data && (
+          <div>
           <Table celled>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Item #</Table.HeaderCell>
-                <Table.HeaderCell>Item name</Table.HeaderCell>
-                <Table.HeaderCell>Item price</Table.HeaderCell>
-                <Table.HeaderCell>Item quantity</Table.HeaderCell>
-                <Table.HeaderCell>Total item price</Table.HeaderCell>
+                <Table.HeaderCell>Item Number</Table.HeaderCell>
+                <Table.HeaderCell>Item Name</Table.HeaderCell>
+                <Table.HeaderCell>Item Price</Table.HeaderCell>
+                <Table.HeaderCell>Item Quantity</Table.HeaderCell>
+                <Table.HeaderCell>Total Item Price</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 
@@ -151,7 +136,7 @@ class OrderSummary extends React.Component {
                       {orderItem.item.title} -{" "}
                       {this.renderVariations(orderItem)}
                     </Table.Cell>
-                    <Table.Cell>${orderItem.item.price}</Table.Cell>
+                    <Table.Cell>Shs.{orderItem.item.price}</Table.Cell>
                     <Table.Cell textAlign="center">
                       <Icon
                         name="minus"
@@ -174,11 +159,11 @@ class OrderSummary extends React.Component {
                     </Table.Cell>
                     <Table.Cell>
                       {orderItem.item.discount_price && (
-                        <Label color="green" ribbon>
+                        <Label color="green">
                           ON DISCOUNT
                         </Label>
                       )}
-                      ${orderItem.final_price}
+                      Shs.{orderItem.final_price}
                       <Icon
                         name="trash"
                         color="red"
@@ -194,7 +179,7 @@ class OrderSummary extends React.Component {
                 <Table.Cell />
                 <Table.Cell />
                 <Table.Cell textAlign="right" colSpan="2">
-                  Order Total: ${data.total}
+                  Order Total: Shs.{data.total}
                 </Table.Cell>
               </Table.Row>
             </Table.Body>
@@ -211,8 +196,10 @@ class OrderSummary extends React.Component {
               </Table.Row>
             </Table.Footer>
           </Table>
+          </div>
         )}
       </Container>
+      </div>
     );
   }
 }
