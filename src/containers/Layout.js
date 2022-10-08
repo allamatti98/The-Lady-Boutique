@@ -8,7 +8,6 @@ import Logo from '../static/img/Logo.png';
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import FooterSocials from "../components/footersocials";
 import InstaPics from "../components/igpics";
-import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
 
 
@@ -151,7 +150,7 @@ class CustomLayout extends React.Component {
 
 
                   <Link to="/order-summary">
-                  <Responsive as={Menu.Item} minWidth={500}
+                    <Responsive as={Menu.Item} minWidth={500}
                       name='basket'
                       color='pink'
                       active={activeItem === 'basket'}
@@ -160,10 +159,10 @@ class CustomLayout extends React.Component {
                       <Icon name='shopping basket' />
                       <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
-                      </Responsive></Link>
+                    </Responsive></Link>
 
                   <Link to="/wishlist">
-                  <Responsive as={Menu.Item} minWidth={500}
+                    <Responsive as={Menu.Item} minWidth={500}
                       name='wishlist'
                       color='pink'
                       active={activeItem === 'wishlist'}
@@ -171,9 +170,27 @@ class CustomLayout extends React.Component {
                     >
                       <Icon name='heart outline' />
                     </Responsive></Link>
-                    
-                  <LoggedInUserDropdown />
-                  
+
+                  {/* <LoggedInUserDropdown /> */}
+                  <div>
+                    <Menu attached='top'>
+
+                      <Dropdown item icon='user outline' simple>
+                        <Dropdown.Menu>
+                          <Link to="/profile">
+                            <Dropdown.Item>Profile</Dropdown.Item>
+                          </Link>
+                          <Link to="/login">
+                            <Dropdown.Item>Wishlist</Dropdown.Item>
+                          </Link>
+
+                          <Dropdown.Item onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
+
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </Menu>
+                  </div>
+
                 </Menu.Menu>
               </React.Fragment>
             ) : (
