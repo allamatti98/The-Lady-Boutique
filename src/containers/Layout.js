@@ -258,9 +258,9 @@ class CustomLayout extends React.Component {
                 <FooterSocials color='pink' />
               </Grid.Column>
 
-              <Image centered src={Logo} style={{ width: '30%', height: '50px' }} />
+              <Image centered src={Logo} style={{ width: '30%', height: '2%' }} />
               <Grid.Column width={3}>
-                <Header color='pink' as="h4" content="Card Swipes Supported:" />
+                <Header color='pink' as="h4" content="Card Swipes:" />
                 <PaymentMethodsFooter />
               </Grid.Column>
             </Grid>
