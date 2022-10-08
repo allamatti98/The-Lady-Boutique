@@ -98,11 +98,23 @@ class ProductDetail extends React.Component {
             <Grid.Column>
               <Card
                 fluid
-                image={item.image}
+                // image={item.image}
                 meta={
                   <React.Fragment>
-                    {item.category}
-                    {item.discount_price && (
+                    <Image src={item.image}>
+                    </Image>
+                    <Label as='a'
+                      color={
+                        item.label === "Limited"
+                          ? "red"
+                          : item.label === "Trending"
+                            ? "blue"
+                            : "olive"
+                      }
+                      ribbon>
+                      {item.label}
+                    </Label>
+                    {/* {item.discount_price && (
                       <Label
                         color={
                           item.label === "primary"
@@ -114,10 +126,10 @@ class ProductDetail extends React.Component {
                       >
                         {item.label}
                       </Label>
-                    )}
+                    )} */}
                   </React.Fragment>
                 }
-                description={item.description}
+                // description={item.description}
                 extra={
                   <React.Fragment>
                     <Button
@@ -169,8 +181,9 @@ class ProductDetail extends React.Component {
               <Header style={{ fontSize: "3em", marginTop: "5%" }} textAlign='center' color='pink'>{item.title}</Header>
               <Header style={{ fontSize: "2em", marginTop: "5%" }}>Category: {item.category}</Header>
               <Header style={{ fontSize: "2em" }}>Price: {item.price}</Header>
-              <u><Header style={{ fontSize: "2em",marginTop: "10%" }}> Description</Header></u>
-              <Header style={{ fontSize: "2em" }}> {item.description}</Header>
+              <u><Header style={{ fontSize: "2em", marginTop: "10%" }}> Description</Header></u>
+              <Header style={{ fontSize: "2em", padding: "0 10%" }}> {item.description}</Header>
+              <br />
             </Grid.Column>
 
             {/* <Header as="h2" style={{ color: "rgb(223, 16, 195)",marginTop:"15%", fontSize: "5.5em", fontFamily: "font-family: 'Courier New', Courier, monospace" }}>{item.title}</Header>
@@ -203,6 +216,7 @@ class ProductDetail extends React.Component {
                 })} */}
           </Grid.Row>
         </Grid>
+        <br /><br />
       </Container>
     );
   }
