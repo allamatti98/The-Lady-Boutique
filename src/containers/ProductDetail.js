@@ -81,8 +81,8 @@ class ProductDetail extends React.Component {
         {error && (
           <Message
             error
-            header="There was some errors with your submission"
-            content={JSON.stringify(error)}
+            header="You have to be logged in to purchase this item."
+          // content={JSON.stringify(error)}
           />
         )}
         {loading && (
