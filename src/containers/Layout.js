@@ -100,10 +100,10 @@ class CustomLayout extends React.Component {
           // backgroundColor: "rgba(252,237,234,.9)"
           >
             <Menu.Item header>
-              <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
+              <img alt="logo" src={Logo} style={{ width: "100%", maxHeight: "50px" }} />
             </Menu.Item>
             <Link to="/">
-              <Responsive as={Menu.Item} minWidth={790}
+              <Responsive as={Menu.Item} minWidth={902}
                 name='home'
                 color='pink'
                 className="NavItem"
@@ -112,28 +112,28 @@ class CustomLayout extends React.Component {
               />
             </Link>
             <Link to="/products">
-              <Responsive as={Menu.Item} minWidth={790}
+              <Responsive as={Menu.Item} minWidth={902}
                 name='shop'
                 color='pink'
                 active={activeItem === 'shop'}
                 onClick={this.handleItemClick}
               /></Link>
             <Link to="/gallery">
-              <Responsive as={Menu.Item} minWidth={790}
+              <Responsive as={Menu.Item} minWidth={902}
                 name='Gallery'
                 color='pink'
                 active={activeItem === 'Gallery'}
                 onClick={this.handleItemClick}
               /></Link>
             <Link to="/blog">
-              <Responsive as={Menu.Item} minWidth={790}
+              <Responsive as={Menu.Item} minWidth={902}
                 name='Blog'
                 color='pink'
                 active={activeItem === 'Blog'}
                 onClick={this.handleItemClick}
               /></Link>
             <Link to="/contact-us">
-              <Responsive as={Menu.Item} minWidth={790}
+              <Responsive as={Menu.Item} minWidth={902}
                 name='Contact Us'
                 color='pink'
                 active={activeItem === 'Contact Us'}
@@ -151,7 +151,7 @@ class CustomLayout extends React.Component {
 
 
                   <Link to="/order-summary">
-                    <Menu.Item
+                  <Responsive as={Menu.Item} minWidth={500}
                       name='basket'
                       color='pink'
                       active={activeItem === 'basket'}
@@ -160,18 +160,20 @@ class CustomLayout extends React.Component {
                       <Icon name='shopping basket' />
                       <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
-                    </Menu.Item></Link>
+                      </Responsive></Link>
 
                   <Link to="/wishlist">
-                    <Menu.Item
+                  <Responsive as={Menu.Item} minWidth={500}
                       name='wishlist'
                       color='pink'
                       active={activeItem === 'wishlist'}
                       onClick={this.handleItemClick}
                     >
                       <Icon name='heart outline' />
-                    </Menu.Item></Link>
+                    </Responsive></Link>
+                    
                   <LoggedInUserDropdown />
+                  
                 </Menu.Menu>
               </React.Fragment>
             ) : (
@@ -205,7 +207,7 @@ class CustomLayout extends React.Component {
                 <IconDropDown />
               </Menu.Menu>
             )}
-            <Responsive as={Menu.Menu} maxWidth={789} position='right'>
+            <Responsive as={Menu.Menu} maxWidth={901} position='right'>
               <Dropdown
                 item
                 icon='bars'
@@ -256,7 +258,7 @@ class CustomLayout extends React.Component {
                 <FooterSocials color='pink' />
               </Grid.Column>
 
-              <Image centered src={Logo} style={{ width: '150px', height: '50px' }} />
+              <Image centered src={Logo} style={{ width: '30%', height: '50px' }} />
               <Grid.Column width={3}>
                 <Header color='pink' as="h4" content="Card Swipes Supported:" />
                 <PaymentMethodsFooter />
