@@ -81,7 +81,7 @@ class ProductDetail extends React.Component {
         {error && (
           <Message
             error
-            header="You have to be logged in to purchase this item."
+            header="An error occured, Item not added to your Cart."
           // content={JSON.stringify(error)}
           />
         )}

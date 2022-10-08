@@ -187,8 +187,8 @@ class OrderSummary extends React.Component {
             <Table.Footer>
               <Table.Row>
                 <Table.HeaderCell colSpan="5">
-                  <Link to="/checkout">
-                    <Button floated="right" color="yellow">
+                  <Link to="/checkout-form">
+                    <Button floated="right" color="pink">
                       Checkout
                     </Button>
                   </Link>

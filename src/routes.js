@@ -13,6 +13,7 @@ import Gallery from "./containers/Gallery";
 import Blog from "./containers/Blog";
 import Wishlist from "./containers/Wishlist";
 import Contacts from "./containers/ContactUs";
+import CustomerCheckoutForm from "./containers/CheckoutForm";
 
 
 const BaseRouter = () => (
@@ -29,6 +30,7 @@ const BaseRouter = () => (
     <Route path="/wishlist" component={Wishlist} />
     <Route exact path="/" component={HomepageLayout} />
     <Route path="/contact-us" component={Contacts} />
+    <Route path="/checkout-form" component={CustomerCheckoutForm} />
   </Hoc>
 );
 
