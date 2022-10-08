@@ -109,7 +109,7 @@ class ProductDetail extends React.Component {
                           ? "red"
                           : item.label === "Trending"
                             ? "blue"
-                            : "olive"
+                            : "green"
                       }
                       ribbon>
                       {item.label}

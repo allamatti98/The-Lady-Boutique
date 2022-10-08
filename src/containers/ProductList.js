@@ -207,20 +207,20 @@ class Trending extends React.Component {
                       </div>
                     </div>
                   </div></a>
-
-
-                  {item.discount_price && (
-                    <Label color={
-                      item.label === "Trending"
-                        ? "blue"
-                        : item.label === "New"
-                          ? "green"
-                          : "olive"
-                    }
-                      ribbon>
-                      {item.label}
-                    </Label>
-                  )}
+                    {item.label ? (
+                      <Label color={
+                        item.label === "Limited"
+                          ? "red"
+                          : item.label === "Trending"
+                            ? "blue"
+                            : "green"
+                      }
+                        ribbon>
+                        {item.label}
+                      </Label>
+                    ):(<></>)}
+                    
+                  
                   <Card.Content textAlign="center">
                     {/* <span className='stockCategory'>{item.category}</span> */}
                     <Card.Header>{item.title}</Card.Header>
