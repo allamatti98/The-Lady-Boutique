@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const ContactUsForm = () => {
     return (
         <div className="ContactUsMain">
-            <Grid style={{ padding: "2%" }} stackable>
+            <Grid style={{ padding: "2%", margin:"0 0 3% 0" }} stackable>
                 <Grid.Row column="equal">
                     <Grid.Column width={8}></Grid.Column>
                     <Grid.Column width={8} style={{ paddingRight: "100px" }}>
-                        <Header style={{ fontSize: "2em" }} textAlign='left' color='pink'>Talk to us...</Header>
+                        <Header style={{ fontSize: "2.5em", color:"rgb(223, 16, 195)" }} textAlign='left'>Talk to us...</Header>
                         <Header style={{ fontSize: "5em" }} textAlign=''>Leave A Message</Header>
                         <p style={{ fontSize: "2em" }}>It all comes down to the fact that we are ahead of the game.</p>
                         <Form >
