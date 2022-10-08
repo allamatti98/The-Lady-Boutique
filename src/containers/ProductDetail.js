@@ -2,24 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-import {
-  Button,
-  Card,
-  Container,
-  Dimmer,
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  Item,
-  Label,
-  Loader,
-  Message,
-  Segment,
-  Select,
-  Divider
-} from "semantic-ui-react";
+import { Button, Card, Container, Dimmer, Form, Grid, Header, Icon, Image, Item, Label, Loader, Message, Segment, Select, Divider } from "semantic-ui-react";
 import { productDetailURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
@@ -110,13 +93,12 @@ class ProductDetail extends React.Component {
             <Image src="/images/wireframe/short-paragraph.png" />
           </Segment>
         )}
-        <Grid columns={2} divided>
+        <Grid columns={2} divided stackable>
           <Grid.Row>
             <Grid.Column>
               <Card
                 fluid
                 image={item.image}
-                header={item.title}
                 meta={
                   <React.Fragment>
                     {item.category}
@@ -126,8 +108,8 @@ class ProductDetail extends React.Component {
                           item.label === "primary"
                             ? "blue"
                             : item.label === "secondary"
-                            ? "green"
-                            : "olive"
+                              ? "green"
+                              : "olive"
                         }
                       >
                         {item.label}
@@ -183,9 +165,18 @@ class ProductDetail extends React.Component {
                 </React.Fragment>
               )}
             </Grid.Column>
-            <Grid.Column>
-              <Header as="h2">Try different variations</Header>
-              {data.variations &&
+            <Grid.Column style={{ padding: "0px 0px", backgroundColor: "pink", height: "100%", textAlign: "center" }} stackable>
+              <Header style={{ fontSize: "3em", marginTop: "5%" }} textAlign='center' color='pink'>{item.title}</Header>
+              <Header style={{ fontSize: "2em", marginTop: "5%" }}>Category: {item.category}</Header>
+              <Header style={{ fontSize: "2em" }}>Price: {item.price}</Header>
+              <u><Header style={{ fontSize: "2em",marginTop: "10%" }}> Description</Header></u>
+              <Header style={{ fontSize: "2em" }}> {item.description}</Header>
+            </Grid.Column>
+
+            {/* <Header as="h2" style={{ color: "rgb(223, 16, 195)",marginTop:"15%", fontSize: "5.5em", fontFamily: "font-family: 'Courier New', Courier, monospace" }}>{item.title}</Header>
+              <Header style={{ fontSize: "3em" }}>Category: asdas</Header>
+              <Header style={{ fontSize: "3em" }}>Category:asdasdas</Header> */}
+            {/* {data.variations &&
                 data.variations.map(v => {
                   return (
                     <React.Fragment key={v.id}>
@@ -209,8 +200,7 @@ class ProductDetail extends React.Component {
                       </Item.Group>
                     </React.Fragment>
                   );
-                })}
-            </Grid.Column>
+                })} */}
           </Grid.Row>
         </Grid>
       </Container>

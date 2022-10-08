@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Container, Card, Label } from "semantic-ui-react";
-
+import { Container, Card, Label, Icon, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const testdata = [
     {
@@ -62,6 +62,27 @@ class Trending extends Component {
                             wrapped
                             ui={false}
                         />
+                        <a href="/"><div className="Item-cards-overlay">
+                            <div className="category-pics-overlay-title">Show me</div>
+                            <Icon name="long arrow alternate right" />
+                            <div className="Item-Card-Items">
+                                <div className="WishlistCardIcon">
+                                    <Link to="/wishlist">
+                                        <Button icon className="WishlistCardIcon-button" >
+                                            <Icon name='heart outline' />
+                                        </Button>
+                                    </Link>
+                                </div>
+                                <div className="BasketCardIcon">
+                                    <Link to="/shop">
+                                        <Button icon className="BasketCardIcon-button">
+                                            <Icon name='shopping basket' />
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div></a>
+
                         <Label as='a' color='red' ribbon>
                             Trending
                         </Label>

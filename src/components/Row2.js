@@ -1,6 +1,7 @@
 import React from 'react'
 import pic2 from '../static/img/Boutique1.jpg'
 import { Button, Grid, Header, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 const Row2 = () => (
     <div>
@@ -34,8 +35,10 @@ const Row2 = () => (
             </Grid.Row>
             <Grid.Row>
                 <Grid.Column textAlign="center">
-                <br/><br/>
-                    <Button size="huge" color='pink' >Take a Look</Button>
+                    <br /><br />
+                    <Link to="/products">
+                        <Button size="huge" color='pink' >Take a Look</Button>
+                    </Link>
                 </Grid.Column>
             </Grid.Row>
         </Grid>

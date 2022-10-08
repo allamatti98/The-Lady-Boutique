@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Header } from "semantic-ui-react";
+import { Grid, Header, Icon } from "semantic-ui-react";
 import blouse from '../static/img/ProfilePic3.jpg'
 import dress from '../static/img/Person7.webp'
 import blackdress from '../static/img/Person13.jpg'
@@ -19,25 +19,27 @@ const Row3 = () => (
             <Grid.Row columns='equal'>
                 <Grid.Column className="Stock-category">
                     <a href="/"><Image className="Category-pics" src={blouse} centered /></a>
-                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Blouses</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
-                        <i class="icon-arrow-lg"></i>
-                    </div>
+                        <Icon name="long arrow alternate right" />
+                    </div></a>
                 </Grid.Column >
                 <Grid.Column className="Stock-category">
-                    <a href="/"><Image className="Category-pics" src={dress} centered /></a>
-                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <Image className="Category-pics" src={dress} centered />
+                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Dresses</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
-                    </div>
+                        <Icon name="long arrow alternate right" />
+                    </div></a>
                 </Grid.Column >
                 <Grid.Column className="Stock-category">
-                    <a href="/"><Image className="Category-pics" src={blackdress} centered /></a>
-                    <div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <Image className="Category-pics" src={blackdress} centered />
+                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Skirts</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
-                    </div>
+                        <Icon name="long arrow alternate right" />
+                    </div></a>
                 </Grid.Column >
             </Grid.Row>
         </Grid>
