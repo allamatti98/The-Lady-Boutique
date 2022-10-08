@@ -9,67 +9,13 @@ import jacket from '../static/img/ProfilePic5.jpg'
 
 function InstaPics() {
     return (
-        <div className="FooterPics">
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={red} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={black} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={blackdress} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={green} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={jacket} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
-            <a href="/">
-                <Reveal animated='small fade'>
-                    <Reveal.Content visible>
-                        <img src={red} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                    <Reveal.Content hidden>
-                        <img src={doll} style={{ height: "300px", width: "225px", objectFit: "cover" }} />
-                    </Reveal.Content>
-                </Reveal>
-            </a>
+        <div style={{display:"flex"}}>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
+            <div style={{ height:"30px"}}><img src={doll}/></div>
         </div>
     )
 }

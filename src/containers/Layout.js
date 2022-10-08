@@ -170,8 +170,6 @@ class CustomLayout extends React.Component {
                     >
                       <Icon name='heart outline' />
                     </Responsive></Link>
-
-                  {/* <LoggedInUserDropdown /> */}
                   <div>
                     <Menu attached='top'>
 
@@ -254,10 +252,6 @@ class CustomLayout extends React.Component {
             </Responsive>
           </Menu>
         </div>
-
-
-
-
 
         {this.props.children}
 

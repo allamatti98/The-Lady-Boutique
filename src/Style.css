@@ -37,6 +37,10 @@ body {
     background-color: grey;
 }
 
+.FooterPics-pics {
+    height: 30px;
+}
+
 .slides {
     display: flex;
 }
@@ -189,8 +193,14 @@ body {
     border-radius: 10px;
     padding-left: 1.5em;
 }
-.Newsletter-container{
+
+.Newsletter-container {
     background-image: url('./static/img/PinkGradientBG.jfif');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.ContactUsMain{
+    background-image: URL('./static/img/PRICESS1CROPPED.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
