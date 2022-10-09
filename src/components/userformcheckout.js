@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 
 class CheckoutFormPiece extends Component {
-  state = { name: '', email: '', shippingalternatecontact: '', submittedName: '', submittedEmail: '', submittedShippingAlternateContact: '' }
+  state = { name: '', shippingapartmentadress: '', shippingalternatecontact: '', submittedName: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '' }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    const { name, email, shippingalternatecontact } = this.state
+    const { name, shippingapartmentadress, shippingalternatecontact } = this.state
 
-    this.setState({ submittedName: name, submittedEmail: email, submittedShippingAlternateContact: shippingalternatecontact })
+    this.setState({ submittedName: name, submittedShippingApartmentAddress: shippingapartmentadress, submittedShippingAlternateContact: shippingalternatecontact })
   }
 
   render() {
-    const { name, email, shippingalternatecontact, submittedName, submittedEmail, submittedShippingAlternateContact } = this.state
+    const { name, shippingapartmentadress, shippingalternatecontact, submittedName, submittedShippingApartmentAddress, submittedShippingAlternateContact } = this.state
 
     return (
       <div>
@@ -26,12 +26,14 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
             <Form.Input
-              placeholder='Email'
-              name='email'
-              value={email}
+              LABEL="Apartment Address"
+              placeholder='eg B17'
+              name='shippingapartmentadress'
+              value={shippingapartmentadress}
               onChange={this.handleChange}
             />
             <Form.Input
+              label="Alternate Contact"
               placeholder='ShippingAlternateContact'
               name='shippingalternatecontact'
               value={shippingalternatecontact}
@@ -41,9 +43,9 @@ class CheckoutFormPiece extends Component {
           <Form.Button content='Submit' />
         </Form>
         <strong>onChange:</strong>
-        <pre>{JSON.stringify({ name, email, shippingalternatecontact }, null, 2)}</pre>
+        <pre>{JSON.stringify({ name, shippingapartmentadress, shippingalternatecontact }, null, 2)}</pre>
         <strong>onSubmit:</strong>
-        <pre>{JSON.stringify({ submittedName, submittedEmail, submittedShippingAlternateContact }, null, 2)}</pre>
+        <pre>{JSON.stringify({ submittedName, submittedShippingApartmentAddress, submittedShippingAlternateContact }, null, 2)}</pre>
       </div>
     )
   }
