@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Header, Select } from 'semantic-ui-react'
+import { Form, Header, Select, Radio } from 'semantic-ui-react'
 import { stripelandingURL } from '../constants';
 
 const country_choices = [
@@ -19,7 +19,7 @@ class CheckoutFormPiece extends Component {
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: ''
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -33,7 +33,7 @@ class CheckoutFormPiece extends Component {
       submittedBillingAlternateContact: billingalternatecontact
     })
 
-    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} `)
+    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method} `)
 
   }
 
@@ -136,26 +136,34 @@ class CheckoutFormPiece extends Component {
           </Form.Group>
           <Form.Checkbox label='Save as default billing address.' />
           <Form.Checkbox label='Use default billing address' />
-          {/* <Header>Payment Method</Header>
-          <Form.Radio
-            label='Stripe'
-            value='S'
-            checked={value === 'S'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label='Adyen'
-            value='A'
-            checked={value === 'A'}
-            onChange={this.handleChange}
-          />
-          <Form.Radio
-            label='Mobile Money'
-            value='M'
-            checked={value === 'M'}
-            onChange={this.handleChange}
-          /> */}
-
+          <Header>Payment Method</Header>
+          <Form.Field>
+            <Radio
+              label='Stripe'
+              name='paymentmethod'
+              value='Stripe'
+              checked={this.state.value === 'Stripe'}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='Adyen'
+              name='paymentmethod'
+              value='Adyen'
+              checked={this.state.value === 'Adyen'}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label='Mobile Money'
+              name='paymentmethod'
+              value='MobileMoney'
+              checked={this.state.value === 'MobileMoney'}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
