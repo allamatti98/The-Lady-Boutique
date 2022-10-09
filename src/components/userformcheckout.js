@@ -87,6 +87,9 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+          <Form.Checkbox label='Billing Address is the same as my shipping address.' />
+          <Form.Checkbox label='Save as default shipping address.' />
+          <Form.Checkbox label='Use default shipping address' />
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Billing Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
@@ -131,6 +134,28 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+          <Form.Checkbox label='Save as default billing address.' />
+          <Form.Checkbox label='Use default billing address' />
+          {/* <Header>Payment Method</Header>
+          <Form.Radio
+            label='Stripe'
+            value='S'
+            checked={value === 'S'}
+            onChange={this.handleChange}
+          />
+          <Form.Radio
+            label='Adyen'
+            value='A'
+            checked={value === 'A'}
+            onChange={this.handleChange}
+          />
+          <Form.Radio
+            label='Mobile Money'
+            value='M'
+            checked={value === 'M'}
+            onChange={this.handleChange}
+          /> */}
+
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
