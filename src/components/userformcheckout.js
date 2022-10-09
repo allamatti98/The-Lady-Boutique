@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
-import { Form, Header } from 'semantic-ui-react'
+import { Form, Header, Select } from 'semantic-ui-react'
+import { stripelandingURL } from '../constants';
+
+const country_choices = [
+  { key: 'Ug', text: 'Uganda', value: 'Uganda' },
+  { key: 'Ky', text: 'Kenya', value: 'Kenya' },
+  { key: 'Tz', text: 'Tanzania', value: 'Tanzania' },
+]
+const city_choices = [
+  { key: 'Kla', text: 'Kampala', value: 'Kampala' },
+  { key: 'Nrb', text: 'Nairobi', value: 'Nairobi' },
+  { key: 'Dd', text: 'Dodoma', value: 'Dodoma' },
+]
 
 class CheckoutFormPiece extends Component {
   state = {
-    shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '',
-    billingalternatecontact: '',
-    submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '',
-    submittedBillingApartmentAddress: '', submittedBillingAlternateContact: ''
+    shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
+    submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
+    country: ''
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -19,6 +30,9 @@ class CheckoutFormPiece extends Component {
       submittedShippingAlternateContact: shippingalternatecontact, submittedBillingStreetAddress: billingingstreetaddress, submittedBillingApartmentAddress: billingapartmentadress,
       submittedBillingAlternateContact: billingalternatecontact
     })
+
+    alert(`${this.state.country} ${this.state.city} `)
+
   }
 
   render() {
@@ -28,6 +42,26 @@ class CheckoutFormPiece extends Component {
       <div>
         <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "30px 50px" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
+          <Form.Group widths='equal'>
+            <Form.Field
+              control={Select}
+              label='Country *'
+              name='country'
+              options={country_choices}
+              value={this.state.country}
+              onChange={this.handleChange}
+              placeholder='Enter your Country'
+            />
+            <Form.Field
+              control={Select}
+              label='City *'
+              name='city'
+              options={city_choices}
+              value={this.state.city}
+              onChange={this.handleChange}
+              placeholder='Enter your city'
+            />
+          </Form.Group>
           <Form.Group widths='equal'>
             <Form.Input
               label="Street Address *"
