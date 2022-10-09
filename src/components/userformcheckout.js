@@ -51,6 +51,7 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
+          <Header style={{ fontSize: "3em", textAlign: "center" }}>Billing Address</Header>
           <Form.Group widths='equal'>
             <Form.Input
               label="Street Address *"
