@@ -14,127 +14,51 @@ const city_choices = [
 ]
 
 class CheckoutFormPiece extends Component {
-  // state = {}
-  // handleChange = (e, { value }) => this.setState({ value })
+  state = {}
 
-  constructor(props) {
-    super(props)
+  handleChange = (e, { value }) => this.setState({ value })
 
-    this.state = {
-      shipping_country: '',
-      shipping_city: '',
-      shipping_street_address: '',
-      shipping_apartment_address: '',
-      shipping_alternate_contact: '',
+  handleCountryChange = (e, { value }) => this.setState({ shippingcountry: value })
 
-      billing_country: '',
-      billing_city: '',
-      billing_street_address: '',
-      billing_apartment_address: '',
-      billing_alternate_contact: '',
-    }
+  handleSubmit = e => {
+    alert(`${this.state.shippingcountry}`)
   }
-
-  handleShippingApartmentAddressChange = event => {
-    this.setState({
-      shipping_country: event.target.value
-    })
-  }
-  handleShippingStreetAddressChange = event => {
-    this.setState({
-      shipping_street_address: event.target.value
-    })
-  }
-
-  handleShippingAlternateContactChange = event => {
-    this.setState({
-      shipping_alternate_contact: event.target.value
-    })
-  }
-
-  handleBillingStreetAddressChange = event => {
-    this.setState({
-      billing_street_address: event.target.value
-    })
-  }
-
-  handleBillingApartmentAddressChange = event => {
-    this.setState({
-      billing_apartment_address: event.target.value
-    })
-  }
-
-  handleBillingAlternateContact = event => {
-    this.setState({
-      billing_alternate_contact: event.target.value
-    })
-  }
-  handleShippingCountryChange = event => {
-    this.setState({
-      shipping_country: event.target.value
-    })
-  }
-
-  handleShippingCityChange = event => {
-    this.setState({
-      shipping_city: event.target.value
-    })
-  }
-  handleBillingCountryChange = event => {
-    this.setState({
-      billing_country: event.target.value
-    })
-  }
-  handleBillingCityChange = event => {
-    this.setState({
-      billing_city: event.target.value
-    })
-  }
-
-
-
 
   render() {
     const { value } = this.state
     return (
       <div className='CheckoutForm1'>
-        <Form style={{ padding: "5% 10%", backgroundColor: "pink", margin: "30px 50px" }}>
+        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "30px 50px" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
           <Form.Group widths='equal'>
             <Form.Select
               fluid
               label='Country *'
-              name="shipping_country"
               options={country_choices}
-              value={this.state.shipping_country}
-              onChange={this.handleShippingCountryChange}
+              value={this.state.shippingcountry}
+              onChange={this.handleCountryChange}
+              name='shippingcountry'
               placeholder='Select your country'
             />
             <Form.Select
               fluid
               label='City *'
-              name="shipping_city"
               options={city_choices}
-              value={this.state.shipping_city}
-              onChange={this.handleShippingCityChange}
               placeholder='City'
             />
           </Form.Group>
           <Form.Group widths='equal'>
-            <Form.Field name="shipping_street_address">
+            <Form.Field>
               <label>Street Address *</label>
-              <input placeholder='eg 25 Gayaza Road' value={this.state.shipping_street_address}
-                onChange={this.handleShippingStreetAddressChange} />
+              <input placeholder='eg 25 Gayaza Road' />
             </Form.Field>
             <Form.Field>
               <label>Apartment Address</label>
-              <input placeholder='eg B23' name="shipping_apartment_address" value={this.state.shipping_apartment_address}
-                onChange={this.handleShippingApartmentAddressChange} />
+              <input placeholder='eg B23' />
             </Form.Field>
             <Form.Field>
               <label>Alternate Contact</label>
-              <input placeholder='eg Home/ Office Number' name="shipping_alternate_contact" value={this.state.shipping_alternate_contact}
-                onChange={this.handleShippingAlternateContactChange} />
+              <input placeholder='eg Home/ Office Number' />
             </Form.Field>
           </Form.Group>
           <Form.Checkbox label='Billing Address is the same as my shipping address.' />
@@ -145,37 +69,28 @@ class CheckoutFormPiece extends Component {
             <Form.Select
               fluid
               label='Country *'
-              name="billing_country"
               options={country_choices}
-              value={this.state.billing_country}
-              onChange={this.handleBillingCountryChange}
               placeholder='Select your country'
             />
             <Form.Select
               fluid
               label='City *'
-              name="billing_city"
               options={city_choices}
-              value={this.state.billing_city}
-              onChange={this.handleBillingCityChange}
               placeholder='City'
             />
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Street Address *</label>
-              <input placeholder='eg 25 Gayaza Road' name="billing_street_address" value={this.state.billing_street_address}
-                onChange={this.handleBillingStreetAddressChange} />
+              <input placeholder='eg 25 Gayaza Road' />
             </Form.Field>
             <Form.Field>
               <label>Apartment Address</label>
-              <input placeholder='eg B23' name="billing_apartment_address" value={this.state.billing_apartment_address}
-                onChange={this.handleBillingApartmentAddressChange} />
+              <input placeholder='eg B23' />
             </Form.Field>
             <Form.Field>
               <label>Alternate Contact</label>
-              <input placeholder='eg Home/ Office Number' name="billing_alternate_contact" value={this.state.billing_alternate_contact}
-                onChange={this.handleBillingAlternateContact} />
+              <input placeholder='eg Home/ Office Number' />
             </Form.Field>
           </Form.Group>
           <Form.Checkbox label='Save as default billing address.' />
@@ -201,7 +116,7 @@ class CheckoutFormPiece extends Component {
             onChange={this.handleChange}
           />
 
-          <Form.Button color="pink" size="huge" floated="right">Submit</Form.Button>
+          <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
         </Form>
       </div>
     )
