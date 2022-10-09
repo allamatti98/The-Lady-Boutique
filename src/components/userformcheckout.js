@@ -69,6 +69,30 @@ class CheckoutFormPiece extends Component {
       billing_alternate_contact: event.target.value
     })
   }
+  handleShippingCountryChange = event => {
+    this.setState({
+      shipping_country: event.target.value
+    })
+  }
+
+  handleShippingCityChange = event => {
+    this.setState({
+      shipping_city: event.target.value
+    })
+  }
+  handleBillingCountryChange = event => {
+    this.setState({
+      billing_country: event.target.value
+    })
+  }
+  handleBillingCityChange = event => {
+    this.setState({
+      billing_city: event.target.value
+    })
+  }
+
+
+
 
   render() {
     const { value } = this.state
@@ -82,6 +106,8 @@ class CheckoutFormPiece extends Component {
               label='Country *'
               name="shipping_country"
               options={country_choices}
+              value={this.state.shipping_country}
+              onChange={this.handleShippingCountryChange}
               placeholder='Select your country'
             />
             <Form.Select
@@ -89,6 +115,8 @@ class CheckoutFormPiece extends Component {
               label='City *'
               name="shipping_city"
               options={city_choices}
+              value={this.state.shipping_city}
+              onChange={this.handleShippingCityChange}
               placeholder='City'
             />
           </Form.Group>
@@ -119,6 +147,8 @@ class CheckoutFormPiece extends Component {
               label='Country *'
               name="billing_country"
               options={country_choices}
+              value={this.state.billing_country}
+              onChange={this.handleBillingCountryChange}
               placeholder='Select your country'
             />
             <Form.Select
@@ -126,6 +156,8 @@ class CheckoutFormPiece extends Component {
               label='City *'
               name="billing_city"
               options={city_choices}
+              value={this.state.billing_city}
+              onChange={this.handleBillingCityChange}
               placeholder='City'
             />
           </Form.Group>
