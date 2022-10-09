@@ -14,6 +14,7 @@ import Blog from "./containers/Blog";
 import Wishlist from "./containers/Wishlist";
 import Contacts from "./containers/ContactUs";
 import CustomerCheckoutForm from "./containers/CheckoutForm";
+import Stripe from "./containers/stripe";
 
 
 const BaseRouter = () => (
@@ -31,6 +32,7 @@ const BaseRouter = () => (
     <Route exact path="/" component={HomepageLayout} />
     <Route path="/contact-us" component={Contacts} />
     <Route path="/checkout-form" component={CustomerCheckoutForm} />
+    <Route path="/stripe-landing" component={Stripe} />
   </Hoc>
 );
 

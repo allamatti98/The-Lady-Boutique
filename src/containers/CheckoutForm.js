@@ -2,8 +2,8 @@ import React from "react";
 import CheckoutFormPiece from "../components/userformcheckout";
 import style from '../Style.css'
 
-function CustomerCheckoutForm (){
-    return(
+function CustomerCheckoutForm() {
+    return (
         <CheckoutFormPiece />
     )
 }

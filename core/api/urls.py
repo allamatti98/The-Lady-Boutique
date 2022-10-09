@@ -1,21 +1,5 @@
 from django.urls import path
-from .views import (
-    UserIDView,
-    ItemListView,
-    ItemDetailView,
-    AddToCartView,
-    OrderDetailView,
-    OrderQuantityUpdateView,
-    PaymentView,
-    AddCouponView,
-    CountryListView,
-    AddressListView,
-    AddressCreateView,
-    AddressUpdateView,
-    AddressDeleteView,
-    OrderItemDeleteView,
-    PaymentListView
-)
+from .views import ( UserIDView, ItemListView, ItemDetailView, AddToCartView, OrderDetailView, OrderQuantityUpdateView, PaymentView, AddCouponView, CountryListView, AddressListView, AddressCreateView, AddressUpdateView, AddressDeleteView, OrderItemDeleteView, PaymentListView )
 
 urlpatterns = [
     path('user-id/', UserIDView.as_view(), name='user-id'),

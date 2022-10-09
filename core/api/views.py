@@ -19,7 +19,7 @@ from .serializers import (
     PaymentSerializer
 )
 from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation
-
+from django.shortcuts import redirect
 
 import stripe
 
@@ -298,3 +298,27 @@ class PaymentListView(ListAPIView):
 
     def get_queryset(self):
         return Payment.objects.filter(user=self.request.user)
+
+class StripeLandingAPI(APIView):
+
+    def get_context_data(self, **kwargs):
+        order = Order.objects.get(user = self.request.user, ordered = False)
+        if order.billing_address:
+
+            context = super(StripeLandingAPI,self).get_context_data(**kwargs)
+
+            context.update({
+                "order": order,
+                "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+            })
+
+            try:
+                code = order.coupon.code
+                context.update({"promocode": code,})
+            except AttributeError:
+                print ("No promo code")
+
+            return context
+        else:
+            print("No billing address provided")
+            return redirect('/checkout-form')
