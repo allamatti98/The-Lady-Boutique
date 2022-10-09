@@ -3,11 +3,13 @@ import { Form, Header, Select } from 'semantic-ui-react'
 import { stripelandingURL } from '../constants';
 
 const country_choices = [
+  { key: 'Sd', text: 'South Sudan', value: 'South Sudan' },
   { key: 'Ug', text: 'Uganda', value: 'Uganda' },
   { key: 'Ky', text: 'Kenya', value: 'Kenya' },
   { key: 'Tz', text: 'Tanzania', value: 'Tanzania' },
 ]
 const city_choices = [
+  { key: 'Jb', text: 'Juba', value: 'Juba' },
   { key: 'Kla', text: 'Kampala', value: 'Kampala' },
   { key: 'Nrb', text: 'Nairobi', value: 'Nairobi' },
   { key: 'Dd', text: 'Dodoma', value: 'Dodoma' },
@@ -17,7 +19,7 @@ class CheckoutFormPiece extends Component {
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
-    country: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: ''
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -31,7 +33,7 @@ class CheckoutFormPiece extends Component {
       submittedBillingAlternateContact: billingalternatecontact
     })
 
-    alert(`${this.state.country} ${this.state.city} `)
+    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} `)
 
   }
 
@@ -46,7 +48,7 @@ class CheckoutFormPiece extends Component {
             <Form.Field
               control={Select}
               label='Country *'
-              name='country'
+              name='shippingcountry'
               options={country_choices}
               value={this.state.country}
               onChange={this.handleChange}
@@ -55,7 +57,7 @@ class CheckoutFormPiece extends Component {
             <Form.Field
               control={Select}
               label='City *'
-              name='city'
+              name='shippingcity'
               options={city_choices}
               value={this.state.city}
               onChange={this.handleChange}
@@ -86,6 +88,26 @@ class CheckoutFormPiece extends Component {
             />
           </Form.Group>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Billing Address</Header>
+          <Form.Group widths='equal'>
+            <Form.Field
+              control={Select}
+              label='Country *'
+              name='billingcountry'
+              options={country_choices}
+              value={this.state.country}
+              onChange={this.handleChange}
+              placeholder='Enter your Country'
+            />
+            <Form.Field
+              control={Select}
+              label='City *'
+              name='billingcity'
+              options={city_choices}
+              value={this.state.city}
+              onChange={this.handleChange}
+              placeholder='Enter your city'
+            />
+          </Form.Group>
           <Form.Group widths='equal'>
             <Form.Input
               label="Street Address *"
