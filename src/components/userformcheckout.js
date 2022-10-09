@@ -18,10 +18,17 @@ class CheckoutFormPiece extends Component {
 
   handleChange = (e, { value }) => this.setState({ value })
 
-  handleCountryChange = (e, { value }) => this.setState({ shippingcountry: value })
+  handleShippingCountryChange = (e, { value }) => this.setState({ shipping_country: value })
+  handleShippingCityChange = (e, { value }) => this.setState({ shipping_city: value })
+
+  handleShippingStreetAddressChange = (e, { value }) => this.setState({ shipping_street_address: value })
+  handleShippingApartmentAddressChange = (e, { value }) => this.setState({ shipping_apartment_address: value })
+  handleShippingAlternateContactChange = (e, { value }) => this.setState({ alternate_shipping_contact: value })
 
   handleSubmit = e => {
-    alert(`${this.state.shippingcountry}`)
+    alert(`${this.state.shipping_country} ${this.state.shipping_city} ${this.state.shipping_street_address}
+          ${this.state.shipping_apartment_address} ${this.state.alternate_shipping_contact}
+    `)
   }
 
   render() {
@@ -34,31 +41,40 @@ class CheckoutFormPiece extends Component {
             <Form.Select
               fluid
               label='Country *'
+              name='shipping_country'
               options={country_choices}
-              value={this.state.shippingcountry}
-              onChange={this.handleCountryChange}
-              name='shippingcountry'
+              value={this.state.shipping_country}
+              onChange={this.handleShippingCountryChange}
               placeholder='Select your country'
             />
             <Form.Select
               fluid
               label='City *'
+              name='shipping_city'
               options={city_choices}
-              placeholder='City'
+              value={this.state.shipping_city}
+              onChange={this.handleShippingCityChange}
+              placeholder='Select your City'
             />
           </Form.Group>
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Street Address *</label>
-              <input placeholder='eg 25 Gayaza Road' />
+              <input name='shipping_street_address' value={this.state.shipping_street_address}
+                onChange={this.handleShippingStreetAddressChange}
+                placeholder='eg 25 Gayaza Road' />
             </Form.Field>
             <Form.Field>
               <label>Apartment Address</label>
-              <input placeholder='eg B23' />
+              <input name='shipping_apartment_address' value={this.state.shipping_apartment_address}
+                onChange={this.handleShippingApartmentAddressChange}
+                placeholder='eg B23' />
             </Form.Field>
             <Form.Field>
               <label>Alternate Contact</label>
-              <input placeholder='eg Home/ Office Number' />
+              <input name='alternate_shipping_contact' value={this.state.alternate_shipping_contact}
+                onChange={this.handleShippingAlternateContactChange}
+                placeholder='eg Home/ Office Number' />
             </Form.Field>
           </Form.Group>
           <Form.Checkbox label='Billing Address is the same as my shipping address.' />
