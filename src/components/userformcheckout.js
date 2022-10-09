@@ -2,18 +2,25 @@ import React, { Component } from 'react'
 import { Form } from 'semantic-ui-react'
 
 class CheckoutFormPiece extends Component {
-  state = { name: '', shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', submittedName: '', submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '' }
+  state = {
+    shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', submittedShippingStreetAddress: '',
+    submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: ''
+  }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
-    const { name, shippingstreetaddress, shippingapartmentadress, shippingalternatecontact } = this.state
+    const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress } = this.state
 
-    this.setState({ submittedName: name, submittedShippingStreetAddress: shippingstreetaddress, submittedShippingApartmentAddress: shippingapartmentadress, submittedShippingAlternateContact: shippingalternatecontact })
+    this.setState({
+      submittedShippingStreetAddress: shippingstreetaddress, submittedShippingApartmentAddress: shippingapartmentadress,
+      submittedShippingAlternateContact: shippingalternatecontact, submittedBillingStreetAddress: billingingstreetaddress
+    })
   }
 
   render() {
-    const { name, shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, submittedName, submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact } = this.state
+    const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, submittedShippingStreetAddress,
+      submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress } = this.state
 
     return (
       <div>
@@ -42,11 +49,18 @@ class CheckoutFormPiece extends Component {
             />
           </Form.Group>
           <Form.Button content='Submit' />
+          <Form.Input
+            label="Street Address *"
+            placeholder='eg 57_Gayaza_Road'
+            name='billingingstreetaddress'
+            value={billingingstreetaddress}
+            onChange={this.handleChange}
+          />
         </Form>
         <strong>onChange:</strong>
-        <pre>{JSON.stringify({ name, shippingstreetaddress, shippingapartmentadress, shippingalternatecontact }, null, 2)}</pre>
+        <pre>{JSON.stringify({ shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress }, null, 2)}</pre>
         <strong>onSubmit:</strong>
-        <pre>{JSON.stringify({ submittedName, submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact }, null, 2)}</pre>
+        <pre>{JSON.stringify({ submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress }, null, 2)}</pre>
       </div>
     )
   }
