@@ -106,7 +106,7 @@ class CheckoutFormPiece extends Component {
             onChange={this.handleChange}
           />
 
-          <Form.Button>Submit</Form.Button>
+          <Form.Button color="pink" size="huge" floated="right">Submit</Form.Button>
         </Form>
       </div>
     )
