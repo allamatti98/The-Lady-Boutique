@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Header } from 'semantic-ui-react'
 
 class CheckoutFormPiece extends Component {
   state = {
@@ -26,8 +26,9 @@ class CheckoutFormPiece extends Component {
       submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact } = this.state
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
+        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "30px 50px" }}>
+          <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
+          <Form.Group widths='equal'>
             <Form.Input
               label="Street Address *"
               placeholder='eg 57_Gayaza_Road'
@@ -50,7 +51,7 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Group>
+          <Form.Group widths='equal'>
             <Form.Input
               label="Street Address *"
               placeholder='eg 57_Gayaza_Road'
@@ -73,7 +74,8 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Button content='Submit' />
+          {/* <Form.Button content='Submit' /> */}
+          <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
         <strong>onChange:</strong>
