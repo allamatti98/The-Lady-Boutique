@@ -52,6 +52,23 @@ class CheckoutFormPiece extends Component {
     })
   }
 
+  handleBillingStreetAddressChange = event => {
+    this.setState({
+      billing_street_address: event.target.value
+    })
+  }
+
+  handleBillingApartmentAddressChange = event => {
+    this.setState({
+      billing_apartment_address: event.target.value
+    })
+  }
+
+  handleBillingAlternateContact = event => {
+    this.setState({
+      billing_alternate_contact: event.target.value
+    })
+  }
 
   render() {
     const { value } = this.state
@@ -115,15 +132,18 @@ class CheckoutFormPiece extends Component {
           <Form.Group widths='equal'>
             <Form.Field>
               <label>Street Address *</label>
-              <input placeholder='eg 25 Gayaza Road' name="billing_street_address" value={this.state.billing_street_address} />
+              <input placeholder='eg 25 Gayaza Road' name="billing_street_address" value={this.state.billing_street_address}
+                onChange={this.handleBillingStreetAddressChange} />
             </Form.Field>
             <Form.Field>
               <label>Apartment Address</label>
-              <input placeholder='eg B23' name="billing_apartment_address" value={this.state.billing_apartment_address} />
+              <input placeholder='eg B23' name="billing_apartment_address" value={this.state.billing_apartment_address}
+                onChange={this.handleBillingApartmentAddressChange} />
             </Form.Field>
             <Form.Field>
               <label>Alternate Contact</label>
-              <input placeholder='eg Home/ Office Number' name="billing_alternate_contact" value={this.state.billing_alternate_contact} />
+              <input placeholder='eg Home/ Office Number' name="billing_alternate_contact" value={this.state.billing_alternate_contact}
+                onChange={this.handleBillingAlternateContact} />
             </Form.Field>
           </Form.Group>
           <Form.Checkbox label='Save as default billing address.' />
