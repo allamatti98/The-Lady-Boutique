@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Header, Select, Radio } from 'semantic-ui-react'
+import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
 import { stripelandingURL } from '../constants';
 import { addressListURL } from '../constants';
 import { authAxios } from '../utils';
@@ -27,7 +27,8 @@ class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: []
+
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -38,10 +39,6 @@ class CheckoutFormPiece extends Component {
 
     })
     console.log(this.state)
-    // console.log(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method}
-    // ${this.state.shippingstreetaddress} ${this.state.shippingapartmentadress} ${this.state.shippingalternatecontact} ${this.state.billingcity} ${this.state.payment_method}
-    // ${this.state.billingstreetaddress} ${this.state.billingapartmentadress} ${this.state.billingalternatecontact}
-    // `);
   }
 
   handleFetchAddresses = () => {
@@ -59,8 +56,9 @@ class CheckoutFormPiece extends Component {
 
 
   render() {
-    const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact, submittedShippingStreetAddress,
-      submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact } = this.state
+    const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact,
+      error, loading, addresses
+    } = this.state
     return (
       <div>
         <Form onSubmit={this.handleSubmit} style={{ padding: "5% 5%", backgroundColor: "pink", margin: "0% 5%" }}>
@@ -172,11 +170,33 @@ class CheckoutFormPiece extends Component {
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
+
+        <div>
+          {error && (
+            <Message
+              error
+              header="There was an error"
+              content={JSON.stringify(error)}
+            />
+          )}
+          {loading && (
+            <Segment>
+              <Dimmer active inverted>
+                <Loader inverted>Loading</Loader>
+              </Dimmer>
+              <Image src="/images/wireframe/short-paragraph.png" />
+            </Segment>
+          )}
+          {addresses.map(a => {
+            return <div>{a.street_address}</div>;
+          })}
+        </div>
         {/* <strong>onChange:</strong>
         <pre>{JSON.stringify({ shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact }, null, 2)}</pre>
         <strong>onSubmit:</strong>
         <pre>{JSON.stringify({ submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact }, null, 2)}</pre> */}
       </div>
+
     )
   }
 }
