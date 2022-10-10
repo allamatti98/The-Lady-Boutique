@@ -16,13 +16,19 @@ const city_choices = [
 ]
 
 class CheckoutFormPiece extends Component {
+
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: 'Stripe'
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+  // state = {}
+
+  handlePaymentChange = (e, { value }) => this.setState({ value })
+
 
   handleSubmit = () => {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact } = this.state
@@ -33,8 +39,7 @@ class CheckoutFormPiece extends Component {
       submittedBillingAlternateContact: billingalternatecontact
     })
 
-    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method} `)
-
+    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.paymentmethod} `)
   }
 
   render() {
@@ -140,30 +145,31 @@ class CheckoutFormPiece extends Component {
           <Form.Field>
             <Radio
               label='Stripe'
-              name='paymentmethod'
+              name='payment_method'
               value='Stripe'
               checked={this.state.value === 'Stripe'}
-              onChange={this.handleChange}
+              onChange={this.handlePaymentChange}
             />
           </Form.Field>
           <Form.Field>
             <Radio
               label='Adyen'
-              name='paymentmethod'
+              name='payment_method'
               value='Adyen'
               checked={this.state.value === 'Adyen'}
-              onChange={this.handleChange}
+              onChange={this.handlePaymentChange}
             />
           </Form.Field>
           <Form.Field>
             <Radio
               label='Mobile Money'
-              name='paymentmethod'
+              name='payment_method'
               value='MobileMoney'
               checked={this.state.value === 'MobileMoney'}
-              onChange={this.handleChange}
+              onChange={this.handlePaymentChange}
             />
           </Form.Field>
+
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
