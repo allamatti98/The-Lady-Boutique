@@ -25,29 +25,35 @@ class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
-    submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: ''
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-
-
-
   handleSubmit = () => {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact } = this.state
     this.setState({
-      submittedShippingStreetAddress: shippingstreetaddress, submittedShippingApartmentAddress: shippingapartmentadress,
-      submittedShippingAlternateContact: shippingalternatecontact, submittedBillingStreetAddress: billingingstreetaddress, submittedBillingApartmentAddress: billingapartmentadress,
-      submittedBillingAlternateContact: billingalternatecontact
-    })
 
-    console.log(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method}
-    ${this.state.shippingstreetaddress} ${this.state.shippingapartmentadress} ${this.state.shippingalternatecontact} ${this.state.billingcity} ${this.state.payment_method}
-    ${this.state.billingstreetaddress} ${this.state.billingapartmentadress} ${this.state.billingalternatecontact}
-    `);
+    })
+    console.log(this.state)
+    // console.log(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method}
+    // ${this.state.shippingstreetaddress} ${this.state.shippingapartmentadress} ${this.state.shippingalternatecontact} ${this.state.billingcity} ${this.state.payment_method}
+    // ${this.state.billingstreetaddress} ${this.state.billingapartmentadress} ${this.state.billingalternatecontact}
+    // `);
   }
 
+  handleFetchAddresses = () => {
+    this.setState({ loading: true });
+    const { activeItem } = this.state;
+    authAxios
+      .get(addressListURL(activeItem === "billingAddress" ? "B" : "S"))
+      .then(res => {
+        this.setState({ addresses: res.data, loading: false });
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
+  };
 
 
   render() {
@@ -164,10 +170,10 @@ class CheckoutFormPiece extends Component {
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
-        <strong>onChange:</strong>
+        {/* <strong>onChange:</strong>
         <pre>{JSON.stringify({ shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact }, null, 2)}</pre>
         <strong>onSubmit:</strong>
-        <pre>{JSON.stringify({ submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact }, null, 2)}</pre>
+        <pre>{JSON.stringify({ submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact }, null, 2)}</pre> */}
       </div>
     )
   }
