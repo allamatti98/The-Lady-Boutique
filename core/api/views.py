@@ -299,13 +299,13 @@ class PaymentListView(ListAPIView):
     def get_queryset(self):
         return Payment.objects.filter(user=self.request.user)
 
-class StripeLandingAPI(APIView):
+class StripeLandingView(APIView):
 
     def get_context_data(self, **kwargs):
         order = Order.objects.get(user = self.request.user, ordered = False)
         if order.billing_address:
 
-            context = super(StripeLandingAPI,self).get_context_data(**kwargs)
+            context = super(StripeLandingView,self).get_context_data(**kwargs)
 
             context.update({
                 "order": order,
