@@ -31,6 +31,12 @@ class CheckoutFormPiece extends Component {
 
   }
 
+  componentDidMount() {
+    this.handleFetchAddresses();
+    this.handleFetchCountries();
+    this.handleFetchUserID();
+  }
+
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
