@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
 import { stripelandingURL } from '../constants';
-import { addressListURL } from '../constants';
+import { addressListURL, addressCreateURL } from '../constants';
 import { authAxios } from '../utils';
 
 
@@ -54,6 +54,39 @@ class CheckoutFormPiece extends Component {
       .get(addressListURL(activeItem === "billingAddress" ? "B" : "S"))
       .then(res => {
         this.setState({ addresses: res.data, loading: false });
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
+  };
+
+  handleChange = e => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      [e.target.name]: e.target.value
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
+
+  handleCreateAddress = () => {
+    const { userID, activeItem } = this.props;
+    const { formData } = this.state;
+    authAxios
+      .post(addressCreateURL, {
+        ...formData,
+        user: userID,
+        address_type: activeItem === "billingAddress" ? "B" : "S"
+      })
+      .then(res => {
+        this.setState({
+          saving: false,
+          success: true,
+          formData: { default: false }
+        });
+        this.props.callback();
       })
       .catch(err => {
         this.setState({ error: err });
