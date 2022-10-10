@@ -14,32 +14,34 @@ const city_choices = [
   { key: 'Nrb', text: 'Nairobi', value: 'Nairobi' },
   { key: 'Dd', text: 'Dodoma', value: 'Dodoma' },
 ]
+const payment_methods = [
+  { key: 'S', text: 'Stripe', value: 'Stripe' },
+  { key: 'A', text: 'Adyen', value: 'Adyen' },
+  { key: 'M', text: 'Mobile Money', value: 'MobileMoney' },
+]
 
 class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     submittedShippingStreetAddress: '', submittedShippingApartmentAddress: '', submittedShippingAlternateContact: '', submittedBillingStreetAddress: '', submittedBillingApartmentAddress: '', submittedBillingAlternateContact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: 'Stripe'
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', paymentmethod: ''
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
-  // state = {}
 
-  handlePaymentChange = (e, { value }) => this.setState({ value })
 
 
   handleSubmit = () => {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact } = this.state
-
     this.setState({
       submittedShippingStreetAddress: shippingstreetaddress, submittedShippingApartmentAddress: shippingapartmentadress,
       submittedShippingAlternateContact: shippingalternatecontact, submittedBillingStreetAddress: billingingstreetaddress, submittedBillingApartmentAddress: billingapartmentadress,
       submittedBillingAlternateContact: billingalternatecontact
     })
 
-    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.paymentmethod} `)
+    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method} `)
   }
 
   render() {
@@ -142,33 +144,15 @@ class CheckoutFormPiece extends Component {
           <Form.Checkbox label='Save as default billing address.' />
           <Form.Checkbox label='Use default billing address' />
           <Header>Payment Method</Header>
-          <Form.Field>
-            <Radio
-              label='Stripe'
-              name='payment_method'
-              value='Stripe'
-              checked={this.state.value === 'Stripe'}
-              onChange={this.handlePaymentChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label='Adyen'
-              name='payment_method'
-              value='Adyen'
-              checked={this.state.value === 'Adyen'}
-              onChange={this.handlePaymentChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label='Mobile Money'
-              name='payment_method'
-              value='MobileMoney'
-              checked={this.state.value === 'MobileMoney'}
-              onChange={this.handlePaymentChange}
-            />
-          </Form.Field>
+          <Form.Field
+            control={Select}
+            label='Payment Method *'
+            name='payment_method'
+            options={payment_methods}
+            value={this.state.payment_method}
+            onChange={this.handleChange}
+            placeholder='Enter your Country'
+          />
 
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
