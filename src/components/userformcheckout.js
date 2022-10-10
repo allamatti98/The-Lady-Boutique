@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Header, Select, Radio } from 'semantic-ui-react'
 import { stripelandingURL } from '../constants';
+import { addressListURL } from '../constants';
 
 const country_choices = [
   { key: 'Sd', text: 'South Sudan', value: 'South Sudan' },
@@ -41,15 +42,20 @@ class CheckoutFormPiece extends Component {
       submittedBillingAlternateContact: billingalternatecontact
     })
 
-    alert(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method} `)
+    console.log(`${this.state.shippingcountry} ${this.state.shippingcity} ${this.state.billingcountry} ${this.state.billingcity} ${this.state.payment_method}
+    ${this.state.shippingstreetaddress} ${this.state.shippingapartmentadress} ${this.state.shippingalternatecontact} ${this.state.billingcity} ${this.state.payment_method}
+    ${this.state.billingstreetaddress} ${this.state.billingapartmentadress} ${this.state.billingalternatecontact}
+    `);
   }
+
+
 
   render() {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact, submittedShippingStreetAddress,
       submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact } = this.state
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "0px 50px" }}>
+        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 5%", backgroundColor: "pink", margin: "0% 5%" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
