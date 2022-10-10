@@ -49,7 +49,7 @@ class CheckoutFormPiece extends Component {
       submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact } = this.state
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "30px 50px" }}>
+        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 10%", backgroundColor: "pink", margin: "0px 50px" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
@@ -152,6 +152,7 @@ class CheckoutFormPiece extends Component {
             value={this.state.payment_method}
             onChange={this.handleChange}
             placeholder='Enter your Country'
+            width={3}
           />
 
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
