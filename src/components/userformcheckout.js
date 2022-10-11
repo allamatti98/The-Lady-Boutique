@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
-import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL } from '../constants';
+import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL, userIDURL } from '../constants';
 import { authAxios } from '../utils';
 
 
@@ -26,14 +26,14 @@ class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}, userID: null, user: ''
 
   }
 
   componentDidMount() {
     this.handleFetchAddresses();
     // this.handleFetchCountries();
-    // this.handleFetchUserID();
+    this.handleFetchUserID();
   }
 
   handleChange = (e, { name, value }) => {
@@ -43,7 +43,8 @@ class CheckoutFormPiece extends Component {
   }
 
   handleSubmit = e => {
-    this.setState({ saving: true });
+    const { userID } = this.state;
+    this.setState({ saving: true, user: userID });
     e.preventDefault();
     const { formData } = this.props;
     this.handleCreateAddress();
@@ -65,8 +66,8 @@ class CheckoutFormPiece extends Component {
 
 
   handleCreateAddress = () => {
-    const { userID } = this.props;
-    const { formData } = this.state;
+    // const { userID } = this.props;
+    const { formData, userID } = this.state;
     console.log(formData)
     authAxios
       .post(addressCreateURL, {
@@ -80,6 +81,18 @@ class CheckoutFormPiece extends Component {
           formData: { default: false }
         });
         this.props.callback();
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
+  };
+
+  handleFetchUserID = () => {
+    authAxios
+      .get(userIDURL)
+      .then(res => {
+        console.log(res.data);
+        this.setState({ userID: res.data.userID });
       })
       .catch(err => {
         this.setState({ error: err });
