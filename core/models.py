@@ -1,3 +1,4 @@
+from xml.dom.pulldom import default_bufsize
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.db import models
@@ -176,6 +177,8 @@ class Address(models.Model):
     shippingcountry = models.CharField(max_length=100, blank = True, null= True)
     shippingstreetaddress = models.CharField(max_length=100, blank = True, null= True)
     default = models.BooleanField(default=False)
+    
+
 
     def __str__(self):
         return self.user.username
