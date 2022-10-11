@@ -268,11 +268,11 @@ class AddressListView(ListAPIView):
     serializer_class = AddressSerializer
 
     def get_queryset(self):
-        address_type = self.request.query_params.get('address_type', None)
+        # address_type = self.request.query_params.get('address_type', None)
         qs = Address.objects.all()
-        if address_type is None:
-            return qs
-        return qs.filter(user=self.request.user, address_type=address_type)
+        # if address_type is None:
+        #     return qs
+        # return qs.filter(user=self.request.user, address_type=address_type)
 
 
 class AddressCreateView(CreateAPIView):

@@ -189,15 +189,18 @@ class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = (
-            'id',
-            'user',
-            'street_address',
-            'apartment_address',
-            'country',
-            'city',
-            'alternate_contact',
-            'address_type',
-            'default'
+        'user',
+        'billingalternatecontact',
+        'billingapartmentadress',
+        'billingcity',
+        'billingcountry',
+        'billingingstreetaddress',
+        'shippingalternatecontact',
+        'shippingapartmentadress',
+        'shippingcity',
+        'shippingcountry',
+        'shippingstreetaddress',
+        'default'
         )
 
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
-import { stripelandingURL } from '../constants';
-import { addressListURL, addressCreateURL } from '../constants';
+import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL } from '../constants';
 import { authAxios } from '../utils';
 
 
@@ -227,7 +226,7 @@ class CheckoutFormPiece extends Component {
             </Segment>
           )}
           {addresses.map(a => {
-            return <h1>{a.street_address}</h1>;
+            return <h1>{a.billingcity}</h1>;
           })}
         </div>
         {/* <strong>onChange:</strong>

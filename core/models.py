@@ -165,12 +165,16 @@ class Order(models.Model):
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    street_address = models.CharField(max_length=100)
-    apartment_address = models.CharField(max_length=100)
-    country = CountryField(multiple=False)
-    city = models.CharField(max_length=100)
-    alternate_contact = models.IntegerField( blank= True, null = True)
-    address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
+    billingalternatecontact = models.IntegerField( blank = True, null= True)
+    billingapartmentadress = models.CharField(max_length=100, blank = True, null= True)
+    billingcity = models.CharField(max_length=100, blank = True, null= True)
+    billingcountry = models.CharField(max_length=100, blank = True, null= True)
+    billingingstreetaddress = models.CharField(max_length=100, blank = True, null= True)
+    shippingalternatecontact = models.IntegerField(blank = True, null= True)
+    shippingapartmentadress = models.CharField(max_length=100, blank = True, null= True)
+    shippingcity = models.CharField(max_length=100, blank = True, null= True)
+    shippingcountry = models.CharField(max_length=100, blank = True, null= True)
+    shippingstreetaddress = models.CharField(max_length=100, blank = True, null= True)
     default = models.BooleanField(default=False)
 
     def __str__(self):

@@ -47,15 +47,19 @@ class OrderAdmin(admin.ModelAdmin):
 class AddressAdmin(admin.ModelAdmin):
     list_display = [
         'user',
-        'street_address',
-        'apartment_address',
-        'country',
-        'city',
-        'alternate_contact',
-        'address_type',
+        'billingalternatecontact',
+        'billingapartmentadress',
+        'billingcity',
+        'billingcountry',
+        'billingingstreetaddress',
+        'shippingalternatecontact',
+        'shippingapartmentadress',
+        'shippingcity',
+        'shippingcountry',
+        'shippingstreetaddress',
         'default'
     ]
-    list_filter = ['default', 'address_type', 'country']
+    # list_filter = ['default', 'address_type', 'country']
     search_fields = ['user', 'street_address', 'apartment_address', 'zip']
 
 
