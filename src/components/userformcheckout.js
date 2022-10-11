@@ -26,7 +26,7 @@ class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: []
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}
 
   }
 
@@ -36,15 +36,19 @@ class CheckoutFormPiece extends Component {
     // this.handleFetchUserID();
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value })
-
-  handleSubmit = () => {
-    const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact } = this.state
-    this.setState({
-
-    })
-    console.log(this.state)
+  handleChange = (e, { name, value }) => {
+    const { formData } = this.state;
+    const updatedFormdata = { ...formData, [name]: value };
+    this.setState({ [name]: value, formData: updatedFormdata })
   }
+
+  handleSubmit = e => {
+    this.setState({ saving: true });
+    e.preventDefault();
+    const { formData } = this.props;
+    this.handleCreateAddress();
+    // console.log(formData)
+  };
 
   handleFetchAddresses = () => {
     this.setState({ loading: true });
@@ -59,25 +63,15 @@ class CheckoutFormPiece extends Component {
       });
   };
 
-  // handleChange = e => {
-  //   const { formData } = this.state;
-  //   const updatedFormdata = {
-  //     ...formData,
-  //     [e.target.name]: e.target.value
-  //   };
-  //   this.setState({
-  //     formData: updatedFormdata
-  //   });
-  // };
 
   handleCreateAddress = () => {
-    const { userID, activeItem } = this.props;
+    const { userID } = this.props;
     const { formData } = this.state;
+    console.log(formData)
     authAxios
       .post(addressCreateURL, {
         ...formData,
         user: userID,
-        address_type: activeItem === "billingAddress" ? "B" : "S"
       })
       .then(res => {
         this.setState({

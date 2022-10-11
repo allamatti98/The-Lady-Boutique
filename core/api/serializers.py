@@ -184,7 +184,7 @@ class ItemDetailSerializer(serializers.ModelSerializer):
 
 
 class AddressSerializer(serializers.ModelSerializer):
-    country = CountryField()
+    # country = CountryField()
 
     class Meta:
         model = Address
