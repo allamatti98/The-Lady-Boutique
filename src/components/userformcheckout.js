@@ -93,7 +93,7 @@ class CheckoutFormPiece extends Component {
     } = this.state
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 5%", backgroundColor: "pink", margin: "0% 5%" }}>
+        <Form onSubmit={this.handleSubmit} style={{ padding: "5% 5%", backgroundColor: "pink", margin: "0% 5% 5% 5%" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
