@@ -33,8 +33,8 @@ class CheckoutFormPiece extends Component {
 
   componentDidMount() {
     this.handleFetchAddresses();
-    this.handleFetchCountries();
-    this.handleFetchUserID();
+    // this.handleFetchCountries();
+    // this.handleFetchUserID();
   }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
@@ -60,16 +60,16 @@ class CheckoutFormPiece extends Component {
       });
   };
 
-  handleChange = e => {
-    const { formData } = this.state;
-    const updatedFormdata = {
-      ...formData,
-      [e.target.name]: e.target.value
-    };
-    this.setState({
-      formData: updatedFormdata
-    });
-  };
+  // handleChange = e => {
+  //   const { formData } = this.state;
+  //   const updatedFormdata = {
+  //     ...formData,
+  //     [e.target.name]: e.target.value
+  //   };
+  //   this.setState({
+  //     formData: updatedFormdata
+  //   });
+  // };
 
   handleCreateAddress = () => {
     const { userID, activeItem } = this.props;
@@ -227,7 +227,7 @@ class CheckoutFormPiece extends Component {
             </Segment>
           )}
           {addresses.map(a => {
-            return <div>{a.street_address}</div>;
+            return <h1>{a.street_address}</h1>;
           })}
         </div>
         {/* <strong>onChange:</strong>
