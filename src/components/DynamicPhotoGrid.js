@@ -39,8 +39,6 @@ const instagrampics = [
     }
 ];
 
-
-
 class DynaFlex extends Component {
     constructor(props) {
         super(props);
