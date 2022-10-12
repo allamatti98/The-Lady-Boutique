@@ -37,10 +37,12 @@ const testdata = [
     }
 ];
 
+
 class Trending extends Component {
+    state = { wishlist: false }
     constructor(props) {
         super(props);
-        this.state = { stockitems: [] };
+        this.state = { stockitems: [], wishlist: false };
     }
 
     componentDidMount() {
@@ -68,14 +70,30 @@ class Trending extends Component {
                             <div className="Item-Card-Items">
                                 <div className="WishlistCardIcon">
                                     <Link to="/wishlist">
-                                        <Button icon className="WishlistCardIcon-button" >
+                                        {/*Not on Wishlist -> style={{ borderRadius: "50%" }} */}
+                                        {/* On Wishlist style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }} */}
+                                        {/* { wishlist === false ? (
+                                             <Button icon className="WishlistCardIcon-button" size='huge'
+                                             style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                             <Icon name='heart outline' />
+                                         </Button>
+                                        ):(
+                                            <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                                <Icon name='heart outline' />
+                                            </Button>
+                                        )} */}
+
+
+                                        <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                             <Icon name='heart outline' />
                                         </Button>
+
+
                                     </Link>
                                 </div>
                                 <div className="BasketCardIcon">
                                     <Link to="/shop">
-                                        <Button icon className="BasketCardIcon-button">
+                                        <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                                             <Icon name='shopping basket' />
                                         </Button>
                                     </Link>

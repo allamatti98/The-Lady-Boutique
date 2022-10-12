@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
 import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL, userIDURL } from '../constants';
 import { authAxios } from '../utils';
+import { Redirect } from 'react-router-dom';
 
 
 const country_choices = [
@@ -99,6 +100,7 @@ class CheckoutFormPiece extends Component {
     e.preventDefault();
     const { formData } = this.props;
     this.handleCreateAddress();
+    this.handleChosePaymentMethod()
   };
 
   handleFetchAddresses = () => {
@@ -147,6 +149,21 @@ class CheckoutFormPiece extends Component {
         this.setState({ error: err });
       });
   };
+
+  handleChosePaymentMethod = () => {
+    const { payment_method } = this.state;
+    if (payment_method === "Stripe Landing") {
+      console.log("Stripe");
+    } else if (payment_method === "Adyen Landing") {
+      console.log("Adyen");
+    } else if (payment_method === "MobileMoney Landing") {
+      console.log("Mobile Money");
+    }
+
+
+  };
+
+
 
 
   render() {
@@ -264,9 +281,6 @@ class CheckoutFormPiece extends Component {
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
 
         </Form>
-
-
-
       </div>
 
     )

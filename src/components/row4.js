@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Image, Header } from "semantic-ui-react";
+import { Grid, Image, Header, Icon } from "semantic-ui-react";
 import cartoon from '../static/img/Person14.jpg'
 import model1 from '../static/img/Vogue1.jpg'
+import play from '../static/img/playImage.png'
 
 const Row4 = () => (
     <div>
@@ -9,6 +10,13 @@ const Row4 = () => (
             <Grid.Row columns='equal' style={{ margin: "0px" }}>
                 <Grid.Column style={{ padding: "0px 0px" }}>
                     <Image src={model1} style={{ width: "690px", objectFit: "cover" }} />
+                    <a href="/"><div className="Gallery-Pics-overlay">
+                        <div className="Gallery-Pics-Items">
+                            <div className="Gallery-Instagram-Icon">
+                                <Image src={play} />
+                            </div>
+                        </div>
+                    </div></a>
                 </Grid.Column>
                 <Grid.Column style={{ padding: "0px 0px", backgroundColor: "pink" }}>
                     <Header style={{ fontSize: "4em" }} textAlign='center' color='pink'>Stay Ahead</Header>
@@ -26,6 +34,13 @@ const Row4 = () => (
                 </Grid.Column>
                 <Grid.Column style={{ padding: "0px 0px", margin: "0px" }}>
                     <Image src={cartoon} style={{ width: "690px", height: "800px", objectFit: "cover" }} />
+                    <a href="/"><div className="Gallery-Pics-overlay">
+                        <div className="Gallery-Pics-Items">
+                            <div className="Gallery-Instagram-Icon">
+                                <Image src={play} />
+                            </div>
+                        </div>
+                    </div></a>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
