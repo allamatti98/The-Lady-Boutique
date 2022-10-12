@@ -110,7 +110,168 @@ class DynaFlex extends Component {
                         </Card>
                     ))}
                 </Card.Group>
-
+                <Grid stackable>
+                    <Grid.Row columns={3}>
+                        <Grid.Column>
+                            <Image src={bt1} className="FacebookPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt2} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt3} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+                <Card.Group itemsPerRow={4} doubling={true}>
+                    {this.state.stockitems.map(card => (
+                        <Card key={card._id} height="100px">
+                            <img
+                                style={{ height: "100%", objectFit: "cover" }}
+                                size="huge"
+                                src={card.image}
+                                wrapped
+                                ui={false}
+                            />
+                            <a href="/"><div className="Gallery-Pics-overlay">
+                                <div className="Gallery-Pics-Items">
+                                    <div className="Gallery-Instagram-Icon">
+                                        <Icon name='instagram' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Card>
+                    ))}
+                </Card.Group>
+                <Grid stackable>
+                    <Grid.Row columns={3}>
+                        <Grid.Column>
+                            <Image src={bt1} className="FacebookPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt2} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt3} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+                <Card.Group itemsPerRow={4} doubling={true}>
+                    {this.state.stockitems.map(card => (
+                        <Card key={card._id} height="100px">
+                            <img
+                                style={{ height: "100%", objectFit: "cover" }}
+                                size="huge"
+                                src={card.image}
+                                wrapped
+                                ui={false}
+                            />
+                            <a href="/"><div className="Gallery-Pics-overlay">
+                                <div className="Gallery-Pics-Items">
+                                    <div className="Gallery-Instagram-Icon">
+                                        <Icon name='instagram' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Card>
+                    ))}
+                </Card.Group>
+                <Grid stackable>
+                    <Grid.Row columns={3}>
+                        <Grid.Column>
+                            <Image src={bt1} className="FacebookPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt2} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <Image src={bt3} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+                <Card.Group itemsPerRow={4} doubling={true}>
+                    {this.state.stockitems.map(card => (
+                        <Card key={card._id} height="100px">
+                            <img
+                                style={{ height: "100%", objectFit: "cover" }}
+                                size="huge"
+                                src={card.image}
+                                wrapped
+                                ui={false}
+                            />
+                            <a href="/"><div className="Gallery-Pics-overlay">
+                                <div className="Gallery-Pics-Items">
+                                    <div className="Gallery-Instagram-Icon">
+                                        <Icon name='instagram' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
+                        </Card>
+                    ))}
+                </Card.Group>
             </div>
 
         );
