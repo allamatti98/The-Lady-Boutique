@@ -56,7 +56,7 @@ class DynaFlex extends Component {
     renderItems = () => {
         return (
             <div>
-                <Grid style={{ padding: "0px 30px" }} stackable>
+                <Grid stackable>
                     <Grid.Row columns={3}>
                         <Grid.Column>
                             <Image src={bt1} className="galleryPics" />
@@ -80,22 +80,9 @@ class DynaFlex extends Component {
                                 ui={false}
                             />
                             <a href="/"><div className="Gallery-Pics-overlay">
-                                <div className="Gallery-Pics-overlay-title">Show me</div>
-                                <Icon name="long arrow alternate right" />
                                 <div className="Gallery-Pics-Items">
-                                    <div className="WishlistCardIcon">
-                                        <Link to="/wishlist">
-                                            <Button icon className="WishlistCardIcon-button" >
-                                                <Icon name='heart outline' />
-                                            </Button>
-                                        </Link>
-                                    </div>
-                                    <div className="BasketCardIcon">
-                                        <Link to="/shop">
-                                            <Button icon className="BasketCardIcon-button">
-                                                <Icon name='shopping basket' />
-                                            </Button>
-                                        </Link>
+                                    <div className="Gallery-Instagram-Icon">
+                                        <Icon name='instagram' size="huge" />
                                     </div>
                                 </div>
                             </div></a>
