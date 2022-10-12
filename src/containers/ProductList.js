@@ -83,14 +83,14 @@ class Trending extends React.Component {
                     <div className="Item-Card-Items">
                       <div className="WishlistCardIcon">
                         <Link to="/wishlist">
-                          <Button icon className="WishlistCardIcon-button" >
+                          <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                             <Icon name='heart outline' />
                           </Button>
                         </Link>
                       </div>
                       <div className="BasketCardIcon">
 
-                        <Button icon className="BasketCardIcon-button" onClick={() => this.props.history.push(`/products/${item.id}`)}>
+                        <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                           <Icon name='shopping basket' />
                         </Button>
 
