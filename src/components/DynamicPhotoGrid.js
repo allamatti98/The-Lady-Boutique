@@ -59,13 +59,34 @@ class DynaFlex extends Component {
                 <Grid stackable>
                     <Grid.Row columns={3}>
                         <Grid.Column>
-                            <Image src={bt1} className="galleryPics" />
+                            <Image src={bt1} className="FacebookPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
                         </Grid.Column>
                         <Grid.Column>
                             <Image src={bt2} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
                         </Grid.Column>
                         <Grid.Column>
                             <Image src={bt3} className="galleryPics" />
+                            <a href="/"><div className="Facebook-Pics-overlay">
+                                <div className="Facebook-Pics-Items">
+                                    <div className="Gallery-Facebook-Icon">
+                                        <Icon name='facebook' size="huge" />
+                                    </div>
+                                </div>
+                            </div></a>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>

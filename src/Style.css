@@ -255,3 +255,52 @@ body {
     height: 100px;
     width: 100px;
 }
+
+.FacebookPics {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.Facebook-Pics-overlay {
+    position: absolute;
+    top: 0;
+    /* right: 0; */
+    margin-left: 0%;
+    margin-right: 7%;
+    height: 100%;
+    width: 93.1%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.Facebook-Pics-overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.Facebook-Pics-overlay:hover {
+    opacity: 1;
+}
+
+.Facebook-Pics-overlay:hover>* {
+    transform: translateY(0)
+}
+
+.Facebook-Pics-overlay-blur {
+    backdrop-filter: blur(5px);
+}
+
+.Gallery-Facebook-Icon {
+    padding-left: 14%;
+    padding-top: 5%;
+    height: 100px;
+    width: 100px;
+}
