@@ -176,7 +176,11 @@ class Address(models.Model):
     shippingcity = models.CharField(max_length=100, blank = True, null= True)
     shippingcountry = models.CharField(max_length=100, blank = True, null= True)
     shippingstreetaddress = models.CharField(max_length=100, blank = True, null= True)
-    default = models.BooleanField(default=False)
+    samebillingnshipping = models.BooleanField(default = False)
+    savedefaultshipping = models.BooleanField(default = False)
+    usedefaultshipping = models.BooleanField(default = False)
+    savedefaultbilling = models.BooleanField(default = False)
+    usedefaultbilling = models.BooleanField(default = False)
     
 
 

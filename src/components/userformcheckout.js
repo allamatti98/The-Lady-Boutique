@@ -26,7 +26,8 @@ class CheckoutFormPiece extends Component {
 
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
-    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}, userID: null, user: ''
+    shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}, userID: null, user: '', samebillingnshipping: false, savedefaultshipping: false,
+    usedefaultshipping: false, savedefaultbilling: false, usedefaultbilling: false
 
   }
 
@@ -41,6 +42,56 @@ class CheckoutFormPiece extends Component {
     const updatedFormdata = { ...formData, [name]: value };
     this.setState({ [name]: value, formData: updatedFormdata })
   }
+  handleToggleDefaultShippingnBilling = () => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      samebillingnshipping: !formData.samebillingnshipping
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
+  handleToggleSaveDefaultShipping = () => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      savedefaultshipping: !formData.savedefaultshipping
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
+  handleToggleUseDefaultShipping = () => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      usedefaultshipping: !formData.usedefaultshipping
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
+  handleToggleSaveDefaultBilling = () => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      savedefaultbilling: !formData.savedefaultbilling
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
+  handleToggleUseDefaultBilling = () => {
+    const { formData } = this.state;
+    const updatedFormdata = {
+      ...formData,
+      usedefaultbilling: !formData.usedefaultbilling
+    };
+    this.setState({
+      formData: updatedFormdata
+    });
+  };
 
   handleSubmit = e => {
     const { userID } = this.state;
@@ -48,7 +99,6 @@ class CheckoutFormPiece extends Component {
     e.preventDefault();
     const { formData } = this.props;
     this.handleCreateAddress();
-    // console.log(formData)
   };
 
   handleFetchAddresses = () => {
@@ -91,7 +141,6 @@ class CheckoutFormPiece extends Component {
     authAxios
       .get(userIDURL)
       .then(res => {
-        console.log(res.data);
         this.setState({ userID: res.data.userID });
       })
       .catch(err => {
@@ -151,9 +200,9 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Checkbox label='Billing Address is the same as my shipping address.' />
-          <Form.Checkbox label='Save as default shipping address.' />
-          <Form.Checkbox label='Use default shipping address' />
+          <Form.Checkbox name='samebillingnshipping' onChange={this.handleToggleDefaultShippingnBilling} label='Billing Address is the same as my shipping address.' />
+          <Form.Checkbox name='savedefaultshipping' onChange={this.handleToggleSaveDefaultShipping} label='Save as default shipping address.' />
+          <Form.Checkbox name='usedefaultshipping' onChange={this.handleToggleUseDefaultShipping} label='Use default shipping address' />
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Billing Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
@@ -198,8 +247,8 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Checkbox label='Save as default billing address.' />
-          <Form.Checkbox label='Use default billing address' />
+          <Form.Checkbox name='savedefaultbilling' onChange={this.handleToggleSaveDefaultBilling} label='Save as default billing address.' />
+          <Form.Checkbox name='usedefaultbilling' onChange={this.handleToggleUseDefaultBilling} label='Use default billing address' />
           <Header>Payment Method</Header>
           <Form.Field
             control={Select}
@@ -216,30 +265,8 @@ class CheckoutFormPiece extends Component {
 
         </Form>
 
-        <div>
-          {error && (
-            <Message
-              error
-              header="There was an error"
-              content={JSON.stringify(error)}
-            />
-          )}
-          {loading && (
-            <Segment>
-              <Dimmer active inverted>
-                <Loader inverted>Loading</Loader>
-              </Dimmer>
-              <Image src="/images/wireframe/short-paragraph.png" />
-            </Segment>
-          )}
-          {addresses.map(a => {
-            return <h1>{a.billingcity}</h1>;
-          })}
-        </div>
-        {/* <strong>onChange:</strong>
-        <pre>{JSON.stringify({ shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact }, null, 2)}</pre>
-        <strong>onSubmit:</strong>
-        <pre>{JSON.stringify({ submittedShippingStreetAddress, submittedShippingApartmentAddress, submittedShippingAlternateContact, submittedBillingStreetAddress, submittedBillingApartmentAddress, submittedBillingAlternateContact }, null, 2)}</pre> */}
+
+
       </div>
 
     )

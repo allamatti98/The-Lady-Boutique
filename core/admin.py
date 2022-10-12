@@ -57,7 +57,11 @@ class AddressAdmin(admin.ModelAdmin):
         'shippingcity',
         'shippingcountry',
         'shippingstreetaddress',
-        'default'
+        'samebillingnshipping',
+        'savedefaultshipping',
+        'usedefaultshipping',
+        'savedefaultbilling',
+        'usedefaultbilling'
     ]
     # list_filter = ['default', 'address_type', 'country']
     search_fields = ['user', 'street_address', 'apartment_address', 'zip']

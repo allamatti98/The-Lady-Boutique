@@ -279,7 +279,6 @@ class AddressCreateView(CreateAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
-    print(queryset)
 
 
 class AddressUpdateView(UpdateAPIView):

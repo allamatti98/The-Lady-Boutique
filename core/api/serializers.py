@@ -200,7 +200,11 @@ class AddressSerializer(serializers.ModelSerializer):
         'shippingcity',
         'shippingcountry',
         'shippingstreetaddress',
-        'default'
+        'samebillingnshipping',
+        'savedefaultshipping',
+        'usedefaultshipping',
+        'savedefaultbilling',
+        'usedefaultbilling'
         )
 
 
