@@ -265,7 +265,7 @@ body {
 .Facebook-Pics-overlay {
     position: absolute;
     top: 0;
-    /* right: 0; */
+    right: 0;
     margin-left: 0%;
     margin-right: 7%;
     height: 100%;
