@@ -199,11 +199,67 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.ContactUsMain{
+
+.ContactUsMain {
     background-image: URL('./static/img/PRICESS1CROPPED.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
-.CheckoutForm1{
+
+.CheckoutForm1 {
     padding: 100px, 150px;
+}
+
+.Gallery-Pics-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.Gallery-Pics-overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.Gallery-Pics-overlay:hover {
+    opacity: 1;
+}
+
+.Gallery-Pics-overlay:hover>* {
+    transform: translateY(0)
+}
+
+.Gallery-Pics-overlay-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Gallery-Pics-overlay-text {
+    font-size: 1.25em;
+    margin-top: 2.5em;
+}
+
+.Gallery-Pics-overlay-blur {
+    backdrop-filter: blur(5px);
+}
+
+.Gallery-Pics-overlay-solid {
+    background: rgb(223, 16, 195);
+}
+
+.Gallery-Pics-Items {
+    padding-top: 17em;
+    display: flex;
+
 }
