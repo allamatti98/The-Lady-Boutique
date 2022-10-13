@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
-import { productListURL, addToCartURL } from "../constants";
+import { productListURL, addToCartURL, wishlistURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
 import { Link } from "react-router-dom";
@@ -105,7 +105,7 @@ class Trending extends React.Component {
       return wish.stock_number === stock_number;
     });
     if (checkWishItem === -1) {
-      const url = 'http://127.0.0.1:8000/api/wishlist/';
+      const url = wishlistURL;
       fetch(url, {
         headers: {
           'Accept': 'application/json',
@@ -136,7 +136,7 @@ class Trending extends React.Component {
   deleteFromWishList = (pk, e) => {
     e.preventDefault();
     //Delete form database
-    const url = 'http://127.0.0.1:8000/api/wishlist/' + pk + '/';
+    const url = wishlistURL + pk + '/';
     fetch(url, {
       headers: {
         'Accept': 'application/json',
