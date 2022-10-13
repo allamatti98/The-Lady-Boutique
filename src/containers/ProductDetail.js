@@ -2,7 +2,10 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Button, Card, Container, Dimmer, Form, Grid, Header, Icon, Image, Item, Label, Loader, Message, Segment, Select, Divider } from "semantic-ui-react";
+import {
+  Button, Card, Container, Dimmer, Form, Grid, Header, Icon, Image, Item, Label, Loader, Message,
+  Segment, Select, Divider
+} from "semantic-ui-react";
 import { productDetailURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
@@ -105,18 +108,18 @@ class ProductDetail extends React.Component {
                     </Image>
                     {item.label &&
                       <Label as='a'
-                      color={
-                        item.label === "Limited"
-                          ? "red"
-                          : item.label === "Trending"
-                            ? "blue"
-                            : "green"
-                      }
-                      ribbon>
-                      {item.label}
-                    </Label>
+                        color={
+                          item.label === "Limited"
+                            ? "red"
+                            : item.label === "Trending"
+                              ? "blue"
+                              : "green"
+                        }
+                        ribbon>
+                        {item.label}
+                      </Label>
                     }
-                    
+
                     {/* {item.discount_price && (
                       <Label
                         color={

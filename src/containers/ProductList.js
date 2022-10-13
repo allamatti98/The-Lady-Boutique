@@ -207,7 +207,7 @@ class Trending extends React.Component {
                       </div>
                       <div className="BasketCardIcon">
 
-                        <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                        <Button icon onClick={() => this.props.history.push(`/products/${item.id}`)} className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                           <Icon name='shopping basket' />
                         </Button>
 

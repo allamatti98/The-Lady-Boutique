@@ -18,7 +18,7 @@ from .serializers import (
     ItemSerializer, OrderSerializer, ItemDetailSerializer, AddressSerializer,
     PaymentSerializer
 )
-from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation
+from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation, Wishlist
 from django.shortcuts import redirect
 
 import stripe
@@ -322,3 +322,11 @@ class StripeLandingView(APIView):
         else:
             print("No billing address provided")
             return redirect('/checkout-form')
+
+
+def add_to_wishlist(request, slug):
+    item = get_object_or_404(Item, slug = slug)
+    wished_item = Wishlist.objects.get_or_create(
+    wished_item = item, slug = item.slug, user = request.user)
+    print("Item was added to user's wishlist")
+    return Response(status=HTTP_200_OK)

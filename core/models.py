@@ -227,3 +227,12 @@ def userprofile_receiver(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(userprofile_receiver, sender=settings.AUTH_USER_MODEL)
+
+class Wishlist(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    wished_item = models.ForeignKey(Item, on_delete = models.CASCADE)
+    slug = models.CharField( max_length = 30, null = True, blank = True)
+    added_date = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.wished_item.title

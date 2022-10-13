@@ -4,6 +4,9 @@ import CatalogProducts from '../components/CatalogProducts.jsx';
 import CatalogFiltering from '../components/CatalogFiltering/CatalogFiltering.jsx';
 import PaginationToolbar from '../components/PaginationToolbar/PaginationToolbar.jsx';
 import Wishlist from '../components/Wishlist.jsx';
+import axios from 'axios';
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
 
 class Wishie extends Component {
 
@@ -82,7 +85,7 @@ class Wishie extends Component {
             fetch(url, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 method: "POST",
                 body: JSON.stringify({
