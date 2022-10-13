@@ -24,14 +24,35 @@ class Wishlist extends React.Component {
                     <Card.Group itemsPerRow={4} doubling={true}>
                         {this.wishList.map(wish => {
                             return (
-                                <div key={wish.pk} className="col-md-2 col-lg-2 mt-2 mb-2">
-                                    <div className="card text-center">
-                                        <div className="card-body ">
-                                            <button onClick={this.props.deleteFromWishList.bind(this, wish.pk)} className="btn btn-sm btn-outline-secondary d-flex">&#10006;</button>
-                                            <img className="img-thumbnail img-tumbnail-clean" height="300px" src={wish.image} alt={wish.product_name} />
+                                <Card key={wish.pk} className="fluid" height="200px">
+                                    <img
+                                        style={{ height: "75%", objectFit: "cover" }}
+                                        size="huge"
+                                        src={wish.image}
+                                        alt={wish.product_name}
+                                        wrapped
+                                        ui={false}
+                                        as='a'
+                                    />
+                                    <div className="Item-cards-overlay">
+                                        <div className="category-pics-overlay-title"></div>
+                                        <Icon name="search" size='massive' />
+                                        <p className="Search-Icon-Text">Show Me</p>
+                                        <div className="Item-Card-Items">
+                                            <div className="BasketCardIcon">
+                                                <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)} className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                    <Icon name='shopping basket' />
+                                                </Button>
+                                            </div>
+                                            <div className="WishlistCardIcon">
+                                                <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
+                                                    className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                                    <Icon name='trash alternate' />
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Card>
                             )
                         })}
                     </Card.Group>
