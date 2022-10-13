@@ -9,7 +9,7 @@ import ProductDetail from "./containers/ProductDetail";
 import OrderSummary from "./containers/OrderSummary";
 import Checkout from "./containers/Checkout";
 import Profile from "./containers/Profile";
-import Gallery from "./containers/Gallery";
+import Gallery from './containers/gallery'
 import Blog from "./containers/Blog";
 import Wishlist from "./containers/Wishlist";
 import Contacts from "./containers/ContactUs";

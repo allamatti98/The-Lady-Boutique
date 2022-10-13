@@ -6,14 +6,14 @@ import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
 import { Link } from "react-router-dom";
+import Wishlist from '../components/Wishlist/Wishlist.jsx';
 
 class Trending extends React.Component {
   state = {
-    loading: false,
-    error: null,
-    data: [],
-    activeItem: 'shop'
+    loading: false, error: null, data: [], activeItem: 'shop', productList: [], wishList: [],
+    wishNumber: undefined
   };
+
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -40,6 +40,123 @@ class Trending extends React.Component {
       });
   };
 
+  constructor(props) {
+    super(props);
+    this.showProductList();
+    this.showWishList()
+  }
+
+  showProductList = () => {
+    fetch('http://127.0.0.1:8000/api/products/')
+      .then(
+        (response) => {
+          return response.json()
+        })
+      .then(
+        (data) => {
+          this.setState({
+            productList: data
+          })
+        }
+      )
+  }
+
+  showWishList = () => {
+
+
+    fetch('http://127.0.0.1:8000/api/showwishlist/')
+
+      .then(
+        (response) => {
+          return response.json()
+        })
+      .then(
+        (data) => {
+          const wishListNew = data;
+          this.setState({
+            wishList: wishListNew
+          })
+        }
+      )
+  }
+
+  wishNumberHandler = (event) => {
+    fetch('http://127.0.0.1:8000/api/showwishlist/' + event.target.value)
+
+      .then(
+        (response) => {
+          return response.json()
+        })
+      .then(
+        (data) => {
+          const wishListNew = data;
+          this.setState({
+            wishList: wishListNew
+          })
+        }
+      )
+
+  }
+
+  addToWishList = (pk, stock_number, e) => {
+    e.preventDefault();
+    //Add to database
+    const checkWishItem = this.state.wishList.findIndex((wish) => {
+      return wish.stock_number === stock_number;
+    });
+    if (checkWishItem === -1) {
+      const url = 'http://127.0.0.1:8000/api/wishlist/';
+      fetch(url, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify({
+          'name': pk
+        })
+      })
+        .then((response) => {
+          return response.json();
+        })
+      //Add to state
+      const index = this.state.productList.findIndex((product) => {
+        return product.pk === pk;
+      });
+
+      const product = this.state.productList[index];
+
+      this.setState({
+        wishList: [...this.state.wishList, product]
+      })
+
+    }
+  }
+
+  deleteFromWishList = (pk, e) => {
+    e.preventDefault();
+    //Delete form database
+    const url = 'http://127.0.0.1:8000/api/wishlist/' + pk + '/';
+    fetch(url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "DELETE",
+      body: JSON.stringify({
+        'name': pk
+      })
+    })
+    //Delete form state
+    const indexToDelete = this.state.wishList.findIndex((product) => {
+      return product.pk === pk;
+    })
+
+    this.setState({
+      wishList: this.state.wishList.filter((_, i) => i !== indexToDelete)
+    });
+
+  }
 
   render() {
     const { data, error, loading } = this.state;
@@ -77,16 +194,16 @@ class Trending extends React.Component {
                     alt="product"
                     onClick={() => this.props.history.push(`/products/${item.id}`)}
                   />
-                  <a><div className="Item-cards-overlay" onClick={() => this.props.history.push(`/products/${item.id}`)}>
-                    <div className="category-pics-overlay-title">Show me</div>
-                    <Icon name="long arrow alternate right" />
+                  <div className="Item-cards-overlay">
+                    <div className="category-pics-overlay-title"></div>
+                    <Icon name="search" size='massive' onClick={() => this.props.history.push(`/products/${item.id}`)} />
+                    <p className="Search-Icon-Text">Show Me</p>
                     <div className="Item-Card-Items">
                       <div className="WishlistCardIcon">
-                        <Link to="/wishlist">
-                          <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
-                            <Icon name='heart outline' />
-                          </Button>
-                        </Link>
+                        <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number)}
+                          className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                          <Icon name='heart outline' />
+                        </Button>
                       </div>
                       <div className="BasketCardIcon">
 
@@ -96,7 +213,7 @@ class Trending extends React.Component {
 
                       </div>
                     </div>
-                  </div></a>
+                  </div>
                   {item.label ? (
                     <Label color={
                       item.label === "Limited"
@@ -130,6 +247,11 @@ class Trending extends React.Component {
             })}
 
           </Card.Group>
+          <Wishlist
+            wishList={this.state.wishList}
+            deleteFromWishList={this.deleteFromWishList}
+            wishNumber={this.state.wishNumber}
+          />
         </Container>
       </div>
     );
