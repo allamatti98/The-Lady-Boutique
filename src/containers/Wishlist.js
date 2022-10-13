@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import '../static/css/App.css';
-
+import { productListURL, wishlistURL } from '../constants.js';
 import CatalogProducts from '../components/CatalogProducts.jsx';
 import CatalogFiltering from '../components/CatalogFiltering/CatalogFiltering.jsx';
 import PaginationToolbar from '../components/PaginationToolbar/PaginationToolbar.jsx';
@@ -21,7 +20,7 @@ class Wishie extends Component {
     }
 
     showProductList = () => {
-        fetch('http://127.0.0.1:8000/api/products/')
+        fetch(productListURL)
             .then(
                 (response) => {
                     return response.json()
@@ -79,7 +78,7 @@ class Wishie extends Component {
             return wish.stock_number === stock_number;
         });
         if (checkWishItem === -1) {
-            const url = 'http://127.0.0.1:8000/api/wishlist/';
+            const url = wishlistURL;
             fetch(url, {
                 headers: {
                     'Accept': 'application/json',
@@ -110,7 +109,7 @@ class Wishie extends Component {
     deleteFromWishList = (pk, e) => {
         e.preventDefault();
         //Delete form database
-        const url = 'http://127.0.0.1:8000/api/wishlist/' + pk + '/';
+        const url = wishlistURL + pk + '/';
         fetch(url, {
             headers: {
                 'Accept': 'application/json',
