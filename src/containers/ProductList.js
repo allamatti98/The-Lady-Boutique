@@ -247,6 +247,7 @@ class Trending extends React.Component {
             })}
 
           </Card.Group>
+
           <Wishlist
             wishList={this.state.wishList}
             deleteFromWishList={this.deleteFromWishList}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import '../static/css/App.css';
 
-import CatalogProducts from '../components/CatalogProducts/CatalogProducts.jsx';
+import CatalogProducts from '../components/CatalogProducts.jsx';
 import CatalogFiltering from '../components/CatalogFiltering/CatalogFiltering.jsx';
 import PaginationToolbar from '../components/PaginationToolbar/PaginationToolbar.jsx';
 import Wishlist from '../components/Wishlist.jsx';
@@ -135,9 +135,9 @@ class Wishie extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row mt-4">
+                {/* <div className="row mt-4">
                     <PaginationToolbar />
-                </div>
+                </div> */}
                 <div className="row mt-2">
                     <Wishlist
                         wishList={this.state.wishList}
@@ -146,7 +146,7 @@ class Wishie extends Component {
                     />
                 </div>
                 <div className="row mt-2">
-                    <CatalogFiltering />
+                    {/* <CatalogFiltering /> */}
                     <CatalogProducts
                         productList={this.state.productList}
                         addToWishList={this.addToWishList}

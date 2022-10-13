@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, Label, Card, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 class Wishlist extends React.Component {
     render() {
@@ -25,7 +26,7 @@ class Wishlist extends React.Component {
                             return (
                                 <Card key={wish.pk} className="fluid" height="400px">
                                     <img
-                                        style={{ height: "100%", objectFit: "cover" }}
+                                        style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
                                         size="huge"
                                         src={wish.image}
                                         alt={wish.product_name}
@@ -37,9 +38,13 @@ class Wishlist extends React.Component {
                                         <div className="Wishlist-cards-overlay-title"></div>
                                         <div className="Wishlist-Card-Items">
                                             <div className="Wishlist--BasketCardIcon">
-                                                <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)} className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                                    <Icon name='shopping basket' />
-                                                </Button>
+                                                <Link to="/products">
+                                                    <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
+                                                        className="BasketCardIcon-button" size='huge'
+                                                        style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                        <Icon name='shopping basket' />
+                                                    </Button>
+                                                </Link>
                                             </div>
                                             <div className="Wishlist--Wishlist-Trash-CardIcon">
                                                 <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
