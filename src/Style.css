@@ -309,3 +309,67 @@ body {
 .Search-Icon-Text {
     size: 20px;
 }
+
+.Wishlist-cards-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.Wishlist-cards-overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.Wishlist-cards-overlay:hover {
+    opacity: 0.5;
+}
+
+.Wishlist-cards-overlay:hover>* {
+    transform: translateY(0)
+}
+
+.Wishlist-cards-overlay-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Wishlist-cards-overlay-text {
+    font-size: 1.25em;
+    margin-top: 2.5em;
+}
+
+.Wishlist-cards-overlay-blur {
+    backdrop-filter: blur(5px);
+}
+
+.Wishlist-cards-overlay-solid {
+    background: rgb(223, 16, 195);
+}
+
+.Wishlist-Card-Items {
+    padding-top: 90%;
+    display: flex;
+
+}
+
+.Wishlist--BasketCardIcon {
+    border-radius: 10px;
+    padding-right: 1.5em;
+}
+
+.Wishlist--Wishlist-Trash-CardIcon {
+    border-radius: 10px;
+    padding-left: 1.5em;
+}

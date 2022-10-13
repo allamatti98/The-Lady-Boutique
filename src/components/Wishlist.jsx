@@ -1,5 +1,4 @@
 import React from 'react';
-import './Wishlist.css';
 import { Icon, Label, Card, Button } from 'semantic-ui-react';
 
 class Wishlist extends React.Component {
@@ -24,9 +23,9 @@ class Wishlist extends React.Component {
                     <Card.Group itemsPerRow={4} doubling={true}>
                         {this.wishList.map(wish => {
                             return (
-                                <Card key={wish.pk} className="fluid" height="200px">
+                                <Card key={wish.pk} className="fluid" height="400px">
                                     <img
-                                        style={{ height: "75%", objectFit: "cover" }}
+                                        style={{ height: "100%", objectFit: "cover" }}
                                         size="huge"
                                         src={wish.image}
                                         alt={wish.product_name}
@@ -34,17 +33,15 @@ class Wishlist extends React.Component {
                                         ui={false}
                                         as='a'
                                     />
-                                    <div className="Item-cards-overlay">
-                                        <div className="category-pics-overlay-title"></div>
-                                        <Icon name="search" size='massive' />
-                                        <p className="Search-Icon-Text">Show Me</p>
-                                        <div className="Item-Card-Items">
-                                            <div className="BasketCardIcon">
+                                    <div className="Wishlist-cards-overlay">
+                                        <div className="Wishlist-cards-overlay-title"></div>
+                                        <div className="Wishlist-Card-Items">
+                                            <div className="Wishlist--BasketCardIcon">
                                                 <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)} className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                                                     <Icon name='shopping basket' />
                                                 </Button>
                                             </div>
-                                            <div className="WishlistCardIcon">
+                                            <div className="Wishlist--Wishlist-Trash-CardIcon">
                                                 <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
                                                     className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                                     <Icon name='trash alternate' />

@@ -6,7 +6,7 @@ import { productListURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
 import { Link } from "react-router-dom";
-import Wishlist from '../components/Wishlist/Wishlist.jsx';
+import Wishlist from '../components/Wishlist.jsx';
 
 class Trending extends React.Component {
   state = {
