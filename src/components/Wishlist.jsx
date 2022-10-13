@@ -11,11 +11,11 @@ class Wishlist extends React.Component {
         return (
             <div className="col-md-12">
                 <form onSubmit={this.props.showWishList}>
-                    <label>
+                    {/* <label>
                         Name:
                         <input type="text" name="name" />
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit" /> */}
                 </form>
                 <div className="row row-border pt-2 pb-2">
                     <div className="col-md-2 col-lg-2 d-flex align-items-center">
@@ -39,7 +39,7 @@ class Wishlist extends React.Component {
                                         <div className="Wishlist-Card-Items">
                                             <div className="Wishlist--BasketCardIcon">
                                                 <Link to="/products">
-                                                    <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
+                                                    <Button icon
                                                         className="BasketCardIcon-button" size='huge'
                                                         style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                                                         <Icon name='shopping basket' />

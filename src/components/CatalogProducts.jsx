@@ -1,5 +1,4 @@
 import React from 'react';
-// import './CatalogProducts.css';
 
 class CatalogProucts extends React.Component {
   render() {
