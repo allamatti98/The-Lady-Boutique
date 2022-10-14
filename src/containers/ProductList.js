@@ -1,22 +1,26 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import axios from "axios";
-import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
-import { productListURL, addToCartURL, wishlistURL } from "../constants";
-import { fetchCart } from "../store/actions/cart";
-import { authAxios } from "../utils";
 import { Link } from "react-router-dom";
+import { authAxios } from "../utils";
+import { connect } from "react-redux";
+import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
+import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL } from "../constants";
+import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
+import axios from "axios";
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
+
 
 class Trending extends React.Component {
   state = {
     loading: false, error: null, data: [], activeItem: 'shop', productList: [], wishList: [],
-    wishNumber: undefined
+    wishNumber: undefined, userID: null
   };
 
 
   componentDidMount() {
     this.setState({ loading: true });
+    this.handleFetchUserID();
     axios
       .get(productListURL)
       .then(res => {
@@ -39,6 +43,16 @@ class Trending extends React.Component {
         this.setState({ error: err, loading: false });
       });
   };
+  handleFetchUserID = () => {
+    authAxios
+      .get(userIDURL)
+      .then(res => {
+        this.setState({ userID: res.data.userID });
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
+  };
 
   constructor(props) {
     super(props);
@@ -47,7 +61,7 @@ class Trending extends React.Component {
   }
 
   showProductList = () => {
-    fetch('http://127.0.0.1:8000/api/products/')
+    fetch(productListURL)
       .then(
         (response) => {
           return response.json()
@@ -62,10 +76,7 @@ class Trending extends React.Component {
   }
 
   showWishList = () => {
-
-
-    fetch('http://127.0.0.1:8000/api/showwishlist/')
-
+    fetch(showwishlistURL)
       .then(
         (response) => {
           return response.json()
@@ -81,7 +92,7 @@ class Trending extends React.Component {
   }
 
   wishNumberHandler = (event) => {
-    fetch('http://127.0.0.1:8000/api/showwishlist/' + event.target.value)
+    fetch(showwishlistURL + event.target.value)
 
       .then(
         (response) => {
@@ -98,27 +109,32 @@ class Trending extends React.Component {
 
   }
 
-  addToWishList = (pk, stock_number, e) => {
+  addToWishList = (pk, stock_number, id, e) => {
     e.preventDefault();
     //Add to database
+    const { userID } = this.state
     const checkWishItem = this.state.wishList.findIndex((wish) => {
       return wish.stock_number === stock_number;
     });
     if (checkWishItem === -1) {
       const url = wishlistURL;
-      fetch(url, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify({
-          'name': pk
+      axios
+        .post(url, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: "POST",
+          user: userID,
+          wished_item: id,
+          body: JSON.stringify({
+            'name': pk,
+          }),
         })
-      })
         .then((response) => {
           return response.json();
         })
+
       //Add to state
       const index = this.state.productList.findIndex((product) => {
         return product.pk === pk;
@@ -200,7 +216,7 @@ class Trending extends React.Component {
                     <p className="Search-Icon-Text">Show Me</p>
                     <div className="Item-Card-Items">
                       <div className="WishlistCardIcon">
-                        <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number)}
+                        <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id)}
                           className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                           <Icon name='heart outline' />
                         </Button>

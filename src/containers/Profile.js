@@ -2,30 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import {
-  Button,
-  Card,
-  Dimmer,
-  Divider,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Label,
-  Loader,
-  Menu,
-  Message,
-  Segment,
-  Select,
-  Table
+  Button, Card, Dimmer, Divider, Form, Grid, Header, Image, Label, Loader, Menu, Message,
+  Segment, Select, Table
 } from "semantic-ui-react";
 import {
-  countryListURL,
-  addressListURL,
-  addressCreateURL,
-  addressUpdateURL,
-  addressDeleteURL,
-  userIDURL,
-  paymentListURL
+  countryListURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL,
+  userIDURL, paymentListURL
 } from "../constants";
 import { authAxios } from "../utils";
 

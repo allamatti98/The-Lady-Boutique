@@ -16,7 +16,7 @@ from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from core.models import Item, OrderItem, Order
 from .serializers import (
     ItemSerializer, OrderSerializer, ItemDetailSerializer, AddressSerializer,
-    PaymentSerializer
+    PaymentSerializer, WishlistSerializer, WishlistSerializer
 )
 from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation, Wishlist
 from django.shortcuts import redirect
@@ -323,10 +323,14 @@ class StripeLandingView(APIView):
             print("No billing address provided")
             return redirect('/checkout-form')
 
+class CreateWishlist(CreateAPIView):
+    permission_classes = (AllowAny, )
+    serializer_class = WishlistSerializer
+    queryset = Address.objects.all()
 
-def add_to_wishlist(request, slug):
-    item = get_object_or_404(Item, slug = slug)
-    wished_item = Wishlist.objects.get_or_create(
-    wished_item = item, slug = item.slug, user = request.user)
-    print("Item was added to user's wishlist")
-    return Response(status=HTTP_200_OK)
+class ShowWishlist(ListAPIView):
+    permission_classes = (AllowAny, )
+    serializer_class = WishlistSerializer
+
+    def get_queryset(self):
+        return Wishlist.objects.filter( user = self.request.user.id )

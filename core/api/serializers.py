@@ -2,7 +2,7 @@ from django_countries.serializer_fields import CountryField
 from rest_framework import serializers
 from core.models import (
     Address, Item, Order, OrderItem, Coupon, Variation, ItemVariation,
-    Payment
+    Payment, Wishlist
 )
 
 
@@ -215,4 +215,13 @@ class PaymentSerializer(serializers.ModelSerializer):
             'id',
             'amount',
             'timestamp'
+        )
+
+class WishlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wishlist
+        fields = (
+            'user',
+            'wished_item',
+            'added_date'
         )
