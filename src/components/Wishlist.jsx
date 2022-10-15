@@ -24,7 +24,7 @@ class Wishlist extends React.Component {
                     <Card.Group itemsPerRow={4} doubling={true}>
                         {this.wishList.map(wish => {
                             return (
-                                <Card key={wish.pk} className="fluid" height="400px">
+                                <Card key={wish.id} className="fluid" height="400px">
                                     <img
                                         style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
                                         size="huge"
@@ -47,7 +47,7 @@ class Wishlist extends React.Component {
                                                 </Link>
                                             </div>
                                             <div className="Wishlist--Wishlist-Trash-CardIcon">
-                                                <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk)}
+                                                <Button icon onClick={this.props.deleteFromWishList.bind(this, wish.pk, wish.id)}
                                                     className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                                     <Icon name='trash alternate' />
                                                 </Button>

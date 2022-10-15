@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
 import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
-import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL } from "../constants";
+import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, deletewishlistitemURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
 import axios from "axios";
@@ -73,6 +73,9 @@ class Trending extends React.Component {
           })
         }
       )
+      .then(err => {
+        this.setState({ error: err })
+      })
   }
 
   showWishList = () => {
@@ -156,23 +159,28 @@ class Trending extends React.Component {
     }
   }
 
-  deleteFromWishList = (pk, e) => {
+  deleteFromWishList = (pk, id, e) => {
     e.preventDefault();
     //Delete form database
-    const url = wishlistURL + pk + '/';
-    fetch(url, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "DELETE",
-      body: JSON.stringify({
-        'name': pk
+    // const url = wishlistURL + id + '/delete';
+    authAxios
+      .delete(deletewishlistitemURL(id), {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: "DELETE",
+        detail: 'id',
+        body: JSON.stringify({
+          'name': id
+        })
       })
-    })
+      .catch(err => {
+        this.setState({ error: err })
+      })
     //Delete form state
     const indexToDelete = this.state.wishList.findIndex((product) => {
-      return product.pk === pk;
+      return product.id === id;
     })
 
     this.setState({

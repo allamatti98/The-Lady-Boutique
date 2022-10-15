@@ -322,15 +322,18 @@ class StripeLandingView(APIView):
             return redirect('/checkout-form')
 
 class CreateWishlist(ListCreateAPIView):
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = WishlistSerializer
     queryset = Wishlist.objects.all()
 
 
 class ShowWishlist(ListAPIView):
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated, )
     serializer_class = WishlistSerializer
 
     def get_queryset(self):
         return  Wishlist.objects.filter( user = self.request.user.id )
-        
+
+class DeleteWishItem(DestroyAPIView):
+    permission_classes = (AllowAny, )
+    queryset = Wishlist.objects.all()

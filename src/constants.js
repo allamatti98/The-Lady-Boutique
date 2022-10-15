@@ -22,3 +22,4 @@ export const paymentListURL = `${endpoint}/payments/`;
 export const stripelandingURL = `${endpoint}/stripe-landing/`;
 export const wishlistURL = `${endpoint}/wishlist/`;
 export const showwishlistURL = `${endpoint}/showwishlist/`;
+export const deletewishlistitemURL = id => `${endpoint}/wishlist/${id}/delete`;
