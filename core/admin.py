@@ -87,6 +87,9 @@ class VariationAdmin(admin.ModelAdmin):
     search_fields = ['name']
     inlines = [ItemVariationInLineAdmin]
 
+class WishlistAdmin(admin.ModelAdmin):
+    list_display = ('user','wished_item')
+
 
 admin.site.register(ItemVariation, ItemVariationAdmin)
 admin.site.register(Variation, VariationAdmin)
@@ -98,4 +101,4 @@ admin.site.register(Coupon)
 admin.site.register(Refund)
 admin.site.register(Address, AddressAdmin)
 admin.site.register(UserProfile)
-admin.site.register(Wishlist)
+admin.site.register(Wishlist, WishlistAdmin)

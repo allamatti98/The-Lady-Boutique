@@ -6,8 +6,7 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from rest_framework.generics import (
-    ListAPIView, RetrieveAPIView, CreateAPIView,
-    UpdateAPIView, DestroyAPIView
+    ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView, ListCreateAPIView
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
@@ -16,8 +15,7 @@ from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
 from core.models import Item, OrderItem, Order
 from .serializers import (
     ItemSerializer, OrderSerializer, ItemDetailSerializer, AddressSerializer,
-    PaymentSerializer, WishlistSerializer, WishlistSerializer
-)
+    PaymentSerializer, WishlistSerializer, WishlistSerializer )
 from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation, Wishlist
 from django.shortcuts import redirect
 
@@ -323,14 +321,16 @@ class StripeLandingView(APIView):
             print("No billing address provided")
             return redirect('/checkout-form')
 
-class CreateWishlist(CreateAPIView):
+class CreateWishlist(ListCreateAPIView):
     permission_classes = (AllowAny, )
     serializer_class = WishlistSerializer
-    queryset = Address.objects.all()
+    queryset = Wishlist.objects.all()
+
 
 class ShowWishlist(ListAPIView):
     permission_classes = (AllowAny, )
     serializer_class = WishlistSerializer
 
     def get_queryset(self):
-        return Wishlist.objects.filter( user = self.request.user.id )
+        return  Wishlist.objects.filter( user = self.request.user.id )
+        

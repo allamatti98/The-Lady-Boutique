@@ -76,7 +76,8 @@ class Trending extends React.Component {
   }
 
   showWishList = () => {
-    fetch(showwishlistURL)
+    authAxios
+      .get(showwishlistURL)
       .then(
         (response) => {
           return response.json()
@@ -89,6 +90,9 @@ class Trending extends React.Component {
           })
         }
       )
+      .catch(err => {
+        this.setState({ error: err });
+      });
   }
 
   wishNumberHandler = (event) => {
@@ -118,7 +122,7 @@ class Trending extends React.Component {
     });
     if (checkWishItem === -1) {
       const url = wishlistURL;
-      axios
+      authAxios
         .post(url, {
           headers: {
             'Accept': 'application/json',
@@ -134,10 +138,13 @@ class Trending extends React.Component {
         .then((response) => {
           return response.json();
         })
+        .catch(err => {
+          this.setState({ error: err });
+        });
 
       //Add to state
       const index = this.state.productList.findIndex((product) => {
-        return product.pk === pk;
+        return product.id === id;
       });
 
       const product = this.state.productList[index];
