@@ -1,13 +1,14 @@
 <div className="NavBar1" >
     {/* Navbar Starts here */}
-    <Menu secondary size='huge' fixed="top" className="NavBar2"
-        style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex", backgroundColor: "rgba(252,237,234,.9)" }}
+    <Menu secondary size='huge' className="NavBar2"
+        style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex" }}
+    // backgroundColor: "rgba(252,237,234,.9)"
     >
         <Menu.Item header>
-            <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
+            <img alt="logo" src={Logo} style={{ width: "100%", maxHeight: "50px" }} />
         </Menu.Item>
         <Link to="/">
-            <Responsive as={Menu.Item} minWidth={790}
+            <Responsive as={Menu.Item} minWidth={902}
                 name='home'
                 color='pink'
                 className="NavItem"
@@ -16,28 +17,28 @@
             />
         </Link>
         <Link to="/products">
-            <Responsive as={Menu.Item} minWidth={790}
+            <Responsive as={Menu.Item} minWidth={902}
                 name='shop'
                 color='pink'
                 active={activeItem === 'shop'}
                 onClick={this.handleItemClick}
             /></Link>
-        <Link to="/">
-            <Responsive as={Menu.Item} minWidth={790}
+        <Link to="/gallery">
+            <Responsive as={Menu.Item} minWidth={902}
                 name='Gallery'
                 color='pink'
                 active={activeItem === 'Gallery'}
                 onClick={this.handleItemClick}
             /></Link>
-        <Link to="/">
-            <Responsive as={Menu.Item} minWidth={790}
+        <Link to="/blog">
+            <Responsive as={Menu.Item} minWidth={902}
                 name='Blog'
                 color='pink'
                 active={activeItem === 'Blog'}
                 onClick={this.handleItemClick}
             /></Link>
-        <Link to="/">
-            <Responsive as={Menu.Item} minWidth={790}
+        <Link to="/contact-us">
+            <Responsive as={Menu.Item} minWidth={902}
                 name='Contact Us'
                 color='pink'
                 active={activeItem === 'Contact Us'}
@@ -54,28 +55,46 @@
                     </Link>
 
 
-                    <Link to="/">
-                        <Menu.Item
+                    <Link to="/order-summary">
+                        <Responsive as={Menu.Item} minWidth={500}
                             name='basket'
                             color='pink'
                             active={activeItem === 'basket'}
                             onClick={this.handleItemClick}
                         >
                             <Icon name='shopping basket' />
-                            <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
+                            <Label color='pink' size="small">{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
-                        </Menu.Item></Link>
+                        </Responsive></Link>
 
-                    <Link to="/">
-                        <Menu.Item
+                    <Link to="/wishlist">
+                        <Responsive as={Menu.Item} minWidth={500}
                             name='wishlist'
                             color='pink'
                             active={activeItem === 'wishlist'}
                             onClick={this.handleItemClick}
                         >
                             <Icon name='heart outline' />
-                        </Menu.Item></Link>
-                    <LoggedInUserDropdown />
+                        </Responsive></Link>
+                    <div>
+                        <Menu attached='top'>
+
+                            <Dropdown item icon='user outline' simple>
+                                <Dropdown.Menu>
+                                    <Link to="/profile">
+                                        <Dropdown.Item>Profile</Dropdown.Item>
+                                    </Link>
+                                    <Link to="/login">
+                                        <Dropdown.Item>Wishlist</Dropdown.Item>
+                                    </Link>
+
+                                    <Dropdown.Item onClick={() => this.props.logout()}>Log Out</Dropdown.Item>
+
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </Menu>
+                    </div>
+
                 </Menu.Menu>
             </React.Fragment>
         ) : (
@@ -86,19 +105,19 @@
                     </Responsive>
                 </Link>
 
-                <Link>
+                <Link to='/Whatsapp'>
                     <Responsive as={Menu.Item} minWidth={1000}>
                         <Icon name="whatsapp" />
                     </Responsive>
                 </Link>
 
-                <Link>
+                <Link to='/instagram'>
                     <Responsive as={Menu.Item} minWidth={1000}>
                         <Icon name="instagram" />
                     </Responsive>
                 </Link>
 
-                <Link>
+                <Link to='/mail'>
                     <Responsive as={Menu.Item} minWidth={1000}>
                         <Icon name="mail outline" />
                     </Responsive>
@@ -109,7 +128,7 @@
                 <IconDropDown />
             </Menu.Menu>
         )}
-        <Responsive as={Menu.Menu} maxWidth={789} position='right'>
+        <Responsive as={Menu.Menu} maxWidth={901} position='right'>
             <Dropdown
                 item
                 icon='bars'

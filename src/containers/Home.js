@@ -85,7 +85,7 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <div className="HomeScreen">
-      {/* <NavBar /> */}
+      <NavBar />
       <Greeting />
     </div>
     <Segment style={{ padding: "8em 0em" }} vertical>
