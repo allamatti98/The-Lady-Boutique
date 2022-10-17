@@ -71,12 +71,15 @@ class NavBar extends React.Component {
                     {authenticated ? (
                         <React.Fragment>
                             <Menu.Menu position="right">
-                                <Link to="/">
-                                    <Responsive as={Menu.Item} minWidth={1234}>
-                                        <Input icon='search' placeholder='Search...' />
-                                    </Responsive>
-                                </Link>
-
+                                <Link to="/faq">
+                                    <Menu.Item
+                                        name='search'
+                                        color='pink'
+                                        active={activeItem === 'wishlist'}
+                                        onClick={this.handleItemClick}
+                                    >
+                                        <Icon name='search' />
+                                    </Menu.Item></Link>
 
                                 <Link to="/order-summary">
                                     <Menu.Item
@@ -104,11 +107,15 @@ class NavBar extends React.Component {
                         </React.Fragment>
                     ) : (
                         <Menu.Menu position="right">
-                            <Link>
-                                <Responsive as={Menu.Item} minWidth={1234}>
-                                    <Input icon='search' placeholder='Search...' />
-                                </Responsive>
-                            </Link>
+                            <Link to="/faq">
+                                <Menu.Item
+                                    name='search'
+                                    color='pink'
+                                    active={activeItem === 'wishlist'}
+                                    onClick={this.handleItemClick}
+                                >
+                                    <Icon name='search' />
+                                </Menu.Item></Link>
 
                             <Link>
                                 <Responsive as={Menu.Item} minWidth={1000}>

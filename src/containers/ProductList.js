@@ -6,6 +6,7 @@ import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, 
 import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, deletewishlistitemURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
+import Navbar from "../components/navbar";
 import axios from "axios";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -186,6 +187,7 @@ class Trending extends React.Component {
     const { data, error, loading } = this.state;
     return (
       <div>
+        <Navbar />
         <Container>
           {error && (
             <Message
