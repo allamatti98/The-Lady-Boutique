@@ -6,7 +6,7 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from rest_framework.generics import (
-    ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView, ListCreateAPIView
+    ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView, ListCreateAPIView, RetrieveDestroyAPIView
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
@@ -334,6 +334,7 @@ class ShowWishlist(ListAPIView):
     def get_queryset(self):
         return  Wishlist.objects.filter( user = self.request.user.id )
 
-class DeleteWishItem(DestroyAPIView):
-    permission_classes = (AllowAny, )
+class DeleteWishItem(RetrieveDestroyAPIView):
     queryset = Wishlist.objects.all()
+    serializer_class = WishlistSerializer
+    permission_classes = ( AllowAny, )

@@ -82,7 +82,7 @@ class Trending extends React.Component {
     authAxios
       .get(showwishlistURL)
       .then(
-        (response) => {
+        response => {
           return response.json()
         })
       .then(
@@ -99,7 +99,8 @@ class Trending extends React.Component {
   }
 
   wishNumberHandler = (event) => {
-    fetch(showwishlistURL + event.target.value)
+    authAxios
+      .get(showwishlistURL + event.target.value)
 
       .then(
         (response) => {
@@ -113,56 +114,99 @@ class Trending extends React.Component {
           })
         }
       )
+      .catch(err => {
+        this.setState({ error: err })
+      })
 
   }
+
+  // addToWishList = (pk, stock_number, id, e) => {
+  //   e.preventDefault();
+  //   //Add to database
+  //   const { userID } = this.state
+  //   // const checkWishItem = this.state.wishList.findIndex((wish) => {
+  //   //   return wish.stock_number === stock_number;
+  //   // }
+  //   // );
+  //   if (checkWishItem === -1) {
+  //     const url = wishlistURL;
+  //     authAxios
+  //       .post(url, {
+  //         headers: {
+  //           'Accept': 'application/json',
+  //           'Content-Type': 'application/json',
+  //         },
+  //         method: "POST",
+  //         user: userID,
+  //         wished_item: id,
+  //         body: JSON.stringify({
+  //           'name': pk,
+  //         }),
+  //       })
+  //       .then((response) => {
+  //         return response.json();
+  //       })
+  //       .then(
+  //         (data) => {
+  //           const wishListNew = data;
+  //           this.setState({
+  //             wishList: wishListNew
+  //           })
+  //         }
+  //       )
+
+  //       // .catch(err => {
+  //       //   this.setState({ error: err });
+  //       // });
+
+  //     //Add to state
+  //     const index = this.state.productList.findIndex((product) => {
+  //       return product.id === id;
+  //     });
+
+  //     const product = this.state.productList[index];
+
+  //     this.setState({
+  //       wishList: [...this.state.wishList, product]
+  //     })
+
+  //   }
+  // }
 
   addToWishList = (pk, stock_number, id, e) => {
     e.preventDefault();
-    //Add to database
     const { userID } = this.state
-    const checkWishItem = this.state.wishList.findIndex((wish) => {
-      return wish.stock_number === stock_number;
-    });
-    if (checkWishItem === -1) {
-      const url = wishlistURL;
-      authAxios
-        .post(url, {
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-          },
-          method: "POST",
-          user: userID,
-          wished_item: id,
-          body: JSON.stringify({
-            'name': pk,
-          }),
-        })
-        .then((response) => {
-          return response.json();
-        })
-        .catch(err => {
-          this.setState({ error: err });
-        });
-
-      //Add to state
-      const index = this.state.productList.findIndex((product) => {
-        return product.id === id;
-      });
-
-      const product = this.state.productList[index];
-
-      this.setState({
-        wishList: [...this.state.wishList, product]
+    authAxios
+      .post(wishlistURL, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: "POST",
+        user: userID,
+        wished_item: id,
+        body: JSON.stringify({
+          'name': pk,
+        }),
       })
+      .then((response) => {
+        return response.json();
+      })
+      .then(
+        (data) => {
+          console.log(data)
+        }
+      )
 
-    }
+      .catch(err => {
+        this.setState({ error: err });
+      });
   }
+
 
   deleteFromWishList = (pk, id, e) => {
     e.preventDefault();
     //Delete form database
-    // const url = wishlistURL + id + '/delete';
     authAxios
       .delete(deletewishlistitemURL(id), {
         headers: {
@@ -170,14 +214,17 @@ class Trending extends React.Component {
           'Content-Type': 'application/json'
         },
         method: "DELETE",
-        detail: 'id',
         body: JSON.stringify({
-          'name': id
+          'wished_item': id
         })
+      })
+      .then(res => {
+        res.json()
       })
       .catch(err => {
         this.setState({ error: err })
       })
+
     //Delete form state
     const indexToDelete = this.state.wishList.findIndex((product) => {
       return product.id === id;
@@ -186,7 +233,6 @@ class Trending extends React.Component {
     this.setState({
       wishList: this.state.wishList.filter((_, i) => i !== indexToDelete)
     });
-
   }
 
   render() {
@@ -214,7 +260,7 @@ class Trending extends React.Component {
           <Card.Group itemsPerRow={4} doubling={true}>
             {data.map(item => {
               return (
-                <Card key={item._id} className="fluid" height="200px">
+                <Card key={item.id} className="fluid" height="200px">
                   <img
                     style={{ height: "75%", objectFit: "cover" }}
                     size="huge"
@@ -300,6 +346,7 @@ const mapDispatchToProps = dispatch => {
     refreshCart: () => dispatch(fetchCart())
   };
 };
+
 
 export default connect(
   null,

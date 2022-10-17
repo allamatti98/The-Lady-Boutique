@@ -157,7 +157,7 @@ class CustomLayout extends React.Component {
                       onClick={this.handleItemClick}
                     >
                       <Icon name='shopping basket' />
-                      <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
+                      <Label color='pink' size="small">{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
                     </Responsive></Link>
 
@@ -193,25 +193,25 @@ class CustomLayout extends React.Component {
               </React.Fragment>
             ) : (
               <Menu.Menu position="right">
-                <Link>
-                  <Responsive as={Menu.Item} minWidth={1234}>
-                    <Input icon='search' placeholder='Search...' />
-                  </Responsive>
-                </Link>
 
-                <Link>
+                <Responsive as={Menu.Item} minWidth={1234}>
+                  <Input icon='search' placeholder='Search...' />
+                </Responsive>
+
+
+                <Link to='/Whatsapp'>
                   <Responsive as={Menu.Item} minWidth={1000}>
                     <Icon name="whatsapp" />
                   </Responsive>
                 </Link>
 
-                <Link>
+                <Link to='/instagram'>
                   <Responsive as={Menu.Item} minWidth={1000}>
                     <Icon name="instagram" />
                   </Responsive>
                 </Link>
 
-                <Link>
+                <Link to='/mail'>
                   <Responsive as={Menu.Item} minWidth={1000}>
                     <Icon name="mail outline" />
                   </Responsive>

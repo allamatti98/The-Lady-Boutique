@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
-import { productListURL, wishlistURL } from '../constants.js';
-import CatalogProducts from '../components/CatalogProducts.jsx';
-import CatalogFiltering from '../components/CatalogFiltering/CatalogFiltering.jsx';
-import PaginationToolbar from '../components/PaginationToolbar/PaginationToolbar.jsx';
-import Wishlist from '../components/Wishlist.jsx';
-import axios from 'axios';
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
+import React, { useEffect, useState } from 'react'
+import { authAxios } from '../utils';
+import { showwishlistURL, productListURL } from '../constants';
+import Wishie from '../components/Wishie';
 
-class Wishie extends Component {
+class Wishlist extends React.Component {
 
-    state = {
-        productList: [],
-        wishList: [],
-        wishNumber: undefined
-    }
+    state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null };
 
     constructor(props) {
         super(props);
         this.showProductList();
         this.showWishList()
     }
+
 
     showProductList = () => {
         fetch(productListURL)
@@ -33,15 +25,17 @@ class Wishie extends Component {
                     this.setState({
                         productList: data
                     })
+                    console.log(data)
                 }
             )
+            .catch(err => {
+                this.setState({ error: err })
+            })
     }
 
     showWishList = () => {
-
-
-        fetch('http://127.0.0.1:8000/api/showwishlist/')
-
+        authAxios
+            .get(showwishlistURL)
             .then(
                 (response) => {
                     return response.json()
@@ -52,12 +46,19 @@ class Wishie extends Component {
                     this.setState({
                         wishList: wishListNew
                     })
+                    console.log(data)
                 }
             )
+            .catch(err => {
+                this.setState({ error: err });
+            });
     }
+
+
 
     wishNumberHandler = (event) => {
-        fetch('http://127.0.0.1:8000/api/showwishlist/' + event.target.value)
+        authAxios
+            .get(showwishlistURL + event.target.value)
 
             .then(
                 (response) => {
@@ -71,92 +72,75 @@ class Wishie extends Component {
                     })
                 }
             )
+            .catch(err => {
+                this.setState({ error: err })
+            })
 
     }
 
-    addToWishList = (pk, stock_number, e) => {
-        e.preventDefault();
-        //Add to database
-        const checkWishItem = this.state.wishList.findIndex((wish) => {
-            return wish.stock_number === stock_number;
-        });
-        if (checkWishItem === -1) {
-            const url = wishlistURL;
-            fetch(url, {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                method: "POST",
-                body: JSON.stringify({
-                    'name': pk
-                })
-            })
-                .then((response) => {
-                    return response.json();
-                })
-            //Add to state
-            const index = this.state.productList.findIndex((product) => {
-                return product.pk === pk;
-            });
-
-            const product = this.state.productList[index];
-
-            this.setState({
-                wishList: [...this.state.wishList, product]
-            })
-
-        }
-    }
-
-    deleteFromWishList = (pk, e) => {
-        e.preventDefault();
-        //Delete form database
-        const url = wishlistURL + pk + '/';
-        fetch(url, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "DELETE",
-            body: JSON.stringify({
-                'name': pk
-            })
-        })
-        //Delete form state
-        const indexToDelete = this.state.wishList.findIndex((product) => {
-            return product.pk === pk;
-        })
-
-        this.setState({
-            wishList: this.state.wishList.filter((_, i) => i !== indexToDelete)
-        });
-
-    }
 
     render() {
         return (
-            <div className="container">
-                {/* <div className="row mt-4">
-                    <PaginationToolbar />
-                </div> */}
-                <div className="row mt-2">
-                    <Wishlist
-                        wishList={this.state.wishList}
-                        deleteFromWishList={this.deleteFromWishList}
-                        wishNumber={this.state.wishNumber}
-                    />
-                </div>
-                <div className="row mt-2">
-                    {/* <CatalogFiltering /> */}
-                    <CatalogProducts
-                        productList={this.state.productList}
-                        addToWishList={this.addToWishList}
-                    />
-                </div>
-            </div>
-        );
+            <>
+                <h1>Man...</h1>
+                {/* <Wishie
+                    wishList={this.state.wishList}
+                    deleteFromWishList={this.deleteFromWishList}
+                    wishNumber={this.state.wishNumber}
+                /> */}
+            </>
+        )
     }
 }
+export default Wishlist
 
-export default Wishie;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function Wishlist() {
+//     // const [wishListItems, setWishlistItems] = useState([]);
+//     // const [error, setError] = useState([null]);
+//     useEffect(() => {
+//         showWishList()
+//     }, [])
+
+
+//     const showWishList = () => {
+//         authAxios
+//             .get(showwishlistURL)
+//             .then(
+//                 response => {
+//                     return response.json()
+//                 })
+//             .then(
+//                 (data) => {
+//                     console.log(data)
+//                 }
+//             )
+//             .catch(err => {
+//                 console.log(err);
+//             });
+//     }
+
+//     // console.log(wishListItems)
+//     return (
+//         <div>Wishlist
+
+//         </div>
+//     )
+// }
+
+// export default Wishlist
