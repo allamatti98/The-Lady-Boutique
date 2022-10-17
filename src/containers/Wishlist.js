@@ -8,20 +8,19 @@ import { ThemeConsumer } from 'styled-components';
 
 class Wishlist extends React.Component {
 
-    state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null };
+    state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null, wishlistPlus: [] };
 
 
     constructor(props) {
         super(props);
         this.showProductList();
-        this.showWishList()
+        this.showWishList();
     }
 
 
     showProductList = () => {
         authAxios
             .get(productListURL)
-
             .then(res => {
                 this.setState({ productList: res.data })
             })
@@ -52,26 +51,56 @@ class Wishlist extends React.Component {
                 this.setState({ error: err })
             })
     }
+
     render() {
         const { wishList, productList, error, loading } = this.state;
+        if (this.props.wishList) {
+            this.wishList = this.props.wishList;
+        }
         return (
             <div>
                 <h1> Wishlist</h1>
                 {console.log(productList)}
                 {console.log(wishList)}
-                {wishList.map(wish => {
-                    return (
-                        <div key={wish.id} className="col-md-2 col-lg-2 mt-2 mb-2">
-                            <div className="card text-center">
-                                <div className="card-body ">
-                                    {/* <button onClick={this.props.deleteFromWishList.bind(this, wish.pk)} className="btn btn-sm btn-outline-secondary d-flex">&#10006;</button> */}
-                                    <img className="img-thumbnail img-tumbnail-clean" src={wish.image} alt={wish.product_name} />
-                                    <p>{wish.added_date}</p>
+
+                <Card.Group itemsPerRow={4} doubling={true}>
+                    {productList.map(wish => {
+                        return (
+                            <Card key={wish.pk} className="fluid" height="400px">
+                                <img
+                                    style={{ height: "90%", objectFit: "cover", borderRadius: "10%" }}
+                                    size="huge"
+                                    src={wish.image}
+                                    alt={wish.product_name}
+                                    wrapped
+                                    ui={false}
+                                    as='a'
+                                />
+                                <div className="Wishlist-cards-overlay">
+                                    <div className="Wishlist-cards-overlay-title"></div>
+                                    <div className="Wishlist-Card-Items">
+                                        <div className="Wishlist--BasketCardIcon">
+                                            <Link to="/products">
+                                                <Button icon
+                                                    className="BasketCardIcon-button" size='huge'
+                                                    style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                    <Icon name='shopping basket' />
+                                                </Button>
+                                            </Link>
+                                        </div>
+                                        <div className="Wishlist--Wishlist-Trash-CardIcon">
+                                            <Button icon
+                                                // onClick={this.props.deleteFromWishList.bind(this, wish.pk, wish.id)}
+                                                className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                                <Icon name='trash alternate' />
+                                            </Button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )
-                })}
+                            </Card>
+                        )
+                    })}
+                </Card.Group>
             </div>
         )
     }
