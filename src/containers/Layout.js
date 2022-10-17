@@ -193,11 +193,11 @@ class CustomLayout extends React.Component {
               </React.Fragment>
             ) : (
               <Menu.Menu position="right">
-
-                <Responsive as={Menu.Item} minWidth={1234}>
-                  <Input icon='search' placeholder='Search...' />
-                </Responsive>
-
+                <Link>
+                  <Responsive as={Menu.Item} minWidth={1234}>
+                    <Input icon='search' placeholder='Search...' />
+                  </Responsive>
+                </Link>
 
                 <Link to='/Whatsapp'>
                   <Responsive as={Menu.Item} minWidth={1000}>
