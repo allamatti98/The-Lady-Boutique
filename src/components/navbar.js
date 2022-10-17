@@ -72,17 +72,19 @@ class NavBar extends React.Component {
                         <React.Fragment>
                             <Menu.Menu position="right">
                                 <Link to="/wishlist">
-                                    <Menu.Item
+                                    <Responsive as={Menu.Item} minWidth={1050}
                                         name='search'
                                         color='pink'
                                         active={activeItem === 'search'}
                                         onClick={this.handleItemClick}
                                     >
                                         <Icon name='search' />
-                                    </Menu.Item></Link>
+                                    </Responsive>
+                                </Link>
+
 
                                 <Link to="/order-summary">
-                                    <Menu.Item
+                                    <Responsive as={Menu.Item} minWidth={1050}
                                         name='basket'
                                         color='pink'
                                         active={activeItem === 'basket'}
@@ -91,17 +93,19 @@ class NavBar extends React.Component {
                                         <Icon name='shopping basket' />
                                         <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
-                                    </Menu.Item></Link>
+                                    </Responsive>
+                                </Link>
 
                                 <Link to="/wishlist">
-                                    <Menu.Item
+                                    <Responsive as={Menu.Item} minWidth={1050}
                                         name='wishlist'
                                         color='pink'
                                         active={activeItem === 'wishlist'}
                                         onClick={this.handleItemClick}
                                     >
                                         <Icon name='heart outline' />
-                                    </Menu.Item></Link>
+                                    </Responsive>
+                                </Link>
                                 <LoggedInUserDropdown />
                             </Menu.Menu>
                         </React.Fragment>
