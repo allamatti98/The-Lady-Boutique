@@ -15,20 +15,17 @@ const BRow2 = () => (
                     />
                 </Grid.Column>
                 <Grid.Column width={8}>
-                    <Header as="h3" style={{ fontSize: "4em", color: '#d05278' }}>
-                        This Weekend.
+                    <Header as="h3" style={{ fontSize: "3.5em", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
+                        This Weekend...
                     </Header>
-                    <Header as="h3" style={{ fontSize: "5em" }}>
+                    <Header as="h3" style={{ fontSize: "5em", fontFamily: "Tenor Sans" }}>
                         Get readyyy!!!!
                     </Header>
-                    <Header as="h3" style={{ fontSize: "5em", color: '#d05278' }}>
+                    <Header as="h3" style={{ fontSize: "5em", color: '#d05278', fontFamily: "Tenor Sans" }}>
                         The Lady Bird
                     </Header>
-                    <p style={{ fontSize: "2em" }}>
-                        meet and greet.
-                    </p>
-                    <p style={{ fontSize: "2em" }}>
-                        At the beach
+                    <p style={{ fontSize: "2em", fontFamily: "Lato,sans-serif" }}>
+                        Meet and greet, At the beach
                     </p>
                 </Grid.Column>
             </Grid.Row>

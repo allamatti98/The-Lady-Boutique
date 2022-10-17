@@ -45,7 +45,6 @@ class DynaFlex extends Component {
         super(props);
         this.state = { facebook: [], instagram: [] };
     }
-
     componentDidMount() {
         // For Testing
         this.setState({

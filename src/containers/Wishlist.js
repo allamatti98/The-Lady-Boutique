@@ -5,6 +5,8 @@ import Wishie from '../components/Wishie';
 import { Button, Icon, Card, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { ThemeConsumer } from 'styled-components';
+import NavBar from "../components/navbar";
+
 
 class Wishlist extends React.Component {
     state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null, wishlistPlus: [] };
@@ -88,6 +90,7 @@ class Wishlist extends React.Component {
         return (
             <div>
                 <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
+                    <NavBar />
                     <u> My Wishlist</u>
                 </Header>
                 {console.log(productList)}

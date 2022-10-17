@@ -71,7 +71,7 @@ class NavBar extends React.Component {
                     {authenticated ? (
                         <React.Fragment>
                             <Menu.Menu position="right">
-                                <Link to="/wishlist">
+                                <Link to="/faq">
                                     <Responsive as={Menu.Item} minWidth={1050}
                                         name='search'
                                         color='pink'

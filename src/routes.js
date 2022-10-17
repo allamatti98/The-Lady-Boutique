@@ -9,12 +9,13 @@ import ProductDetail from "./containers/ProductDetail";
 import OrderSummary from "./containers/OrderSummary";
 import Checkout from "./containers/Checkout";
 import Profile from "./containers/Profile";
-import Gallery from './containers/gallery'
+import Gallery from './containers/Gallery'
 import Blog from "./containers/Blog";
 import Wishlist from "./containers/Wishlist";
 import Contacts from "./containers/ContactUs";
 import CustomerCheckoutForm from "./containers/CheckoutForm";
 import Stripe from "./containers/stripe";
+import FAQ from "./containers/FAQ";
 
 
 const BaseRouter = () => (
@@ -33,6 +34,7 @@ const BaseRouter = () => (
     <Route path="/contact-us" component={Contacts} />
     <Route path="/checkout-form" component={CustomerCheckoutForm} />
     <Route path="/stripe-landing" component={Stripe} />
+    <Route path="/faq" component={FAQ} />
   </Hoc>
 );
 

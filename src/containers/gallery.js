@@ -10,7 +10,6 @@ class Gallery extends React.Component {
             <div>
                 <DynaFlex />
             </div>
-
         )
     }
 }
