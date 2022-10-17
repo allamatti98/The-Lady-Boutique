@@ -256,8 +256,8 @@ class Trending extends React.Component {
 
                   <Card.Content textAlign="center">
                     {/* <span className='stockCategory'>{item.category}</span> */}
-                    <Card.Header>{item.title}</Card.Header>
-                    <Card.Description>
+                    <Card.Header style={{ fontFamily: "Tenor Sans", fontSize: "24px" }}>{item.title}</Card.Header>
+                    <Card.Description style={{ fontFamily: "Lato,sans-serif" }}>
                       {item.discount_price ? (
                         <>
                           <del>Shs.{item.price}</del>

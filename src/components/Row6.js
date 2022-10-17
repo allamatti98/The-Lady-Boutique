@@ -7,13 +7,13 @@ import event7 from '../static/img/Event7.jpg'
 const Row6 = () => (
   <div>
     <Container text>
-      <Header style={{ fontSize: "3em", textAlign: "center", color: '#d05278' }}>
+      <Header style={{ fontSize: "3em", textAlign: "center", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
         Lady Bird Blog.
       </Header>
-      <Header as="h3" style={{ fontSize: "2em", textAlign: "center" }}>
+      <Header as="h3" style={{ fontSize: "2em", textAlign: "center", fontFamily: "Tenor Sans" }}>
         Latest Feed from the biggest Boutique in the country.
       </Header>
-      <p style={{ fontSize: "1.33em", textAlign: "center" }}>
+      <p style={{ fontSize: "1.33em", textAlign: "center", fontFamily: "Lato,sans-serif" }}>
         Steal the show... The Lady Bird Wayyy!!!
       </p>
     </Container>
@@ -22,19 +22,19 @@ const Row6 = () => (
       <Grid.Row textAlign="center">
         <Grid.Column >
           <Image src={event8} />
-          <Header as="h3" style={{ fontSize: "2em" }}>
+          <Header as="h3" style={{ fontSize: "2em", fontFamily: "Mrs Saint Delafield" }}>
             "What a Company"
           </Header>
-          <p style={{ fontSize: "1.33em" }}>
+          <p style={{ fontSize: "1.5em", fontFamily: "Tenor Sans" }}>
             That is what they all say about us
           </p>
         </Grid.Column>
         <Grid.Column >
           <Image src={event7} />
-          <Header as="h3" style={{ fontSize: "2em" }}>
+          <Header as="h3" style={{ fontSize: "2em", fontFamily: "Mrs Saint Delafield" }}>
             "I shouldn't have gone with their competitor."
           </Header>
-          <p style={{ fontSize: "1.33em" }}>
+          <p style={{ fontSize: "1.5em", fontFamily: "Tenor Sans" }}>
             Chief Fun Officer Acme Toys
           </p>
         </Grid.Column>

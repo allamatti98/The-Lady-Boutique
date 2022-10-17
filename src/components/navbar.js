@@ -24,7 +24,7 @@ class NavBar extends React.Component {
             <div className="NavBar1" >
                 {/* Navbar Starts here */}
                 <Menu secondary size='huge' className="NavBar2"
-                    style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex" }}
+                    style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex", fontFamily: "Lato,sans-serif" }}
                 // backgroundColor: "rgba(252,237,234,.9)"
                 >
                     <Menu.Item header>
@@ -71,11 +71,11 @@ class NavBar extends React.Component {
                     {authenticated ? (
                         <React.Fragment>
                             <Menu.Menu position="right">
-                                <Link to="/faq">
+                                <Link to="/wishlist">
                                     <Menu.Item
                                         name='search'
                                         color='pink'
-                                        active={activeItem === 'wishlist'}
+                                        active={activeItem === 'search'}
                                         onClick={this.handleItemClick}
                                     >
                                         <Icon name='search' />
@@ -107,15 +107,11 @@ class NavBar extends React.Component {
                         </React.Fragment>
                     ) : (
                         <Menu.Menu position="right">
-                            <Link to="/faq">
-                                <Menu.Item
-                                    name='search'
-                                    color='pink'
-                                    active={activeItem === 'wishlist'}
-                                    onClick={this.handleItemClick}
-                                >
-                                    <Icon name='search' />
-                                </Menu.Item></Link>
+                            <Link>
+                                <Responsive as={Menu.Item} minWidth={1000}>
+                                    <Icon name="search" />
+                                </Responsive>
+                            </Link>
 
                             <Link>
                                 <Responsive as={Menu.Item} minWidth={1000}>

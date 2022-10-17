@@ -7,16 +7,16 @@ const Greeting = () => (
         <Grid container stackable verticalAlign="middle">
             <Grid.Row>
                 <Grid.Column width={8}>
-                    <Header as="h3" style={{ fontSize: "4em", color: '#d05278' }}>
+                    <Header as="h3" style={{ fontSize: "4em", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
                         Outstanding
                     </Header>
-                    <Header as="h3" style={{ fontSize: "5em" }}>
+                    <Header as="h3" style={{ fontSize: "5em", fontFamily: "Tenor Sans" }}>
                         Style & Fashion
                     </Header>
-                    <p style={{ fontSize: "2em" }}>
+                    <p style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>
                         Yes, that's right, you thought it was not real?
                     </p>
-                    <p style={{ fontSize: "2em" }}>
+                    <p style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>
                         Well, it is!!!
                     </p>
                 </Grid.Column>

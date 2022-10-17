@@ -11,17 +11,17 @@ const QualityControl = () => (
                 <Grid.Column>
                     <Image src={pinky} style={{ height: "200px", alignItems: "center" }} centered />
                     <Header>Majesty</Header>
-                    <i>At Lady Bird Boutique, we believe that women are very special and must be treated with care as they are majestic.</i>
+                    <i style={{ fontFamily: "Lato,sans-serif" }}>At Lady Bird Boutique, we believe that women are very special and must be treated with care as they are majestic.</i>
                 </Grid.Column>
                 <Grid.Column>
                     <Image src={kamba} style={{ height: "200px" }} centered />
                     <Header>Class</Header>
-                    <i>Class is definately one of the building blocks of our boutique. We ensure only classy clothes get in and out of our stores.</i>
+                    <i style={{ fontFamily: "Lato,sans-serif" }}>Class is definately one of the building blocks of our boutique. We ensure only classy clothes get in and out of our stores.</i>
                 </Grid.Column>
                 <Grid.Column>
                     <Image src={logo} style={{ height: "200px", padding: "100px,100px" }} centered />
                     <Header>Quality</Header>
-                    <i>There is no doubt that Quality Control is something we do on a daily basis.</i>
+                    <i style={{ fontFamily: "Lato,sans-serif" }}>There is no doubt that Quality Control is something we do on a daily basis.</i>
                 </Grid.Column>
             </Grid.Row>
         </Grid>
