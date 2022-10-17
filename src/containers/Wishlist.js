@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { authAxios } from '../utils';
-import { showwishlistURL, productListURL } from '../constants';
+import { showwishlistURL, productListURL, deletewishlistitemURL } from '../constants';
 import Wishie from '../components/Wishie';
-import { Button, Icon, Card, Label } from 'semantic-ui-react';
+import { Button, Icon, Card, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { ThemeConsumer } from 'styled-components';
 
 class Wishlist extends React.Component {
-
     state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null, wishlistPlus: [] };
 
 
@@ -16,7 +15,6 @@ class Wishlist extends React.Component {
         this.showProductList();
         this.showWishList();
     }
-
 
     showProductList = () => {
         authAxios
@@ -30,7 +28,6 @@ class Wishlist extends React.Component {
     }
 
     showWishList = () => {
-
         authAxios
             .get(showwishlistURL)
             .then(res => {
@@ -39,6 +36,37 @@ class Wishlist extends React.Component {
             .catch(err => {
                 this.setState({ error: err });
             });
+
+    }
+
+    deleteFromWishList = (pk, id, e) => {
+        e.preventDefault();
+        //Delete form database
+        authAxios
+            .delete(deletewishlistitemURL(id), {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "DELETE",
+                body: JSON.stringify({
+                    'wished_item': id
+                })
+            })
+            .then(res => {
+                res.json()
+            })
+            .catch(err => {
+                this.setState({ error: err })
+            })
+
+        //Delete form state
+        const indexToDelete = this.state.wishList.findIndex((product) => {
+            return product.id === id;
+        })
+        this.setState({
+            wishList: this.state.wishList.filter((_, i) => i !== indexToDelete)
+        });
     }
 
     wishNumberHandler = (event) => {
@@ -59,7 +87,9 @@ class Wishlist extends React.Component {
         }
         return (
             <div>
-                <h1> Wishlist</h1>
+                <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
+                    <u> My Wishlist</u>
+                </Header>
                 {console.log(productList)}
                 {console.log(wishList)}
 
@@ -68,7 +98,7 @@ class Wishlist extends React.Component {
                         return (
                             <Card key={wish.pk} className="fluid" height="400px">
                                 <img
-                                    style={{ height: "90%", objectFit: "cover", borderRadius: "10%" }}
+                                    style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
                                     size="huge"
                                     src={wish.image}
                                     alt={wish.product_name}
@@ -90,7 +120,7 @@ class Wishlist extends React.Component {
                                         </div>
                                         <div className="Wishlist--Wishlist-Trash-CardIcon">
                                             <Button icon
-                                                // onClick={this.props.deleteFromWishList.bind(this, wish.pk, wish.id)}
+                                                onClick={this.deleteFromWishList}
                                                 className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                                 <Icon name='trash alternate' />
                                             </Button>
@@ -101,6 +131,7 @@ class Wishlist extends React.Component {
                         )
                     })}
                 </Card.Group>
+                <br />
             </div>
         )
     }

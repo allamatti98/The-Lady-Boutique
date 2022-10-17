@@ -120,59 +120,6 @@ class Trending extends React.Component {
 
   }
 
-  // addToWishList = (pk, stock_number, id, e) => {
-  //   e.preventDefault();
-  //   //Add to database
-  //   const { userID } = this.state
-  //   // const checkWishItem = this.state.wishList.findIndex((wish) => {
-  //   //   return wish.stock_number === stock_number;
-  //   // }
-  //   // );
-  //   if (checkWishItem === -1) {
-  //     const url = wishlistURL;
-  //     authAxios
-  //       .post(url, {
-  //         headers: {
-  //           'Accept': 'application/json',
-  //           'Content-Type': 'application/json',
-  //         },
-  //         method: "POST",
-  //         user: userID,
-  //         wished_item: id,
-  //         body: JSON.stringify({
-  //           'name': pk,
-  //         }),
-  //       })
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then(
-  //         (data) => {
-  //           const wishListNew = data;
-  //           this.setState({
-  //             wishList: wishListNew
-  //           })
-  //         }
-  //       )
-
-  //       // .catch(err => {
-  //       //   this.setState({ error: err });
-  //       // });
-
-  //     //Add to state
-  //     const index = this.state.productList.findIndex((product) => {
-  //       return product.id === id;
-  //     });
-
-  //     const product = this.state.productList[index];
-
-  //     this.setState({
-  //       wishList: [...this.state.wishList, product]
-  //     })
-
-  //   }
-  // }
-
   addToWishList = (pk, stock_number, id, e) => {
     e.preventDefault();
     const { userID } = this.state
