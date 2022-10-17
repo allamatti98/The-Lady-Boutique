@@ -108,25 +108,25 @@ class NavBar extends React.Component {
                     ) : (
                         <Menu.Menu position="right">
                             <Link>
-                                <Responsive as={Menu.Item} minWidth={1000}>
+                                <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="search" />
                                 </Responsive>
                             </Link>
 
                             <Link>
-                                <Responsive as={Menu.Item} minWidth={1000}>
+                                <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="whatsapp" />
                                 </Responsive>
                             </Link>
 
                             <Link>
-                                <Responsive as={Menu.Item} minWidth={1000}>
+                                <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="instagram" />
                                 </Responsive>
                             </Link>
 
                             <Link>
-                                <Responsive as={Menu.Item} minWidth={1000}>
+                                <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="mail outline" />
                                 </Responsive>
                             </Link>

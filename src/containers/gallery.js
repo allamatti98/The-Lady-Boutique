@@ -8,7 +8,6 @@ class Gallery extends React.Component {
     render() {
         return (
             <div>
-                {/* <Gallery1 /> */}
                 <DynaFlex />
             </div>
 

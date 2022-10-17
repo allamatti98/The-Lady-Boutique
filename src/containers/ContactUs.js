@@ -7,8 +7,9 @@ class Contacts extends React.Component {
     render() {
         return (
             <>
-            <ContactUsIntro />
-            <ContactUsForm/>
+                <NavBar />
+                <ContactUsIntro />
+                <ContactUsForm />
             </>
         )
     }

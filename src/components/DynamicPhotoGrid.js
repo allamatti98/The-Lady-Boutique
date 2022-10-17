@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Container, Card, Label, Icon, Button, Grid, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import bt1 from '../static/img/Boutique1.jpg'
-import bt2 from '../static/img/Boutique2.jpg'
-import bt3 from '../static/img/Boutique3.jpg'
+import bt1 from '../static/img/Boutique1.jpg';
+import bt2 from '../static/img/Boutique2.jpg';
+import bt3 from '../static/img/Boutique3.jpg';
+import NavBar from "../components/navbar";
 
 const facebookpics = [
     {
@@ -55,6 +56,7 @@ class DynaFlex extends Component {
     renderItems = () => {
         return (
             <div>
+                <NavBar />
                 <Card.Group itemsPerRow={3}>
                     {this.state.facebook.map(card => (
                         <Card key={card._id} height="100px">
