@@ -5,6 +5,8 @@ import bt1 from '../static/img/Boutique1.jpg';
 import bt2 from '../static/img/Boutique2.jpg';
 import bt3 from '../static/img/Boutique3.jpg';
 import NavBar from "../components/navbar";
+import GalleryBreadcrumbs from "../components/Gallerybc";
+
 
 const facebookpics = [
     {
@@ -55,7 +57,7 @@ class DynaFlex extends Component {
     renderItems = () => {
         return (
             <div>
-                <NavBar />
+                <br /><br />
                 <Card.Group itemsPerRow={3}>
                     {this.state.facebook.map(card => (
                         <Card key={card._id} height="100px">
@@ -137,7 +139,6 @@ class DynaFlex extends Component {
                     ))}
                 </Card.Group>
             </div>
-
         );
     };
     render() {

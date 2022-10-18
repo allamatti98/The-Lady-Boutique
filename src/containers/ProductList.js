@@ -7,7 +7,7 @@ import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, 
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
 import Navbar from "../components/navbar";
-import ShopBreadcrumbs from "../components/Breadcrumbs";
+import ShopBreadcrumbs from "../components/Shopbc";
 import axios from "axios";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
