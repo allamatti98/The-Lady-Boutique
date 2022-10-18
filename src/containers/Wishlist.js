@@ -94,9 +94,11 @@ class Wishlist extends React.Component {
                     <NavBar />
                     <WishListBreadcrumbs />
                 </div>
+                <br /><br /><br /><br /><br /><br /><br /><br /><br />
                 <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
-                    <u> My Wishlist</u>
+                    <u> My Lady Bird Wishlist</u>
                 </Header>
+                <br /><br /><br />
                 {console.log(productList)}
                 {console.log(wishList)}
 
