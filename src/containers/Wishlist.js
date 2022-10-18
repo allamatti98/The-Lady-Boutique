@@ -6,6 +6,7 @@ import { Button, Icon, Card, Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { ThemeConsumer } from 'styled-components';
 import NavBar from "../components/navbar";
+import WishListBreadcrumbs from '../components/WishListbc';
 
 
 class Wishlist extends React.Component {
@@ -89,8 +90,11 @@ class Wishlist extends React.Component {
         }
         return (
             <div>
-                <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
+                <div className="page-entrance" style={{ margin: "0px" }}>
                     <NavBar />
+                    <WishListBreadcrumbs />
+                </div>
+                <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
                     <u> My Wishlist</u>
                 </Header>
                 {console.log(productList)}

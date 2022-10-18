@@ -5,6 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 import { authAxios } from "../utils";
 import { addToCartURL, orderSummaryURL, orderItemDeleteURL, orderItemUpdateQuantityURL } from "../constants";
 import NavBar from "../components/navbar";
+import OrderSummaryBreadcrumbs from "../components/OrderSummarybc";
 
 class OrderSummary extends React.Component {
   state = {
@@ -97,7 +98,10 @@ class OrderSummary extends React.Component {
 
     return (
       <div >
-        <NavBar />
+        <div className="page-entrance" style={{ margin: "0px" }}>
+          <NavBar />
+          <OrderSummaryBreadcrumbs />
+        </div>
         <Container>
           <Header style={{ color: "rgb(223, 16, 195)", textAlign: "center", fontSize: "3.5em", fontFamily: "Mrs Saint Delafield" }}>Order Summary</Header>
           {error && (
