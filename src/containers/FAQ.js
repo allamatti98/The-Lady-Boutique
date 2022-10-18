@@ -1,12 +1,15 @@
 import React from "react";
 import NavBar from "../components/navbar";
+import FaqBreadcrumbs from "../components/FAQbc";
 
 class FAQ extends React.Component {
     render() {
         return (
             <>
-                < NavBar />
-                <h1>FAQ's</h1>
+                <div className="page-entrance">
+                    < NavBar />
+                    <FaqBreadcrumbs />
+                </div>
             </>
         )
     }
