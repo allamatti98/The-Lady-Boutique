@@ -10,9 +10,9 @@ const Row3 = () => (
         <Grid stackable>
             <Grid.Row>
                 <Grid.Column textAlign="center">
-                    <Header style={{ fontSize: "3em" }} color='pink'>Popular at our Stores</Header>
-                    <Header style={{ fontSize: "3em" }}>Top Categories</Header>
-                    <p>Take the best care of both you and your wardrobe with our amazing categories.</p>
+                    <Header style={{ fontSize: "4em", fontFamily: "Mrs Saint Delafield" }} color='pink'>Popular at our Stores</Header>
+                    <Header style={{ fontSize: "3em", fontFamily: "Tenor Sans" }}>Top Categories</Header>
+                    <p style={{ fontSize: "1.8em", fontFamily: "Lato,sans-serif" }}>Take the best care of both you and your wardrobe with our amazing categories.</p>
                     <br /><br /><br />
                 </Grid.Column>
             </Grid.Row>
@@ -44,6 +44,6 @@ const Row3 = () => (
             </Grid.Row>
         </Grid>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    </div>
+    </div >
 )
 export default Row3

@@ -7,13 +7,13 @@ function Row1() {
   return (
     <div>
       <Container text>
-        <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
+        <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
           Lady Bird
         </Header>
-        <Header as="h3" style={{ fontSize: "2.5em", textAlign: "center" }}>
+        <Header as="h3" style={{ fontSize: "2.5em", textAlign: "center", fontFamily: "Tenor Sans" }}>
           Our Trending Stock
         </Header>
-        <p style={{ fontSize: "1.7em", textAlign: "center" }}>
+        <p style={{ fontSize: "1.7em", textAlign: "center", fontFamily: "Lato,sans-serif" }}>
           Refresh your wardrobe with our cutting edge stylish outfits and stand out from the crowd.
         </p>
         <Divider
@@ -26,7 +26,7 @@ function Row1() {
         </Divider>
 
       </Container>
-      {/* <TabMenuButtons/> */}
+      {/* <TabMenuButtons /> */}
       <Trending />
       <br /><br /><br /><br /><br /><br /><br /><br />
     </div>

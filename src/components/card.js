@@ -106,8 +106,8 @@ class Trending extends Component {
                         </Label>
                         <Card.Content textAlign="center">
                             {/* <span className='stockCategory'>{card.category}</span> */}
-                            <b>{card.title}</b>
-                            <Card.Description>
+                            <b style={{ fontFamily: "Tenor Sans", fontSize: "24px" }}>{card.title}</b>
+                            <Card.Description style={{ fontFamily: "Lato,sans-serif" }}>
                                 <del>Shs.{card.oldprice}</del>
                                 <p><b>Shs.{card.price}</b></p>
                             </Card.Description>
