@@ -192,6 +192,7 @@ class Trending extends React.Component {
           <Navbar />
           <ShopBreadcrumbs />
         </div>
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <Container>
           {error && (
             <Message

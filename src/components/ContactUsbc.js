@@ -1,15 +1,15 @@
 import React from 'react';
 import { Breadcrumb } from 'semantic-ui-react';
 
-const blogsections = [
+const contactsections = [
     { key: 'Home', content: 'Home', link: true },
-    { key: 'Blog', content: 'Blog', active: true },
+    { key: 'ContactUs', content: 'ContactUs', active: true },
 ]
 
-const BlogBreadcrumbs = () => (
+const ContactUsBreadcrumbs = () => (
     <div style={{ paddingTop: "8%", paddingBottom: "8%" }}>
-        <h1 style={{ fontFamily: "Tenor Sans", fontSize: "5em" }}>Blog</h1>
-        <Breadcrumb icon='right angle' sections={blogsections} style={{
+        <h1 style={{ fontFamily: "Tenor Sans", fontSize: "5em" }}>Contact Us</h1>
+        <Breadcrumb icon='right angle' sections={contactsections} style={{
             display: "flex", justifyContent: "center", fontFamily: "Lato,sans-serif",
             alignItems: "center", color: "rgb(223, 16, 195)"
         }} />
@@ -17,4 +17,4 @@ const BlogBreadcrumbs = () => (
     </div>
 )
 
-export default BlogBreadcrumbs
+export default ContactUsBreadcrumbs
