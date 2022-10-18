@@ -122,6 +122,9 @@ class OrderSummary extends React.Component {
           )}
           {data && (
             <div>
+              <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
+                My Order Summary
+              </Header>
               {/* backgroundColor: "rgba(252,237,234,.9)" */}
               <Table celled style={{ backgroundColor: "pink" }}>
                 <Table.Header >
