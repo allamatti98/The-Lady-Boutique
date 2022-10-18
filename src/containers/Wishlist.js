@@ -12,7 +12,6 @@ import WishListBreadcrumbs from '../components/WishListbc';
 class Wishlist extends React.Component {
     state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null, wishlistPlus: [] };
 
-
     constructor(props) {
         super(props);
         this.showProductList();
@@ -83,11 +82,18 @@ class Wishlist extends React.Component {
             })
     }
 
+    mergeLists = () => {
+        const { wishList, productList, error, wishlistPlus } = this.State
+        const mergeById = (a1, a2) =>
+            a1.map(itm => ({
+                ...a2.find((item) => (item.id === itm.user) && item),
+                ...itm
+            }));
+        this.setState({ wishlistPlus: mergeById(wishList, productList) });
+    }
+
     render() {
-        const { wishList, productList, error, loading } = this.state;
-        if (this.props.wishList) {
-            this.wishList = this.props.wishList;
-        }
+        const { wishList, productList, error, loading, wishlistPlus } = this.state;
         return (
             <div>
                 <div className="page-entrance" style={{ margin: "0px" }}>
@@ -95,13 +101,11 @@ class Wishlist extends React.Component {
                     <WishListBreadcrumbs />
                 </div>
                 <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                {console.log(wishlistPlus)}
                 <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
                     <u> My Lady Bird Wishlist</u>
                 </Header>
                 <br /><br /><br />
-                {console.log(productList)}
-                {console.log(wishList)}
-
                 <Card.Group itemsPerRow={4} doubling={true}>
                     {productList.map(wish => {
                         return (
@@ -146,54 +150,3 @@ class Wishlist extends React.Component {
     }
 }
 export default Wishlist
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function Wishlist() {
-//     // const [wishListItems, setWishlistItems] = useState([]);
-//     // const [error, setError] = useState([null]);
-//     useEffect(() => {
-//         showWishList()
-//     }, [])
-
-
-//     const showWishList = () => {
-//         authAxios
-//             .get(showwishlistURL)
-//             .then(
-//                 response => {
-//                     return response.json()
-//                 })
-//             .then(
-//                 (data) => {
-//                     console.log(data)
-//                 }
-//             )
-//             .catch(err => {
-//                 console.log(err);
-//             });
-//     }
-
-//     // console.log(wishListItems)
-//     return (
-//         <div>Wishlist
-
-//         </div>
-//     )
-// }
-
-// export default Wishlist
