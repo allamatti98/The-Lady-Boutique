@@ -102,8 +102,8 @@ class OrderSummary extends React.Component {
           <NavBar />
           <OrderSummaryBreadcrumbs />
         </div>
+        <br /><br /><br /><br /><br /><br /><br />
         <Container>
-          <Header style={{ color: "rgb(223, 16, 195)", textAlign: "center", fontSize: "3.5em", fontFamily: "Mrs Saint Delafield" }}>Order Summary</Header>
           {error && (
             <Message
               error
@@ -202,6 +202,7 @@ class OrderSummary extends React.Component {
                   </Table.Row>
                 </Table.Footer>
               </Table>
+              <br /><br /><br /><br /><br /><br /><br />
             </div>
           )}
         </Container>
