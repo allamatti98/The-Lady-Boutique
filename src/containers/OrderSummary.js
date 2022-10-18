@@ -122,14 +122,15 @@ class OrderSummary extends React.Component {
           )}
           {data && (
             <div>
-              <Table celled>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.HeaderCell>Item Number</Table.HeaderCell>
-                    <Table.HeaderCell>Item Name</Table.HeaderCell>
-                    <Table.HeaderCell>Item Price</Table.HeaderCell>
-                    <Table.HeaderCell>Item Quantity</Table.HeaderCell>
-                    <Table.HeaderCell>Total Item Price</Table.HeaderCell>
+              {/* backgroundColor: "rgba(252,237,234,.9)" */}
+              <Table celled style={{ backgroundColor: "pink" }}>
+                <Table.Header >
+                  <Table.Row >
+                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Number</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Name</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Quantity</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Total Item Price</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
@@ -191,8 +192,8 @@ class OrderSummary extends React.Component {
                 </Table.Body>
 
                 <Table.Footer>
-                  <Table.Row>
-                    <Table.HeaderCell colSpan="5">
+                  <Table.Row >
+                    <Table.HeaderCell colSpan="5" style={{ backgroundColor: "pink" }}>
                       <Link to="/checkout-form">
                         <Button floated="right" color="pink">
                           Checkout
