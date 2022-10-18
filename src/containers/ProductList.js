@@ -7,6 +7,7 @@ import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, 
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
 import Navbar from "../components/navbar";
+import ShopBreadcrumbs from "../components/Breadcrumbs";
 import axios from "axios";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -187,7 +188,10 @@ class Trending extends React.Component {
     const { data, error, loading } = this.state;
     return (
       <div>
-        <Navbar />
+        <div className="page-entrance">
+          <Navbar />
+          <ShopBreadcrumbs />
+        </div>
         <Container>
           {error && (
             <Message

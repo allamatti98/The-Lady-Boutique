@@ -373,3 +373,14 @@ body {
     border-radius: 10px;
     padding-left: 1.5em;
 }
+
+.page-entrance {
+    background-image: url('../src/static/img/Lightpinkbg2.jfif');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    height: 100%;
+}
