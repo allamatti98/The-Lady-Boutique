@@ -129,21 +129,21 @@ class OrderSummary extends React.Component {
               <Table celled style={{ backgroundColor: "pink" }}>
                 <Table.Header >
                   <Table.Row >
-                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Number</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Name</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Price</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Item Quantity</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink" }}>Total Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Number</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Name</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Quantity</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Total Item Price</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
-                <Table.Body>
+                <Table.Body style={{ fontFamily: "Tenor Sans" }}>
                   {data.order_items.map((orderItem, i) => {
                     return (
                       <Table.Row key={orderItem.id}>
                         <Table.Cell>{i + 1}</Table.Cell>
                         <Table.Cell>
-                          {orderItem.item.title} -{" "}
+                          {orderItem.item.title} {" "}
                           {this.renderVariations(orderItem)}
                         </Table.Cell>
                         <Table.Cell>Shs.{orderItem.item.price}</Table.Cell>
