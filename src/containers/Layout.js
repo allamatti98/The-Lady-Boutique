@@ -30,26 +30,26 @@ class CustomLayout extends React.Component {
         <Segment
           inverted
           vertical
-          style={{ margin: "0em 0em", padding: "5em 0em" }}
+          style={{ margin: "0em 0em", padding: "5em 0em", fontFamily: "Tenor Sans" }}
           stackable
         >
           <Container textAlign="center" stackable>
             <Grid>
               <Grid.Column width={3}>
-                <Header color='pink' as="h4" content="Lets Link Up:" />
+                <Header color='pink' as="h4" content="Lets Link Up:" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <FooterSocials color='pink' />
               </Grid.Column>
 
               <Image centered src={Logo} style={{ width: '30%', height: '2%' }} />
               <Grid.Column width={3}>
-                <Header color='pink' as="h4" content="Card Swipes:" />
+                <Header color='pink' as="h4" content="Card Swipes:" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <PaymentMethodsFooter />
               </Grid.Column>
             </Grid>
             <Divider inverted section />
             <Grid stackable>
               <Grid.Column width={4}>
-                <Header color='pink' as="h2" content="Stock" />
+                <Header color='pink' as="h2" content="Stock" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a">Dresses</List.Item>
                   <List.Item as="a">Skirts</List.Item>
@@ -58,7 +58,7 @@ class CustomLayout extends React.Component {
                 </List>
               </Grid.Column>
               <Grid.Column width={4}>
-                <Header color='pink' as="h2" content="Site Map" />
+                <Header color='pink' as="h2" content="Site Map" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a">My Profile</List.Item>
                   <List.Item as="a">Shop</List.Item>
@@ -67,7 +67,7 @@ class CustomLayout extends React.Component {
                 </List>
               </Grid.Column>
               <Grid.Column width={4}>
-                <Header color='pink' as="h2" content="Lady Bird" />
+                <Header color='pink' as="h2" content="Lady Bird" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a">Careers</List.Item>
                   <List.Item as="a">Support</List.Item>
@@ -77,7 +77,7 @@ class CustomLayout extends React.Component {
               </Grid.Column>
 
               <Grid.Column width={4}>
-                <Header color='pink' as="h2" content="Contacts" />
+                <Header color='pink' as="h2" content="Contacts" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a"><Icon name='location arrow' />3 Bombo Rd. Kampala, Uganda</List.Item>
                   <List.Item as="a"><Icon name='mail' />ladybird@gmail.com</List.Item>
