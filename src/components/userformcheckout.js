@@ -215,10 +215,9 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Checkbox name='samebillingnshipping' onChange={this.handleToggleDefaultShippingnBilling} label='Billing Address is the same as my shipping address.' />
+          {/* <Form.Checkbox name='samebillingnshipping' onChange={this.handleToggleDefaultShippingnBilling} label='Billing Address is the same as my shipping address.' />
           <Form.Checkbox name='savedefaultshipping' onChange={this.handleToggleSaveDefaultShipping} label='Save as default shipping address.' />
-          <Form.Checkbox name='usedefaultshipping' onChange={this.handleToggleUseDefaultShipping} label='Use default shipping address:' />
-          {dbaddresses.map(a => { return <span key={a.user}><b>{a.shippingcity},{a.shippingcountry}</b></span>; })}
+          <Form.Checkbox name='usedefaultshipping' onChange={this.handleToggleUseDefaultShipping} label='Use default shipping address:' /> */}
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Billing Address</Header>
           <Form.Group widths='equal'>
             <Form.Field
@@ -263,9 +262,8 @@ class CheckoutFormPiece extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Form.Checkbox name='savedefaultbilling' onChange={this.handleToggleSaveDefaultBilling} label='Save as default billing address.' />
-          <Form.Checkbox name='usedefaultbilling' onChange={this.handleToggleUseDefaultBilling} label='Use default billing address' />
-          {dbaddresses.map(a => { return <span key={a.user}><b>{a.billingcity},{a.billingcountry}</b></span>; })}
+          {/* <Form.Checkbox name='savedefaultbilling' onChange={this.handleToggleSaveDefaultBilling} label='Save as default billing address.' />
+          <Form.Checkbox name='usedefaultbilling' onChange={this.handleToggleUseDefaultBilling} label='Use default billing address' /> */}
           <Header>Payment Method</Header>
           <Form.Field
             control={Select}
