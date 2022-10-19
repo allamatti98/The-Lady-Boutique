@@ -139,14 +139,22 @@ class CheckoutFormPiece extends Component {
       .catch(err => {
         this.setState({ error: err });
       });
+
     if (formData.payment_method === 'Stripe') {
-      console.log("Wazaaa!!!");
+      authAxios
+        .post(stripelandingURL,
+          {
+            user: userID
+          })
+        .catch(err => {
+          this.setState({ error: err })
+        })
     } else if (formData.payment_method === 'Adyen') {
       console.log("None Man...");
     } else if (formData.payment_method === 'MobileMoney') {
-      console.log("You good?")
+      console.log("You good?");
     } else {
-      console.log("Aight")
+      console.log("Aight");
     }
   };
 

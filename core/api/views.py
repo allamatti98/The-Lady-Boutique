@@ -18,11 +18,17 @@ from .serializers import (
     PaymentSerializer, WishlistSerializer, WishlistSerializer )
 from core.models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile, Variation, ItemVariation, Wishlist
 from django.shortcuts import redirect
+import stripe, random, string
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 
-import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+def create_ref_code():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k = 15))
 
 class UserIDView(APIView):
     def get(self, request, *args, **kwargs):
@@ -302,30 +308,6 @@ class PaymentListView(ListAPIView):
     def get_queryset(self):
         return Payment.objects.filter(user=self.request.user)
 
-class StripeLandingView(APIView):
-
-    def get_context_data(self, **kwargs):
-        order = Order.objects.get(user = self.request.user, ordered = False)
-        if order.billing_address:
-
-            context = super(StripeLandingView,self).get_context_data(**kwargs)
-
-            context.update({
-                "order": order,
-                "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
-            })
-
-            try:
-                code = order.coupon.code
-                context.update({"promocode": code,})
-            except AttributeError:
-                print ("No promo code")
-
-            return context
-        else:
-            print("No billing address provided")
-            return redirect('/checkout-form')
-
 class CreateWishlist(ListCreateAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = WishlistSerializer
@@ -350,3 +332,108 @@ class ShowAddresses(ListAPIView):
 
     def get_queryset(self):
         return  Address.objects.filter( user = self.request.user.id )
+
+
+class CreateCheckoutSessionView(APIView):
+    def post(self, request, *args, **kwargs):
+        YOUR_DOMAIN = "http://localhost:3000/"  # change in production
+
+        zee = []
+        
+        order = Order.objects.get(user = self.request.user.id, ordered = False)
+        for item in order.items.all():
+            lineitem = {
+                    'price': item.item.stripe_price_id,
+                    'quantity': item.quantity,
+                }
+            zee.append(lineitem)
+        
+        try:
+            checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items = zee,
+            mode='payment',
+            success_url=YOUR_DOMAIN + '/orders/success/',
+            cancel_url=YOUR_DOMAIN + '/orders/cancel/',
+        )
+
+            payment = Payment()
+            payment.checkout_session_id = checkout_session.id
+            payment.user = self.request.user
+            payment.timestamp = timezone.now()
+            payment.amount = order.get_total()
+            payment.total = order.get_total()
+            payment.save()
+
+            order_items = order.items.all()
+            order_items.update(ordered = True)
+            for item in order_items:
+                item.save()
+
+            order.ordered = True
+            order.payment = payment
+            order.ref_code = create_ref_code()
+            order.save()
+
+
+
+            return JsonResponse({
+                'id': checkout_session.id
+            })
+
+        except stripe.error.CardError as e:
+            body = e.json_body
+            err = body.get('error', {})
+            return Response({"message": f"{err.get('message')}"}, status=HTTP_400_BAD_REQUEST)
+
+        except stripe.error.RateLimitError as e:
+            # Too many requests made to the API too quickly
+            messages.warning(self.request, "Rate limit error")
+            return Response({"message": "Rate limit error"}, status=HTTP_400_BAD_REQUEST)
+
+        except stripe.error.InvalidRequestError as e:
+            print(e)
+            # Invalid parameters were supplied to Stripe's API
+            return Response({"message": "Invalid parameters"}, status=HTTP_400_BAD_REQUEST)
+
+        except stripe.error.AuthenticationError as e:
+            # Authentication with Stripe's API failed
+            # (maybe you changed API keys recently)
+            return Response({"message": "Not authenticated"}, status=HTTP_400_BAD_REQUEST)
+
+        except stripe.error.APIConnectionError as e:
+            # Network communication with Stripe failed
+            return Response({"message": "Network error"}, status=HTTP_400_BAD_REQUEST)
+
+        except stripe.error.StripeError as e:
+            # Display a very generic error to the user, and maybe send
+            # yourself an email
+            return Response({"message": "Something went wrong. You were not charged. Please try again."}, status=HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
+            # send an email to ourselves
+            return Response({"message": "A serious error occurred. We have been notifed."}, status=HTTP_400_BAD_REQUEST)
+
+        return Response({"message": "Invalid data received"}, status=HTTP_400_BAD_REQUEST)
+
+            #             # create the payment
+            #             payment = Payment()
+            #             payment.stripe_charge_id = charge['id']
+            #             payment.user = self.request.user
+            #             payment.amount = order.get_total()
+            #             payment.save()
+
+            #             # assign the payment to the order
+            #             order_items = order.items.all()
+            #             order_items.update(ordered=True)
+            #             for item in order_items:
+            #                 item.save()
+
+            #             order.ordered = True
+            #             order.payment = payment
+            #             order.billing_address = billing_address
+            #             order.shipping_address = shipping_address
+            #             # order.ref_code = create_ref_code()
+            #             order.save()
+
+            #             return Response(status=HTTP_200_OK)
