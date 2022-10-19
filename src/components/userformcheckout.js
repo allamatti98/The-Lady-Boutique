@@ -35,6 +35,7 @@ class CheckoutFormPiece extends Component {
   componentDidMount() {
     this.handleFetchAddresses();
     this.handleFetchUserID();
+    this.handleChosePaymentMethod();
   }
 
   handleChange = (e, { name, value }) => {
@@ -101,18 +102,17 @@ class CheckoutFormPiece extends Component {
     this.setState({ saving: true, user: userID });
     e.preventDefault();
     const { formData } = this.props;
-    this.handleCreateAddress();
-    this.handleChosePaymentMethod()
+    this.handleCreateAddress(() => {
+      console.log(formData.payment_method)
+    });
   };
 
   handleFetchAddresses = () => {
     this.setState({ loading: true });
-    const { dbaddresses } = this.state;
     authAxios
       .get(addressListURL)
       .then(res => {
         this.setState({ dbaddresses: res.data, loading: false });
-        console.log(dbaddresses)
       })
       .catch(err => {
         this.setState({ error: err });
@@ -123,7 +123,6 @@ class CheckoutFormPiece extends Component {
   handleCreateAddress = () => {
     // const { userID } = this.props;
     const { formData, userID } = this.state;
-    console.log(formData)
     authAxios
       .post(addressCreateURL, {
         ...formData,
@@ -140,6 +139,15 @@ class CheckoutFormPiece extends Component {
       .catch(err => {
         this.setState({ error: err });
       });
+    if (formData.payment_method === 'Stripe') {
+      console.log("Wazaaa!!!");
+    } else if (formData.payment_method === 'Adyen') {
+      console.log("None Man...");
+    } else if (formData.payment_method === 'MobileMoney') {
+      console.log("You good?")
+    } else {
+      console.log("Aight")
+    }
   };
 
   handleFetchUserID = () => {
@@ -155,7 +163,7 @@ class CheckoutFormPiece extends Component {
 
   handleChosePaymentMethod = () => {
     const { payment_method } = this.state;
-    if (payment_method === "Stripe Landing") {
+    if (payment_method === "Stripe") {
       console.log("Stripe");
     } else if (payment_method === "Adyen Landing") {
       console.log("Adyen");
@@ -166,7 +174,7 @@ class CheckoutFormPiece extends Component {
 
   render() {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact,
-      error, loading, addresses, dbaddresses
+      error, loading, addresses, dbaddresses,
     } = this.state
     return (
       <div>

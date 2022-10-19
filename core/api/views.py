@@ -278,6 +278,11 @@ class AddressCreateView(CreateAPIView):
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
 
+    def payment_handler(self, request, *args, **kwargs):
+        payment_method = request.data.get('payment_method')
+        print(payment_method)
+        
+
 
 class AddressUpdateView(UpdateAPIView):
     permission_classes = (IsAuthenticated, )
