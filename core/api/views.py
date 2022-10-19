@@ -269,8 +269,8 @@ class AddressListView(ListAPIView):
         # address_type = self.request.query_params.get('address_type', None)
         qs = Address.objects.all()
         # if address_type is None:
-        return qs
-        # return qs.filter(user=self.request.user, address_type=address_type)
+        # return qs
+        return qs.filter(user=self.request.user)
 
 
 class AddressCreateView(CreateAPIView):
@@ -338,3 +338,10 @@ class DeleteWishItem(RetrieveDestroyAPIView):
     queryset = Wishlist.objects.all()
     serializer_class = WishlistSerializer
     permission_classes = ( AllowAny, )
+
+class ShowAddresses(ListAPIView):
+    permission_classes = (IsAuthenticated, )
+    serializer_class = AddressSerializer
+
+    def get_queryset(self):
+        return  Address.objects.filter( user = self.request.user.id )

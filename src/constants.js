@@ -12,7 +12,7 @@ export const checkoutURL = `${endpoint}/checkout/`;
 export const addCouponURL = `${endpoint}/add-coupon/`;
 export const countryListURL = `${endpoint}/countries/`;
 export const userIDURL = `${endpoint}/user-id/`;
-export const addressListURL = addressType => `${endpoint}/addresses/`;
+export const addressListURL = `${endpoint}/addresses/`;
 export const addressCreateURL = `${endpoint}/addresses/create/`;
 export const addressUpdateURL = id => `${endpoint}/addresses/${id}/update/`;
 export const addressDeleteURL = id => `${endpoint}/addresses/${id}/delete/`;

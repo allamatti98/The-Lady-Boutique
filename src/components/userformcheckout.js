@@ -28,13 +28,12 @@ class CheckoutFormPiece extends Component {
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}, userID: null, user: '', samebillingnshipping: false, savedefaultshipping: false,
-    usedefaultshipping: false, savedefaultbilling: false, usedefaultbilling: false
+    usedefaultshipping: false, savedefaultbilling: false, usedefaultbilling: false, dbaddresses: []
 
   }
 
   componentDidMount() {
     this.handleFetchAddresses();
-    // this.handleFetchCountries();
     this.handleFetchUserID();
   }
 
@@ -63,6 +62,7 @@ class CheckoutFormPiece extends Component {
       formData: updatedFormdata
     });
   };
+
   handleToggleUseDefaultShipping = () => {
     const { formData } = this.state;
     const updatedFormdata = {
@@ -73,6 +73,7 @@ class CheckoutFormPiece extends Component {
       formData: updatedFormdata
     });
   };
+
   handleToggleSaveDefaultBilling = () => {
     const { formData } = this.state;
     const updatedFormdata = {
@@ -83,6 +84,7 @@ class CheckoutFormPiece extends Component {
       formData: updatedFormdata
     });
   };
+
   handleToggleUseDefaultBilling = () => {
     const { formData } = this.state;
     const updatedFormdata = {
@@ -105,11 +107,12 @@ class CheckoutFormPiece extends Component {
 
   handleFetchAddresses = () => {
     this.setState({ loading: true });
-    const { activeItem } = this.state;
+    const { dbaddresses } = this.state;
     authAxios
-      .get(addressListURL(activeItem === "billingAddress" ? "B" : "S"))
+      .get(addressListURL)
       .then(res => {
-        this.setState({ addresses: res.data, loading: false });
+        this.setState({ dbaddresses: res.data, loading: false });
+        console.log(dbaddresses)
       })
       .catch(err => {
         this.setState({ error: err });
@@ -159,12 +162,7 @@ class CheckoutFormPiece extends Component {
     } else if (payment_method === "MobileMoney Landing") {
       console.log("Mobile Money");
     }
-
-
   };
-
-
-
 
   render() {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact,
@@ -277,12 +275,9 @@ class CheckoutFormPiece extends Component {
             placeholder='Enter your Country'
             width={3}
           />
-
           <Form.Button type="submit" color="pink" size="huge" floated="right">Submit</Form.Button>
-
         </Form>
       </div>
-
     )
   }
 }
