@@ -35,7 +35,6 @@ class CheckoutFormPiece extends Component {
   componentDidMount() {
     this.handleFetchAddresses();
     this.handleFetchUserID();
-    this.handleChosePaymentMethod();
   }
 
   handleChange = (e, { name, value }) => {
@@ -167,17 +166,6 @@ class CheckoutFormPiece extends Component {
       .catch(err => {
         this.setState({ error: err });
       });
-  };
-
-  handleChosePaymentMethod = () => {
-    const { payment_method } = this.state;
-    if (payment_method === "Stripe") {
-      console.log("Stripe");
-    } else if (payment_method === "Adyen Landing") {
-      console.log("Adyen");
-    } else if (payment_method === "MobileMoney Landing") {
-      console.log("Mobile Money");
-    }
   };
 
   render() {
