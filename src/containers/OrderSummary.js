@@ -188,7 +188,7 @@ class OrderSummary extends React.Component {
                     <Table.Cell />
                     <Table.Cell />
                     <Table.Cell textAlign="right" colSpan="2">
-                      Order Total: Shs.{data.total}
+                      <h4>Order Total: Shs.{data.total}</h4>
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>

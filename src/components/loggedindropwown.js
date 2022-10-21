@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import bluebg from '../static/img/bluebg3.jpg'
 
 function LoggedInUserDropdown() {
     return (
