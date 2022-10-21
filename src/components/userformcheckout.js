@@ -3,6 +3,8 @@ import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } 
 import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL, userIDURL } from '../constants';
 import { authAxios } from '../utils';
 import { Redirect } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { CardElement, Elements, ElementsConsumer } from '@stripe/react-stripe-js';
 
 
 const country_choices = [
@@ -28,7 +30,7 @@ class CheckoutFormPiece extends Component {
   state = {
     shippingstreetaddress: '', shippingapartmentadress: '', shippingalternatecontact: '', billingingstreetaddress: '', billingapartmentadress: '', billingalternatecontact: '',
     shippingcountry: '', billingcountry: '', shippingcity: '', billingcity: '', error: null, loading: false, addresses: [], formData: {}, userID: null, user: '', samebillingnshipping: false, savedefaultshipping: false,
-    usedefaultshipping: false, savedefaultbilling: false, usedefaultbilling: false, dbaddresses: []
+    usedefaultshipping: false, savedefaultbilling: false, usedefaultbilling: false, dbaddresses: [], stripeSessionID: ''
 
   }
 
@@ -139,14 +141,34 @@ class CheckoutFormPiece extends Component {
         this.setState({ error: err });
       });
 
+
     if (formData.payment_method === 'Stripe') {
+      const stripe = loadStripe("pk_test_51LiV4RJ7OZP0oyoLY4hg3o6Wg9JTckzBR7YQBWjPqMw4zuiRbm1iuf2wFieYB1D7GRry6DjnPQk5fxRROAwJyf6y004a5ZRmZW ");
       authAxios
         .post(stripelandingURL,
           {
             user: userID
           })
+        .then(res => {
+          this.setState({ stripeSessionID: res.data.id })
+        })
+        .then(() => {
+          const { stripeSessionID } = this.State
+          return stripe.redirectToCheckout({ sessionId: stripeSessionID });
+        })
+        .then(res => {
+          return stripe.redirectToCheckout({ sessionId: res })
+        })
+        .then(result => {
+          //If
+          //error
+          //customer
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
         .catch(err => {
-          this.setState({ error: err })
+          this.setState({ error: err });
         })
     } else if (formData.payment_method === 'Adyen') {
       console.log("None Man...");
