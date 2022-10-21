@@ -146,9 +146,6 @@ class OrderDetailView(RetrieveAPIView):
             raise Http404("You do not have an active order")
             # return Response({"message": "You do not have an active order"}, status=HTTP_400_BAD_REQUEST)
 
-
-class PaymentView(APIView):
-
     def post(self, request, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)
         userprofile = UserProfile.objects.get(user=self.request.user)
@@ -248,7 +245,6 @@ class PaymentView(APIView):
 
         return Response({"message": "Invalid data received"}, status=HTTP_400_BAD_REQUEST)
 
-
 class AddCouponView(APIView):
     def post(self, request, *args, **kwargs):
         code = request.data.get('code', None)
@@ -261,11 +257,9 @@ class AddCouponView(APIView):
         order.save()
         return Response(status=HTTP_200_OK)
 
-
 class CountryListView(APIView):
     def get(self, request, *args, **kwargs):
         return Response(countries, status=HTTP_200_OK)
-
 
 class AddressListView(ListAPIView):
     permission_classes = (IsAuthenticated, )
@@ -353,8 +347,8 @@ class CreateCheckoutSessionView(APIView):
             payment_method_types=['card'],
             line_items = zee,
             mode='payment',
-            success_url=YOUR_DOMAIN + '/orders/success/',
-            cancel_url=YOUR_DOMAIN + '/orders/cancel/',
+            success_url=YOUR_DOMAIN + 'orders/success/',
+            cancel_url=YOUR_DOMAIN + 'orders/cancel/',
         )
 
             payment = Payment()
@@ -374,8 +368,6 @@ class CreateCheckoutSessionView(APIView):
             order.payment = payment
             order.ref_code = create_ref_code()
             order.save()
-
-
 
             return JsonResponse({ 'id': checkout_session.id })
 
@@ -413,25 +405,3 @@ class CreateCheckoutSessionView(APIView):
             return Response({"message": "A serious error occurred. We have been notifed."}, status=HTTP_400_BAD_REQUEST)
 
         return Response({"message": "Invalid data received"}, status=HTTP_400_BAD_REQUEST)
-
-            #             # create the payment
-            #             payment = Payment()
-            #             payment.stripe_charge_id = charge['id']
-            #             payment.user = self.request.user
-            #             payment.amount = order.get_total()
-            #             payment.save()
-
-            #             # assign the payment to the order
-            #             order_items = order.items.all()
-            #             order_items.update(ordered=True)
-            #             for item in order_items:
-            #                 item.save()
-
-            #             order.ordered = True
-            #             order.payment = payment
-            #             order.billing_address = billing_address
-            #             order.shipping_address = shipping_address
-            #             # order.ref_code = create_ref_code()
-            #             order.save()
-
-            #             return Response(status=HTTP_200_OK)
