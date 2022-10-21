@@ -139,7 +139,7 @@ class OrderSummary extends React.Component {
                 <Table.Body style={{ fontFamily: "Tenor Sans" }}>
                   {data.order_items.map((orderItem, i) => {
                     return (
-                      <Table.Row key={orderItem.id}>
+                      <Table.Row key={orderItem.id} style={{ fontSize: "1.4em" }}>
                         <Table.Cell>{i + 1}</Table.Cell>
                         <Table.Cell>
                           {orderItem.item.title} {" "}
