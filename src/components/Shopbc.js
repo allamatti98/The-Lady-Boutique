@@ -16,5 +16,3 @@ const ShopBreadcrumbs = () => (
     </div>
 )
 export default ShopBreadcrumbs
-
-

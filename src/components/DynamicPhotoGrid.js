@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import bt1 from '../static/img/Boutique1.jpg';
 import bt2 from '../static/img/Boutique2.jpg';
 import bt3 from '../static/img/Boutique3.jpg';
-import NavBar from "../components/navbar";
-import GalleryBreadcrumbs from "../components/Gallerybc";
 
 
 const facebookpics = [
