@@ -9,6 +9,8 @@ import {
 import { productDetailURL, addToCartURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import { authAxios } from "../utils";
+import ProductDetailBreadcrumbs from "../components/PrductDetailbc";
+import NavBar from "../components/navbar";
 
 class ProductDetail extends React.Component {
   state = {
@@ -80,82 +82,73 @@ class ProductDetail extends React.Component {
     const { data, error, formData, formVisible, loading } = this.state;
     const item = data;
     return (
-      <Container>
-        {error && (
-          <Message
-            error
-            header="An error occured, Item not added to your Cart."
-          // content={JSON.stringify(error)}
-          />
-        )}
-        {loading && (
-          <Segment>
-            <Dimmer active inverted>
-              <Loader inverted>Loading</Loader>
-            </Dimmer>
-            <Image src="/images/wireframe/short-paragraph.png" />
-          </Segment>
-        )}
-        <Grid columns={2} divided stackable>
-          <Grid.Row>
-            <Grid.Column>
-              <Card
-                fluid
-                // image={item.image}
-                meta={
-                  <React.Fragment>
-                    <Image src={item.image}>
-                    </Image>
-                    {item.label &&
-                      <Label as='a'
-                        color={
-                          item.label === "Limited"
-                            ? "red"
-                            : item.label === "Trending"
-                              ? "blue"
-                              : "green"
-                        }
-                        ribbon>
-                        {item.label}
-                      </Label>
-                    }
-
-                    {/* {item.discount_price && (
-                      <Label
-                        color={
-                          item.label === "primary"
-                            ? "blue"
-                            : item.label === "secondary"
-                              ? "green"
-                              : "olive"
-                        }
+      <div>
+        <div className="page-entrance">
+          <NavBar />
+          <ProductDetailBreadcrumbs />
+        </div>
+        <Container>
+          {error && (
+            <Message
+              error
+              header="An error occured, Item not added to your Cart."
+            // content={JSON.stringify(error)}
+            />
+          )}
+          {loading && (
+            <Segment>
+              <Dimmer active inverted>
+                <Loader inverted>Loading</Loader>
+              </Dimmer>
+              <Image src="/images/wireframe/short-paragraph.png" />
+            </Segment>
+          )}
+          <br /><br /><br /><br />
+          <Grid columns={2} divided stackable>
+            <Grid.Row>
+              <Grid.Column>
+                <Card
+                  fluid
+                  // image={item.image}
+                  meta={
+                    <React.Fragment>
+                      <Image src={item.image}>
+                      </Image>
+                      {item.label &&
+                        <Label as='a'
+                          color={
+                            item.label === "Limited"
+                              ? "red"
+                              : item.label === "Trending"
+                                ? "blue"
+                                : "green"
+                          }
+                          ribbon>
+                          {item.label}
+                        </Label>
+                      }
+                    </React.Fragment>
+                  }
+                  extra={
+                    <React.Fragment>
+                      <Button
+                        fluid
+                        color="pink"
+                        floated="right"
+                        icon
+                        labelPosition="right"
+                        onClick={() => this.handleAddToCart(item.slug)}
                       >
-                        {item.label}
-                      </Label>
-                    )} */}
-                  </React.Fragment>
-                }
-                // description={item.description}
-                extra={
+                        Add to my cart
+                        <Icon name="cart plus" />
+                      </Button>
+                    </React.Fragment>
+                  }
+                />
+                {formVisible && (
                   <React.Fragment>
-                    <Button
-                      fluid
-                      color="pink"
-                      floated="right"
-                      icon
-                      labelPosition="right"
-                      onClick={() => this.handleAddToCart(item.slug)}
-                    >
-                      Add to my cart
-                      <Icon name="cart plus" />
-                    </Button>
-                  </React.Fragment>
-                }
-              />
-              {formVisible && (
-                <React.Fragment>
-                  <Divider />
-                  {/* <Form onSubmit={() => this.handleAddToCart(item.slug)}>
+                    <Divider />
+                    {/* <Form onSubmit={() => this.handleAddToCart(item.slug)}>
                     {data.variations.map(v => {
                       const name = v.name.toLowerCase();
                       return (
@@ -180,19 +173,19 @@ class ProductDetail extends React.Component {
                     })}
                     <Form.Button primary>Add</Form.Button>
                   </Form> */}
-                </React.Fragment>
-              )}
-            </Grid.Column>
-            <Grid.Column style={{ padding: "0px 0px", backgroundColor: "pink", height: "100%", textAlign: "center" }} stackable>
-              <Header style={{ fontSize: "3em", marginTop: "5%" }} textAlign='center' color='pink'>{item.title}</Header>
-              <Header style={{ fontSize: "2em", marginTop: "5%" }}>Category: {item.category}</Header>
-              <Header style={{ fontSize: "2em" }}>Price: {item.price}</Header>
-              <u><Header style={{ fontSize: "2em", marginTop: "10%" }}> Description</Header></u>
-              <Header style={{ fontSize: "2em", padding: "0 10%" }}> {item.description}</Header>
-              <br />
-            </Grid.Column>
+                  </React.Fragment>
+                )}
+              </Grid.Column>
+              <Grid.Column style={{ padding: "0px 0px", backgroundColor: "pink", height: "100%", textAlign: "center" }} stackable>
+                <Header style={{ fontSize: "3em", marginTop: "5%" }} textAlign='center' color='pink'>{item.title}</Header>
+                <Header style={{ fontSize: "2em", marginTop: "5%" }}>Category: {item.category}</Header>
+                <Header style={{ fontSize: "2em" }}>Price: {item.price}</Header>
+                <u><Header style={{ fontSize: "2em", marginTop: "10%" }}> Description</Header></u>
+                <Header style={{ fontSize: "2em", padding: "0 10%" }}> {item.description}</Header>
+                <br />
+              </Grid.Column>
 
-            {/* {data.variations &&
+              {/* {data.variations &&
                 data.variations.map(v => {
                   return (
                     <React.Fragment key={v.id}>
@@ -217,10 +210,11 @@ class ProductDetail extends React.Component {
                     </React.Fragment>
                   );
                 })} */}
-          </Grid.Row>
-        </Grid>
-        <br /><br />
-      </Container>
+            </Grid.Row>
+          </Grid>
+          <br /><br />
+        </Container>
+      </div>
     );
   }
 }
