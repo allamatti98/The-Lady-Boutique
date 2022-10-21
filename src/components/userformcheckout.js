@@ -3,7 +3,7 @@ import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } 
 import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL, userIDURL } from '../constants';
 import { authAxios } from '../utils';
 import { Redirect } from 'react-router-dom';
-
+import { connect } from 'react-redux';
 
 const country_choices = [
   { key: 'Sd', text: 'South Sudan', value: 'South Sudan' },
@@ -174,8 +174,30 @@ class CheckoutFormPiece extends Component {
     const { shippingstreetaddress, shippingapartmentadress, shippingalternatecontact, billingingstreetaddress, billingapartmentadress, billingalternatecontact,
       error, loading, addresses, dbaddresses,
     } = this.state
+
+    const { isAuthenticated } = this.props
+    if (!isAuthenticated) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div>
+        {error && (
+          <Message
+            error
+            header="There was an error"
+          // content={JSON.stringify(error)}
+          />
+        )}
+        {loading && (
+          <Segment>
+            <Dimmer active inverted>
+              <Loader inverted>Loading</Loader>
+            </Dimmer>
+
+            <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
+          </Segment>
+        )}
+
         <Form onSubmit={this.handleSubmit} style={{ padding: "5% 5%", backgroundColor: "pink", margin: "0% 5% 5% 5%" }}>
           <Header style={{ fontSize: "3em", textAlign: "center" }}>Shipping Address</Header>
           <Form.Group widths='equal'>
@@ -288,4 +310,9 @@ class CheckoutFormPiece extends Component {
   }
 }
 
-export default CheckoutFormPiece
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+export default connect(mapStateToProps)(CheckoutFormPiece)
