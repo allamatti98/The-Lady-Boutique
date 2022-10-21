@@ -143,32 +143,14 @@ class CheckoutFormPiece extends Component {
 
 
     if (formData.payment_method === 'Stripe') {
-      const stripe = loadStripe("pk_test_51LiV4RJ7OZP0oyoLY4hg3o6Wg9JTckzBR7YQBWjPqMw4zuiRbm1iuf2wFieYB1D7GRry6DjnPQk5fxRROAwJyf6y004a5ZRmZW ");
+      const stripe = window.Stripe("pk_test_51LiV4RJ7OZP0oyoLY4hg3o6Wg9JTckzBR7YQBWjPqMw4zuiRbm1iuf2wFieYB1D7GRry6DjnPQk5fxRROAwJyf6y004a5ZRmZW ");
       authAxios
         .post(stripelandingURL,
           {
             user: userID
           })
         .then(res => {
-          this.setState({ stripeSessionID: res.data.id })
-        })
-        .then(() => {
-          const { stripeSessionID } = this.State
-          return stripe.redirectToCheckout({ sessionId: stripeSessionID });
-        })
-        .then(res => {
-          return stripe.redirectToCheckout({ sessionId: res })
-        })
-        .then(result => {
-          //If
-          //error
-          //customer
-          if (result.error) {
-            alert(result.error.message);
-          }
-        })
-        .catch(err => {
-          this.setState({ error: err });
+          return stripe.redirectToCheckout({ sessionId: res.data.id });
         })
     } else if (formData.payment_method === 'Adyen') {
       console.log("None Man...");
