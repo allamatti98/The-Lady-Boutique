@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { authAxios } from '../utils';
 import { showwishlistURL, productListURL, deletewishlistitemURL } from '../constants';
 import Wishie from '../components/Wishie';
-import { Button, Icon, Card, Header } from 'semantic-ui-react';
+import { Button, Icon, Card, Header, Message, Segment, Dimmer, Image, Loader } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { ThemeConsumer } from 'styled-components';
 import NavBar from "../components/navbar";
 import WishListBreadcrumbs from '../components/WishListbc';
+import { Redirect } from 'react-router-dom';
+import { connect } from "react-redux";
 
 
 class Wishlist extends React.Component {
@@ -94,56 +96,84 @@ class Wishlist extends React.Component {
 
     render() {
         const { wishList, productList, error, loading, wishlistPlus } = this.state;
+        const { isAuthenticated } = this.props;
+        if (!isAuthenticated) {
+            return <Redirect to="/login" />;
+        }
         return (
             <div>
-                <div className="page-entrance" style={{ margin: "0px" }}>
-                    <NavBar />
-                    <WishListBreadcrumbs />
-                </div>
-                <br /><br /><br /><br />
-                <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
-                    <u> My Lady Bird Wishlist</u>
-                </Header>
-                <br /><br /><br />
-                <Card.Group itemsPerRow={4} doubling={true}>
-                    {productList.map(wish => {
-                        return (
-                            <Card key={wish.pk} className="fluid" height="400px">
-                                <img
-                                    style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
-                                    size="huge"
-                                    src={wish.image}
-                                    alt={wish.product_name}
-                                    wrapped
-                                    ui={false}
-                                    as='a'
-                                />
-                                <div className="Wishlist-cards-overlay">
-                                    <div className="Wishlist-cards-overlay-title"></div>
-                                    <div className="Wishlist-Card-Items">
-                                        <div className="Wishlist--BasketCardIcon">
-                                            <Button icon onClick={() => this.props.history.push(`/products/${wish.id}`)}
-                                                className="BasketCardIcon-button" size='huge'
-                                                style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                                <Icon name='shopping basket' />
-                                            </Button>
-                                        </div>
-                                        <div className="Wishlist--Wishlist-Trash-CardIcon">
-                                            <Button icon
-                                                onClick={this.deleteFromWishList}
-                                                className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
-                                                <Icon name='trash alternate' />
-                                            </Button>
+                {error && (
+                    <Message
+                        error
+                        header="There was an error"
+                    // content={JSON.stringify(error)}
+                    />
+                )}
+                {loading && (
+                    <Segment>
+                        <Dimmer active inverted>
+                            <Loader inverted>Loading</Loader>
+                        </Dimmer>
+
+                        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />
+                    </Segment>
+                )}
+                <div>
+                    <div className="page-entrance" style={{ margin: "0px" }}>
+                        <NavBar />
+                        <WishListBreadcrumbs />
+                    </div>
+                    <br /><br /><br /><br />
+                    <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
+                        <u> My Lady Bird Wishlist</u>
+                    </Header>
+                    <br /><br /><br />
+                    <Card.Group itemsPerRow={4} doubling={true}>
+                        {productList.map(wish => {
+                            return (
+                                <Card key={wish.pk} className="fluid" height="400px">
+                                    <img
+                                        style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
+                                        size="huge"
+                                        src={wish.image}
+                                        alt={wish.product_name}
+                                        wrapped
+                                        ui={false}
+                                        as='a'
+                                    />
+                                    <div className="Wishlist-cards-overlay">
+                                        <div className="Wishlist-cards-overlay-title"></div>
+                                        <div className="Wishlist-Card-Items">
+                                            <div className="Wishlist--BasketCardIcon">
+                                                <Button icon onClick={() => this.props.history.push(`/products/${wish.id}`)}
+                                                    className="BasketCardIcon-button" size='huge'
+                                                    style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                    <Icon name='shopping basket' />
+                                                </Button>
+                                            </div>
+                                            <div className="Wishlist--Wishlist-Trash-CardIcon">
+                                                <Button icon
+                                                    onClick={this.deleteFromWishList}
+                                                    className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                                    <Icon name='trash alternate' />
+                                                </Button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Card>
-                        )
-                    })}
-                </Card.Group>
-                <br />
+                                </Card>
+                            )
+                        })}
+                    </Card.Group>
+                    <br />
+                </div>
             </div>
+
         )
     }
 }
-export default Wishlist
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+};
+export default connect(mapStateToProps)(Wishlist)

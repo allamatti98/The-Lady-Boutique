@@ -12,7 +12,7 @@ function LoggedInUserDropdown() {
                         <Link to="/profile">
                             <Dropdown.Item>Profile</Dropdown.Item>
                         </Link>
-                        <Link to="/login">
+                        <Link to="/wishlist">
                             <Dropdown.Item>Wishlist</Dropdown.Item>
                         </Link>
 
