@@ -167,12 +167,12 @@ class OrderSummary extends React.Component {
                           />
                         </Table.Cell>
                         <Table.Cell>
+                          Shs.{orderItem.final_price}
                           {orderItem.item.discount_price && (
-                            <Label color="green">
+                            <Label color="green" tag>
                               ON DISCOUNT
                             </Label>
                           )}
-                          Shs.{orderItem.final_price}
                           <Icon
                             name="trash"
                             color="red"
