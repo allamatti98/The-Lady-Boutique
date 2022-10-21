@@ -3,8 +3,6 @@ import { Form, Header, Select, Radio, Message, Segment, Dimmer, Loader, Image } 
 import { stripelandingURL, addressListURL, addressCreateURL, addressUpdateURL, addressDeleteURL, userIDURL } from '../constants';
 import { authAxios } from '../utils';
 import { Redirect } from 'react-router-dom';
-import { loadStripe } from '@stripe/stripe-js';
-import { CardElement, Elements, ElementsConsumer } from '@stripe/react-stripe-js';
 
 
 const country_choices = [

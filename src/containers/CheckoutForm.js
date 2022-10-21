@@ -13,7 +13,6 @@ function CustomerCheckoutForm() {
             </div>
             <br /><br /><br /><br /><br /><br /><br />
             <CheckoutFormPiece />
-
         </div>)
 }
 export default CustomerCheckoutForm
