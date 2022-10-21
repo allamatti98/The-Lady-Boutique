@@ -377,9 +377,7 @@ class CreateCheckoutSessionView(APIView):
 
 
 
-            return JsonResponse({
-                'id': checkout_session.id
-            })
+            return JsonResponse({ 'id': checkout_session.id })
 
         except stripe.error.CardError as e:
             body = e.json_body
