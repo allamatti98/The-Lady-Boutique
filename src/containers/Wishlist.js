@@ -100,7 +100,7 @@ class Wishlist extends React.Component {
                     <NavBar />
                     <WishListBreadcrumbs />
                 </div>
-                <br /><br /><br /><br /><br /><br /><br /><br /><br />
+                <br /><br /><br /><br />
                 <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
                     <u> My Lady Bird Wishlist</u>
                 </Header>
@@ -122,13 +122,11 @@ class Wishlist extends React.Component {
                                     <div className="Wishlist-cards-overlay-title"></div>
                                     <div className="Wishlist-Card-Items">
                                         <div className="Wishlist--BasketCardIcon">
-                                            <Link to="/products">
-                                                <Button icon
-                                                    className="BasketCardIcon-button" size='huge'
-                                                    style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                                    <Icon name='shopping basket' />
-                                                </Button>
-                                            </Link>
+                                            <Button icon onClick={() => this.props.history.push(`/products/${wish.id}`)}
+                                                className="BasketCardIcon-button" size='huge'
+                                                style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                <Icon name='shopping basket' />
+                                            </Button>
                                         </div>
                                         <div className="Wishlist--Wishlist-Trash-CardIcon">
                                             <Button icon
