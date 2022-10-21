@@ -128,11 +128,11 @@ class OrderSummary extends React.Component {
               <Table celled style={{ backgroundColor: "pink" }}>
                 <Table.Header >
                   <Table.Row >
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Number</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Name</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Price</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Item Quantity</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans" }}>Total Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Number</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Name</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Quantity</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Total Item Price</Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
