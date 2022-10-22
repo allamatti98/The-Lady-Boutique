@@ -19,7 +19,6 @@ const city_choices = [
 ]
 const payment_methods = [
   { key: 'S', text: 'Stripe', value: 'Stripe' },
-  { key: 'A', text: 'Adyen', value: 'Adyen' },
   { key: 'M', text: 'Mobile Money', value: 'MobileMoney' },
 ]
 
@@ -150,8 +149,6 @@ class CheckoutFormPiece extends Component {
         .then(res => {
           return stripe.redirectToCheckout({ sessionId: res.data.id });
         })
-    } else if (formData.payment_method === 'Adyen') {
-      console.log("None Man...");
     } else if (formData.payment_method === 'MobileMoney') {
       console.log("You good?");
     } else {

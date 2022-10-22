@@ -15,6 +15,7 @@ import Wishlist from "./containers/Wishlist";
 import Contacts from "./containers/ContactUs";
 import CustomerCheckoutForm from "./containers/CheckoutForm";
 import FAQ from "./containers/FAQ";
+import MoMo from "./containers/MobileMoney";
 
 
 const BaseRouter = () => (
@@ -33,6 +34,7 @@ const BaseRouter = () => (
     <Route path="/contact-us" component={Contacts} />
     <Route path="/checkout-form" component={CustomerCheckoutForm} />
     <Route path="/faq" component={FAQ} />
+    < Route path="/MoMo" component={MoMo} />
   </Hoc>
 );
 
