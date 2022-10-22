@@ -7,6 +7,7 @@ import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/img/Logo.png';
 import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
+import DropdownImageTrigger1 from "./trigger1";
 
 
 class NavBar extends React.Component {
@@ -106,7 +107,8 @@ class NavBar extends React.Component {
                                         <Icon name='heart outline' />
                                     </Responsive>
                                 </Link>
-                                <LoggedInUserDropdown />
+                                {/* <LoggedInUserDropdown /> */}
+                                < DropdownImageTrigger1 />
                             </Menu.Menu>
                         </React.Fragment>
                     ) : (
