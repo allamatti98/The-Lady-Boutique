@@ -2,10 +2,11 @@ from django.urls import path
 from .views import ( UserIDView, ItemListView, ItemDetailView, AddToCartView, OrderDetailView, OrderQuantityUpdateView,
                      AddCouponView, CountryListView, AddressListView, AddressCreateView, 
                     AddressUpdateView, AddressDeleteView,  OrderItemDeleteView, PaymentListView,
-                    CreateWishlist, ShowWishlist, DeleteWishItem, ShowAddresses, CreateCheckoutSessionView )
+                    CreateWishlist, ShowWishlist, DeleteWishItem, ShowAddresses, CreateCheckoutSessionView, UserNameView )
 
 urlpatterns = [
      path('user-id/', UserIDView.as_view(), name='user-id'),
+     path('username/', UserNameView.as_view(), name = 'username'),
      path('countries/', CountryListView.as_view(), name='country-list'),
      path('addresses/', ShowAddresses.as_view(), name='address-list'),
      path('addresses/create/', AddressCreateView.as_view(), name='address-create'),

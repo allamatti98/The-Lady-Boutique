@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Menu, Input, Icon, Label, Responsive } from "semantic-ui-react";
+import { Dropdown, Menu, Input, Icon, Label, Responsive, Image } from "semantic-ui-react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
@@ -8,18 +8,45 @@ import Logo from '../static/img/Logo.png';
 import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
 import DropdownImageTrigger1 from "./trigger1";
+import lady from '../static/img/bluebg3.jpg'
+import { authAxios } from "../utils";
+import { usernameURL } from "../constants";
 
 
 class NavBar extends React.Component {
+
     componentDidMount() {
         this.props.fetchCart();
+        this.handleFetchUsername();
     }
-    state = { activeItem: 'home' }
+    state = { activeItem: 'home', username: '' }
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+    handleFetchUsername = () => {
+        authAxios
+            .get(usernameURL)
+            .then(res => {
+                this.setState({ username: res.data.userName });
+            })
+            .catch(err => {
+                this.setState({ error: err });
+            });
+    };
 
     render() {
         const { authenticated, cart, loading } = this.props;
-        const { activeItem } = this.state;
+        const { activeItem, username } = this.state;
+        const trigger = (
+            <span>
+                <Image avatar src={lady} /> {this.state.username}
+            </span>
+        )
+
+        const options = [
+            { key: 'user', text: 'Account', icon: 'user' },
+            { key: 'settings', text: 'Settings', icon: 'settings' },
+            { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
+        ]
 
         return (
             <div className="NavBar1" >
@@ -107,8 +134,12 @@ class NavBar extends React.Component {
                                         <Icon name='heart outline' />
                                     </Responsive>
                                 </Link>
-                                {/* <LoggedInUserDropdown /> */}
-                                < DropdownImageTrigger1 />
+                                <Dropdown
+                                    trigger={trigger}
+                                    options={options}
+                                    pointing='top right'
+                                    icon={null}
+                                />
                             </Menu.Menu>
                         </React.Fragment>
                     ) : (

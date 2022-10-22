@@ -34,6 +34,10 @@ class UserIDView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({'userID': request.user.id}, status=HTTP_200_OK)
 
+class UserNameView(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({'userName': request.user.username}, status=HTTP_200_OK)
+
 
 class ItemListView(ListAPIView):
     permission_classes = (AllowAny,)
