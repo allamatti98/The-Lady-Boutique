@@ -43,17 +43,15 @@ class NavBar extends React.Component {
         )
 
         const options = [
-            { key: 'user', text: 'Account', icon: 'user' },
-            { key: 'settings', text: 'Settings', icon: 'settings' },
-            { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
+            { key: 'account', text: 'Account', icon: 'user' },
+            { key: 'sign-out', text: 'Log Out', icon: 'sign out' },
         ]
 
         return (
             <div className="NavBar1" >
                 {/* Navbar Starts here */}
-                <Menu secondary size='huge' className="NavBar2"
-                    style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex", fontFamily: "Lato,sans-serif" }}
-                // backgroundColor: "rgba(252,237,234,.9)"
+                <Menu secondary size='huge' className="NavBar2" fixed="top"
+                    style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex", fontFamily: "Lato,sans-serif", backgroundColor: "rgba(252,237,234,.8)" }}
                 >
                     <Menu.Item header>
                         <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />

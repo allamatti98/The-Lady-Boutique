@@ -6,7 +6,7 @@ const Greeting = () => (
     <div className="Landing">
         <Grid container stackable verticalAlign="middle">
             <Grid.Row>
-                <Grid.Column width={8}>
+                <Grid.Column width={8} style={{ marginTop: "15%" }}>
                     <Header as="h3" style={{ fontSize: "4em", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
                         Outstanding
                     </Header>
