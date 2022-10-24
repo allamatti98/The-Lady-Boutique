@@ -36,7 +36,7 @@ class ItemSerializer(serializers.ModelSerializer):
             'label',
             'slug',
             'description',
-            'image'
+            'image_url'
         )
 
     def get_category(self, obj):
@@ -223,5 +223,6 @@ class WishlistSerializer(serializers.ModelSerializer):
         fields = (
             'user',
             'wished_item',
-            'added_date'
+            'added_date',
+            'image_url'
         )

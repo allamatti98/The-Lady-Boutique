@@ -112,9 +112,9 @@ class Wishlist extends React.Component {
     render() {
         const { wishList, productList, error, loading, wishlistPlus } = this.state;
         const { isAuthenticated } = this.props;
-        if (!isAuthenticated) {
-            return <Redirect to="/login" />;
-        }
+        // if (!isAuthenticated) {
+        //     return <Redirect to="/login" />;
+        // }
         return (
             <div>
                 {error && (
@@ -144,13 +144,13 @@ class Wishlist extends React.Component {
                     </Header>
                     <br /><br /><br />
                     <Card.Group itemsPerRow={4} doubling={true}>
-                        {productList.map(wish => {
+                        {wishList.map(wish => {
                             return (
                                 <Card key={wish.pk} className="fluid" height="400px">
                                     <img
                                         style={{ height: "100%", objectFit: "cover", borderRadius: "10%" }}
                                         size="huge"
-                                        src={wish.image}
+                                        src={wish.image_url}
                                         alt={wish.product_name}
                                         wrapped
                                         ui={false}

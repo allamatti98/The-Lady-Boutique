@@ -122,7 +122,7 @@ class Trending extends React.Component {
 
   }
 
-  addToWishList = (pk, stock_number, id, e) => {
+  addToWishList = (pk, stock_number, id, image_url, e) => {
     e.preventDefault();
     const { userID } = this.state
     authAxios
@@ -134,6 +134,7 @@ class Trending extends React.Component {
         method: "POST",
         user: userID,
         wished_item: id,
+        image_url: image_url,
         body: JSON.stringify({
           'name': pk,
         }),
@@ -218,7 +219,7 @@ class Trending extends React.Component {
                   <img
                     style={{ height: "75%", objectFit: "cover" }}
                     size="huge"
-                    src={item.image}
+                    src={item.image_url}
                     wrapped
                     ui={false}
                     as='a'
@@ -231,7 +232,7 @@ class Trending extends React.Component {
                     <p className="Search-Icon-Text">Show Me</p>
                     <div className="Item-Card-Items">
                       <div className="WishlistCardIcon">
-                        <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id)}
+                        <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id, item.image_url)}
                           className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                           <Icon name='heart outline' />
                         </Button>

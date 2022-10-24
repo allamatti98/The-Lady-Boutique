@@ -45,8 +45,8 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True, null = True)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField()
     stock_number = models.IntegerField()
+    image_url = models.CharField(max_length = 2083)
 
     def __str__(self):
         return self.title
@@ -232,6 +232,7 @@ class Wishlist(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     wished_item = models.ForeignKey(Item, on_delete = models.CASCADE)
     added_date = models.DateTimeField(auto_now_add = True)
+    image_url = models.CharField(max_length = 2083)
 
     def __str__(self):
         return self.wished_item.title
