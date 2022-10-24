@@ -320,9 +320,11 @@ class ShowWishlist(ListAPIView):
         return  Wishlist.objects.filter( user = self.request.user.id )
 
 class DeleteWishItem(RetrieveDestroyAPIView):
-    queryset = Wishlist.objects.all()
+    permission_classes = ( IsAuthenticated, )
     serializer_class = WishlistSerializer
-    permission_classes = ( AllowAny, )
+    queryset = Wishlist.objects.all()
+    lookup_field = "wished_item"
+
 
 class ShowAddresses(ListAPIView):
     permission_classes = (IsAuthenticated, )
@@ -330,7 +332,6 @@ class ShowAddresses(ListAPIView):
 
     def get_queryset(self):
         return  Address.objects.filter( user = self.request.user.id )
-
 
 class CreateCheckoutSessionView(APIView):
     def post(self, request, *args, **kwargs):

@@ -26,6 +26,6 @@ urlpatterns = [
      path('payments/', PaymentListView.as_view(), name='payment-list'),
      path('wishlist/', CreateWishlist.as_view(), name = 'wishlist'),
      path('showwishlist/',ShowWishlist.as_view(), name = 'show-wishlist'),
-     path('wishlist/<pk>/delete/', DeleteWishItem.as_view(), name = 'delete-wish-item'),
+     path('wishlist/<wished_item>/delete/', DeleteWishItem.as_view(), name = 'delete-wish-item'),
      path('stripe-landing/', CreateCheckoutSessionView.as_view(), name='stripelanding'),
 ]

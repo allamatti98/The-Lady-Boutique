@@ -67,18 +67,18 @@ class Wishlist extends React.Component {
         console.log(mergedWishlist)
     }
 
-    deleteFromWishList = (pk, wished_item, e) => {
+    deleteFromWishList = (pk, wished_item, id, e) => {
         e.preventDefault();
         //Delete form database
         authAxios
-            .delete(deletewishlistitemURL(wished_item), {
+            .delete(deletewishlistitemURL(id), {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 method: "DELETE",
                 body: JSON.stringify({
-                    'wished_item': pk
+                    'wished_item': wished_item
                 })
             })
             .then(res => {
@@ -168,7 +168,7 @@ class Wishlist extends React.Component {
                                             </div>
                                             <div className="Wishlist--Wishlist-Trash-CardIcon">
                                                 <Button icon
-                                                    onClick={this.deleteFromWishList.bind(this, wish.pk, wish.wished_item)}
+                                                    onClick={this.deleteFromWishList.bind(this, wish.pk, wish.id, wish.wished_item)}
                                                     className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                                     <Icon name='trash alternate' />
                                                 </Button>
