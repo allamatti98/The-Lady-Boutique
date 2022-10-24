@@ -14,6 +14,7 @@ import { connect } from "react-redux";
 class Wishlist extends React.Component {
     state = { productList: [], wishList: [], wishNumber: undefined, data: [], error: null, wishlistPlus: [] };
 
+
     constructor(props) {
         super(props);
         this.showProductList();
@@ -41,6 +42,29 @@ class Wishlist extends React.Component {
                 this.setState({ error: err });
             });
 
+    }
+
+    mergeLists = () => {
+        const { wishList, productList, error, wishlistPlus } = this.State
+        const mergeById = (a1, a2) =>
+            a1.map(itm => ({
+                ...a2.find((item) => (item.id === itm.user) && item),
+                ...itm
+            }));
+        this.setState({ wishlistPlus: mergeById(wishList, productList) });
+        console.log(wishlistPlus)
+    }
+
+    mergeArraysById = () => {
+        const { wishList, productList } = this.State
+        var arr1 = wishList
+        var arr2 = productList
+        var mergedWishlist = arr1.map((a) => {
+            var haveEqualID = (b) => b.id === a.Id
+            var productWithSameId = arr2.find(haveEqualID)
+            return Object.assign({}, a, productWithSameId)
+        })
+        console.log(mergedWishlist)
     }
 
     deleteFromWishList = (pk, id, e) => {
@@ -84,15 +108,6 @@ class Wishlist extends React.Component {
             })
     }
 
-    mergeLists = () => {
-        const { wishList, productList, error, wishlistPlus } = this.State
-        const mergeById = (a1, a2) =>
-            a1.map(itm => ({
-                ...a2.find((item) => (item.id === itm.user) && item),
-                ...itm
-            }));
-        this.setState({ wishlistPlus: mergeById(wishList, productList) });
-    }
 
     render() {
         const { wishList, productList, error, loading, wishlistPlus } = this.state;
