@@ -90,11 +90,12 @@ class Wishlist extends React.Component {
 
         //Delete form state
         const indexToDelete = this.state.wishList.findIndex((product) => {
-            return product.id === wished_item;
+            return product.id === pk;
         })
         this.setState({
             wishList: this.state.wishList.filter((_, i) => i !== indexToDelete)
         });
+        window.location.reload()
     }
 
     wishNumberHandler = (event) => {
