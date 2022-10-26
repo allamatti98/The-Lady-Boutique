@@ -8,8 +8,10 @@ from django_countries.fields import CountryField
 
 
 CATEGORY_CHOICES = (
-    ('Co', 'Corporate'),
+    ('Ac', 'Accessories'),
     ('Ch', 'Chill'),
+    ('Co', 'Corporate'),
+    ('Dn', 'Dinner'),
     ('Wt', 'Weather'),
     ('P','Party')
 )
