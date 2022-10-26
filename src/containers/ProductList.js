@@ -26,7 +26,6 @@ class Trending extends React.Component {
       return curdata.category === name;
     })
     this.setState({ activePaneItem: name, filteredCatalog: filtered })
-    console.log(filteredCatalog)
   }
 
 

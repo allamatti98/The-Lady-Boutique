@@ -169,7 +169,7 @@ class ItemDetailSerializer(serializers.ModelSerializer):
             'label',
             'slug',
             'description',
-            'image',
+            'image_url',
             'variations'
         )
 

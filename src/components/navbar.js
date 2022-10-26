@@ -22,7 +22,6 @@ class NavBar extends React.Component {
     state = { activeItem: '', username: '' }
 
     handleItemClick = (e, { name }) => {
-        e.preventDefault();
         this.setState({ activeItem: name })
     }
 

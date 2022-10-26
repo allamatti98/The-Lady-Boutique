@@ -84,9 +84,9 @@ class ProductDetail extends React.Component {
     const { data, error, formData, formVisible, loading } = this.state;
     const item = data;
     const { isAuthenticated } = this.props;
-    if (!isAuthenticated) {
-      return <Redirect to="/login" />;
-    }
+    // if (!isAuthenticated) {
+    //   return <Redirect to="/login" />;
+    // }
 
     return (
       <div>
