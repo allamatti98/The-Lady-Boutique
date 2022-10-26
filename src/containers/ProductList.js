@@ -17,12 +17,16 @@ axios.defaults.xsrfCookieName = "csrftoken";
 class Trending extends React.Component {
   state = {
     loading: false, error: null, data: [], activeItem: 'shop', productList: [], wishList: [],
-    wishNumber: undefined, userID: null, activePaneItem: ''
+    wishNumber: undefined, userID: null, activePaneItem: '', filteredCatalog: []
   };
 
   handlePaneItemClick = (e, { name }) => {
-    this.setState({ activePaneItem: name })
-
+    const { data, filteredCatalog } = this.state
+    const filtered = data.filter((curdata) => {
+      return curdata.category === name;
+    })
+    this.setState({ activePaneItem: name, filteredCatalog: filtered })
+    console.log(filteredCatalog)
   }
 
 
@@ -194,7 +198,7 @@ class Trending extends React.Component {
 
 
   render() {
-    const { data, error, loading, productList, activePaneItem } = this.state;
+    const { data, error, loading, productList, activePaneItem, filteredCatalog } = this.state;
     return (
       <div>
         <div className="page-entrance">
@@ -270,7 +274,7 @@ class Trending extends React.Component {
             <br /><br />
           </div>
           <Card.Group itemsPerRow={4} doubling={true}>
-            {data.map(item => {
+            {filteredCatalog.map(item => {
               return (
                 <Card key={item.id} className="fluid" height="200px">
                   <img
