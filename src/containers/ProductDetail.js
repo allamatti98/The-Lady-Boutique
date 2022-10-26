@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 import {
@@ -36,11 +36,13 @@ class ProductDetail extends React.Component {
     const {
       match: { params }
     } = this.props;
+    const { data } = this.state
     this.setState({ loading: true });
     axios
       .get(productDetailURL(params.productID))
       .then(res => {
         this.setState({ data: res.data, loading: false });
+        console.log(data)
       })
       .catch(err => {
         this.setState({ error: err, loading: false });
@@ -81,6 +83,11 @@ class ProductDetail extends React.Component {
   render() {
     const { data, error, formData, formVisible, loading } = this.state;
     const item = data;
+    const { isAuthenticated } = this.props;
+    if (!isAuthenticated) {
+      return <Redirect to="/login" />;
+    }
+
     return (
       <div>
         <div className="page-entrance">
@@ -112,7 +119,7 @@ class ProductDetail extends React.Component {
                   // image={item.image}
                   meta={
                     <React.Fragment>
-                      <Image src={item.image}>
+                      <Image src={item.image_url}>
                       </Image>
                       {item.label &&
                         <Label as='a'
@@ -222,6 +229,12 @@ class ProductDetail extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     refreshCart: () => dispatch(fetchCart())
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
   };
 };
 
