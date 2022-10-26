@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
-import { Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button } from "semantic-ui-react";
+import { Header, Menu, Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button, Tab } from "semantic-ui-react";
 import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, deletewishlistitemURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
 import Navbar from "../components/navbar";
 import ShopBreadcrumbs from "../components/Shopbc";
+import CatalogFilter from "../components/Catalog Filter";
 import axios from "axios";
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -16,8 +17,13 @@ axios.defaults.xsrfCookieName = "csrftoken";
 class Trending extends React.Component {
   state = {
     loading: false, error: null, data: [], activeItem: 'shop', productList: [], wishList: [],
-    wishNumber: undefined, userID: null
+    wishNumber: undefined, userID: null, activePaneItem: ''
   };
+
+  handlePaneItemClick = (e, { name }) => {
+    this.setState({ activePaneItem: name })
+
+  }
 
 
   componentDidMount() {
@@ -185,8 +191,10 @@ class Trending extends React.Component {
     });
   }
 
+
+
   render() {
-    const { data, error, loading } = this.state;
+    const { data, error, loading, productList, activePaneItem } = this.state;
     return (
       <div>
         <div className="page-entrance">
@@ -211,7 +219,56 @@ class Trending extends React.Component {
               <Image src="/images/wireframe/short-paragraph.png" />
             </Segment>
           )}
+          <div>
+            <Container text>
+              <Header as="h3" style={{ fontSize: "2.5em", textAlign: "center", fontFamily: "Tenor Sans", color: "#d05278" }}>
+                Shop by mood
+              </Header>
+              <br />
 
+            </Container>
+            <Menu size='massive' secondary style={{ margin: "0px 20%" }}>
+              <Menu.Menu>
+                <Menu.Item
+                  name='All'
+                  active={activePaneItem === 'All'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Chill'
+                  active={activePaneItem === 'Chill'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Corporate'
+                  active={activePaneItem === 'Corporate'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Dinner'
+                  active={activePaneItem === 'Dinner'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Party'
+                  active={activePaneItem === 'Party'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Weather'
+                  active={activePaneItem === 'Weather'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+              </Menu.Menu>
+            </Menu>
+            <br /><br />
+          </div>
           <Card.Group itemsPerRow={4} doubling={true}>
             {data.map(item => {
               return (
@@ -277,9 +334,7 @@ class Trending extends React.Component {
                 </Card>
               );
             })}
-
           </Card.Group>
-
         </Container>
         <br /><br /><br />
       </div>
