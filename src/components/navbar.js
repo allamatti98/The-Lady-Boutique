@@ -19,8 +19,12 @@ class NavBar extends React.Component {
         this.props.fetchCart();
         this.handleFetchUsername();
     }
-    state = { activeItem: 'home', username: '' }
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    state = { activeItem: '', username: '' }
+
+    handleItemClick = (e, { name }) => {
+        e.preventDefault();
+        this.setState({ activeItem: name })
+    }
 
     handleFetchUsername = () => {
         authAxios
@@ -60,7 +64,6 @@ class NavBar extends React.Component {
                         <Responsive as={Menu.Item} minWidth={790}
                             name='home'
                             color='pink'
-                            className="NavItem"
                             active={activeItem === 'home'}
                             onClick={this.handleItemClick}
                         />
