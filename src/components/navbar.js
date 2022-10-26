@@ -51,7 +51,7 @@ class NavBar extends React.Component {
             <div className="NavBar1" >
                 {/* Navbar Starts here */}
                 <Menu secondary size='huge' className="NavBar2" fixed="top"
-                    style={{ margin: "0em 2em 0em 0em", padding: "1em 0em", display: "flex", fontFamily: "Lato,sans-serif", backgroundColor: "rgba(252,237,234,.8)" }}
+                    style={{ margin: "0em 2em 0em 0em", padding: "1em 2em 1em 0em", display: "flex", fontFamily: "Lato,sans-serif", backgroundColor: "rgba(252,237,234,.8)" }}
                 >
                     <Menu.Item header>
                         <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
@@ -142,25 +142,25 @@ class NavBar extends React.Component {
                         </React.Fragment>
                     ) : (
                         <Menu.Menu position="right">
-                            <Link>
+                            <Link to="/faq">
                                 <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="search" />
                                 </Responsive>
                             </Link>
 
-                            <Link>
+                            <Link to="/whatsapp">
                                 <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="whatsapp" />
                                 </Responsive>
                             </Link>
 
-                            <Link>
+                            <Link to="/instagram">
                                 <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="instagram" />
                                 </Responsive>
                             </Link>
 
-                            <Link>
+                            <Link to="/mail">
                                 <Responsive as={Menu.Item} minWidth={1050}>
                                     <Icon name="mail outline" />
                                 </Responsive>
