@@ -30,6 +30,7 @@ class Trending extends React.Component {
   }
 
 
+
   componentDidMount() {
     this.setState({ loading: true });
     this.handleFetchUserID();
@@ -198,7 +199,7 @@ class Trending extends React.Component {
 
 
   render() {
-    const { data, error, loading, productList, activePaneItem, filteredCatalog } = this.state;
+    const { data, error, loading, productList, activePaneItem, filteredCatalog, handleAllPaneItemClick } = this.state;
     return (
       <div>
         <div className="page-entrance">
@@ -234,12 +235,6 @@ class Trending extends React.Component {
             <Menu size='massive' secondary style={{ margin: "0px 20%" }}>
               <Menu.Menu>
                 <Menu.Item
-                  name='All'
-                  active={activePaneItem === 'All'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
                   name='Chill'
                   active={activePaneItem === 'Chill'}
                   onClick={this.handlePaneItemClick}
@@ -266,6 +261,12 @@ class Trending extends React.Component {
                 <Menu.Item
                   name='Weather'
                   active={activePaneItem === 'Weather'}
+                  onClick={this.handlePaneItemClick}
+                  color='pink'
+                />
+                <Menu.Item
+                  name='Accessories'
+                  active={activePaneItem === 'Accessories'}
                   onClick={this.handlePaneItemClick}
                   color='pink'
                 />
