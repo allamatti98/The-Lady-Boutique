@@ -282,9 +282,6 @@ class Trending extends React.Component {
                     onClick={() => this.props.history.push(`/products/${item.id}`)}
                   />
                   <div className="Product-List-cards-overlay">
-                    <div className="Product-List-cards-overlay-title"></div>
-                    <Icon name="search" size='massive' onClick={() => this.props.history.push(`/products/${item.id}`)} />
-                    <p className="Product-List-Search-Icon-Text">Show Me</p>
                     <div className="Product-List-Item-Card-Items">
                       <div className="Product-List-WishlistCardIcon">
                         <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id, item.image_url)}
