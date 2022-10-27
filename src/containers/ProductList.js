@@ -81,7 +81,7 @@ class Trending extends React.Component {
       .then(
         (data) => {
           this.setState({
-            productList: data
+            productList: data, filteredCatalog: data
           })
         }
       )
@@ -109,6 +109,7 @@ class Trending extends React.Component {
         this.setState({ error: err });
       });
   }
+
 
   wishNumberHandler = (event) => {
     authAxios
