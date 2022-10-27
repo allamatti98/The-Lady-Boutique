@@ -135,33 +135,39 @@ class Trending extends React.Component {
 
   addToWishList = (pk, stock_number, id, image_url, e) => {
     e.preventDefault();
-    const { userID } = this.state
-    authAxios
-      .post(wishlistURL, {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        method: "POST",
-        user: userID,
-        wished_item: id,
-        image_url: image_url,
-        body: JSON.stringify({
-          'name': pk,
-        }),
-      })
-      .then((response) => {
-        return response.json();
-      })
-      .then(
-        (data) => {
-          console.log(data)
-        }
-      )
-
-      .catch(err => {
-        this.setState({ error: err });
-      });
+    const { userID, wishList } = this.state
+    console.log(wishList)
+    const found = wishList.some(item => item.wished_item === id);
+    if (!found) {
+      console.log("Not Found.")
+      // authAxios
+      //   .post(wishlistURL, {
+      //     headers: {
+      //       'Accept': 'application/json',
+      //       'Content-Type': 'application/json',
+      //     },
+      //     method: "POST",
+      //     user: userID,
+      //     wished_item: id,
+      //     image_url: image_url,
+      //     body: JSON.stringify({
+      //       'name': pk,
+      //     }),
+      //   })
+      //   .then((response) => {
+      //     return response.json();
+      //   })
+      //   .then(
+      //     (data) => {
+      //       console.log(data)
+      //     }
+      //   )
+      //   .catch(err => {
+      //     this.setState({ error: err });
+      //   });
+    } else {
+      console.log("Already in Wishlist")
+    }
   }
 
 
@@ -232,7 +238,7 @@ class Trending extends React.Component {
               <br />
 
             </Container>
-            <Menu size='massive' secondary style={{ margin: "0px 20%" }}>
+            <Menu size='massive' secondary style={{ justifyContent: "center" }}>
               <Menu.Menu>
                 <Menu.Item
                   name='Chill'
