@@ -399,3 +399,30 @@ body {
     width: 100%;
     position: absolute;
 }
+
+.quick-browse-controls {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1.5rem;
+    margin-top: 500%;
+}
+
+.quick-browse-controls button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+
+    margin: 20%;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease-out;
+}
+
+.quick-browse-controls button:hover {
+    background-color: #0ea8c7;
+}
+
+.quick-browse-controls button:nth-child(1) {
+    margin-right: 2rem;
+}

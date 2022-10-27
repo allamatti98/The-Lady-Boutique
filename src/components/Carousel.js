@@ -72,10 +72,11 @@ export default function Carousel() {
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={1}>
-                        <div className='controls'>
+                        <div className='quick-browse-controls'>
                             <button onClick={sliderRef?.slickPrev}>
                                 <FaChevronLeft />
                             </button>
+
                         </div>
                     </Grid.Column>
                     <Grid.Column width={14}>
@@ -143,7 +144,7 @@ export default function Carousel() {
                         </Slider>
                     </Grid.Column>
                     <Grid.Column width={1}>
-                        <div className='controls'>
+                        <div className='quick-browse-controls'>
                             <button onClick={sliderRef?.slickNext}>
                                 <FaChevronRight />
                             </button>
