@@ -3,6 +3,7 @@ import { Grid, Image, Header, Icon } from "semantic-ui-react";
 import cartoon from '../static/img/Person14.jpg'
 import model1 from '../static/img/Vogue1.jpg'
 import play from '../static/img/playImage.png'
+import YoutubeEmbed from "./Youtube1";
 
 const Row4 = () => (
     <div>
@@ -17,6 +18,7 @@ const Row4 = () => (
                             </div>
                         </div>
                     </div></a>
+                    {/* <YoutubeEmbed embedId="" /> */}
                 </Grid.Column>
                 <Grid.Column style={{ padding: "0px 0px", backgroundColor: "pink", }}>
                     <Header style={{ fontSize: "4em", fontFamily: "Mrs Saint Delafield" }} textAlign='center' color='pink'>Stay Ahead</Header>

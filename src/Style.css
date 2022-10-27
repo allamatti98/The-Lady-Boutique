@@ -135,7 +135,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    height: 75%;
+    height: 83%;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     color: whitesmoke;
@@ -168,7 +168,7 @@ body {
 
 .Item-cards-overlay-text {
     font-size: 1.25em;
-    margin-top: 2.5em;
+    margin-top: 10%;
 }
 
 .Item-cards-overlay-blur {
@@ -180,7 +180,7 @@ body {
 }
 
 .Item-Card-Items {
-    padding-top: 30%;
+    padding-top: 80%;
     display: flex;
 
 }
@@ -383,4 +383,19 @@ body {
     text-align: center;
     z-index: 1;
     height: 400px;
+}
+
+.embedded-video {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.embedded-video iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }

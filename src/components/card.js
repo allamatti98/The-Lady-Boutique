@@ -84,7 +84,7 @@ class Trending extends Component {
                                         )} */}
 
 
-                                        <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                        <Button onClick={() => this.props.history.push(`/products/${card.id}`)} icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                                             <Icon name='heart outline' />
                                         </Button>
 

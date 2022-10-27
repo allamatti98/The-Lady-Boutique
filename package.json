@@ -10,15 +10,17 @@
     "pure-react-carousel": "^1.29.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-icons": "^4.4.0",
+    "react-icons": "^4.6.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
+    "react-slick": "^0.29.0",
     "react-stripe-elements": "^4.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.2",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.6"
   },
   "scripts": {

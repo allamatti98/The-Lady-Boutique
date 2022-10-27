@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Divider, Header, } from "semantic-ui-react";
 import Trending from "./Card.js";
+import Carousel from "./Carousel.js";
 
 
 function Row1() {
@@ -26,8 +27,7 @@ function Row1() {
         </Divider>
 
       </Container>
-      {/* <TabMenuButtons /> */}
-      <Trending />
+      <Carousel />
       <br /><br /><br /><br /><br /><br /><br /><br />
     </div>
   )
