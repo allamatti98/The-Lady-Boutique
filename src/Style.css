@@ -420,7 +420,7 @@ body {
 }
 
 .quick-browse-controls button:hover {
-    background-color: #0ea8c7;
+    background-color: rgb(223, 16, 195);
 }
 
 .quick-browse-controls button:nth-child(1) {
