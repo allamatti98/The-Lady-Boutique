@@ -33,6 +33,7 @@ class Trending extends React.Component {
   componentDidMount() {
     this.setState({ loading: true });
     this.handleFetchUserID();
+    this.showWishList();
     axios
       .get(productListURL)
       .then(res => {
@@ -93,18 +94,9 @@ class Trending extends React.Component {
   showWishList = () => {
     authAxios
       .get(showwishlistURL)
-      .then(
-        response => {
-          return response.json()
-        })
-      .then(
-        (data) => {
-          const wishListNew = data;
-          this.setState({
-            wishList: wishListNew
-          })
-        }
-      )
+      .then(res => {
+        this.setState({ wishList: res.data });
+      })
       .catch(err => {
         this.setState({ error: err });
       });
@@ -136,37 +128,36 @@ class Trending extends React.Component {
   addToWishList = (pk, stock_number, id, image_url, e) => {
     e.preventDefault();
     const { userID, wishList } = this.state
-    console.log(wishList)
     const found = wishList.some(item => item.wished_item === id);
     if (!found) {
-      console.log("Not Found.")
-      // authAxios
-      //   .post(wishlistURL, {
-      //     headers: {
-      //       'Accept': 'application/json',
-      //       'Content-Type': 'application/json',
-      //     },
-      //     method: "POST",
-      //     user: userID,
-      //     wished_item: id,
-      //     image_url: image_url,
-      //     body: JSON.stringify({
-      //       'name': pk,
-      //     }),
-      //   })
-      //   .then((response) => {
-      //     return response.json();
-      //   })
-      //   .then(
-      //     (data) => {
-      //       console.log(data)
-      //     }
-      //   )
-      //   .catch(err => {
-      //     this.setState({ error: err });
-      //   });
+      authAxios
+        .post(wishlistURL, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: "POST",
+          user: userID,
+          wished_item: id,
+          image_url: image_url,
+          body: JSON.stringify({
+            'name': pk,
+          }),
+        })
+        .then((response) => {
+          return response.json();
+        })
+        .then(
+          (data) => {
+            console.log(data)
+          }
+        )
+        .catch(err => {
+          this.setState({ error: err });
+        });
+      alert("Product added to your wishlist. :D")
     } else {
-      console.log("Already in Wishlist")
+      alert("Product is already in your Wishlist :)")
     }
   }
 
@@ -202,8 +193,6 @@ class Trending extends React.Component {
     });
   }
 
-
-
   render() {
     const { data, error, loading, productList, activePaneItem, filteredCatalog } = this.state;
     return (
@@ -226,7 +215,6 @@ class Trending extends React.Component {
               <Dimmer active inverted>
                 <Loader inverted>Loading</Loader>
               </Dimmer>
-
               <Image src="/images/wireframe/short-paragraph.png" />
             </Segment>
           )}
@@ -236,7 +224,6 @@ class Trending extends React.Component {
                 Shop by mood
               </Header>
               <br />
-
             </Container>
             <Menu size='massive' secondary style={{ justifyContent: "center" }}>
               <Menu.Menu>
