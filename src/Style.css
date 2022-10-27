@@ -426,3 +426,80 @@ body {
 .quick-browse-controls button:nth-child(1) {
     margin-right: 2rem;
 }
+
+
+
+.Product-List-Pics {
+    height: 600px;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.Product-List-cards-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 75%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.Product-List-cards-overlay>* {
+    tranSform: translateY(20px);
+    transition: transform 0.5s;
+}
+
+.Product-List-cards-overlay:hover {
+    opacity: 1;
+}
+
+.Product-List-cards-overlay:hover>* {
+    transform: translateY(0)
+}
+
+.Product-List-cards-overlay-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.Item-cards-overlay-text {
+    font-size: 1.25em;
+    margin-top: 10%;
+}
+
+.Item-cards-overlay-blur {
+    backdrop-filter: blur(5px);
+}
+
+.Item-cards-overlay-solid {
+    background: rgb(223, 16, 195);
+}
+
+.Product-List-Item-Card-Items {
+    padding-top: 80%;
+    display: flex;
+
+}
+
+.Product-List-WishlistCardIcon {
+    border-radius: 10px;
+    padding-right: 1.5em;
+}
+
+.Product-List-BasketCardIcon {
+    border-radius: 10px;
+    padding-left: 1.5em;
+}
+
+.Product-List-Search-Icon-Text {
+    size: 20px;
+}

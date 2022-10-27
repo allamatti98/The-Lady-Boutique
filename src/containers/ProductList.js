@@ -276,7 +276,7 @@ class Trending extends React.Component {
           <Card.Group itemsPerRow={4} doubling={true}>
             {filteredCatalog.map(item => {
               return (
-                <Card key={item.id} className="fluid" height="200px">
+                <Card key={item.id} className="Product-List-Pics" height="200px">
                   <img
                     style={{ height: "75%", objectFit: "cover" }}
                     size="huge"
@@ -287,23 +287,21 @@ class Trending extends React.Component {
                     alt="product"
                     onClick={() => this.props.history.push(`/products/${item.id}`)}
                   />
-                  <div className="Item-cards-overlay">
-                    <div className="category-pics-overlay-title"></div>
+                  <div className="Product-List-cards-overlay">
+                    <div className="Product-List-cards-overlay-title"></div>
                     <Icon name="search" size='massive' onClick={() => this.props.history.push(`/products/${item.id}`)} />
-                    <p className="Search-Icon-Text">Show Me</p>
-                    <div className="Item-Card-Items">
-                      <div className="WishlistCardIcon">
+                    <p className="Product-List-Search-Icon-Text">Show Me</p>
+                    <div className="Product-List-Item-Card-Items">
+                      <div className="Product-List-WishlistCardIcon">
                         <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id, item.image_url)}
                           className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
                           <Icon name='heart outline' />
                         </Button>
                       </div>
-                      <div className="BasketCardIcon">
-
+                      <div className="Product-List-BasketCardIcon">
                         <Button icon onClick={() => this.props.history.push(`/products/${item.id}`)} className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                           <Icon name='shopping basket' />
                         </Button>
-
                       </div>
                     </div>
                   </div>

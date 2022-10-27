@@ -21,9 +21,8 @@ class NavBar extends React.Component {
     }
     state = { activeItem: '', username: '' }
 
-    handleItemClick = (e, { name }) => {
-        this.setState({ activeItem: name })
-    }
+
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     handleFetchUsername = () => {
         authAxios
