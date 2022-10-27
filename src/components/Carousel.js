@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import Slider from 'react-slick'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
-import { Card, Button, Icon, Label } from 'semantic-ui-react';
+import { Card, Button, Icon, Label, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import 'slick-carousel/slick/slick.css'
@@ -69,33 +69,35 @@ export default function Carousel() {
 
     return (
         <div className='content'>
-            <div className='controls'>
-                <button onClick={sliderRef?.slickPrev}>
-                    <FaChevronLeft />
-                </button>
-                <button onClick={sliderRef?.slickNext}>
-                    <FaChevronRight />
-                </button>
-            </div>
-            <Slider ref={setSliderRef} {...sliderSettings}>
-                {testdata.map((card, index) => (
-                    <Card key={index} className="fluid" height="200px">
-                        <img
-                            style={{ height: "550px", width: "100%", objectFit: "cover" }}
-                            size="huge"
-                            src={card.image}
-                            wrapped
-                            ui={false}
-                        />
-                        <a href="/"><div className="Item-cards-overlay">
-                            <div className="category-pics-overlay-title">Show me</div>
-                            <Icon name="long arrow alternate right" />
-                            <div className="Item-Card-Items">
-                                <div className="WishlistCardIcon">
-                                    <Link to="/wishlist">
-                                        {/*Not on Wishlist -> style={{ borderRadius: "50%" }} */}
-                                        {/* On Wishlist style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }} */}
-                                        {/* { wishlist === false ? (
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column width={1}>
+                        <div className='controls'>
+                            <button onClick={sliderRef?.slickPrev}>
+                                <FaChevronLeft />
+                            </button>
+                        </div>
+                    </Grid.Column>
+                    <Grid.Column width={14}>
+                        <Slider ref={setSliderRef} {...sliderSettings}>
+                            {testdata.map((card, index) => (
+                                <Card key={index} className="fluid" height="200px">
+                                    <img
+                                        style={{ height: "550px", width: "100%", objectFit: "cover" }}
+                                        size="huge"
+                                        src={card.image}
+                                        wrapped
+                                        ui={false}
+                                    />
+                                    <a href="/"><div className="Item-cards-overlay">
+                                        <div className="category-pics-overlay-title">Show me</div>
+                                        <Icon name="long arrow alternate right" />
+                                        <div className="Item-Card-Items">
+                                            <div className="WishlistCardIcon">
+                                                <Link to="/wishlist">
+                                                    {/*Not on Wishlist -> style={{ borderRadius: "50%" }} */}
+                                                    {/* On Wishlist style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }} */}
+                                                    {/* { wishlist === false ? (
                                          <Button icon className="WishlistCardIcon-button" size='huge'
                                          style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                                          <Icon name='heart outline' />
@@ -107,38 +109,48 @@ export default function Carousel() {
                                     )} */}
 
 
-                                        <Button onClick={() => this.props.history.push(`/products/${card.id}`)} icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
-                                            <Icon name='heart outline' />
-                                        </Button>
+                                                    <Button onClick={() => this.props.history.push(`/products/${card.id}`)} icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                                                        <Icon name='heart outline' />
+                                                    </Button>
 
 
-                                    </Link>
-                                </div>
-                                <div className="BasketCardIcon">
-                                    <Link to="/shop">
-                                        <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                            <Icon name='shopping basket' />
-                                        </Button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div></a>
+                                                </Link>
+                                            </div>
+                                            <div className="BasketCardIcon">
+                                                <Link to="/shop">
+                                                    <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
+                                                        <Icon name='shopping basket' />
+                                                    </Button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div></a>
 
-                        <Label as='a' color='red' ribbon>
-                            Trending
-                        </Label>
-                        <Card.Content textAlign="center">
-                            {/* <span className='stockCategory'>{card.category}</span> */}
-                            <b style={{ fontFamily: "Tenor Sans", fontSize: "24px" }}>{card.title}</b>
-                            <Card.Description style={{ fontFamily: "Lato,sans-serif" }}>
-                                <del>Shs.{card.oldprice}</del>
-                                <p><b>Shs.{card.price}</b></p>
-                            </Card.Description>
-                        </Card.Content>
-                    </Card>
-                ))}
+                                    <Label as='a' color='red' ribbon>
+                                        Trending
+                                    </Label>
+                                    <Card.Content textAlign="center">
+                                        {/* <span className='stockCategory'>{card.category}</span> */}
+                                        <b style={{ fontFamily: "Tenor Sans", fontSize: "24px" }}>{card.title}</b>
+                                        <Card.Description style={{ fontFamily: "Lato,sans-serif" }}>
+                                            <del>Shs.{card.oldprice}</del>
+                                            <p><b>Shs.{card.price}</b></p>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            ))}
 
-            </Slider>
+                        </Slider>
+                    </Grid.Column>
+                    <Grid.Column width={1}>
+                        <div className='controls'>
+                            <button onClick={sliderRef?.slickNext}>
+                                <FaChevronRight />
+                            </button>
+                        </div>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         </div>
     )
 }
