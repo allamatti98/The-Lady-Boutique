@@ -285,7 +285,7 @@ class Trending extends React.Component {
                     <div className="Product-List-Item-Card-Items">
                       <div className="Product-List-WishlistCardIcon">
                         <Button icon onClick={this.addToWishList.bind(this, item.pk, item.stock_number, item.id, item.image_url)}
-                          className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
+                          className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
                           <Icon name='heart outline' />
                         </Button>
                       </div>
