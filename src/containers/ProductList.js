@@ -319,7 +319,6 @@ class Trending extends React.Component {
                     </Label>
                   ) : (<></>)}
 
-
                   <Card.Content textAlign="center">
                     {/* <span className='stockCategory'>{item.category}</span> */}
                     <Card.Header style={{ fontFamily: "Tenor Sans", fontSize: "24px" }}>{item.title}</Card.Header>
