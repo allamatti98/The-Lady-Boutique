@@ -94,39 +94,11 @@ export default function Carousel() {
                                         wrapped
                                         ui={false}
                                     />
-                                    <a href="/"><div className="Item-cards-overlay">
-                                        <div className="category-pics-overlay-title">Show me</div>
+                                    <a href="/products"><div className="Item-cards-overlay">
+                                        <div className="category-pics-overlay-title">Shop Now</div>
                                         <Icon name="long arrow alternate right" />
                                         <div className="Item-Card-Items">
                                             <div className="WishlistCardIcon">
-                                                <Link to="/wishlist">
-                                                    {/*Not on Wishlist -> style={{ borderRadius: "50%" }} */}
-                                                    {/* On Wishlist style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }} */}
-                                                    {/* { wishlist === false ? (
-                                         <Button icon className="WishlistCardIcon-button" size='huge'
-                                         style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                         <Icon name='heart outline' />
-                                     </Button>
-                                    ):(
-                                        <Button icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
-                                            <Icon name='heart outline' />
-                                        </Button>
-                                    )} */}
-
-
-                                                    <Button onClick={() => this.props.history.push(`/products/${card.id}`)} icon className="WishlistCardIcon-button" size='huge' style={{ borderRadius: "50%" }}>
-                                                        <Icon name='heart outline' />
-                                                    </Button>
-
-
-                                                </Link>
-                                            </div>
-                                            <div className="BasketCardIcon">
-                                                <Link to="/shop">
-                                                    <Button icon className="BasketCardIcon-button" size='huge' style={{ borderRadius: "50%", color: "white", backgroundColor: "rgb(223, 16, 195)" }}>
-                                                        <Icon name='shopping basket' />
-                                                    </Button>
-                                                </Link>
                                             </div>
                                         </div>
                                     </div></a>

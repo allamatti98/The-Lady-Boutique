@@ -113,9 +113,10 @@ body {
 }
 
 .category-pics-overlay-title {
-    padding-top: 5%;
+    padding-top: 90%;
     font-size: 2em;
     font-weight: bold;
+    font-family: Tenor Sans;
 }
 
 .category-pics-overlay-text {
