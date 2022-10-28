@@ -118,7 +118,7 @@ class NavBar extends React.Component {
                                         onClick={this.handleItemClick}
                                     >
                                         <Icon name='shopping basket' />
-                                        <Label color='pink' size="small" centered>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
+                                        <Label color='pink' size="small" centered style={{ marginLeft: "0px" }}>{`${cart !== null ? cart.order_items.length : 0}`}</Label>
 
                                     </Responsive>
                                 </Link>
