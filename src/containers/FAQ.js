@@ -14,7 +14,7 @@ class FAQ extends React.Component {
                 </div>
                 <div className="FAQ">
                     <FaqAcordion />
-                    <br /><br /><br /><br /><br /><br /><br />
+                    <br /><br /><br /><br /><br />
                     <Row7 />
                 </div>
             </>

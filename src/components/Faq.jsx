@@ -3,36 +3,90 @@ import { Accordion } from 'semantic-ui-react'
 
 const panels = [
     {
-        key: 'acquire-dog',
+        key: 'location',
         title: {
-            content: 'How do you acquire a dog?',
+            content: 'Where is Lady Bird Boutique?',
             icon: 'search',
         },
         content: {
             content: (
                 <span>
-                    Three common ways for a prospective owner to acquire a dog is from pet
-                    shops, private owners, or shelters.
+                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
                 </span>
             ),
         },
     },
     {
-        key: 'care-for-dogs',
+        key: 'delivery-time',
         title: {
-            content: 'How do I care for a dog?',
+            content: 'How long does a delivery take?',
             icon: 'search',
         },
         content: {
             content: (
                 <span>
-                    It is entirely acceptable to feed your dog a pure kibble diet. Or you
-                    can mix their diet up with some cooked or raw meat, fish, vegetables
-                    and rice.
+                    It take aproximately 24 hours to do a delivery depending on your loation.
                 </span>
             ),
         },
     },
+    {
+        key: 'location',
+        title: {
+            content: 'Where is Lady Bird Boutique?',
+            icon: 'search',
+        },
+        content: {
+            content: (
+                <span>
+                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
+                </span>
+            ),
+        },
+    },
+    {
+        key: 'delivery-time',
+        title: {
+            content: 'How long does a delivery take?',
+            icon: 'search',
+        },
+        content: {
+            content: (
+                <span>
+                    It take aproximately 24 hours to do a delivery depending on your loation.
+                </span>
+            ),
+        },
+    },
+    {
+        key: 'location',
+        title: {
+            content: 'Where is Lady Bird Boutique?',
+            icon: 'search',
+        },
+        content: {
+            content: (
+                <span>
+                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
+                </span>
+            ),
+        },
+    },
+    {
+        key: 'delivery-time',
+        title: {
+            content: 'How long does a delivery take?',
+            icon: 'search',
+        },
+        content: {
+            content: (
+                <span>
+                    It take aproximately 24 hours to do a delivery depending on your loation.
+                </span>
+            ),
+        },
+    },
+
 ]
 
 const FaqAcordion = () => (
