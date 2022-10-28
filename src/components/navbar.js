@@ -40,13 +40,14 @@ class NavBar extends React.Component {
         const { activeItem, username } = this.state;
         const trigger = (
             <span>
-                <Image avatar src={lady} /> {this.state.username}
+                <Image avatar src={lady} /> Logout
+                {/* {this.state.username} */}
             </span>
         )
 
         const options = [
             { key: 'account', text: 'Account', icon: 'user' },
-            { key: 'sign-out', text: 'Log Out', icon: 'sign out' },
+            { key: 'logout', text: 'Log Out', icon: 'sign out' },
         ]
 
         return (
@@ -138,6 +139,7 @@ class NavBar extends React.Component {
                                     options={options}
                                     pointing='top right'
                                     icon={null}
+                                    onClick={() => this.props.logout()}
                                 />
                             </Menu.Menu>
                         </React.Fragment>
@@ -166,9 +168,6 @@ class NavBar extends React.Component {
                                     <Icon name="mail outline" />
                                 </Responsive>
                             </Link>
-
-
-                            {/* User Icon */}
                             <IconDropDown />
                         </Menu.Menu>
                     )}
