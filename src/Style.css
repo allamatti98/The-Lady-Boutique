@@ -504,3 +504,9 @@ body {
 .Product-List-Search-Icon-Text {
     size: 20px;
 }
+
+.FAQ {
+    font-size: 1.5em;
+    padding: 5% 9% 5% 9%;
+    font-family: Tenor Sans;
+}
