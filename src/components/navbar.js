@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
-import Logo from '../static/img/Logo.png';
+import Logo from '../static/img/LadyBirdLogo3r.png';
 import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
 import DropdownImageTrigger1 from "./trigger1";
@@ -57,7 +57,7 @@ class NavBar extends React.Component {
                     style={{ margin: "0em 2em 0em 0em", padding: "1em 2em 1em 0em", display: "flex", fontFamily: "Lato,sans-serif", backgroundColor: "rgba(252,237,234,.8)" }}
                 >
                     <Menu.Item header>
-                        <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "30px" }} />
+                        <img alt="logo" src={Logo} style={{ width: "100px", maxHeight: "40px" }} />
                     </Menu.Item>
                     <Link to="/">
                         <Responsive as={Menu.Item} minWidth={790}
