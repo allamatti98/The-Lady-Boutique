@@ -95,13 +95,6 @@ class ProductDetail extends React.Component {
           <ProductDetailBreadcrumbs />
         </div>
         <Container>
-          {error && (
-            <Message
-              error
-              header="An error occured, Item not added to your Cart."
-            // content={JSON.stringify(error)}
-            />
-          )}
           {loading && (
             <Segment>
               <Dimmer active inverted>
@@ -219,6 +212,16 @@ class ProductDetail extends React.Component {
                 })} */}
             </Grid.Row>
           </Grid>
+          {error &&
+            (
+              <Message
+                color="red"
+                size='massive'
+                header="An error occured, Item not added to your Cart. Make sure you are logged in"
+              // content={JSON.stringify(error)}
+              />
+            )
+          }
           <br /><br />
         </Container>
       </div>
@@ -241,6 +244,5 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     null,
-    mapDispatchToProps
-  )(ProductDetail)
+    mapDispatchToProps)(ProductDetail)
 );
