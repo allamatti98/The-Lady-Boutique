@@ -32,7 +32,7 @@ class ProfilePage extends React.Component {
                     <Grid.Column width={7}>
                         <Segment>
                             <Header as="h1">Profile</Header>
-                            <Image className="centered" src={lady} size="medium" />
+                            <Image className="centered" src={lady} size="medium" style={{ borderRadius: "20px" }} />
                             <Card fluid>
                                 <Card.Content>
                                     <Card.Header>{username}</Card.Header>
