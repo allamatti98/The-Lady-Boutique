@@ -11,6 +11,7 @@ class UserProfilePage extends React.Component {
                     <Navbar />
                     <ProfilePageBreadCrumbs />
                 </div>
+                <br /><br /><br />
                 <div>
                     <ProfilePage />
                 </div>
