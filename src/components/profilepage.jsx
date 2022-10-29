@@ -3,6 +3,10 @@ import { Grid, Segment, Header, Image, Card, Icon, Button, Divider, Radio, Form 
 import lady from '../static/img/bluebg3.jpg';
 import { usernameURL, emailURL } from "../constants";
 import { authAxios } from "../utils";
+import { connect } from "react-redux";
+import { logout } from "../store/actions/auth";
+
+
 class ProfilePage extends React.Component {
 
     state = { error: null, username: '', email: '' };
@@ -83,7 +87,7 @@ class ProfilePage extends React.Component {
                     <Grid.Row>
                         <Grid.Column textAlign="center">
                             <br /><br />
-                            <Button size="huge" color='red' >Log Out</Button>
+                            <Button size="huge" color='red' onClick={() => this.props.logout()}>Log Out</Button>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
@@ -91,4 +95,9 @@ class ProfilePage extends React.Component {
         )
     }
 }
-export default ProfilePage
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch(logout()),
+    };
+};
+export default connect(mapDispatchToProps)(ProfilePage)

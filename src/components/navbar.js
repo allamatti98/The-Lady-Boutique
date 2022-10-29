@@ -39,10 +39,11 @@ class NavBar extends React.Component {
         const { authenticated, cart, loading } = this.props;
         const { activeItem, username } = this.state;
         const trigger = (
-            <span>
-                <Image avatar src={lady} /> Logout
-                {/* {this.state.username} */}
-            </span>
+            <Link to="/profile">
+                <span style={{ textDecoration: "none", color: "black" }}>
+                    <Image avatar src={lady} /> {username}
+                </span>
+            </Link>
         )
 
         const options = [
@@ -139,7 +140,6 @@ class NavBar extends React.Component {
                                     options={options}
                                     pointing='top right'
                                     icon={null}
-                                    onClick={() => this.props.logout()}
                                 />
                             </Menu.Menu>
                         </React.Fragment>
