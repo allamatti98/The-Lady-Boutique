@@ -48,7 +48,7 @@ class ProfilePage extends React.Component {
                         <Grid.Column width={1} />
                         <Grid.Column width={7}>
                             <Segment>
-                                <Header as="h1" style={{ textAlign: "center" }}>Profile</Header>
+                                <Header as="h1" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "3em", color: "#d05278" }}>Profile</Header>
                                 <Image className="centered" src={lady} size="medium" style={{ borderRadius: "20px" }} />
                                 <Card fluid>
                                     <Card.Content>
@@ -68,7 +68,7 @@ class ProfilePage extends React.Component {
                         </Grid.Column>
                         <Grid.Column width={7}>
                             <Segment>
-                                <Header as="h2" style={{ textAlign: "center" }}>Settings</Header>
+                                <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "3em", color: "#d05278" }}>Settings</Header>
                                 <Button positive fluid>
                                     Sync Google Calendar
                                 </Button>
