@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const testdata = [
     {
         _id: 1,
-        image: "https://th.bing.com/th/id/R.642fb938541dfe069bdf141d6897960d?rik=s4lM4VepYvTovw&riu=http%3a%2f%2fpapers.co%2fwallpaper%2fpapers.co-hf71-victoria-secret-show-model-sexy-art-flare-34-iphone6-plus-wallpaper.jpg&ehk=rksvihGmxV8y1MZvOITXWdcKTZyDiwdhRdg8uBrG0%2bg%3d&risl=&pid=ImgRaw&r=0",
+        image: "https://th.bing.com/th/id/R.4ecfc23b7cd0bfb1749d0fc1c39f361f?rik=1q3OAkk5wPUhCQ&riu=http%3a%2f%2fpluslook.eu%2fwp-content%2fuploads%2f567263.jpg&ehk=dKSPVX13rQkULdETgXxkZl3sX0RfkYOilJt44r3vajo%3d&risl=&pid=ImgRaw&r=0",
         category: "party",
         title: "White Dress",
         price: "150,000",

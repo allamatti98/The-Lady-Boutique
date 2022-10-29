@@ -16,7 +16,7 @@ import Contacts from "./containers/ContactUs";
 import CustomerCheckoutForm from "./containers/CheckoutForm";
 import FAQ from "./containers/FAQ";
 import MoMo from "./containers/MobileMoney";
-
+import UserProfilePage from "./containers/ProfilePage";
 
 const BaseRouter = () => (
   <Hoc>
@@ -27,7 +27,7 @@ const BaseRouter = () => (
     <Route path="/gallery" component={Gallery} />
     <Route path="/order-summary" component={OrderSummary} />
     <Route path="/checkout" component={Checkout} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/profile" component={UserProfilePage} />
     <Route path="/blog" component={Blog} />
     <Route path="/wishlist" component={Wishlist} />
     <Route exact path="/" component={HomepageLayout} />

@@ -4,12 +4,11 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
-import Logo from '../static/img/Logo.png';
 import PaymentMethodsFooter from "../components/groupedpaymentmethods";
 import FooterSocials from "../components/footersocials";
 import InstaPics from "../components/igpics";
 import IconDropDown from "../components/icondropdown";
-
+import Logo from '../static/img/LadyBirdLogo3.png';
 
 
 class CustomLayout extends React.Component {
@@ -102,7 +101,7 @@ class CustomLayout extends React.Component {
               </List.Item>
             </List>
             <List inverted link size="small">
-              <List.Item><Icon name='copyright outline' />Lady Bird Boutique 2022. All Rights Reserved.</List.Item>
+              <List.Item><Icon name='copyright outline' />Lady Bird Boutique 2019. All Rights Reserved.</List.Item>
               <List.Item>Designed by <b>Dayan Allamatti</b></List.Item>
             </List>
           </Container>

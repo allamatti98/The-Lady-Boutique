@@ -35,7 +35,7 @@ export default function Carousel() {
     const testdata = [
         {
             _id: 1,
-            image: "https://th.bing.com/th/id/R.642fb938541dfe069bdf141d6897960d?rik=s4lM4VepYvTovw&riu=http%3a%2f%2fpapers.co%2fwallpaper%2fpapers.co-hf71-victoria-secret-show-model-sexy-art-flare-34-iphone6-plus-wallpaper.jpg&ehk=rksvihGmxV8y1MZvOITXWdcKTZyDiwdhRdg8uBrG0%2bg%3d&risl=&pid=ImgRaw&r=0",
+            image: "https://th.bing.com/th/id/OIP.dFZu7OeYvw_ffpmEb9F5dgHaLf?pid=ImgDet&rs=1",
             category: "party",
             label: "New",
             title: "White Dress",
@@ -47,7 +47,7 @@ export default function Carousel() {
             image: "https://i.pinimg.com/736x/86/5d/3b/865d3bec1fb92e82ae87c10125f5faa8--elsa-hosk-angels.jpg",
             category: "chill",
             label: "Limited",
-            title: "Blouse",
+            title: "Off Shoulder",
             price: "90,000",
             oldprice: "300,000"
         },
