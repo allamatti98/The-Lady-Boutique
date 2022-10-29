@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Segment, Header, Image, Card, Icon, Button, Divider, Radio, Form } from 'semantic-ui-react';
-import lady from '../static/img/bluebg3.jpg';
+import dp from '../static/img/dp1.jpg';
 import { usernameURL, emailURL } from "../constants";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
@@ -49,7 +49,7 @@ class ProfilePage extends React.Component {
                         <Grid.Column width={7}>
                             <Segment>
                                 <Header as="h1" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "3em", color: "#d05278" }}>Profile</Header>
-                                <Image className="centered" src={lady} size="medium" style={{ borderRadius: "20px" }} />
+                                <Image className="centered" src={dp} size="medium" style={{ borderRadius: "20px" }} />
                                 <Card fluid>
                                     <Card.Content>
                                         <Card.Header>Username: {username}</Card.Header>

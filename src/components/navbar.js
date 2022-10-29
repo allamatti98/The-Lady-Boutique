@@ -8,7 +8,7 @@ import Logo from '../static/img/LadyBirdLogo3r.png';
 import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
 import DropdownImageTrigger1 from "./trigger1";
-import lady from '../static/img/bluebg3.jpg'
+import dp from '../static/img/dp1.jpg';
 import { authAxios } from "../utils";
 import { usernameURL } from "../constants";
 
@@ -41,7 +41,7 @@ class NavBar extends React.Component {
         const trigger = (
             <Link to="/profile">
                 <span style={{ textDecoration: "none", color: "black" }}>
-                    <Image avatar src={lady} /> {username}
+                    <Image avatar src={dp} /> {username}
                 </span>
             </Link>
         )
