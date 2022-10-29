@@ -39,7 +39,7 @@ class NavBar extends React.Component {
                         window.location.hash = 'r';
                         window.location.reload(1);
                     }
-                }, 20000);
+                }, 5000);
             });
     };
 
