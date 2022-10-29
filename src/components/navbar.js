@@ -19,6 +19,7 @@ class NavBar extends React.Component {
         this.props.fetchCart();
         this.handleFetchUsername();
     }
+
     state = { activeItem: '', username: '' }
 
 

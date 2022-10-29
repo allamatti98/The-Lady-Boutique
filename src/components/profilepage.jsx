@@ -5,7 +5,7 @@ import { usernameURL, emailURL } from "../constants";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
-
+import { Redirect } from 'react-router-dom';
 
 class ProfilePage extends React.Component {
 
@@ -37,6 +37,11 @@ class ProfilePage extends React.Component {
                 this.setState({ error: err });
             });
     };
+
+    handleLogOut = () => {
+        window.location.reload();
+        this.props.logout()
+    }
 
 
     render() {
@@ -87,7 +92,7 @@ class ProfilePage extends React.Component {
                     <Grid.Row>
                         <Grid.Column textAlign="center">
                             <br /><br />
-                            <Button size="huge" color='red' onClick={() => this.props.logout()}>Log Out</Button>
+                            <Button size="huge" color='red' onClick={() => this.handleLogOut()}>Log Out</Button>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
