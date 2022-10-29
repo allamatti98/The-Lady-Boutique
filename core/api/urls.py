@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import ( UserIDView, ItemListView, ItemDetailView, AddToCartView, OrderDetailView, OrderQuantityUpdateView,
+from .views import ( UserEmailView, UserIDView, ItemListView, ItemDetailView, AddToCartView, OrderDetailView, OrderQuantityUpdateView,
                      AddCouponView, CountryListView, AddressListView, AddressCreateView, 
                     AddressUpdateView, AddressDeleteView,  OrderItemDeleteView, PaymentListView,
-                    CreateWishlist, ShowWishlist, DeleteWishItem, ShowAddresses, CreateCheckoutSessionView, UserNameView )
+                    CreateWishlist, ShowWishlist, DeleteWishItem, ShowAddresses, CreateCheckoutSessionView, UserNameView
+                     )
 
 urlpatterns = [
      path('user-id/', UserIDView.as_view(), name='user-id'),
@@ -28,4 +29,5 @@ urlpatterns = [
      path('showwishlist/',ShowWishlist.as_view(), name = 'show-wishlist'),
      path('wishlist/<wished_item>/delete/', DeleteWishItem.as_view(), name = 'delete-wish-item'),
      path('stripe-landing/', CreateCheckoutSessionView.as_view(), name='stripelanding'),
+     path('email/', UserEmailView.as_view(), name ='email')
 ]

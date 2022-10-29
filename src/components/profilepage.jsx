@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Grid, Segment, Header, Image, Card, Icon, Button, Divider, Radio, Form } from 'semantic-ui-react';
 import lady from '../static/img/bluebg3.jpg';
-import { usernameURL } from "../constants";
+import { usernameURL, emailURL } from "../constants";
 import { authAxios } from "../utils";
 class ProfilePage extends React.Component {
 
-    state = { error: null, username: '' };
+    state = { error: null, username: '', email: '' };
 
     componentDidMount() {
         this.handleFetchUsername();
+        this.handleFetchEmail();
     }
 
     handleFetchUsername = () => {
@@ -22,9 +23,20 @@ class ProfilePage extends React.Component {
             });
     };
 
+    handleFetchEmail = () => {
+        authAxios
+            .get(emailURL)
+            .then(res => {
+                this.setState({ email: res.data.Email });
+            })
+            .catch(err => {
+                this.setState({ error: err });
+            });
+    };
+
 
     render() {
-        const { username } = this.state
+        const { username, email } = this.state
         return (
             <Grid columns={2} stackable className="fill-content">
                 <Grid.Row stretched>
@@ -35,7 +47,8 @@ class ProfilePage extends React.Component {
                             <Image className="centered" src={lady} size="medium" style={{ borderRadius: "20px" }} />
                             <Card fluid>
                                 <Card.Content>
-                                    <Card.Header>{username}</Card.Header>
+                                    <Card.Header>Username: {username}</Card.Header>
+                                    <Card.Header>Email: {email}</Card.Header>
                                     <Card.Meta>Joined in 2016</Card.Meta>
                                     <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
                                 </Card.Content>

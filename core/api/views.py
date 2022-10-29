@@ -38,6 +38,10 @@ class UserNameView(APIView):
     def get(self, request, *args, **kwargs):
         return Response({'userName': request.user.username}, status=HTTP_200_OK)
 
+class UserEmailView(APIView):
+    def get(self, request, *args, **kwargs):
+        return Response({'Email': request.user.email}, status=HTTP_200_OK)
+
 
 class ItemListView(ListAPIView):
     permission_classes = (AllowAny,)
