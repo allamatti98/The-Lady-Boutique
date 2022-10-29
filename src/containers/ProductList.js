@@ -193,8 +193,11 @@ class Trending extends React.Component {
     });
   }
 
+
+
   render() {
     const { data, error, loading, productList, activePaneItem, filteredCatalog } = this.state;
+
     return (
       <div>
         <div className="page-entrance">

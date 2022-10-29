@@ -23,6 +23,7 @@ class NavBar extends React.Component {
     state = { activeItem: '', username: '' }
 
 
+
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     handleFetchUsername = () => {
@@ -33,6 +34,12 @@ class NavBar extends React.Component {
             })
             .catch(err => {
                 this.setState({ error: err });
+                setTimeout(function () {
+                    if (window.location.hash != '#r') {
+                        window.location.hash = 'r';
+                        window.location.reload(1);
+                    }
+                }, 20000);
             });
     };
 

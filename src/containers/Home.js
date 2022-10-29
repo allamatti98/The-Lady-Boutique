@@ -20,6 +20,7 @@ const getWidth = () => {
   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
 };
 
+
 class DesktopContainer extends Component {
   state = {};
 
@@ -27,8 +28,18 @@ class DesktopContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true });
 
 
+
   render() {
-    const { children } = this.props;
+    const { children, authenticated } = this.props;
+
+    // handleReload = () => {
+    //   if (authenticated){
+    //     setTimeout(() => {
+    //       window.location.reload(2);
+    //     }, 10000000)    
+    //   }
+    // }
+
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -84,6 +95,7 @@ const ResponsiveContainer = ({ children }) => (
 ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
+
 const HomepageLayout = () => (
   <ResponsiveContainer>
     <div className="HomeScreen">
