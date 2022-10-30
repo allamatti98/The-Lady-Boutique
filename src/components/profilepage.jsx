@@ -77,18 +77,19 @@ class ProfilePage extends React.Component {
                                 <Header as="h4">Subscribe to our newsletter</Header>
                                 <Radio toggle />
                                 <Divider />
-                                <Header as="h4">Rate your experience on our Website</Header>
-                                <Radio />Excellent
-                                <Radio />Good
-                                <Radio />Average
-                                <Radio />Bad
-                                <Radio />Terrible
+                                <Header as="h4">How can we improve your user experience on our Website?</Header>
+                                <Radio />Better User interface
+                                <br />
+                                <Radio />More Functionality
+                                <br />
+                                <Radio />Other (specify in Input filed below)
                                 <Divider />
                                 <Header as="h4">We'd love to hear from you, kindly tell us what is on your mind,
                                     Tell us anything really.</Header>
                                 <Form>
                                     <Form.TextArea placeholder="Enter your feedback">
                                     </Form.TextArea>
+                                    <Button size="small" color='pink' style={{ float: "right" }}>Submit</Button>
                                 </Form>
                             </Segment>
                         </Grid.Column>
