@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
 import { fetchCart } from "../store/actions/cart";
 import Logo from '../static/img/LadyBirdLogo3r.png';
-import LoggedInUserDropdown from "../components/loggedindropwown";
 import IconDropDown from "../components/icondropdown";
-import DropdownImageTrigger1 from "./trigger1";
 import dp from '../static/img/dp1.jpg';
 import { authAxios } from "../utils";
 import { usernameURL } from "../constants";
@@ -184,16 +182,16 @@ class NavBar extends React.Component {
                             icon='bars'
                         >
                             <Dropdown.Menu>
-                                <Dropdown.Item text='Home' />
-                                <Dropdown.Item text='Shop' />
-                                <Dropdown.Item text='Gallery' />
-                                <Dropdown.Item text='Blog' />
-                                <Dropdown.Item text='Contact Us' />
+                                <Link to="/"><Dropdown.Item text='Home' /></Link>
+                                <Link to="/products"><Dropdown.Item text='Shop' /></Link>
+                                <Link to="/gallery"><Dropdown.Item text='Gallery' /></Link>
+                                <Link to="/blog"><Dropdown.Item text='Blog' /></Link>
+                                <Link to="/contact-us"><Dropdown.Item text='Contact Us' /></Link>
                                 {authenticated ?
                                     (
                                         <>
-                                            <Dropdown.Item text='Mobile/Tablet Item 1' />
-                                            <Dropdown.Item text='Mobile/Tablet Item 2' />
+                                            <Link to="/order-summary"><Dropdown.Item text='My Cart' /></Link>
+                                            <Link to="/wishlist"></Link><Dropdown.Item text='My Wishlist' />
                                         </>
 
                                     ) : (
