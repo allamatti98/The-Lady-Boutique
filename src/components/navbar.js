@@ -198,7 +198,7 @@ class NavBar extends React.Component {
                                     ) : (
                                         <>
                                             <Link to="/login"><Dropdown.Item text="Login" /></Link>
-                                            <Link to=""><Dropdown.Item text='Sign Up' /></Link>
+                                            <Link to="signup"><Dropdown.Item text='Sign Up' /></Link>
                                         </>
                                     )
                                 }
