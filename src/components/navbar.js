@@ -187,17 +187,18 @@ class NavBar extends React.Component {
                                 <Link to="/gallery"><Dropdown.Item text='Gallery' /></Link>
                                 <Link to="/blog"><Dropdown.Item text='Blog' /></Link>
                                 <Link to="/contact-us"><Dropdown.Item text='Contact Us' /></Link>
+                                <Link to="/profile"><Dropdown.Item text='My Profile' /></Link>
                                 {authenticated ?
                                     (
                                         <>
                                             <Link to="/order-summary"><Dropdown.Item text='My Cart' /></Link>
-                                            <Link to="/wishlist"></Link><Dropdown.Item text='My Wishlist' />
+                                            <Link to="/wishlist"><Dropdown.Item text='My Wishlist' /></Link>
                                         </>
 
                                     ) : (
                                         <>
-                                            <Dropdown.Item text="Login" />
-                                            <Dropdown.Item text='Sign Up' />
+                                            <Link to="/login"><Dropdown.Item text="Login" /></Link>
+                                            <Link to=""><Dropdown.Item text='Sign Up' /></Link>
                                         </>
                                     )
                                 }
