@@ -55,8 +55,7 @@ class NavBar extends React.Component {
         )
 
         const options = [
-            { key: 'account', text: 'Account', icon: 'user' },
-            { key: 'logout', text: 'Log Out', icon: 'sign out' },
+            { key: 'account', text: 'My Account', icon: 'user' },
         ]
 
         return (
