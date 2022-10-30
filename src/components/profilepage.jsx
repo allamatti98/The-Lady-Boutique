@@ -5,7 +5,7 @@ import { usernameURL, emailURL } from "../constants";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
 import { logout } from "../store/actions/auth";
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class ProfilePage extends React.Component {
 
@@ -57,16 +57,17 @@ class ProfilePage extends React.Component {
                                 <Image className="centered" src={dp} size="medium" style={{ borderRadius: "20px" }} />
                                 <Card fluid>
                                     <Card.Content>
-                                        <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Username: {username}</Card.Header>
-                                        <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Email: {email}</Card.Header>
+                                        <Card.Header style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>Username: {username}</Card.Header>
+                                        <Card.Header style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>Email: {email}</Card.Header>
                                         <Card.Meta style={{ fontSize: "1.3em", fontFamily: "Lato,sans-serif" }}>You are a tresured customer of ours</Card.Meta>
-                                        <Card.Description>Ladybird Boutique is glad to have you as a customer.</Card.Description>
+                                        <br />
+                                        <Card.Description style={{ fontSize: "1.3em", fontFamily: "Mrs Saint Delafield" }}>Ladybird Boutique is glad to have you as a customer.</Card.Description>
                                     </Card.Content>
                                     <Card.Content extra>
-                                        <a>
+                                        <Link to="/wishlist">
                                             <Icon name="lightbulb" />
                                             You can store items you like in a Wishlist.
-                                        </a>
+                                        </Link>
                                     </Card.Content>
                                 </Card>
                             </Segment>
