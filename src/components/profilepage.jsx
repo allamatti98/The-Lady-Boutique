@@ -77,7 +77,19 @@ class ProfilePage extends React.Component {
                                 <Header as="h4">Subscribe to our newsletter</Header>
                                 <Radio toggle />
                                 <Divider />
-                                <Header as="h4">Customize text notifications</Header>
+                                <Header as="h4">Rate your experience on our Website</Header>
+                                <Radio />Excellent
+                                <Radio />Good
+                                <Radio />Average
+                                <Radio />Bad
+                                <Radio />Terrible
+                                <Divider />
+                                <Header as="h4">We'd love to hear from you, kindly tell us what is on your mind,
+                                    Tell us anything really.</Header>
+                                <Form>
+                                    <Form.TextArea placeholder="Enter your feedback">
+                                    </Form.TextArea>
+                                </Form>
                             </Segment>
                         </Grid.Column>
                         <Grid.Column width={1} />
