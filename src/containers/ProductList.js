@@ -209,8 +209,7 @@ class Trending extends React.Component {
           {error && (
             <Message
               error
-              header="There was some errors with your submission"
-              content={JSON.stringify(error)}
+              header="Must be logged in to shop"
             />
           )}
           {loading && (
