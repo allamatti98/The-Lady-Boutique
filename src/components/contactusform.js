@@ -10,7 +10,9 @@ const ContactUsForm = () => {
                     <Grid.Column width={8}></Grid.Column>
                     <Grid.Column width={8} style={{ paddingRight: "100px" }}>
                         <Header style={{ fontSize: "2.5em", color: "white", fontFamily: "Lato,sans-serif" }} textAlign='left'>Talk to us...</Header>
-                        <Header style={{ fontSize: "5em", fontFamily: "Tenor Sans" }} textAlign=''>Leave A Message</Header>
+                        <Responsive minWidth={650}>
+                            <Header style={{ fontSize: "5em", fontFamily: "Tenor Sans" }} textAlign=''>Leave A Message</Header>
+                        </Responsive>
                         <Responsive minWidth={1100}>
                             <p
                                 style={{ fontSize: "2em", fontFamily: "Lato,sans-serif" }}>Tell us something, how our service is, maybe a suggestion to serve you better. Your opinion is our number priority.</p>
