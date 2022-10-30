@@ -7,7 +7,7 @@ const shopsections = [
 ]
 
 const ShopBreadcrumbs = () => (
-    <div style={{ paddingTop: "8%", paddingBottom: "8%" }}>
+    <div style={{ paddingTop: "25%", paddingBottom: "5%" }}>
         <h1 style={{ fontFamily: "Tenor Sans", fontSize: "5em", color: '#d05278' }}>Shop</h1>
         <Breadcrumb icon='right angle' sections={shopsections} style={{
             display: "flex", justifyContent: "center", fontFamily: "Lato,sans-serif",

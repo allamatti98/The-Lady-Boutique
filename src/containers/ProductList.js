@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { authAxios } from "../utils";
 import { connect } from "react-redux";
-import { Header, Menu, Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button, Tab } from "semantic-ui-react";
+import { Header, Responsive, Menu, Container, Dimmer, Image, Item, Label, Loader, Message, Segment, Card, Icon, Button, Tab } from "semantic-ui-react";
 import { productListURL, addToCartURL, wishlistURL, showwishlistURL, userIDURL, deletewishlistitemURL } from "../constants";
 import { fetchCart } from "../store/actions/cart";
 import Wishlist from '../components/Wishlist.jsx';
@@ -228,46 +228,48 @@ class Trending extends React.Component {
               </Header>
               <br />
             </Container>
-            <Menu size='massive' secondary style={{ justifyContent: "center" }}>
-              <Menu.Menu>
-                <Menu.Item
-                  name='Chill'
-                  active={activePaneItem === 'Chill'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
-                  name='Corporate'
-                  active={activePaneItem === 'Corporate'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
-                  name='Dinner'
-                  active={activePaneItem === 'Dinner'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
-                  name='Party'
-                  active={activePaneItem === 'Party'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
-                  name='Weather'
-                  active={activePaneItem === 'Weather'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-                <Menu.Item
-                  name='Accessories'
-                  active={activePaneItem === 'Accessories'}
-                  onClick={this.handlePaneItemClick}
-                  color='pink'
-                />
-              </Menu.Menu>
-            </Menu>
+            <Responsive minWidth={2000}>
+              <Menu size='massive' secondary style={{ justifyContent: "center" }} stackable="true">
+                <Menu.Menu>
+                  <Menu.Item
+                    name='Chill'
+                    active={activePaneItem === 'Chill'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                  <Menu.Item
+                    name='Corporate'
+                    active={activePaneItem === 'Corporate'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                  <Menu.Item
+                    name='Dinner'
+                    active={activePaneItem === 'Dinner'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                  <Menu.Item
+                    name='Party'
+                    active={activePaneItem === 'Party'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                  <Menu.Item
+                    name='Weather'
+                    active={activePaneItem === 'Weather'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                  <Menu.Item
+                    name='Accessories'
+                    active={activePaneItem === 'Accessories'}
+                    onClick={this.handlePaneItemClick}
+                    color='pink'
+                  />
+                </Menu.Menu>
+              </Menu>
+            </Responsive>
             <br /><br />
           </div>
           <Card.Group itemsPerRow={4} doubling={true}>
