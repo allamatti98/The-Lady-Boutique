@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Container, Responsive, Segment, Sidebar, Visibility } from "semantic-ui-react";
-import Partners from '../components/partners';
 import Row1 from "../components/Row1";
 import Row2 from "../components/Row2";
 import Row6 from "../components/Row6";
@@ -31,15 +30,6 @@ class DesktopContainer extends Component {
 
   render() {
     const { children, authenticated } = this.props;
-
-    // handleReload = () => {
-    //   if (authenticated){
-    //     setTimeout(() => {
-    //       window.location.reload(2);
-    //     }, 10000000)    
-    //   }
-    // }
-
 
     return (
       <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Grid, Header } from 'semantic-ui-react'
+import { Button, Grid, Header, Responsive } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 const Greeting = () => (
@@ -16,9 +16,10 @@ const Greeting = () => (
                     <p style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>
                         Yes, that's right, you thought it was not real?
                     </p>
-                    <p style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>
-                        Well, it is!!!
-                    </p>
+                    <Responsive minWidth={1200}>
+                        <p style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>
+                            Well, it is!!!
+                        </p></Responsive>
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
