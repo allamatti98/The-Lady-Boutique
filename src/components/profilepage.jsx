@@ -96,6 +96,7 @@ class ProfilePage extends React.Component {
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
+                <br /><br />
             </div>
         )
     }
