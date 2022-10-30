@@ -58,6 +58,7 @@ class ProfilePage extends React.Component {
                                 <Card fluid>
                                     <Card.Content>
                                         <Card.Header style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>Username: {username}</Card.Header>
+                                        <br />
                                         <Card.Header style={{ fontSize: "2em", fontFamily: "Tenor Sans" }}>Email: {email}</Card.Header>
                                         <Card.Meta style={{ fontSize: "1.3em", fontFamily: "Lato,sans-serif" }}>You are a tresured customer of ours</Card.Meta>
                                         <br />
@@ -75,17 +76,17 @@ class ProfilePage extends React.Component {
                         <Grid.Column width={7}>
                             <Segment>
                                 <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "4em", color: "#d05278" }}>Preferences</Header>
-                                <Header as="h4">Subscribe to our newsletter</Header>
+                                <Header as="h4" style={{ fontFamily: "Tenor Sans" }}>Subscribe to our newsletter</Header>
                                 <Radio toggle />
                                 <Divider />
-                                <Header as="h4">How can we improve your user experience on our Website?</Header>
-                                <Radio />Better User interface
+                                <Header as="h4" style={{ fontFamily: "Tenor Sans" }}>How can we improve your user experience on our Website?</Header>
+                                <Radio style={{ fontFamily: "Lato,sans-serif" }} />Better User interface
                                 <br />
-                                <Radio />More Functionality
+                                <Radio style={{ fontFamily: "Lato,sans-serif" }} />More Functionality
                                 <br />
-                                <Radio />Other (specify in Input filed below)
+                                <Radio style={{ fontFamily: "Lato,sans-serif" }} />Other (specify in Input filed below)
                                 <Divider />
-                                <Header as="h4">We'd love to hear from you, kindly tell us what is on your mind,
+                                <Header as="h4" style={{ fontFamily: "Tenor Sans" }}>We'd love to hear from you, kindly tell us what is on your mind,
                                     Tell us anything really.</Header>
                                 <Form>
                                     <Form.TextArea placeholder="Enter your feedback">
