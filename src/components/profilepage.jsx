@@ -73,13 +73,8 @@ class ProfilePage extends React.Component {
                         </Grid.Column>
                         <Grid.Column width={7}>
                             <Segment>
-                                <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "4em", color: "#d05278" }}>Settings</Header>
-                                <Button positive fluid>
-                                    Sync Google Calendar
-                                </Button>
-                                <Divider />
-                                <Header as="h4">Text notifications</Header>
-
+                                <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "4em", color: "#d05278" }}>Preferences</Header>
+                                <Header as="h4">Subscribe to our newsletter</Header>
                                 <Radio toggle />
                                 <Divider />
                                 <Header as="h4">Customize text notifications</Header>
