@@ -53,12 +53,12 @@ class ProfilePage extends React.Component {
                         <Grid.Column width={1} />
                         <Grid.Column width={7}>
                             <Segment>
-                                <Header as="h1" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "3em", color: "#d05278" }}>Profile</Header>
+                                <Header as="h1" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "4em", color: "#d05278" }}>Profile</Header>
                                 <Image className="centered" src={dp} size="medium" style={{ borderRadius: "20px" }} />
                                 <Card fluid>
                                     <Card.Content>
-                                        <Card.Header>Username: {username}</Card.Header>
-                                        <Card.Header>Email: {email}</Card.Header>
+                                        <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Username: {username}</Card.Header>
+                                        <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Email: {email}</Card.Header>
                                         <Card.Meta>Joined in 2016</Card.Meta>
                                         <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
                                     </Card.Content>
@@ -73,7 +73,7 @@ class ProfilePage extends React.Component {
                         </Grid.Column>
                         <Grid.Column width={7}>
                             <Segment>
-                                <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "3em", color: "#d05278" }}>Settings</Header>
+                                <Header as="h2" style={{ textAlign: "center", fontFamily: "Mrs Saint Delafield", fontSize: "4em", color: "#d05278" }}>Settings</Header>
                                 <Button positive fluid>
                                     Sync Google Calendar
                                 </Button>
