@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Dimmer, Header, Icon, Image, Label, Loader, Table, Button, Message, Segment } from "semantic-ui-react";
+import { Container, Responsive, Dimmer, Header, Icon, Image, Label, Loader, Table, Button, Message, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { authAxios } from "../utils";
@@ -128,11 +128,11 @@ class OrderSummary extends React.Component {
               <Table celled style={{ backgroundColor: "pink" }}>
                 <Table.Header >
                   <Table.Row >
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Number</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Name</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Price</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Item Quantity</Table.HeaderCell>
-                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}>Total Item Price</Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}><Responsive minWidth={768}>Item Number</Responsive></Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}><Responsive minWidth={768}>Item Name</Responsive></Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}><Responsive minWidth={768}>Item Price</Responsive></Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}><Responsive minWidth={768}>Item Quantity</Responsive></Table.HeaderCell>
+                    <Table.HeaderCell style={{ backgroundColor: "pink", fontFamily: "Tenor Sans", fontSize: "1.8em" }}><Responsive minWidth={768}>Total Item Price</Responsive></Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
