@@ -44,6 +44,7 @@ class ProfilePage extends React.Component {
     }
 
 
+
     render() {
         const { username, email } = this.state
         return (
@@ -91,7 +92,9 @@ class ProfilePage extends React.Component {
                                 <Form>
                                     <Form.TextArea placeholder="Enter your feedback">
                                     </Form.TextArea>
-                                    <Button size="small" color='pink' style={{ float: "right" }}>Submit</Button>
+                                    <Link to="/">
+                                        <Button size="small" color='pink' style={{ float: "right" }}>Submit</Button>
+                                    </Link>
                                 </Form>
                             </Segment>
                         </Grid.Column>
