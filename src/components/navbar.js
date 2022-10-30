@@ -22,7 +22,9 @@ class NavBar extends React.Component {
 
 
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+    handleItemClick = (e, { name }) => {
+        this.setState({ activeItem: name })
+    }
 
     handleFetchUsername = () => {
         authAxios
@@ -58,7 +60,6 @@ class NavBar extends React.Component {
 
         return (
             <div className="NavBar1" >
-                {/* Navbar Starts here */}
                 <Menu secondary size='huge' className="NavBar2" fixed="top"
                     style={{ margin: "0em 2em 0em 0em", padding: "1em 2em 1em 0em", display: "flex", fontFamily: "Lato,sans-serif", backgroundColor: "rgba(252,237,234,.8)" }}
                 >
