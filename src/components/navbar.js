@@ -18,7 +18,7 @@ class NavBar extends React.Component {
         this.handleFetchUsername();
     }
 
-    state = { activeItem: '', username: '' }
+    state = { activeItem: '', username: '', pageID: '' }
 
 
 
@@ -45,7 +45,7 @@ class NavBar extends React.Component {
 
     render() {
         const { authenticated, cart, loading } = this.props;
-        const { activeItem, username } = this.state;
+        const { activeItem, username, pageID } = this.state;
         const trigger = (
             <Link to="/profile">
                 <span style={{ textDecoration: "none", color: "black" }}>
@@ -69,7 +69,7 @@ class NavBar extends React.Component {
                     <Link to="/">
                         <Responsive as={Menu.Item} minWidth={790}
                             name='home'
-                            color='pink'
+                            pageID={'home'}
                             active={activeItem === 'home'}
                             onClick={this.handleItemClick}
                         />

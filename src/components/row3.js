@@ -18,8 +18,8 @@ const Row3 = () => (
             </Grid.Row>
             <Grid.Row columns='equal'>
                 <Grid.Column className="Stock-category">
-                    <a href="/"><Image className="Category-pics" src={blouse} centered /></a>
-                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <Image className="Category-pics" src={blouse} centered />
+                    <a href="/products"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Blouses</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
                         <Icon name="long arrow alternate right" />
@@ -27,7 +27,7 @@ const Row3 = () => (
                 </Grid.Column >
                 <Grid.Column className="Stock-category">
                     <Image className="Category-pics" src={dress} centered />
-                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <a href="/products"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Dresses</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
                         <Icon name="long arrow alternate right" />
@@ -35,7 +35,7 @@ const Row3 = () => (
                 </Grid.Column >
                 <Grid.Column className="Stock-category">
                     <Image className="Category-pics" src={blackdress} centered />
-                    <a href="/"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
+                    <a href="/products"><div className="CategoryPics_overlay CategoryPics_overlay_blur">
                         <div className="category-pics-overlay-title">Skirts</div>
                         <p className="category-pics-overlay-text">Browse Products</p>
                         <Icon name="long arrow alternate right" />

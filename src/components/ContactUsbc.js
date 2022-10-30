@@ -3,7 +3,7 @@ import { Breadcrumb } from 'semantic-ui-react';
 
 const contactsections = [
     { key: 'Home', content: 'Home', link: true },
-    { key: 'ContactUs', content: 'ContactUs', active: true },
+    { key: 'ContactUs', content: 'Contact Us', active: true },
 ]
 
 const ContactUsBreadcrumbs = () => (
