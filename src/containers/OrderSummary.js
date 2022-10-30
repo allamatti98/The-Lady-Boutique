@@ -91,9 +91,9 @@ class OrderSummary extends React.Component {
   render() {
     const { data, error, loading } = this.state;
     const { isAuthenticated } = this.props;
-    if (!isAuthenticated) {
-      return <Redirect to="/login" />;
-    }
+    // if (!isAuthenticated) {
+    //   return <Redirect to="/login" />;
+    // }
 
     return (
       <div >

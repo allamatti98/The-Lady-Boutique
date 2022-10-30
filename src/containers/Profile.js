@@ -409,9 +409,9 @@ class Profile extends React.Component {
   render() {
     const { activeItem, error, loading } = this.state;
     const { isAuthenticated } = this.props;
-    if (!isAuthenticated) {
-      return <Redirect to="/login" />;
-    }
+    // if (!isAuthenticated) {
+    //   return <Redirect to="/login" />;
+    // }
     return (
       <Grid container columns={2} divided>
         <Grid.Row columns={1}>

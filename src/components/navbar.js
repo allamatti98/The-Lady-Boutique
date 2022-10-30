@@ -16,6 +16,7 @@ class NavBar extends React.Component {
     componentDidMount() {
         this.props.fetchCart();
         this.handleFetchUsername();
+        this.handleRefreshWindow();
         this.handleLocationNumber1();
     }
 
@@ -36,6 +37,10 @@ class NavBar extends React.Component {
             this.setState({ activeItem: 'Contact Us' })
         } else if (window.location.href === "http://localhost:3000/faq#r") {
             this.setState({ activeItem: 'search' })
+        } else if (window.location.href === "http://localhost:3000/order-summary#r") {
+            this.setState({ activeItem: 'basket' })
+        } else if (window.location.href === "http://localhost:3000/wishlist#r") {
+            this.setState({ activeItem: 'wishlist' })
         }
     }
 
@@ -51,14 +56,17 @@ class NavBar extends React.Component {
             })
             .catch(err => {
                 this.setState({ error: err });
-                setTimeout(function () {
-                    if (window.location.hash != '#r') {
-                        window.location.hash = 'r';
-                        window.location.reload(1);
-                    }
-                }, 5000);
             });
     };
+
+    handleRefreshWindow = () => {
+        setTimeout(function () {
+            if (window.location.hash != '#r' && window.location.href != 'http://localhost:3000/profile') {
+                window.location.hash = 'r';
+                window.location.reload(1);
+            }
+        }, 1000);
+    }
 
     render() {
         const { authenticated, cart, loading } = this.props;
