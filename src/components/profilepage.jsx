@@ -59,13 +59,13 @@ class ProfilePage extends React.Component {
                                     <Card.Content>
                                         <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Username: {username}</Card.Header>
                                         <Card.Header style={{ fontSize: "2.5em", fontFamily: "Tenor Sans" }}>Email: {email}</Card.Header>
-                                        <Card.Meta>Joined in 2016</Card.Meta>
-                                        <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
+                                        <Card.Meta>You are a tresured customer of ours</Card.Meta>
+                                        <Card.Description>Ladybird Boutique is glad to have you as a customer.</Card.Description>
                                     </Card.Content>
                                     <Card.Content extra>
                                         <a>
-                                            <Icon name="user" />
-                                            10 Friends
+                                            <Icon name="lightbulb" />
+                                            You can store items you like in a Wishlist.
                                         </a>
                                     </Card.Content>
                                 </Card>
