@@ -228,7 +228,7 @@ class Trending extends React.Component {
               </Header>
               <br />
             </Container>
-            <Responsive minWidth={2000}>
+            <Responsive minWidth={750}>
               <Menu size='massive' secondary style={{ justifyContent: "center" }} stackable="true">
                 <Menu.Menu>
                   <Menu.Item
@@ -269,6 +269,14 @@ class Trending extends React.Component {
                   />
                 </Menu.Menu>
               </Menu>
+            </Responsive>
+            <Responsive maxWidth={749}>
+              <Button fluid name='Chill' active={activePaneItem === 'Chill'} onClick={this.handlePaneItemClick} color='pink'>Chill</Button><br />
+              <Button fluid name='Corporate' active={activePaneItem === 'Corporate'} onClick={this.handlePaneItemClick} color='pink'>Corporate</Button><br />
+              <Button fluid name='Dinner' active={activePaneItem === 'Dinner'} onClick={this.handlePaneItemClick} color='pink'>Dinner</Button><br />
+              <Button fluid name='Party' active={activePaneItem === 'Party'} onClick={this.handlePaneItemClick} color='pink'>Party</Button><br />
+              <Button fluid name='Weather' active={activePaneItem === 'Weather'} onClick={this.handlePaneItemClick} color='pink'>Weather</Button><br />
+              <Button fluid name='Accessories' active={activePaneItem === 'Accessories'} onClick={this.handlePaneItemClick} color='pink'>Accessories</Button><br />
             </Responsive>
             <br /><br />
           </div>
