@@ -9,7 +9,8 @@ const ContactUsForm = () => {
                 <Grid.Row column="equal">
                     <Grid.Column width={8}></Grid.Column>
                     <Grid.Column width={8} style={{ paddingRight: "100px" }}>
-                        <Header style={{ fontSize: "2.5em", color: "white", fontFamily: "Lato,sans-serif" }} textAlign='left'>Talk to us...</Header>
+                        <Responsive minWidth={500}>
+                            <Header style={{ fontSize: "2.5em", color: "white", fontFamily: "Lato,sans-serif" }} textAlign='left'>Talk to us...</Header></Responsive>
                         <Responsive minWidth={650}>
                             <Header style={{ fontSize: "5em", fontFamily: "Tenor Sans" }} textAlign=''>Leave A Message</Header>
                         </Responsive>
@@ -20,7 +21,7 @@ const ContactUsForm = () => {
 
                         <Form >
                             <Form.Input placeholder='Enter your email address...' />
-                            <Form.Input placeholder='Enter your contact' />
+                            <Responsive minWidth={500}><Form.Input placeholder='Enter your contact' /></Responsive>
                             <Form.TextArea placeholder='Enter your message...' />
                             <Link to="/products">
                                 <Button size="huge" color='pink' >Submit</Button>
