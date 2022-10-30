@@ -21,7 +21,7 @@ const getWidth = () => {
 
 
 class DesktopContainer extends Component {
-  state = {};
+  state = { pageID: 'home' };
 
   hideFixedMenu = () => this.setState({ fixed: false });
   showFixedMenu = () => this.setState({ fixed: true });
@@ -49,7 +49,7 @@ DesktopContainer.propTypes = {
 };
 
 class MobileContainer extends Component {
-  state = {};
+  state = { pageID: 'home' };
 
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false });
@@ -86,10 +86,10 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
 
-const HomepageLayout = () => (
+const HomepageLayout = (pageID) => (
   <ResponsiveContainer>
     <div className="HomeScreen">
-      <NavBar />
+      <NavBar pageID={pageID} />
       <Greeting />
     </div>
     <Segment style={{ padding: "8em 0em" }} vertical>

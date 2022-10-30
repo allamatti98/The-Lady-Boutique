@@ -16,11 +16,28 @@ class NavBar extends React.Component {
     componentDidMount() {
         this.props.fetchCart();
         this.handleFetchUsername();
+        this.handleLocationNumber1();
     }
 
     state = { activeItem: '', username: '', pageID: '' }
 
-
+    handleLocationNumber1 = () => {
+        console.log("Wazzaaa!!!")
+        console.log(window.location.href)
+        if (window.location.href === "http://localhost:3000/#r") {
+            this.setState({ activeItem: 'home' })
+        } else if (window.location.href === "http://localhost:3000/products#r") {
+            this.setState({ activeItem: 'shop' })
+        } else if (window.location.href === "http://localhost:3000/gallery#r") {
+            this.setState({ activeItem: 'Gallery' })
+        } else if (window.location.href === "http://localhost:3000/blog#r") {
+            this.setState({ activeItem: 'Blog' })
+        } else if (window.location.href === "http://localhost:3000/contact-us#r") {
+            this.setState({ activeItem: 'Contact Us' })
+        } else if (window.location.href === "http://localhost:3000/faq#r") {
+            this.setState({ activeItem: 'search' })
+        }
+    }
 
     handleItemClick = (e, { name }) => {
         this.setState({ activeItem: name })
@@ -46,6 +63,9 @@ class NavBar extends React.Component {
     render() {
         const { authenticated, cart, loading } = this.props;
         const { activeItem, username, pageID } = this.state;
+        if (this.props.pageID) {
+            this.activeItem = this.props.pageID;
+        }
         const trigger = (
             <Link to="/profile">
                 <span style={{ textDecoration: "none", color: "black" }}>
@@ -69,7 +89,7 @@ class NavBar extends React.Component {
                     <Link to="/">
                         <Responsive as={Menu.Item} minWidth={790}
                             name='home'
-                            pageID={'home'}
+                            color='pink'
                             active={activeItem === 'home'}
                             onClick={this.handleItemClick}
                         />
@@ -152,8 +172,13 @@ class NavBar extends React.Component {
                     ) : (
                         <Menu.Menu position="right">
                             <Link to="/faq">
-                                <Responsive as={Menu.Item} minWidth={1050}>
-                                    <Icon name="search" />
+                                <Responsive as={Menu.Item} minWidth={1050}
+                                    name='search'
+                                    color='pink'
+                                    active={activeItem === 'search'}
+                                    onClick={this.handleItemClick}
+                                >
+                                    <Icon name='search' />
                                 </Responsive>
                             </Link>
 
