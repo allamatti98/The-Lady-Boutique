@@ -27,19 +27,19 @@ class NavBar extends React.Component {
         console.log(window.location.href)
         if (window.location.href === "http://localhost:3000/#r") {
             this.setState({ activeItem: 'home' })
-        } else if (window.location.href === "http://localhost:3000/products#r") {
+        } else if (window.location.href === "http://localhost:3000/products") {
             this.setState({ activeItem: 'shop' })
-        } else if (window.location.href === "http://localhost:3000/gallery#r") {
+        } else if (window.location.href === "http://localhost:3000/gallery") {
             this.setState({ activeItem: 'Gallery' })
-        } else if (window.location.href === "http://localhost:3000/blog#r") {
+        } else if (window.location.href === "http://localhost:3000/blog") {
             this.setState({ activeItem: 'Blog' })
-        } else if (window.location.href === "http://localhost:3000/contact-us#r") {
+        } else if (window.location.href === "http://localhost:3000/contact-us") {
             this.setState({ activeItem: 'Contact Us' })
-        } else if (window.location.href === "http://localhost:3000/faq#r") {
+        } else if (window.location.href === "http://localhost:3000/faq") {
             this.setState({ activeItem: 'search' })
-        } else if (window.location.href === "http://localhost:3000/order-summary#r") {
+        } else if (window.location.href === "http://localhost:3000/order-summary") {
             this.setState({ activeItem: 'basket' })
-        } else if (window.location.href === "http://localhost:3000/wishlist#r") {
+        } else if (window.location.href === "http://localhost:3000/wishlist") {
             this.setState({ activeItem: 'wishlist' })
         }
     }
@@ -55,17 +55,17 @@ class NavBar extends React.Component {
                 this.setState({ username: res.data.userName });
             })
             .catch(err => {
-                this.setState({ error: err });
+
             });
     };
 
     handleRefreshWindow = () => {
         setTimeout(function () {
-            if (window.location.hash != '#r' && window.location.href != 'http://localhost:3000/profile') {
+            if (window.location.hash != '#r' && window.location.href === 'http://localhost:3000/') {
                 window.location.hash = 'r';
                 window.location.reload(1);
             }
-        }, 1000);
+        }, 100);
     }
 
     render() {
