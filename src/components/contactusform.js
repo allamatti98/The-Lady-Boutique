@@ -22,6 +22,7 @@ const ContactUsForm = () => {
                         <Form >
                             <Form.Input placeholder='Enter your email address...' />
                             <Responsive minWidth={500}><Form.Input placeholder='Enter your contact' /></Responsive>
+                            <br />
                             <Form.TextArea placeholder='Enter your message...' />
                             <Link to="/products">
                                 <Button size="huge" color='pink' >Submit</Button>

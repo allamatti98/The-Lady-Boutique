@@ -23,19 +23,19 @@ const Row6 = () => (
         <Grid.Column >
           <Image src={event8} />
           <Header as="h3" style={{ fontSize: "2em", fontFamily: "Mrs Saint Delafield" }}>
-            "What a Company"
+            "The big brunch"
           </Header>
           <p style={{ fontSize: "1.5em", fontFamily: "Tenor Sans" }}>
-            That is what they all say about us
+            Definately had a good time with the crew
           </p>
         </Grid.Column>
         <Grid.Column >
           <Image src={event7} />
           <Header as="h3" style={{ fontSize: "2em", fontFamily: "Mrs Saint Delafield" }}>
-            "I shouldn't have gone with their competitor."
+            "Corporate Dinner"
           </Header>
           <p style={{ fontSize: "1.5em", fontFamily: "Tenor Sans" }}>
-            Chief Fun Officer Acme Toys
+            "Did good for our taste buds"
           </p>
         </Grid.Column>
       </Grid.Row>
