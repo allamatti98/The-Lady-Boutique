@@ -3,7 +3,7 @@ import { Breadcrumb } from 'semantic-ui-react';
 
 const faqsections = [
     { key: 'Home', content: 'Home', link: true },
-    { key: 'OrderSummary', content: 'Order Summary', active: true },
+    { key: 'My Profile', content: 'My Profile', active: true },
 ]
 
 const ProfilePageBreadCrumbs = () => (

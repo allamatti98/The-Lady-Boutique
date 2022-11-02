@@ -118,7 +118,7 @@ class Wishlist extends React.Component {
                     </div>
                     <br /><br /><br /><br />
                     <Header style={{ fontSize: "3.5em", textAlign: "center", color: '#d05278' }}>
-                        <u> My Lady Bird Wishlist</u>
+                        <u> My Lady Boutique Wishlist</u>
                     </Header>
                     <br /><br /><br />
                     <Card.Group itemsPerRow={4} doubling={true}>

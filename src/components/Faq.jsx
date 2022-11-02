@@ -5,13 +5,13 @@ const panels = [
     {
         key: 'location',
         title: {
-            content: 'Where is Lady Bird Boutique?',
+            content: 'Where is Lady Boutique?',
             icon: 'search',
         },
         content: {
             content: (
                 <span>
-                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
+                    Lady Boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
                 </span>
             ),
         },
@@ -33,13 +33,13 @@ const panels = [
     {
         key: 'location',
         title: {
-            content: 'Where is Lady Bird Boutique?',
+            content: 'Where is Lady Boutique?',
             icon: 'search',
         },
         content: {
             content: (
                 <span>
-                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
+                    Lady Boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
                 </span>
             ),
         },
@@ -61,13 +61,13 @@ const panels = [
     {
         key: 'location',
         title: {
-            content: 'Where is Lady Bird Boutique?',
+            content: 'Where is Lady Boutique?',
             icon: 'search',
         },
         content: {
             content: (
                 <span>
-                    Lady Bird boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
+                    Lady Boutique has two branches in Kampala, One in Wandegeya and another in Kansaanga. Feel free to heck any out
                 </span>
             ),
         },

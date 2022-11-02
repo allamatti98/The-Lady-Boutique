@@ -66,7 +66,7 @@ class CustomLayout extends React.Component {
                 </List>
               </Grid.Column>
               <Grid.Column width={4}>
-                <Header color='pink' as="h2" content="Lady Bird" style={{ fontFamily: "Mrs Saint Delafield" }} />
+                <Header color='pink' as="h2" content="The Lady Boutique" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a">Careers</List.Item>
                   <List.Item as="a">Support</List.Item>
