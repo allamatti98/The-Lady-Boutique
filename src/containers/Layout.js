@@ -79,7 +79,7 @@ class CustomLayout extends React.Component {
                 <Header color='pink' as="h2" content="Contacts" style={{ fontFamily: "Mrs Saint Delafield" }} />
                 <List link inverted>
                   <List.Item as="a"><Icon name='location arrow' />3 Bombo Rd. Kampala, Uganda</List.Item>
-                  <List.Item as="a"><Icon name='mail' />ladybird@gmail.com</List.Item>
+                  <List.Item as="a"><Icon name='mail' />ladyboutique@gmail.com</List.Item>
                   <List.Item as="a"><Icon name='whatsapp' />+256 784 123 123</List.Item>
                   <List.Item as="a"><Icon name='phone' />+256 775 123 123</List.Item>
                 </List>
@@ -101,7 +101,7 @@ class CustomLayout extends React.Component {
               </List.Item>
             </List>
             <List inverted link size="small">
-              <List.Item><Icon name='copyright outline' />Lady Bird Boutique 2019. All Rights Reserved.</List.Item>
+              <List.Item><Icon name='copyright outline' />The Lady Boutique 2019. All Rights Reserved.</List.Item>
               <List.Item>Designed by <b>Dayan Allamatti</b></List.Item>
             </List>
           </Container>

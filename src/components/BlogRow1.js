@@ -9,13 +9,13 @@ function BRow1() {
         <div>
             <Container text>
                 <Header style={{ fontSize: "4em", textAlign: "center", color: '#d05278', fontFamily: "Mrs Saint Delafield" }}>
-                    Lady Bird Blog.
+                    Lady Boutique Blog.
                 </Header>
                 <Header as="h3" style={{ fontSize: "2em", textAlign: "center", fontFamily: "Tenor Sans" }}>
                     Latest Feed from the biggest Boutique in the country.
                 </Header>
                 <p style={{ fontSize: "1.33em", textAlign: "center", fontFamily: "Lato,sans-serif" }}>
-                    Steal the show... The Lady Bird Wayyy!!!
+                    Steal the show... The Lady Boutique Wayyy!!!
                 </p>
             </Container>
             <br /><br /><br />

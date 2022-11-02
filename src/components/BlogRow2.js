@@ -21,9 +21,6 @@ const BRow2 = () => (
                     <Header as="h3" style={{ fontSize: "5em", fontFamily: "Tenor Sans" }}>
                         Get readyyy!!!!
                     </Header>
-                    <Header as="h3" style={{ fontSize: "5em", color: '#d05278', fontFamily: "Tenor Sans" }}>
-                        The Lady Bird
-                    </Header>
                     <p style={{ fontSize: "2em", fontFamily: "Lato,sans-serif" }}>
                         Meet and greet, At the beach
                     </p>
