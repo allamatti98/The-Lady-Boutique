@@ -1,8 +1,9 @@
-env
 **/*.pyc
 **/__pycache__
 node_modules
-build
+/build
 static
 media
 package-lock.json
+.env
+db.sqlite3
