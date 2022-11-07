@@ -3,7 +3,7 @@ from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
-SECRET_KEY = 'django-insecure-dlmhm^wnquvc!si8d$12frok78=3%t9y4q*lg6ftdk*isued&i'
+SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 ALLOWED_HOSTS = []
 
